@@ -19,6 +19,7 @@ namespace PLCSumulation.StreamProtocol
         public ProtocolHandler(ISocketSetting socketSetting)
         {
             SocketServer = SocketServiceFactory.CreateSocketService(socketSetting, HandleData);
+            SocketServer.Start();
             _workerThread = new Thread(MonitorWorkQueue)
             {
                 IsBackground = true
@@ -31,6 +32,14 @@ namespace PLCSumulation.StreamProtocol
         // 這三個抽象方法由子類別實作
         private void HandleData(object sender, SocketDataEventArgs e) 
         {
+            Console.WriteLine("Received data from " + e.RemoteEndPoint);
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in e.Data)
+            {
+                sb.Append(item.ToString("X2") + " ");
+            }
+            Console.WriteLine(sb.ToString());
+            SocketServer.Send(Encoding.ASCII.GetBytes("Recived From Protocol"), e.RemoteEndPoint);
             _workQueue.Add(new WorkItem { Data = e.Data, RemoteEndPoint = e.RemoteEndPoint });
         }
         private void MonitorWorkQueue()
@@ -67,35 +76,5 @@ namespace PLCSumulation.StreamProtocol
         protected abstract bool IsValidMessage(byte[] data);
         protected abstract ParsedData ParseMessage(byte[] data);
         protected abstract void ProcessParsedData(ParsedData parsedData, EndPoint remoteEndPoint);
-    }
-    //這是一個範例,實作一個繼承自 ProtocolHandler 的 MyProtocolHandler
-    public class MyProtocolHandler : ProtocolHandler
-    {
-        public MyProtocolHandler(ISocketSetting socketSetting) : base(socketSetting)
-        {
-        }
-
-        protected override bool IsValidMessage(byte[] data)
-        {
-            // 檢查訊息是否符合 MyProtocol 的格式
-            return data.Length >= 4 && BitConverter.ToInt32(data, 0) == 0x12345678;
-        }
-
-        protected override ParsedData ParseMessage(byte[] data)
-        {
-            // 解析 MyProtocol 訊息
-            int messageType = BitConverter.ToInt32(data, 4);
-            byte[] payload = new byte[data.Length - 8];
-            Array.Copy(data, 8, payload, 0, payload.Length);
-
-            return new ParsedData { MessageType = messageType, Payload = payload };
-        }
-
-        protected override void ProcessParsedData(ParsedData parsedData, EndPoint remoteEndPoint)
-        {
-            // 處理解析後的資料
-            Console.WriteLine($"Received message type {parsedData.MessageType} from {remoteEndPoint}");
-            // 進一步處理 parsedData.Payload
-        }
     }
 }

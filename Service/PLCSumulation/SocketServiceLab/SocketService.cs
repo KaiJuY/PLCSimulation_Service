@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -11,6 +13,7 @@ namespace PLCSumulation.SocketServiceLab
     public interface ISocketService
     {
         event EventHandler<SocketDataEventArgs> DataReceived;
+        void Send(byte[] data, EndPoint endPoint);
         void Start();
         Task StopAsync();
     }
@@ -24,10 +27,14 @@ namespace PLCSumulation.SocketServiceLab
         private TcpListener _listener;
         private CancellationTokenSource _cts;
         private ISocketSetting SocketSetting;
+        private readonly ConcurrentDictionary<EndPoint, TcpClient> _clients;
+        private readonly ConcurrentDictionary<TcpClient, object> _locks;
         public event EventHandler<SocketDataEventArgs> DataReceived;
 
         public TcpSocketServer(ISocketSetting socketSetting, EventHandler<SocketDataEventArgs> eventHandler)
         {
+            this._clients = new ConcurrentDictionary<EndPoint, TcpClient>();
+            this._locks = new ConcurrentDictionary<TcpClient, object>();
             this.SocketSetting = socketSetting;
             this.DataReceived += eventHandler;
         }
@@ -46,6 +53,17 @@ namespace PLCSumulation.SocketServiceLab
                 Console.WriteLine($"Failed to start TCP server: {ex.Message}");
             }
         }
+        public void Send(byte[] msg, EndPoint endPoint)
+        {
+            if (_clients.TryGetValue(endPoint, out TcpClient tcpClient))
+            {
+                var lockObj = _locks.GetOrAdd(tcpClient, new object());
+                lock (lockObj)
+                {
+                    tcpClient.Client.Send(msg);
+                }
+            }
+        }
 
         private void AcceptTcpClientCallback(IAsyncResult ar)
         {
@@ -54,7 +72,7 @@ namespace PLCSumulation.SocketServiceLab
             try
             {
                 TcpClient client = _listener.EndAcceptTcpClient(ar);
-                _listener.BeginAcceptTcpClient(AcceptTcpClientCallback, null);
+                _clients.TryAdd(client.Client.RemoteEndPoint, client);
                 ProcessTcpClient(client);
             }
             catch (ObjectDisposedException)
@@ -101,6 +119,7 @@ namespace PLCSumulation.SocketServiceLab
             finally
             {
                 client.Close();
+                _clients.TryRemove(client.Client.RemoteEndPoint, out TcpClient tcpClient);
             }
         }
 
@@ -151,6 +170,10 @@ namespace PLCSumulation.SocketServiceLab
             {
                 Console.WriteLine($"Failed to start UDP server: {ex.Message}");
             }
+        }
+        public void Send(byte[] data, EndPoint endPoint)
+        {
+            _udpClient.Send(data, data.Length, (endPoint as IPEndPoint));
         }
 
         private async void ReceiveAsync(CancellationToken token)
