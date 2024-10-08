@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace EventDriven.Model
 {
@@ -71,6 +72,7 @@ namespace EventDriven.Model
         public string Action { get; set; }
         public int ExceptedValue { get; set; }
         public string Address { get; set; }
+        public int LastValue { get; set; }
     }
     /// <summary>
     /// 實際上執行的動作
@@ -112,6 +114,6 @@ namespace EventDriven.Model
     {
         public string Type { get; set; }
         public string Format { get; set; }
-        public object Content { get; set; }
+        public JsonElement Content { get; set; }
     }
 }

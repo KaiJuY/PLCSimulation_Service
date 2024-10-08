@@ -1,18 +1,25 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using EventDriven.Model;
 using System.Text.Json;
 using System.IO;
-using System.Text.Json.Serialization;
-using System.Windows;
+using System.Threading;
+using System.Runtime.CompilerServices;
+using System.Net;
 
 namespace EventDriven.Services
 {
     public class EventManager
     {
+        private IOContainer _iOContainer;
         private TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
+        private bool _isMonitoring;
+        public bool IsMonitoring
+        {
+            get { return _isMonitoring; }
+            set { _isMonitoring = value; }
+        }
         private string jsonFileName;
         public string JsonFileName
         {
@@ -22,8 +29,21 @@ namespace EventDriven.Services
         public EventManager()
         {
             _registeredEvents = new Dictionary<string, TriggerBehavior>();
+            _iOContainer = new IOContainer();
         }
-
+        public bool LinkToPLC()
+        {
+            try
+            {
+                if(!_iOContainer.IsConnected())
+                    _iOContainer.Connect();
+                return _iOContainer.IsConnected();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public bool LoadWorkFlow()
         {
             try
@@ -53,18 +73,37 @@ namespace EventDriven.Services
                     _registeredEvents[triggerAction.Name].Action.Invoke();
                 };
             }
+            IsMonitoring = true;
         }
         public void UnregisterEvents()
         {
+            IsMonitoring = false;
             _registeredEvents.Clear();
         }
         public void Monitor()
         {
-            foreach (var trigger in _registeredEvents)
+            while(IsMonitoring)
             {
-                trigger.Value.CheckAndTrigger(); // 依次檢查並觸發事件
+                foreach (var trigger in _registeredEvents)
+                {
+                    trigger.Value.CheckAndTrigger(); // 依次檢查並觸發事件
+                }
+                SpinWait.SpinUntil(() => false, _workFlow.Trigger.Interval); // 每秒檢查一次
             }
         }
+        public bool Test()
+        {
+            return _iOContainer.PrimaryHandShake("W", "1000", "W", "2000");
+        }
+        public void TestReset()
+        {
+            _iOContainer.WriteInt("W", "1000", 0);
+        }
+        /// <summary>
+        /// Type可以改為策略模式實作目前這邊先簡單寫就好
+        /// </summary>
+        /// <param name="triggerAction"></param>
+        /// <returns></returns>
         private bool CheckCondition(Model.TriggerAction triggerAction)
         {
             bool result = false;
@@ -73,15 +112,16 @@ namespace EventDriven.Services
             {
                 foreach (var triggerPoint in triggerAction.TriggerPoint.Conditions)
                 {
-                    //任何一個實現就返回true
+                    if (DoCondition(triggerPoint)) return true;
                 }
             }
             else if (triggerAction.TriggerPoint.Type == "AND")
             {
                 foreach (var triggerPoint in triggerAction.TriggerPoint.Conditions)
                 {
-                    //全部實現就返回true
+                    if (!DoCondition(triggerPoint)) return false;
                 }
+                return true;
             }
             return result;
         }
@@ -89,76 +129,79 @@ namespace EventDriven.Services
         {
             foreach (var action in actions)
             {
-                //這邊要實現具體的動作執行邏輯最好是Async
+                ExecuteAction(action);
+                SpinWait.SpinUntil(() => false, 500);
             }
         }
-        /*
-        //public async Task ExecuteEventAsync(string eventName)
-        //{
-        //    if (_registeredEvents.TryGetValue(eventName, out var action))
-        //    {
-        //        await action();
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentException($"Event '{eventName}' is not registered.");
-        //    }
-        //}
-
-        //private async Task ExecuteActionsAsync(List<Models.Action> actions)
-        //{
-        //    foreach (var action in actions)
-        //    {
-        //        await ExecuteActionAsync(action);
-        //    }
-        //}
-
-        //private async Task ExecuteActionAsync(Models.Action action)
-        //{
-        //    // 這裡需要實現具體的動作執行邏輯
-        //    // 例如，根據 action.ActionName 來決定執行什麼操作
-        //    switch (action.ActionName)
-        //    {
-        //        case "Write":
-        //            await WriteAsync(action.Inputs);
-        //            break;
-        //        case "Read":
-        //            await ReadAsync(action.Inputs.Address.Content.ToString());
-        //            break;
-        //        default:
-        //            throw new NotImplementedException($"Action '{action.ActionName}' is not implemented.");
-        //    }
-        //}
-
-        //private async Task WriteAsync(Inputs inputs)
-        //{
-        //    string address = inputs.Address.Content.ToString();
-        //    object value = inputs.Value.Content;
-
-        //    if (inputs.Value.Type == "Action")
-        //    {
-        //        // 如果值是另一個動作的結果，先執行該動作
-        //        var readAction = new Models.Action
-        //        {
-        //            ActionName = "Read",
-        //            Inputs = new Inputs { Address = new InputValue { Content = inputs.Value.Content.ToString() } }
-        //        };
-        //        value = await ReadAsync(inputs.Value.Content.ToString());
-        //    }
-
-        //    // 這裡需要實現實際的寫入邏輯
-        //    Console.WriteLine($"Writing value {value} to address {address}");
-        //    // 實際的寫入操作可能需要調用特定的 API 或服務
-        //}
-
-        //private async Task<object> ReadAsync(string address)
-        //{
-        //    // 這裡需要實現實際的讀取邏輯
-        //    Console.WriteLine($"Reading from address {address}");
-        //    // 實際的讀取操作可能需要調用特定的 API 或服務
-        //    return await Task.FromResult<object>(0); // 假設返回值
-        //}
-        */
+        private void ExecuteAction(Model.Action action)
+        {
+            if(action.ActionName != "Write") return;
+            var value = GetContent(action.Inputs.Value);
+            var address = GetContent(action.Inputs.Address);
+            if (!StringValidator.SplitAndValidateString(address.ToString(), out string device, out string addr)) throw new Exception("Address Format Error.");
+            _iOContainer.WriteInt(device, addr, Convert.ToInt16(value));
+        }
+        private object GetContent(InputValue input)
+        {
+            object val = null;
+            switch (input.Type)
+            {
+                case "KeyIn":
+                    val = input.Content;
+                    break;
+                case "Action":
+                    if(!input.Content.TryGetProperty("ActionName", out JsonElement actionName)) throw new Exception("Action Not Exist.");
+                    if(!input.Content.TryGetProperty("Address", out JsonElement Jaddress)) throw new Exception("Address Not Exist.");
+                    if (actionName.GetString() != "Read") throw new Exception("Action Not Support.");
+                    if(! StringValidator.SplitAndValidateString(Jaddress.GetString(), out string device, out string address)) throw new Exception("Address Format Error.");
+                    _iOContainer.ReadInt(device, address, out short value);
+                    val = value;
+                    break;
+                default:
+                    throw new Exception("Type Not Support.");
+            }
+            if(val == null) throw new Exception("Val Not Exist.");
+            //直接將數值轉換成指定格式
+            switch (input.Format.ToLower())
+            {
+                case "string":
+                    return val.ToString();
+                case "int":
+                    if (int.TryParse(val.ToString(), out int intValue))
+                    {
+                        return intValue;
+                    }
+                    break;
+                default:
+                    throw new InvalidOperationException("Unsupported format: " + input.Format);
+            }
+            throw new Exception("Val Not Exist.");
+        }
+        private bool DoCondition(Condition cond)
+        {
+            try
+            {
+                if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
+                if(!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
+                if(cond.LastValue == currentvalue) return false;
+                cond.LastValue = currentvalue;
+                switch (cond.Action)
+                {
+                    case "Monitor"://需要到ExceptionValue且與上次不同
+                        if (cond.ExceptedValue != currentvalue) return false;
+                        break;
+                    case "Change"://與上次不同
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }        
     }
 }
 public class TriggerBehavior
@@ -181,3 +224,4 @@ public class TriggerBehavior
         Triggered?.Invoke(this, e); // 使用事件觸發對應行為
     }
 }
+

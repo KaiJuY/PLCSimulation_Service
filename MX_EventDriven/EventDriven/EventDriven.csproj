@@ -35,8 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IoModule">
-      <HintPath>..\..\..\..\..\..\DevSourceCode\IoModule\MxModule\bin\Debug\IoModule.dll</HintPath>
+    <Reference Include="IoModule, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\IoModule.dll</HintPath>
     </Reference>
     <Reference Include="McProtocol, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\McProtocol.1.2.5\lib\netstandard2.0\McProtocol.dll</HintPath>
@@ -133,6 +134,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Config\TriggerWorkFlow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

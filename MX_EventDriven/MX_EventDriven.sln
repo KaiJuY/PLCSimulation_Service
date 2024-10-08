@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventDriven", "EventDriven\EventDriven.csproj", "{2B0386D1-B057-436A-A5CE-92C775F12350}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit_Test", "Unit_Test\Unit_Test.csproj", "{612BC14D-1B13-461E-A6F3-DCCFC97875D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2B0386D1-B057-436A-A5CE-92C775F12350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0386D1-B057-436A-A5CE-92C775F12350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B0386D1-B057-436A-A5CE-92C775F12350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{612BC14D-1B13-461E-A6F3-DCCFC97875D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{612BC14D-1B13-461E-A6F3-DCCFC97875D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{612BC14D-1B13-461E-A6F3-DCCFC97875D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{612BC14D-1B13-461E-A6F3-DCCFC97875D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
