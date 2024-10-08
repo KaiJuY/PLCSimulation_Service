@@ -1,0 +1,93 @@
+{
+    "Materials":
+    {
+        "CassettleFormat":
+        [
+            {
+                "CassettleId": "Cassettle1",
+                "ReadResult": true,
+                "WaferList":
+                [
+                    {
+                        "WaferId": "Material1",
+                        "ReadResult": true
+                    }
+                ]
+            }
+        ]
+    },
+	"Initialize":
+	{
+		"InitialActions":
+		[
+
+		]
+	},
+	"Trigger":
+	{
+		"Interval" : 500,
+		"TriggerActions": 
+		[
+			{
+				"Name": "Trigger1",
+				"TriggerPoint":
+				{
+					"Type":"OR",
+					"Conditions":
+					[
+						{
+							"Action" : "Monitor",
+							"ExceptedValue" : 1,
+							"Address":"W1000"
+						}
+					]
+				},
+				"Actions": 
+				[
+					{
+						"ActionName": "Write",
+						"Inputs": 
+						{
+							"Address" : 
+							{
+								"Type" : "KeyIn",
+								"Format" : "String",
+								"Content" : "W1000"
+							},
+							"Value" :
+							{
+								"Type" : "KeyIn",
+								"Format" : "Int",
+								"Content" : 55
+							}
+						},
+						"Output": {}
+					},
+					{
+						"ActionName": "Write",
+						"Inputs": 
+						{
+							"Address" : 
+							{
+								"Type" : "KeyIn",
+								"Format" : "String",
+								"Content" : "W1000"
+							},
+							"Value" :
+							{
+								"Type" : "Action",
+								"Format" : "Int",
+								"Content" : 
+								{
+									"ActionName" : "Read",
+									"Address" : "W1024"
+								}
+							}
+						},						
+						"Output": {}
+					}
+				]
+			}
+		]	
+	}    
+}
