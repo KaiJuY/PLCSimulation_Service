@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading;
 using System.Runtime.CompilerServices;
 using System.Net;
+using IoModule.MitControlModule;
+using System.Linq;
 
 namespace EventDriven.Services
 {
@@ -95,6 +97,17 @@ namespace EventDriven.Services
         {
             return _iOContainer.PrimaryHandShake("W", "1000", "W", "2000");
         }
+        public string TestRead()
+        {
+            if (!_iOContainer.ReadListInt("W", "3000", 5, out List<short> value)) return "Read Fail.";
+
+            string result = string.Empty;
+            foreach (var val in value)
+            {
+                result += val.ToString() + ", ";
+            }
+            return result;
+        }
         public void TestReset()
         {
             _iOContainer.WriteInt("W", "1000", 0);
@@ -133,49 +146,95 @@ namespace EventDriven.Services
                 SpinWait.SpinUntil(() => false, 500);
             }
         }
+        /// <summary>
+        ///基礎 Write已實現會以Adress與Value寫入PLC
+        ///其中Value會有多種輸入方式KeyIn, Action
+        ///KeyIn會直接將Content帶入寫入的值
+        ///Action目前只支援Read會將Address的值讀取出來並且依造指定的Lens讀取
+        ///"Inputs": {
+        ///		"Address": "W3000",
+        ///		"Value": [
+        ///			{
+        ///				"Type": "KeyIn",
+        ///				"Format": "Int",
+        ///				"Content": 1
+        ///          },
+        ///			{
+        ///				"Type": "KeyIn",
+        ///				"Format": "String",
+        ///				"Content": "MYGOD"
+        ///			},
+        ///          {
+        ///	            "Type": "Action",
+        ///	            "ActionName": "Read",
+        ///              "Address": "W1024",
+        ///              "Lens": 1
+        ///          }
+        ///		    ]
+        ///},
+        ///"Output": { }
+        ///},
+        ///以下為未實現的部分
+        /// 針對KF的Case需要新增
+        /// LD的出料邏輯Action
+        /// ULD的入料邏輯Action
+        /// LD-ULD的出入料邏輯Action
+        /// 針對需要控制ROBOT的Case需要新增
+        /// ROBOT的動作Action
+        /// </summary>
+        /// <param name="action"></param>
+        /// <exception cref="Exception"></exception>
         private void ExecuteAction(Model.Action action)
         {
             if(action.ActionName != "Write") return;
-            var value = GetContent(action.Inputs.Value);
-            var address = GetContent(action.Inputs.Address);
-            if (!StringValidator.SplitAndValidateString(address.ToString(), out string device, out string addr)) throw new Exception("Address Format Error.");
-            _iOContainer.WriteInt(device, addr, Convert.ToInt16(value));
+            List<short> value = GetContent(action.Inputs.Value);
+            if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string device, out string addr)) throw new Exception("Address Format Error.");
+            _iOContainer.WriteListInt(device, addr, value);
         }
-        private object GetContent(InputValue input)
-        {
-            object val = null;
-            switch (input.Type)
+        /// <summary>
+        /// 直接取得可以輸入的數據集合並轉換成List<short>方便寫入PLC
+        /// </summary>
+        /// <param name="inputs"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        private List<short> GetContent(InputValue[] inputs)
+        {            
+            List<short> content = new List<short>();
+            foreach (InputValue input in inputs)
             {
-                case "KeyIn":
-                    val = input.Content;
-                    break;
-                case "Action":
-                    if(!input.Content.TryGetProperty("ActionName", out JsonElement actionName)) throw new Exception("Action Not Exist.");
-                    if(!input.Content.TryGetProperty("Address", out JsonElement Jaddress)) throw new Exception("Address Not Exist.");
-                    if (actionName.GetString() != "Read") throw new Exception("Action Not Support.");
-                    if(! StringValidator.SplitAndValidateString(Jaddress.GetString(), out string device, out string address)) throw new Exception("Address Format Error.");
-                    _iOContainer.ReadInt(device, address, out short value);
-                    val = value;
-                    break;
-                default:
-                    throw new Exception("Type Not Support.");
+                List<short> vals = null;
+                switch (input.Type)
+                {
+                    case "KeyIn":
+                        vals = DecodeContent(input.Content, input.Format);
+                        break;
+                    case "Action":
+                        if (input.ActionName != "Read") throw new Exception("Action Not Support.");
+                        if(! StringValidator.SplitAndValidateString(input.Address, out string device, out string address)) throw new Exception("Address Format Error.");
+                        _iOContainer.ReadListInt(device, address, input.Lens, out vals);
+                        break;
+                    default:
+                        throw new Exception("Type Not Support.");
+                }
+                if(vals == null) throw new Exception("Vals Not Exist.");
+                content.AddRange(vals);
+                //直接將數值轉換成指定格式
             }
-            if(val == null) throw new Exception("Val Not Exist.");
-            //直接將數值轉換成指定格式
-            switch (input.Format.ToLower())
+            if (!content.Any()) throw new Exception("Content Not Exist.");
+            return content;
+        }
+        private List<short> DecodeContent(object content, string format)
+        {
+            switch (format.ToLower())
             {
                 case "string":
-                    return val.ToString();
+                    return MitUtility.getInstance().StringToASCII(content.ToString());
                 case "int":
-                    if (int.TryParse(val.ToString(), out int intValue))
-                    {
-                        return intValue;
-                    }
-                    break;
+                    return new List<short>() { Convert.ToInt16(content.ToString()) };
                 default:
-                    throw new InvalidOperationException("Unsupported format: " + input.Format);
+                    throw new InvalidOperationException("Unsupported format: " + format);
             }
-            throw new Exception("Val Not Exist.");
         }
         private bool DoCondition(Condition cond)
         {

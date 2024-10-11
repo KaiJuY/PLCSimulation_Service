@@ -58,6 +58,7 @@ namespace EventDriven.ViewModel
                 else
                     MessageBox.Show("Test Fail");
                 _eventManager.TestReset();
+                MessageBox.Show($"Read Final Read : {_eventManager.TestRead()}");
             }
             catch (Exception ex)
             {

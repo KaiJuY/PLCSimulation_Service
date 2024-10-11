@@ -42,48 +42,53 @@
 						}
 					]
 				},
-				"Actions": 
-				[
+				"Actions": [
 					{
 						"ActionName": "Write",
-						"Inputs": 
-						{
-							"Address" : 
-							{
-								"Type" : "KeyIn",
-								"Format" : "String",
-								"Content" : "W2000"
-							},
-							"Value" :
-							{
-								"Type" : "KeyIn",
-								"Format" : "Int",
-								"Content" : 1
-							}
+						"Inputs": {
+							"Address": "W3000",
+							"Value": [
+								{
+									"Type": "KeyIn",
+									"Format": "Int",
+									"Content": 1
+								},
+								{
+									"Type": "KeyIn",
+									"Format": "String",
+									"Content": "MYGOD"
+								}
+							]
 						},
 						"Output": {}
 					},
 					{
 						"ActionName": "Write",
-						"Inputs": 
-						{
-							"Address" : 
-							{
-								"Type" : "KeyIn",
-								"Format" : "String",
-								"Content" : "W2000"
-							},
-							"Value" :
-							{
-								"Type" : "Action",
-								"Format" : "Int",
-								"Content" : 
+						"Inputs": {
+							"Address": "W2000",
+							"Value": [
 								{
-									"ActionName" : "Read",
-									"Address" : "W1024"
+									"Type": "KeyIn",
+									"Format": "Int",
+									"Content": 1
 								}
-							}
-						},						
+							]
+						},
+						"Output": {}
+					},
+					{
+						"ActionName": "Write",
+						"Inputs": {
+							"Address": "W2000",
+							"Value": [
+								{
+									"Type": "Action",
+									"ActionName": "Read",
+									"Address": "W1024",
+									"Lens": 1
+								}
+							]
+						},
 						"Output": {}
 					}
 				]

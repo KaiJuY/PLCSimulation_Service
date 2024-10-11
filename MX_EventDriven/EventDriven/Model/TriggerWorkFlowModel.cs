@@ -95,8 +95,8 @@ namespace EventDriven.Model
     /// </summary>
     public class Inputs
     {
-        public InputValue Address { get; set; }
-        public InputValue Value { get; set; }
+        public string Address { get; set; }
+        public InputValue[] Value { get; set; }
     }
     /// <summary>
     /// Type: 數值的型態分為兩種
@@ -113,7 +113,33 @@ namespace EventDriven.Model
     public class InputValue
     {
         public string Type { get; set; }
+        // KeyIn related properties
         public string Format { get; set; }
-        public JsonElement Content { get; set; }
+        public object Content { get; set; }
+        // Action related properties
+        public string ActionName { get; set; }
+        public string Address { get; set; }
+        public int Lens { get; set; }
+        // Custom serialization logic depending on Type
+        public bool ShouldSerializeFormat()
+        {
+            return Type == "KeyIn";
+        }
+        public bool ShouldSerializeContent()
+        {
+            return Type == "KeyIn";
+        }
+        public bool ShouldSerializeActionName()
+        {
+            return Type == "Action";
+        }
+        public bool ShouldSerializeAddress()
+        {
+            return Type == "Action";
+        }
+        public bool ShouldSerializeLens()
+        {
+            return Type == "Action";
+        }
     }
 }
