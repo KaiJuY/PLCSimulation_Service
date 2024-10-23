@@ -1,0 +1,2943 @@
+T:[2024-10-23 14:29:13.069]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : EMPT
+ -Abnormal_Code : 0
+ -Cst_ID :                     
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 0
+ -InfoPad_Check_Result : 0
+
+ 
+
+T:[2024-10-23 14:29:13.083]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : EMPT
+ -Abnormal_Code : 0
+ -Cst_ID :                     
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 0
+ -InfoPad_Check_Result : 0
+
+ 
+
+T:[2024-10-23 14:29:15.348]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDRQ
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Manual
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : False
+ -Dock : False
+ -OpenDoor : False
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:29:17.140]
+-EQ ID:[MPC]
+-Function Name:[HS03_CIMPCStat]
+-Type:[]
+-Key Word:[]
+ -EAP_Mode : Online Remote
+
+ 
+
+T:[2024-10-23 14:29:22.785]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LING
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : False
+ -Dock : False
+ -OpenDoor : False
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:29:22.799]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PRES
+ -Abnormal_Code : 0
+ -Cst_ID :                     
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 0
+ -InfoPad_Check_Result : 0
+
+ 
+
+T:[2024-10-23 14:29:23.635]
+-EQ ID:[EFEM]
+-Function Name:[ES16_LightTowerControl]
+-Type:[]
+-Key Word:[]
+ -Red_Light : Flash
+ -Yellow_Light : OFF
+ -Green_Light : ON
+ -Blue_Light : ON
+
+ 
+
+T:[2024-10-23 14:29:23.636]
+-EQ ID:[EFEM]
+-Function Name:[ES06_EQStatus]
+-Type:[]
+-Key Word:[]
+ -Cim_Mode : CIM ON
+ -Operation_Mode : Auto
+ -Run_Mode : Both (Load/Unload Mode)
+ -Alarm_Happen : Nothing
+ -Warn_Happen : Have Warning
+ -EQ_Stat : RUN
+ -EQ_Proc_Stat : Normal
+ -LDRQ_Delay_Time : 20
+ -Panel_ID_Check : Check
+ -ID_Read_NG_Disposition : Manual (Keyin、Bypass)
+ -Dummy_Buffer_Status : 0
+ -NG_Dummy_Buffer_Status : 0
+ -Run_Mode_Change_Status : 0
+ -Cycle_Stop : None
+ -Plasma_Usage : 0
+
+ 
+
+T:[2024-10-23 14:29:43.134]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LING
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : False
+ -OpenDoor : False
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:29:43.872]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PRES
+ -Abnormal_Code : 0
+ -Cst_ID :                     
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:29:43.884]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PRES
+ -Abnormal_Code : 0
+ -Cst_ID :                     
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:29:48.870]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PRES
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:29:49.664]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDCM
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : False
+ -OpenDoor : False
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:29:58.958]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP02_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Command : Load Action
+ -Load_Action : 0
+ -Unload_Action : 0
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:01.092]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP02_Ack_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:01.135]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP02_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Command : Load Action
+ -Load_Action : 0
+ -Unload_Action : 0
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:02.137]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP02_Ack_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:06.796]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDCM
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : True
+ -OpenDoor : False
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:30:21.469]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDCM
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : True
+ -OpenDoor : True
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:30:25.497]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDCM
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : True
+ -OpenDoor : True
+ -Map : True
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:30:25.514]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : MAPE
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID :                     
+ -Glass_ID_C_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:30:42.951]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP08_CstDataDownload]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Recipe_ID : 1
+ -Job_No : 13
+ -Download_Type : New Lot
+ -Work_Quantity : 1
+ -Slot_Map1 : System.Boolean[]
+ -Slot_Map2 : System.Boolean[]
+ -Slot_Map3 : System.Boolean[]
+ -Slot_Select1 : System.Boolean[]
+ -Slot_Select2 : System.Boolean[]
+ -Slot_Select3 : System.Boolean[]
+ -Prod_ID : BBB
+ -Work_No : 20016 0 20017 0 20018 0 20019 0 20020 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Panel_ID : test001                                             test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Contorl_Job_ID : TEST-CJ-001
+ -Lot_ID : lot01
+ -EQ_Usage : EQ1 Only
+ -CS_Side_Process : C Side
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:46.676]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : MAPE
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side : test001                                             test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 1 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:30:46.731]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP08_Ack_CstDataDownload]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:46.777]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP08_CstDataDownload]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Recipe_ID : 1
+ -Job_No : 13
+ -Download_Type : New Lot
+ -Work_Quantity : 1
+ -Slot_Map1 : System.Boolean[]
+ -Slot_Map2 : System.Boolean[]
+ -Slot_Map3 : System.Boolean[]
+ -Slot_Select1 : System.Boolean[]
+ -Slot_Select2 : System.Boolean[]
+ -Slot_Select3 : System.Boolean[]
+ -Prod_ID : BBB
+ -Work_No : 20016 0 20017 0 20018 0 20019 0 20020 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Panel_ID : test001                                             test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Contorl_Job_ID : TEST-CJ-001
+ -Lot_ID : lot01
+ -EQ_Usage : EQ1 Only
+ -CS_Side_Process : C Side
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:47.501]
+-EQ ID:[EFEM]
+-Function Name:[EW01_WIPCnt]
+-Type:[]
+-Key Word:[]
+ -Wip_Cnt : 5
+
+ 
+
+T:[2024-10-23 14:30:47.517]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : WAIT
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side : test001                                             test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 1 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:30:47.545]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP02_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Command : Start
+ -Load_Action : 0
+ -Unload_Action : 0
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:47.774]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP08_Ack_CstDataDownload]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:49.246]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP02_Ack_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:30:49.276]
+-EQ ID:[EFEM_P01]
+-Function Name:[HP02_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_ID : 0000000000000000
+ -Command : Start
+ -Load_Action : 0
+ -Unload_Action : 0
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:50.015]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PROC
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side : test001                                             test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 1 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:30:50.276]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP02_Ack_PortCmd]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:30:50.790]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 805
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:30:53.190]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 805
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:30:54.869]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 805
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:30:55.632]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 20016 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:30:55.648]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PROC
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side :                                                     test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 0 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:30:56.469]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = test001                   
+      Transfer_type = Receive
+      Operation_port = Port 1
+      Operation_eq = EFEM
+      Position_no = 0
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 1
+      Index = 801
+
+ 
+
+T:[2024-10-23 14:30:58.105]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 806
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:31:03.791]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = RUN
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:31:09.478]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 806
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:31:10.323]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = test001                   
+      Transfer_type = Send
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EFEM
+      Position_no = 9
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 802
+
+ 
+
+T:[2024-10-23 14:31:10.326]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 20016 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:31:11.073]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 806
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:31:11.968]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = IDLE
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 806
+      Execution_command_step = 0
+      Robot_position = ROBOT_POSITION_0
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:31:14.358]
+-EQ ID:[EFEM]
+-Function Name:[ES11_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -Download_Glass_ID : test001                   
+ -BCR_Read_Panel_ID : 23CPK0010100 006          
+ -CC_LINK_IE_Panel_ID : test001                   
+ -Final_Panel_ID : 23CPK0010100 006          
+ -BCR_Result : Read OK
+ -Work_No : 20016
+ -Panel_Type : Product
+ -Mismatch_Disposition : 0
+ -IsSubfram : Panel
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:14.377]
+-EQ ID:[EFEM]
+-Function Name:[HS11_Ack_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -ID_Code : Mismatch needs Operator decide
+ -Target_Port : 1
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:15.034]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = True
+
+ 
+
+T:[2024-10-23 14:31:15.199]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = True
+
+ 
+
+T:[2024-10-23 14:31:16.045]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:16.049]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:16.121]
+-EQ ID:[EFEM]
+-Function Name:[ES11_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -Download_Glass_ID : test001                   
+ -BCR_Read_Panel_ID : 23CPK0010100 006          
+ -CC_LINK_IE_Panel_ID : test001                   
+ -Final_Panel_ID : 23CPK0010100 006          
+ -BCR_Result : Read OK
+ -Work_No : 20016
+ -Panel_Type : Product
+ -Mismatch_Disposition : 0
+ -IsSubfram : Panel
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:16.152]
+-EQ ID:[EFEM]
+-Function Name:[HS11_Ack_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -ID_Code : Mismatch needs Operator decide
+ -Target_Port : 1
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:16.198]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeDoubleCheck Times(1)]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:16.672]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:17.205]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:17.606]
+-EQ ID:[EFEM]
+-Function Name:[ES09_AlarmReport]
+-Type:[]
+-Key Word:[]
+ -Alarm_State_1 : Set
+ -Alarm_Level_1 : Light Alarm
+ -Alarm_Unit_1 : 0
+ -Alarm_Code_1 : 20
+ -Alarm_State_2 : 0
+ -Alarm_Level_2 : 0
+ -Alarm_Unit_2 : 0
+ -Alarm_Code_2 : 0
+ -Alarm_State_3 : 0
+ -Alarm_Level_3 : 0
+ -Alarm_Unit_3 : 0
+ -Alarm_Code_3 : 0
+ -Alarm_State_4 : 0
+ -Alarm_Level_4 : 0
+ -Alarm_Unit_4 : 0
+ -Alarm_Code_4 : 0
+ -Alarm_State_5 : 0
+ -Alarm_Level_5 : 0
+ -Alarm_Unit_5 : 0
+ -Alarm_Code_5 : 0
+ -Alarm_State_6 : 0
+ -Alarm_Level_6 : 0
+ -Alarm_Unit_6 : 0
+ -Alarm_Code_6 : 0
+ -Alarm_State_7 : 0
+ -Alarm_Level_7 : 0
+ -Alarm_Unit_7 : 0
+ -Alarm_Code_7 : 0
+ -Alarm_State_8 : 0
+ -Alarm_Level_8 : 0
+ -Alarm_Unit_8 : 0
+ -Alarm_Code_8 : 0
+ -Alarm_State_9 : 0
+ -Alarm_Level_9 : 0
+ -Alarm_Unit_9 : 0
+ -Alarm_Code_9 : 0
+ -Alarm_State_10 : 0
+ -Alarm_Level_10 : 0
+ -Alarm_Unit_10 : 0
+ -Alarm_Code_10 : 0
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:17.606]
+-EQ ID:[EFEM]
+-Function Name:[HS09_Ack_AlarmReport]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:19.240]
+-EQ ID:[EFEM]
+-Function Name:[ES09-RecordLog]
+-Type:[Receive]
+-Key Word:[]
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:19.309]
+-EQ ID:[EFEM]
+-Function Name:[ES09_AlarmReport]
+-Type:[]
+-Key Word:[]
+ -Alarm_State_1 : Set
+ -Alarm_Level_1 : Light Alarm
+ -Alarm_Unit_1 : 0
+ -Alarm_Code_1 : 20
+ -Alarm_State_2 : 0
+ -Alarm_Level_2 : 0
+ -Alarm_Unit_2 : 0
+ -Alarm_Code_2 : 0
+ -Alarm_State_3 : 0
+ -Alarm_Level_3 : 0
+ -Alarm_Unit_3 : 0
+ -Alarm_Code_3 : 0
+ -Alarm_State_4 : 0
+ -Alarm_Level_4 : 0
+ -Alarm_Unit_4 : 0
+ -Alarm_Code_4 : 0
+ -Alarm_State_5 : 0
+ -Alarm_Level_5 : 0
+ -Alarm_Unit_5 : 0
+ -Alarm_Code_5 : 0
+ -Alarm_State_6 : 0
+ -Alarm_Level_6 : 0
+ -Alarm_Unit_6 : 0
+ -Alarm_Code_6 : 0
+ -Alarm_State_7 : 0
+ -Alarm_Level_7 : 0
+ -Alarm_Unit_7 : 0
+ -Alarm_Code_7 : 0
+ -Alarm_State_8 : 0
+ -Alarm_Level_8 : 0
+ -Alarm_Unit_8 : 0
+ -Alarm_Code_8 : 0
+ -Alarm_State_9 : 0
+ -Alarm_Level_9 : 0
+ -Alarm_Unit_9 : 0
+ -Alarm_Code_9 : 0
+ -Alarm_State_10 : 0
+ -Alarm_Level_10 : 0
+ -Alarm_Unit_10 : 0
+ -Alarm_Code_10 : 0
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:19.340]
+-EQ ID:[EFEM]
+-Function Name:[HS09_Ack_AlarmReport]
+-Type:[]
+-Key Word:[]
+ -Return_Code : OK
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:19.414]
+-EQ ID:[EFEM]
+-Function Name:[ES09-RecordLog]
+-Type:[Receive]
+-Key Word:[]
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:55.927]
+-EQ ID:[EFEM]
+-Function Name:[ES11_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -Download_Glass_ID : 23CPK0010100 006          
+ -BCR_Read_Panel_ID : 23CPK0010100 006          
+ -CC_LINK_IE_Panel_ID : 23CPK0010100 006          
+ -Final_Panel_ID : 23CPK0010100 006          
+ -BCR_Result : Read OK
+ -Work_No : 20016
+ -Panel_Type : Product
+ -Mismatch_Disposition : Bypass
+ -IsSubfram : Panel
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:55.929]
+-EQ ID:[EFEM]
+-Function Name:[HS14_BuzzerSetOnOff]
+-Type:[]
+-Key Word:[]
+ -Buzzer : ON
+
+ 
+
+T:[2024-10-23 14:31:55.961]
+-EQ ID:[EFEM]
+-Function Name:[HS11_Ack_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -ID_Code : OK
+ -Target_Port : 1
+ -Handshake : ON
+
+ 
+
+T:[2024-10-23 14:31:56.550]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = True
+
+ 
+
+T:[2024-10-23 14:31:56.736]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = True
+
+ 
+
+T:[2024-10-23 14:31:57.525]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:57.529]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:57.538]
+-EQ ID:[EFEM]
+-Function Name:[ES11_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -Download_Glass_ID : 23CPK0010100 006          
+ -BCR_Read_Panel_ID : 23CPK0010100 006          
+ -CC_LINK_IE_Panel_ID : 23CPK0010100 006          
+ -Final_Panel_ID : 23CPK0010100 006          
+ -BCR_Result : Read OK
+ -Work_No : 20016
+ -Panel_Type : Product
+ -Mismatch_Disposition : Bypass
+ -IsSubfram : Panel
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:57.585]
+-EQ ID:[EFEM]
+-Function Name:[HS11_Ack_VCRReadReport]
+-Type:[]
+-Key Word:[]
+ -ID_Code : OK
+ -Target_Port : 1
+ -Handshake : OFF
+
+ 
+
+T:[2024-10-23 14:31:57.631]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeDoubleCheck Times(1)]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = True
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:58.174]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:58.641]
+-EQ ID:[EFEM]
+-Function Name:[ES11/HS11 HandShakeTrace]
+-Type:[Send]
+-Key Word:[]
+      HANDSHAKE_REPLY_READ = False
+      HANDSHAKE_REQUEST = False
+
+ 
+
+T:[2024-10-23 14:31:59.179]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = RUN
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:00.818]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 20016
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:00.838]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:04.088]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = RUN
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:05.699]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = RUN
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:06.503]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 20016 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:13.037]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:13.755]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Loader sent to EQ)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Send
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EQ 1
+      Position_no = 31
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 269
+
+ 
+
+T:[2024-10-23 14:32:13.757]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 20016 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:17.114]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = RUN
+
+ 
+
+T:[2024-10-23 14:32:21.938]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 20016 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:21.960]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = RUN
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = RUN
+
+ 
+
+T:[2024-10-23 14:32:22.826]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Loader sent to EQ)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Receive
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EFEM
+      Position_no = 32
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 270
+
+ 
+
+T:[2024-10-23 14:32:23.617]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = RUN
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:24.441]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 20016 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:25.248]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = RUN
+      Cv5_Unit_State(#11) = RUN
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:26.909]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 20016 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:26.932]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = RUN
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:31.754]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = RUN
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = RUN
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:33.361]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 20016 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:33.384]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = RUN
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:37.399]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = RUN
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = RUN
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:39.842]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 20016 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:39.861]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = RUN
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:45.538]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = RUN
+      Pns1_Unit_State(#21) = RUN
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:47.177]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 20016 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:32:47.200]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = RUN
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:32:59.418]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = RUN
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = RUN
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:01.797]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 20016 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:01.820]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = RUN
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:07.519]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = RUN
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = RUN
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:09.950]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 20016 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:09.973]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = RUN
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:13.204]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = RUN
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = RUN
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:14.017]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 20016 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:14.039]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = RUN
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:16.532]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = RUN
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:21.337]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 20016
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:21.359]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:25.441]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = RUN
+      Cv1_Unit_State(#7) = RUN
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:27.074]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 20016 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:27.907]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = RUN
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:31.971]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 807
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:34.422]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 807
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:38.516]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 807
+      Execution_command_step = 0
+      Robot_position = EQ1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:39.268]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Receive
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EFEM
+      Position_no = 9
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 803
+
+ 
+
+T:[2024-10-23 14:33:39.271]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 20016 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:40.162]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:41.737]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 808
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:47.468]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = RUN
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:33:51.517]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 808
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:51.523]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 20016 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:33:52.333]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 808
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:52.333]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Send
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EFEM
+      Position_no = 13
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 804
+
+ 
+
+T:[2024-10-23 14:33:53.154]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = IDLE
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 808
+      Execution_command_step = 0
+      Robot_position = ROBOT_POSITION_0
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:57.176]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 809
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:33:58.884]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 809
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:02.085]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 809
+      Execution_command_step = 0
+      Robot_position = EQ3
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:02.948]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Receive
+      Operation_port = OPERATION_PORT_0
+      Operation_eq = EFEM
+      Position_no = 13
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 0
+      Index = 805
+
+ 
+
+T:[2024-10-23 14:34:02.951]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 20016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 20016 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:34:03.746]
+-EQ ID:[EFEM]
+-Function Name:[ES07_Unit_Status_Change]
+-Type:[Receive]
+-Key Word:[]
+      Cv4_Unit_State(#10) = IDLE
+      Cv5_Unit_State(#11) = IDLE
+      Cv6_Unit_State(#12) = IDLE
+      To_Unit_State(#13) = IDLE
+      Sil_Unit_State(#14) = IDLE
+      Pns1_Unit_State(#21) = IDLE
+      Pns2_Unit_State(#22) = IDLE
+      Tolft1_Unit_State(#23) = IDLE
+      Tolft2_Unit_State(#24) = IDLE
+      Pnp1_Unit_State(#4) = IDLE
+      Cv1_Unit_State(#7) = IDLE
+      Cv2_Unit_State(#8) = IDLE
+      Cv3_Unit_State(#9) = IDLE
+
+ 
+
+T:[2024-10-23 14:34:05.353]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 20016
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 810
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:14.341]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Panel Presence
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 810
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:14.347]
+-EQ ID:[EFEM]
+-Function Name:[EW02-Panel Position]
+-Type:[Receive]
+-Key Word:[]
+      EW02_POSITION_LIST = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_001-010 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_011-020 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_021-030 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_031-040 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_041-050 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_051-060 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_061-070 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_071-080 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_081-090 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_091-100 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_101-110 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_111-120 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_121-130 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_131-140 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_141-150 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_151-160 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_161-170 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_171-180 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_181-190 = 0 0 0 0 0 0 0 0 0 0
+      EW02_POSITION_191-200 = 0 0 0 0 0 0 0 0 0 0
+
+ 
+
+T:[2024-10-23 14:34:14.365]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PROC
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side : 23CPK0010100 006                                    test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 1 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
+
+ 
+
+T:[2024-10-23 14:34:15.166]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = RUN
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 810
+      Execution_command_step = 0
+      Robot_position = Port 1
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:15.166]
+-EQ ID:[EFEM]
+-Function Name:[EW03_Work_Transferring_Report_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Work_no = 20016
+      Panel_id = 23CPK0010100 006          
+      Transfer_type = Send
+      Operation_port = Port 1
+      Operation_eq = EFEM
+      Position_no = 0
+      First_glass_process_start = No
+      Last_glass_process_start = No
+      Ipqc_sample_no = 0
+      Ipqc_result = No need IPQC
+      Slot_no = 1
+      Index = 806
+
+ 
+
+T:[2024-10-23 14:34:15.964]
+-EQ ID:[EFEM]
+-Function Name:[EC01_Robot_State_(Robot_1)]
+-Type:[Receive]
+-Key Word:[]
+      Robot_no = 1
+      Robot_state = IDLE
+      Auto_manual_mode = Auto
+      Fork_glass_presence_upper_fork = Nothing
+      Fork_work_no_upper_fork = 0
+      Fork_enable_upper_fork = Enable
+      Fork_glass_presence_lower_fork = Nothing
+      Fork_work_no_lower_fork = 0
+      Fork_enable_lower_fork = Disable
+      Execution_command_sequence_no = 810
+      Execution_command_step = 0
+      Robot_position = ROBOT_POSITION_0
+      Action_fork = None Robot Action
+
+ 
+
+T:[2024-10-23 14:34:16.764]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP01_PortStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Port_Stat : LDCM
+ -Enable : Enable
+ -Port_Type : LD&ULD
+ -AccessMode : Auto
+ -Infopad : 0
+ -Reservation : NOT RESERVED
+ -Clamp : True
+ -Dock : True
+ -OpenDoor : True
+ -Map : False
+ -Port_Status : RUN
+ -ReInput_Flag : OFF
+ -AGV_In : False
+ -AGV_Out : False
+
+ 
+
+T:[2024-10-23 14:34:19.280]
+-EQ ID:[EFEM_P01]
+-Function Name:[EP04_CstStat]
+-Type:[]
+-Key Word:[]
+ -Port_No : 1
+ -Cst_Stat : PREN
+ -Abnormal_Code : 0
+ -Cst_ID : 0000000000000000    
+ -Cst_ID_Read_Type : Auto
+ -Slot_Map : System.Boolean[]
+ -Cross_Map : System.Boolean[]
+ -Double_Map : System.Boolean[]
+ -Prod_ID : BBB                 
+ -Glass_ID_C_Side : 23CPK0010100 006                                    test002                                             test003                                             test004                                             test005                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+ -Glass_ID_S_Side :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+ -BCR_Result : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_Flag : 1 0 2 0 2 0 2 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -Process_History : 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ -CDA_Purge_State : None
+ -CST_InfoPad : 63
+ -InfoPad_Check_Result : Same
