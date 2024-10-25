@@ -8,12 +8,13 @@ using System.Runtime.CompilerServices;
 using System.Net;
 using IoModule.MitControlModule;
 using System.Linq;
+using System.ComponentModel;
 
 namespace EventDriven.Services
 {
     public class EventManager
     {
-        private IOContainer _iOContainer;
+        private static IOContainer _iOContainer;
         private TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
         private bool _isMonitoring;
@@ -184,65 +185,14 @@ namespace EventDriven.Services
         /// </summary>
         /// <param name="action"></param>
         /// <exception cref="Exception"></exception>
-        private void ExecuteAction(Model.Action action)
-        {
-            if(action.ActionName != "Write") return;
-            List<short> value = GetContent(action.Inputs.Value);
-            if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string device, out string addr)) throw new Exception("Address Format Error.");
-            _iOContainer.WriteListInt(device, addr, value);
-        }
-        /// <summary>
-        /// 直接取得可以輸入的數據集合並轉換成List<short>方便寫入PLC
-        /// </summary>
-        /// <param name="inputs"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        private List<short> GetContent(InputValue[] inputs)
-        {            
-            List<short> content = new List<short>();
-            foreach (InputValue input in inputs)
-            {
-                List<short> vals = null;
-                switch (input.Type)
-                {
-                    case "KeyIn":
-                        vals = DecodeContent(input.Content, input.Format);
-                        break;
-                    case "Action":
-                        if (input.ActionName != "Read") throw new Exception("Action Not Support.");
-                        if(! StringValidator.SplitAndValidateString(input.Address, out string device, out string address)) throw new Exception("Address Format Error.");
-                        _iOContainer.ReadListInt(device, address, input.Lens, out vals);
-                        break;
-                    default:
-                        throw new Exception("Type Not Support.");
-                }
-                if(vals == null) throw new Exception("Vals Not Exist.");
-                content.AddRange(vals);
-                //直接將數值轉換成指定格式
-            }
-            if (!content.Any()) throw new Exception("Content Not Exist.");
-            return content;
-        }
-        private List<short> DecodeContent(object content, string format)
-        {
-            switch (format.ToLower())
-            {
-                case "string":
-                    return MitUtility.getInstance().StringToASCII(content.ToString());
-                case "int":
-                    return new List<short>() { Convert.ToInt16(content.ToString()) };
-                default:
-                    throw new InvalidOperationException("Unsupported format: " + format);
-            }
-        }
+        private void ExecuteAction(Model.Action action)=> ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
         private bool DoCondition(Condition cond)
         {
             try
             {
                 if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
-                if(!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
-                if(cond.LastValue == currentvalue) return false;
+                if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
+                if (cond.LastValue == currentvalue) return false;
                 cond.LastValue = currentvalue;
                 switch (cond.Action)
                 {
@@ -260,27 +210,172 @@ namespace EventDriven.Services
             {
                 return false;
             }
-        }        
-    }
-}
-public class TriggerBehavior
-{
-    public string Name { get; set; }
-    public Func<bool> Condition { get; set; }
-    public System.Action Action { get; set; }
-    public event EventHandler Triggered;
-
-    public void CheckAndTrigger()
-    {
-        if (Condition.Invoke()) // 如果條件滿足
+        }
+        public class ExecuteFactory
         {
-            OnTriggered(EventArgs.Empty); // 觸發事件
+            public static IExeAction GetExeAction(string actionName)
+            {
+                switch (actionName)
+                {
+                    case "Write":
+                        return new ExecuteWrite();
+                    case "SecHandShake":
+                        return new ExecuteSecHandshake();
+                    case "Index":
+                        return new ExecuteIndex();
+                    default:
+                        return new NullExeAction();
+                }
+            }
+        }
+        public interface IExeAction
+        {
+            bool Execute(Model.Action action);
+        }
+        public class ExecuteWrite: IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                List<short> value = GetContent(action.Inputs.Value);
+                if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string device, out string addr)) throw new Exception("Address Format Error.");
+                return _iOContainer.WriteListInt(device, addr, value);
+            }
+            /// <summary>
+            /// For Action Write
+            /// 直接取得可以輸入的數據集合並轉換成List<short>方便寫入PLC
+            /// </summary>
+            /// <param name="inputs"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
+            /// <exception cref="InvalidOperationException"></exception>
+            private List<short> GetContent(InputValue[] inputs)
+            {
+                List<short> content = new List<short>();
+                foreach (InputValue input in inputs)
+                {
+                    List<short> vals = null;
+                    switch (input.Type)
+                    {
+                        case "KeyIn":
+                            vals = DecodeContent(input.Content, input.Format);
+                            break;
+                        case "Action":
+                            if (input.ActionName != "Read") throw new Exception("Action Not Support.");
+                            if (!StringValidator.SplitAndValidateString(input.Address, out string device, out string address)) throw new Exception("Address Format Error.");
+                            _iOContainer.ReadListInt(device, address, input.Lens, out vals);
+                            break;
+                        default:
+                            throw new Exception("Type Not Support.");
+                    }
+                    if (vals == null) throw new Exception("Vals Not Exist.");
+                    content.AddRange(vals);
+                    //直接將數值轉換成指定格式
+                }
+                if (!content.Any()) throw new Exception("Content Not Exist.");
+                return content;
+            }
+            private List<short> DecodeContent(object content, string format)
+            {
+                switch (format.ToLower())
+                {
+                    case "string":
+                        return MitUtility.getInstance().StringToASCII(content.ToString());
+                    case "int":
+                        return new List<short>() { Convert.ToInt16(content.ToString()) };
+                    default:
+                        throw new InvalidOperationException("Unsupported format: " + format);
+                }
+            }
+            
+        }
+        public class ExecuteSecHandshake : IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                if (action.Inputs.Value.Length != 1) throw new Exception("For Secondary Handshake, Value should be 1.");
+                string value = GetContent(action.Inputs.Value);//item1 : Address
+                if (!StringValidator.SplitAndValidateString(value, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
+                if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
+                return _iOContainer.SecondaryHandShake(Pdevice, Paddr, Sdevice, Saddr);
+            }
+            /// <summary>
+            /// Secondary Handshake only support KeyIn
+            /// </summary>
+            /// <param name="inputs"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
+            private string GetContent(InputValue[] inputs)
+            {
+                string content = string.Empty;
+                foreach (InputValue input in inputs)
+                {
+                    switch (input.Type)
+                    {
+                        case "KeyIn":
+                            content = DecodeContent(input.Content, input.Format);
+                            break;
+                        default:
+                            throw new Exception("Type Not Support.");
+                    }
+                    if (content == string.Empty) throw new Exception("Vals Not Exist.");
+                }
+                return content;
+            }
+            /// <summary>
+            /// Secondary Handshake only support string
+            /// </summary>
+            /// <param name="content"></param>
+            /// <param name="format"></param>
+            /// <returns></returns>
+            /// <exception cref="InvalidOperationException"></exception>
+            private string DecodeContent(object content, string format)
+            {
+                switch (format.ToLower())
+                {
+                    case "string":
+                        return content.ToString();
+                    default:
+                        throw new InvalidOperationException("Unsupported format: " + format);
+                }
+            }
+        }
+        public class ExecuteIndex : IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                //無視Value的內容僅做Address++
+                if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
+                if(!_iOContainer.ReadInt(Sdevice, Saddr, out short value)) throw new Exception("Read Fail.");
+                return _iOContainer.WriteInt(Sdevice, Saddr, ++value);
+            }
+        }
+        public class NullExeAction : IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                throw new Exception("Action Not Support.");
+            }
         }
     }
-
-    protected virtual void OnTriggered(EventArgs e)
+    public class TriggerBehavior
     {
-        Triggered?.Invoke(this, e); // 使用事件觸發對應行為
-    }
+        public string Name { get; set; }
+        public Func<bool> Condition { get; set; }
+        public System.Action Action { get; set; }
+        public event EventHandler Triggered;
+
+        public void CheckAndTrigger()
+        {
+            if (Condition.Invoke()) // 如果條件滿足
+            {
+                OnTriggered(EventArgs.Empty); // 觸發事件
+            }
+        }
+
+        protected virtual void OnTriggered(EventArgs e)
+        {
+            Triggered?.Invoke(this, e); // 使用事件觸發對應行為
+        }
+    }    
 }
 
