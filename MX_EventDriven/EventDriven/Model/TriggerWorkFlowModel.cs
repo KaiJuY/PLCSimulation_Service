@@ -6,27 +6,39 @@ namespace EventDriven.Model
 {
     public class TriggerWorkFlowModel
     {
+        public int Interval { get; set; }
         public Materials Materials { get; set; }
-        public Initialize Initialize { get; set; }
-        public Trigger Trigger { get; set; }
+        public List<CarrierStorage> CarrierStorage { get; set; }
     }
-
     public class Materials
     {
         public List<CassettleFormat> CassettleFormat { get; set; }
+    }
+    public class CarrierStorage
+    {
+        public string Name { get; set; }
+        public Material Material { get; set; }
+        public Initialize Initialize { get; set; }
+        public Trigger Trigger { get; set; }
+    }
+    public class Material
+    {
+        public string BindingMaterial { get; set; } //從Material中取得的特定的CassettleId
     }
 
     public class CassettleFormat
     {
         public string CassettleId { get; set; }
         public bool ReadResult { get; set; }
-        public List<WaferList> WaferList { get; set; }
+        public List<Wafer> WaferList { get; set; }
     }
 
-    public class WaferList
+    public class Wafer
     {
+        public bool Existed { get; set; }
         public string WaferId { get; set; }
         public bool ReadResult { get; set; }
+        public int WorkNumber { get; set; }
     }
 
     public class Initialize
@@ -36,7 +48,6 @@ namespace EventDriven.Model
 
     public class Trigger
     {
-        public int Interval { get; set; }
         public List<TriggerAction> TriggerActions { get; set; }
     }
     /// <summary>

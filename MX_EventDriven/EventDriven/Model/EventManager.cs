@@ -15,7 +15,7 @@ namespace EventDriven.Services
     public class EventManager
     {
         private static IOContainer _iOContainer;
-        private TriggerWorkFlowModel _workFlow;
+        private static TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
         private bool _isMonitoring;
         public bool IsMonitoring
@@ -63,18 +63,21 @@ namespace EventDriven.Services
 
         public void RegisterEvents()
         {
-            foreach (var triggerAction in _workFlow.Trigger.TriggerActions)
+            foreach (var Cs in _workFlow.CarrierStorage)
             {
-                _registeredEvents[triggerAction.Name] = new TriggerBehavior
-                {
-                    Name = triggerAction.Name,
-                    Condition = () => CheckCondition(triggerAction),
-                    Action = () => ExecuteActions(triggerAction.Actions)
-                };
-                _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
-                {
-                    _registeredEvents[triggerAction.Name].Action.Invoke();
-                };
+                foreach(var triggerAction in Cs.Trigger.TriggerActions)
+                { 
+                    _registeredEvents[triggerAction.Name] = new TriggerBehavior
+                    {
+                        Name = triggerAction.Name,
+                        Condition = () => CheckCondition(triggerAction),
+                        Action = () => ExecuteActions(triggerAction.Actions)
+                    };
+                    _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
+                    {
+                        _registeredEvents[triggerAction.Name].Action.Invoke();
+                    };                
+                }
             }
             IsMonitoring = true;
         }
@@ -91,7 +94,7 @@ namespace EventDriven.Services
                 {
                     trigger.Value.CheckAndTrigger(); // 依次檢查並觸發事件
                 }
-                SpinWait.SpinUntil(() => false, _workFlow.Trigger.Interval); // 每秒檢查一次
+                SpinWait.SpinUntil(() => false, _workFlow.Interval); // 每秒檢查一次
             }
         }
         public bool Test()
@@ -192,11 +195,12 @@ namespace EventDriven.Services
             {
                 if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
                 if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
-                if (cond.LastValue == currentvalue) return false;
+                if (cond.LastValue == currentvalue && cond.Action != "Specific") return false;
                 cond.LastValue = currentvalue;
                 switch (cond.Action)
                 {
                     case "Monitor"://需要到ExceptionValue且與上次不同
+                    case "Specific"://特定值
                         if (cond.ExceptedValue != currentvalue) return false;
                         break;
                     case "Change"://與上次不同
@@ -223,6 +227,8 @@ namespace EventDriven.Services
                         return new ExecuteSecHandshake();
                     case "Index":
                         return new ExecuteIndex();
+                    case "BothFlowCoreKF":
+                        return new ExecuteBothFlowCoreKF();
                     default:
                         return new NullExeAction();
                 }
@@ -347,6 +353,51 @@ namespace EventDriven.Services
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
                 if(!_iOContainer.ReadInt(Sdevice, Saddr, out short value)) throw new Exception("Read Fail.");
                 return _iOContainer.WriteInt(Sdevice, Saddr, ++value);
+            }
+        }
+        public class ExecuteBothFlowCoreKF : IExeAction
+        {
+            public List<int> ExecuteSlot { get; set; } //需要執行的Slot 0是沒有任務 1是待執行 2是已執行
+            /// <summary>
+            /// Core僅由會影響EFEM程式主要流程功能的EP04、EW03、ES11組成
+            /// </summary>
+            /// <param name="action"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
+            public bool Execute(Model.Action action)
+            {
+                //是否添加回復上一動繼續機制?等待優化
+                for(int Flagslot = 0; Flagslot < ExecuteSlot.Count; ++ Flagslot)
+                {
+                    if(ExecuteSlot[Flagslot] != 1) continue;
+                    if(!DoAction(action)) throw new Exception("Action Fail.");
+                    ExecuteSlot[Flagslot] = 2;
+                }
+                throw new Exception("Action Not Support.");
+            }
+            private void UpdateExecuteSlot()
+            {
+                //更新Slot讀取HP08
+            }
+            private bool DoAction(Model.Action action)
+            {
+                foreach(var act in action.Inputs.Value)
+                {
+                    if(act.Type != "Action") throw new Exception("Action Not Support.");
+                    switch (act.ActionName)
+                    {
+                        case "CassetteState":
+                            break;
+                        case "WorkTransfering":
+                            break;
+                        case "VCRRead":
+                            break;
+                        default:
+                            throw new Exception("Action Not Support.");
+                    }
+                }
+                //TODO:根據不同的取得CONTENT內容與行為不同
+                return true;
             }
         }
         public class NullExeAction : IExeAction

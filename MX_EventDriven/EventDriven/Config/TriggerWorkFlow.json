@@ -1,301 +1,394 @@
 {
-    "Materials":
-    {
-        "CassettleFormat":
-        [
-            {
-                "CassettleId": "Cassettle1",
-                "ReadResult": true,
-							"WaferList": [
-								{
-									"Existed": true,
-									"WaferId": "Material1",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material2",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material3",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material4",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material5",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material6",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material7",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material8",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material9",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material10",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material11",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material12",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material13",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material14",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material15",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material16",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material17",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material18",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material19",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material20",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material21",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material22",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material23",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material24",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material25",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material26",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material27",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material28",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material29",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material30",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material31",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material32",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material33",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material34",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material35",
-									"ReadResult": true
-								},
-								{
-									"Existed": true,
-									"WaferId": "Material36",
-									"ReadResult": true
-								}
-							]
-            }
-        ]
-    },
-	"Initialize":
-	{
-		"InitialActions":
-		[
-
-		]
-	},
-	"Trigger":
-	{
-		"Interval" : 500,
-		"TriggerActions": 
-		[
+	"Interval": 500,
+	"Materials": {
+		"CassettleFormat": [
 			{
-				"Name": "Trigger1",
-				"TriggerPoint":
-				{
-					"Type":"OR",
-					"Conditions":
-					[
-						{
-							"Action" : "Change",
-							"ExceptedValue" : 1,
-							"Address":"W1000"
-						}
-					]
-				},
-				"Actions": [
+				"CassettleId": "Cassettle1",
+				"ReadResult": true,
+				"WaferList": [
 					{
-						"ActionName": "Write",
-						"Inputs": {
-							"Address": "W3000",
-							"Value": [
-								{
-									"Type": "KeyIn",
-									"Format": "Int",
-									"Content": 1
-								},
-								{
-									"Type": "KeyIn",
-									"Format": "String",
-									"Content": "MYGOD"
-								}
-							]
-						},
-						"Output": {}
+						"Existed": true,
+						"WaferId": "Material1",
+						"ReadResult": true
 					},
 					{
-						"ActionName": "Write",
-						"Inputs": {
-							"Address": "W1024",
-							"Value": [
-								{
-									"Type": "KeyIn",
-									"Format": "Int",
-									"Content": 4
-								}
-							]
-						},
-						"Output": {}
+						"Existed": true,
+						"WaferId": "Material2",
+						"ReadResult": true
 					},
 					{
-						"ActionName": "Write",
-						"Inputs": {
-							"Address": "W3000",
-							"Value": [
-								{
-									"Type": "KeyIn",
-									"Format": "Int",
-									"Content": 1
-								}
-							]
-						},
-						"Output": {}
+						"Existed": true,
+						"WaferId": "Material3",
+						"ReadResult": true
 					},
 					{
-						"ActionName": "Write",
-						"Inputs": {
-							"Address": "W3000",
-							"Value": [
-								{
-									"Type": "Action",
-									"ActionName": "Read",
-									"Address": "W1024",
-									"Lens": 1
-								}
-							]
-						},
-						"Output": {}
+						"Existed": true,
+						"WaferId": "Material4",
+						"ReadResult": true
 					},
 					{
-						"ActionName": "SecHandShake",
-						"Inputs": {
-							"Address": "W2000",
-							"Value": [
-								{
-									"Type": "KeyIn",
-									"Format": "String",
-									"Content": "W1000"
-								}
-							]
-						},
-						"Output": {}
+						"Existed": true,
+						"WaferId": "Material5",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material6",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material7",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material8",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material9",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material10",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material11",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material12",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material13",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material14",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material15",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material16",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material17",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material18",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material19",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material20",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material21",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material22",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material23",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material24",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material25",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material26",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material27",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material28",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material29",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material30",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material31",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material32",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material33",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material34",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material35",
+						"ReadResult": true
+					},
+					{
+						"Existed": true,
+						"WaferId": "Material36",
+						"ReadResult": true
 					}
 				]
 			}
-		]	
-	}    
+		]
+	},
+	"CarrierStorage": [
+		{
+			"Name": "Port1",
+			"Material": {
+				"BindingMaterial": "Cassettle1"
+			},
+			"Initialize": {
+				"InitialActions": [
+
+				]
+			},
+			"Trigger": {
+				"TriggerActions": [
+					{
+						"Name": "Trigger1",
+						"TriggerPoint": {
+							"Type": "OR",
+							"Conditions": [
+								{
+									"Action": "Change",
+									"ExceptedValue": 1,
+									"Address": "W1000"
+								}
+							]
+						},
+						"Actions": [
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W3000",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 1
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "MYGOD"
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W1024",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 4
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W3000",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 1
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W3000",
+									"Value": [
+										{
+											"Type": "Action",
+											"ActionName": "Read",
+											"Address": "W1024",
+											"Lens": 1
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "SecHandShake",
+								"Inputs": {
+									"Address": "W2000",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "W1000"
+										}
+									]
+								},
+								"Output": {}
+							}
+						]
+					},					
+					{
+						"Name": "Trigger2",
+						"TriggerPoint": {
+							"Type": "AND",
+							"Conditions": [
+								{
+									"Action": "Specific",
+									"ExceptedValue": 1,
+									"Address": "W1000"
+								},
+								{
+									"Action": "Monitor",
+									"ExceptedValue": 1,
+									"Address": "W1000"
+								}
+							]
+						},
+						"Actions": [
+							{
+								"ActionName": "BothFlowCoreKF",
+								"Inputs": {
+									"Address": "",
+									"Value": [
+										{
+											"Type": "Action",
+											"ActionName": "CassetteState",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Proc"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Receive_Port"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Send_Aligner"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "VCRRead",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "ByPass"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Receive_Aligner"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Send_EQ"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Receive_EQ"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "WorkTransfering",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Send_Port"
+										},
+										{
+											"Type": "Action",
+											"ActionName": "CassetteState",
+											"Address": "W3000",
+											"Format": "String",
+											"Content": "Pren"
+										}
+									]
+								},
+								"Output": {}
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 }
+	
