@@ -366,8 +366,8 @@ namespace EventDriven.Services
             /// <exception cref="Exception"></exception>
             public bool Execute(Model.Action action)
             {
-                //是否添加回復上一動繼續機制?等待優化
-                for(int Flagslot = 0; Flagslot < ExecuteSlot.Count; ++ Flagslot)
+                //是否添加回復上一動繼續機制?等待優化Memento
+                for (int Flagslot = 0; Flagslot < ExecuteSlot.Count; ++ Flagslot)
                 {
                     if(ExecuteSlot[Flagslot] != 1) continue;
                     if(!DoAction(action)) throw new Exception("Action Fail.");
@@ -398,7 +398,7 @@ namespace EventDriven.Services
                 }
                 //TODO:根據不同的取得CONTENT內容與行為不同
                 return true;
-            }
+            }            
         }
         public class NullExeAction : IExeAction
         {
@@ -407,7 +407,57 @@ namespace EventDriven.Services
                 throw new Exception("Action Not Support.");
             }
         }
+        public class WorkTransfering : AInputValue
+        {
+            public WorkTransfering(Model.Action action) : base(action)
+            {
+            }
+            public override List<Tuple<ushort, object>> GetOffetContent(object content)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public class VCRRead : AInputValue
+        {
+            public VCRRead(Model.Action action) : base(action)
+            {
+            }
+            public override List<Tuple<ushort, object>> GetOffetContent(object content)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public class CassetteState : AInputValue
+        {
+            public CassetteState(Model.Action action) : base(action)
+            {
+            }
+            public override List<Tuple<ushort, object>> GetOffetContent(object content)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
+    public interface IActionInput
+    {        
+        /// <summary>
+        /// Return the offsetaddress and object value
+        /// expection value is ushort and List<ushort>
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        List<Tuple<ushort, object>> GetOffetContent(object content);
+    }
+    public abstract class AInputValue : IActionInput
+    {
+        public AInputValue(Model.Action action)
+        {
+            if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string BaseDevice, out string BaseAddress)) throw new Exception("Address Format Error."); //相當於Passive的
+        }
+        public string BaseDevice { get; set; }
+        public string BaseAddress { get; set; }
+        public abstract List<Tuple<ushort, object>> GetOffetContent(object content);
+    }    
     public class TriggerBehavior
     {
         public string Name { get; set; }

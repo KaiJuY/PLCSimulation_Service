@@ -321,64 +321,64 @@
 											"Type": "Action",
 											"ActionName": "CassetteState",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Proc"
+											"Format": "StringArray",
+											"Content": [ "Proc" ]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Receive_Port"
+											"Format": "StringArray",
+											"Content": [ "Receive_Port" ]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Send_Aligner"
+											"Format": "StringArray",
+											"Content": ["Send_Aligner"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "VCRRead",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "ByPass"
+											"Format": "StringArray",
+											"Content": ["ByPass"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Receive_Aligner"
+											"Format": "StringArray",
+											"Content": ["Receive_Aligner"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Send_EQ"
+											"Format": "StringArray",
+											"Content": ["Send_EQ"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Receive_EQ"
+											"Format": "StringArray",
+											"Content": ["Receive_EQ"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "WorkTransfering",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Send_Port"
+											"Format": "StringArray",
+											"Content": ["Send_Port"]
 										},
 										{
 											"Type": "Action",
 											"ActionName": "CassetteState",
 											"Address": "W3000",
-											"Format": "String",
-											"Content": "Pren"
+											"Format": "StringArray",
+											"Content": ["Pren"]
 										}
 									]
 								},
