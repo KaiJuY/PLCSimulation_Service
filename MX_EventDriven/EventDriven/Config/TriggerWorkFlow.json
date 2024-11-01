@@ -211,7 +211,7 @@
 								{
 									"Action": "Change",
 									"ExceptedValue": 1,
-									"Address": "W1000"
+									"Address": "W7777"
 								}
 							]
 						},
@@ -302,12 +302,12 @@
 								{
 									"Action": "Specific",
 									"ExceptedValue": 1,
-									"Address": "W1000"
+									"Address": "W7777"
 								},
 								{
 									"Action": "Monitor",
 									"ExceptedValue": 1,
-									"Address": "W1000"
+									"Address": "W7777"
 								}
 							]
 						},
