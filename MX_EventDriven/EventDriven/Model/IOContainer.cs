@@ -13,9 +13,9 @@ namespace EventDriven.Model
         IMitControlModule MitControlModule;
         public IOContainer()
         {
-            //MitControlModule = new MxControlModule("QCPU", "192.168.31.100");
+            MitControlModule = new MxControlModule("QCPU", "192.168.31.100");
             //MitControlModule = new MxControlModule("SIM", "127.0.0.1");
-            MitControlModule = new McControlModule("127.0.0.1", 7500);
+            //MitControlModule = new McControlModule("127.0.0.1", 7500);
         }
         public void Connect() => MitControlModule.Connect();
         public bool IsConnected() => MitControlModule.IsConnected();
@@ -31,6 +31,7 @@ namespace EventDriven.Model
         }
         public bool WriteInt(string device, string address, short value) => MitControlModule.WriteDataToPLC(device, address, value);
         public bool WriteListInt(string device, string address, List<short> values) => MitControlModule.WriteDataToPLC(device, address, values);
+        public bool WriteListInt(List<string> device, List<string> address, List<short> values) => MitControlModule.WriteDataToPLC(device, address, values);
         public bool WriteString(string device, string address, string value) => MitControlModule.WriteDataToPLC(device, address, value);
         public bool PrimaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => MitControlModule.PrimaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);
         public bool SecondaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => MitControlModule.SecondaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);

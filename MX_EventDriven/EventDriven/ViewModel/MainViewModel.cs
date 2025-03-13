@@ -6,6 +6,7 @@ using EventDriven.Model;
 using System.Linq;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
+using System.Runtime.InteropServices;
 
 namespace EventDriven.ViewModel
 {
@@ -52,15 +53,7 @@ namespace EventDriven.ViewModel
         {
             try
             {
-                _eventManager.EVTest();
-                //_eventManager.ES11DummyTest();
-                //_eventManager.TestReset();
-                //if (_eventManager.Test())
-                //    MessageBox.Show("Test Success");
-                //else
-                //    MessageBox.Show("Test Fail");
-                //_eventManager.TestReset();
-                //MessageBox.Show($"Read Final Read : {_eventManager.TestRead()}");
+
             }
             catch (Exception ex)
             {

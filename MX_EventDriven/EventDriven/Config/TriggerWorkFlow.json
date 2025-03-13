@@ -1,5 +1,5 @@
 {
-	"Interval": 500,
+	"Interval": 100,
 	"Materials": {
 		"CassettleFormat": [
 			{
@@ -204,14 +204,14 @@
 			"Trigger": {
 				"TriggerActions": [
 					{
-						"Name": "Trigger1",
+						"Name": "HS08_ChangeCimMode",
 						"TriggerPoint": {
 							"Type": "OR",
 							"Conditions": [
 								{
-									"Action": "Change",
+									"Action": "Monitor",
 									"ExceptedValue": 1,
-									"Address": "W7777"
+									"Address": "W467F"
 								}
 							]
 						},
@@ -219,59 +219,182 @@
 							{
 								"ActionName": "Write",
 								"Inputs": {
-									"Address": "W3000",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 1
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "MYGOD"
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W1024",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 4
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W3000",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 1
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W3000",
+									"Address": "W4D70",
 									"Value": [
 										{
 											"Type": "Action",
 											"ActionName": "Read",
-											"Address": "W1024",
+											"Address": "W4670",
+											"Lens": 1
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W4D80",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 1
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "SecHandShake",
+								"Inputs": {
+									"Address": "W4D8F",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "W467F"
+										}
+									]
+								},
+								"Output": {}
+							}
+						]
+					},
+					{
+						"Name": "HR04QueryRecipeList",
+						"TriggerPoint": {
+							"Type": "OR",
+							"Conditions": [
+								{
+									"Action": "Monitor",
+									"ExceptedValue": 1,
+									"Address": "W44AF"
+								}
+							]
+						},
+						"Actions": [
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W4A60",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 5
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 4
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 3
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 2
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 1
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W4AC4",
+									"Value": [
+										{
+											"Type": "Action",
+											"ActionName": "Read",
+											"Address": "W44A0",
+											"Lens": 1
+										},
+										{
+											"Type": "KeyIn",
+											"Format": "Int",
+											"Content": 2
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "SecHandShake",
+								"Inputs": {
+									"Address": "W4ACF",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "W44AF"
+										}
+									]
+								},
+								"Output": {}
+							}
+						]
+					},
+					{
+						"Name": "HR05_ChangeCurrentRecipe",
+						"TriggerPoint": {
+							"Type": "OR",
+							"Conditions": [
+								{
+									"Action": "Monitor",
+									"ExceptedValue": 1,
+									"Address": "W44BF"
+								}
+							]
+						},
+						"Actions": [
+							{
+								"ActionName": "SecHandShake",
+								"Inputs": {
+									"Address": "W4ADF",
+									"Value": [
+										{
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "W44BF"
+										}
+									]
+								},
+								"Output": {}
+							}
+						]
+					},
+					{
+						"Name": "HS15_ChangeRunMode",
+						"TriggerPoint": {
+							"Type": "OR",
+							"Conditions": [
+								{
+									"Action": "Monitor",
+									"ExceptedValue": 1,
+									"Address": "W46BF"
+								}
+							]
+						},
+						"Actions": [
+							{
+								"ActionName": "Write",
+								"Inputs": {
+									"Address": "W4D72",
+									"Value": [
+										{
+											"Type": "Action",
+											"ActionName": "Read",
+											"Address": "W46B0",
 											"Lens": 1
 										}
 									]
@@ -281,104 +404,56 @@
 							{
 								"ActionName": "SecHandShake",
 								"Inputs": {
-									"Address": "W2000",
+									"Address": "W4E1F",
 									"Value": [
 										{
 											"Type": "KeyIn",
 											"Format": "String",
-											"Content": "W1000"
+											"Content": "W46BF"
 										}
 									]
 								},
 								"Output": {}
 							}
 						]
-					},					
+					},
 					{
-						"Name": "Trigger2",
+						"Name": "HS21_SetECValue",
 						"TriggerPoint": {
-							"Type": "AND",
+							"Type": "OR",
 							"Conditions": [
-								{
-									"Action": "Specific",
-									"ExceptedValue": 1,
-									"Address": "W7777"
-								},
 								{
 									"Action": "Monitor",
 									"ExceptedValue": 1,
-									"Address": "W7777"
+									"Address": "W46EF"
 								}
 							]
 						},
 						"Actions": [
 							{
-								"ActionName": "BothFlowCoreKF",
+								"ActionName": "Write",
 								"Inputs": {
-									"Address": "",
+									"Address": "W4D78",
 									"Value": [
 										{
 											"Type": "Action",
-											"ActionName": "CassetteState",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": [ "Proc" ]
-										},
+											"ActionName": "Read",
+											"Address": "W46E0",
+											"Lens": 3
+										}
+									]
+								},
+								"Output": {}
+							},
+							{
+								"ActionName": "SecHandShake",
+								"Inputs": {
+									"Address": "W4E4F",
+									"Value": [
 										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": [ "Receive_Port" ]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Send_Aligner"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "VCRRead",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["ByPass"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Receive_Aligner"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Send_EQ"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Receive_EQ"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "WorkTransfering",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Send_Port"]
-										},
-										{
-											"Type": "Action",
-											"ActionName": "CassetteState",
-											"Address": "W3000",
-											"Format": "StringArray",
-											"Content": ["Pren"]
+											"Type": "KeyIn",
+											"Format": "String",
+											"Content": "W46EF"
 										}
 									]
 								},
@@ -386,8 +461,30 @@
 							}
 						]
 					}
+
 				]
 			}
+		}
+	],
+	"Buttons": [
+		{
+			"ButtonContent": "PortInit",
+			"Actions": [
+				{
+					"ActionName": "Write",
+					"Inputs": {
+						"Address": "W4AC4",
+						"Value": [
+							{
+								"Type": "KeyIn",
+								"Format": "Int",
+								"Content": 2
+							}
+						]
+					},
+					"Output": {}
+				}
+			]
 		}
 	]
 }

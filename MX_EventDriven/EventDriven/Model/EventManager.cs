@@ -96,126 +96,7 @@ namespace EventDriven.Services
                 }
                 SpinWait.SpinUntil(() => false, _workFlow.Interval); // 每秒檢查一次
             }
-        }
-        private bool Isinit = false;
-        public void EVTest()
-        {
-            if(!Isinit)
-            {
-                _iOContainer.WriteInt("W", "4D70", 1);
-                _iOContainer.WriteInt("W", "4EC1", 1);
-                _iOContainer.WriteInt("W", "53F1", 2);
-                _iOContainer.WriteInt("W", "5921", 3);
-                Isinit = true;
-                return;
-            }
-            _iOContainer.WriteInt("W", "53F1", 1);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "53F1", 6);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "53F1", 2);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "53F1", 1);
-
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "5921", 3);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "5921", 7);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "5921", 4);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "5921", 3);
-
-            _iOContainer.WriteInt("W", "4EC1", 1);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 6);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 2);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 3);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 7);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 4);
-            SpinWait.SpinUntil(() => false, 3000);
-            _iOContainer.WriteInt("W", "4EC1", 1);
-        }
-        public void ES11DummyTest()
-        {
-            _iOContainer.WriteInt("W", "4D70", 1);
-            _iOContainer.WriteInt("W", "4CD0", 1);
-            _iOContainer.WriteInt("W", "4CD1", 1);
-            _iOContainer.WriteInt("W", "4D3E", 4);
-            for (int i = 1; i <= 200; i++)
-            {
-                _iOContainer.WriteInt("W", "4D3F", 0);
-                string WID = "PANEL202410309" + i.ToString("D3");
-                _iOContainer.WriteString("W", "4CD6", WID);
-                _iOContainer.WriteInt("W", "4D20", (short)i);
-                _iOContainer.PrimaryHandShake("W", "4D3F", "W", "45EF");
-                SpinWait.SpinUntil(() => false, 1000);
-            }
-            for (int j = 0; j < 5; j++) 
-            {
-                _iOContainer.WriteInt("W", "4E0F", 0);
-                _iOContainer.WriteString("W", "4DC0", "PANEL202410309001");
-                _iOContainer.WriteString("W", "4CCD", "PANEL202410309001");
-                _iOContainer.WriteString("W", "4DDA", "PANEL202410309001");
-                _iOContainer.WriteString("W", "4DE7", "PANEL202410309001");
-                _iOContainer.WriteInt("W", "4DF4", 1);
-                _iOContainer.WriteInt("W", "4DF5", 1);
-                _iOContainer.WriteInt("W", "4DF6", 2);
-                _iOContainer.PrimaryHandShake("W", "4E0F", "W", "469F");
-                SpinWait.SpinUntil(() => false, 2000);
-            } //這個測試ES11超過5次的問題
-            _iOContainer.WriteInt("W", "4E0F", 0);
-            _iOContainer.WriteString("W", "4DC0", "DUMMY202410309001");
-            _iOContainer.WriteString("W", "4CCD", "DUMMY202410309001");
-            _iOContainer.WriteString("W", "4DDA", "DUMMY202410309001");
-            _iOContainer.WriteString("W", "4DE7", "DUMMY202410309001");
-            _iOContainer.WriteInt("W", "4DF4", 1);
-            _iOContainer.WriteInt("W", "4DF5", 2);
-            _iOContainer.WriteInt("W", "4DF6", 2);
-            _iOContainer.PrimaryHandShake("W", "4E0F", "W", "469F");
-            SpinWait.SpinUntil(() => false, 2000);
-
-            //這個測試DUMMY的問題
-            for (int k = 1; k <= 200; k++)
-            {
-                _iOContainer.WriteInt("W", "4E0F", 0);
-                string WID = "PANEL202410309" + k.ToString("D3");
-                _iOContainer.WriteString("W", "4DC0", WID);
-                _iOContainer.WriteString("W", "4CCD", WID);
-                _iOContainer.WriteString("W", "4DDA", WID);
-                _iOContainer.WriteString("W", "4DE7", WID);
-                _iOContainer.WriteInt("W", "4DF4", 1);
-                _iOContainer.WriteInt("W", "4DF5", (short)k);
-                _iOContainer.WriteInt("W", "4DF6", 2);
-                _iOContainer.PrimaryHandShake("W", "4E0F", "W", "469F");
-                SpinWait.SpinUntil(() => false, 2000);
-            }
-            _iOContainer.WriteInt("W", "4E0F", 0);
-            _iOContainer.WriteInt("W", "4D3F", 0);
-        }
-        public bool Test()
-        {
-            return _iOContainer.PrimaryHandShake("W", "1000", "W", "2000");
-        }
-        public string TestRead()
-        {
-            if (!_iOContainer.ReadListInt("W", "3000", 5, out List<short> value)) return "Read Fail.";
-
-            string result = string.Empty;
-            foreach (var val in value)
-            {
-                result += val.ToString() + ", ";
-            }
-            return result;
-        }
-        public void TestReset()
-        {
-            _iOContainer.WriteInt("W", "1000", 0);
-        }
+        }  
         /// <summary>
         /// Type可以改為策略模式實作目前這邊先簡單寫就好
         /// </summary>
@@ -247,7 +128,7 @@ namespace EventDriven.Services
             foreach (var action in actions)
             {
                 ExecuteAction(action);
-                SpinWait.SpinUntil(() => false, 500);
+                SpinWait.SpinUntil(() => false, _workFlow.Interval);
             }
         }
         /// <summary>
@@ -342,9 +223,15 @@ namespace EventDriven.Services
         {
             public bool Execute(Model.Action action)
             {
-                List<short> value = GetContent(action.Inputs.Value);
+                List<Int16> value = new List<Int16>(GetContent(action.Inputs.Value));
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string device, out string addr)) throw new Exception("Address Format Error.");
-                return _iOContainer.WriteListInt(device, addr, value);
+                foreach (var val in value)
+                {
+                    if (!_iOContainer.WriteInt(device, addr, val)) return false;
+                    addr = (Convert.ToInt32(addr, 16) + 1).ToString("X4");
+                }
+                return true;
+                //return _iOContainer.WriteListInt(device, addr, value); //理論上這個效率比較好但不知道為什麼有異常
             }
             /// <summary>
             /// For Action Write
@@ -392,7 +279,18 @@ namespace EventDriven.Services
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
             }
-            
+            private bool AutoGenListAddress(string basedevice, string baseaddr, int lens, out List<string> device, out List<string> addr)
+            {
+                device = new List<string>();
+                addr = new List<string>();
+                if (lens == 0) return false;
+                for (int i = 0; i < lens; ++i)
+                {
+                    device.Add(basedevice);
+                    addr.Add((Convert.ToInt32(baseaddr, 16) + i).ToString("X4"));
+                }
+                return true;
+            }
         }
         public class ExecuteSecHandshake : IExeAction
         {
