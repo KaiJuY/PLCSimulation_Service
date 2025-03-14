@@ -85,6 +85,7 @@ namespace EventDriven.ViewModel
                 if (_cpuType != value)
                 {
                     _cpuType = value;
+                    IpAddress = _cpuType == "QCPU" ? "192.168.31.100" : "127.0.0.1";
                     OnPropertyChanged();                    
                 }
             }

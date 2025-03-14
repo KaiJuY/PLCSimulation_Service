@@ -485,6 +485,39 @@
 					"Output": {}
 				}
 			]
+		},
+		{
+			"ButtonContent": "W1000Test",
+			"Actions": [
+				{
+					"ActionName": "Write",
+					"Inputs": {
+						"Address": "W1000",
+						"Value": [
+							{
+								"Type": "KeyIn",
+								"Format": "Int",
+								"Content": 999
+							}
+						]
+					},
+					"Output": {}
+				},
+				{
+					"ActionName": "Write",
+					"Inputs": {
+						"Address": "W1002",
+						"Value": [
+							{
+								"Type": "KeyIn",
+								"Format": "String",
+								"Content": "AB"
+							}
+						]
+					},
+					"Output": {}
+				}
+			]
 		}
 	]
 }
