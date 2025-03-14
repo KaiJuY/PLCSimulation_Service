@@ -18,6 +18,7 @@ namespace EventDriven.Services
         private static TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
         private bool _isMonitoring;
+        private readonly object _registeredEventsLock = new object(); // 鎖定物件
         public bool IsMonitoring
         {
             get { return _isMonitoring; }
@@ -84,19 +85,27 @@ namespace EventDriven.Services
         public void UnregisterEvents()
         {
             IsMonitoring = false;
-            _registeredEvents.Clear();
+            lock (_registeredEventsLock)
+            {
+                _registeredEvents.Clear();
+            }
         }
         public void Monitor()
         {
-            while(IsMonitoring)
+            List<TriggerBehavior> triggers;
+            lock (_registeredEventsLock)
             {
-                foreach (var trigger in _registeredEvents)
+                triggers = new List<TriggerBehavior>(_registeredEvents.Values);
+            }
+            while (IsMonitoring)
+            {
+                foreach (var trigger in triggers)
                 {
-                    trigger.Value.CheckAndTrigger(); // 依次檢查並觸發事件
+                    trigger.CheckAndTrigger(); // 依次檢查並觸發事件
                 }
                 SpinWait.SpinUntil(() => false, _workFlow.Interval); // 每秒檢查一次
             }
-        }  
+        }
         /// <summary>
         /// Type可以改為策略模式實作目前這邊先簡單寫就好
         /// </summary>
@@ -477,4 +486,3 @@ namespace EventDriven.Services
         }
     }    
 }
-

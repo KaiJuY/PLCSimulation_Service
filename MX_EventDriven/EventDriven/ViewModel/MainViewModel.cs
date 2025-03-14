@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
@@ -10,21 +10,122 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using static EventDriven.Services.EventManager;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EventDriven.ViewModel
 {
     /// <summary>
     /// 先驗證功能，先不要用MVVM開發
     /// </summary>
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         private readonly Services.EventManager _eventManager;
         protected MainWindow _mainwindow;
+        private string _protocol;
+        private string _cpuType;
+        private string _ipAddress;
+        private string _port;
+        private bool _isMxProtocol;
+        private readonly Model.IOContainer _ioContainer;
 
-        public MainViewModel(MainWindow mainwindow)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public MainViewModel(MainWindow mainwindow, Model.IOContainer ioContainer)
         {
             _eventManager = new Services.EventManager();
             _mainwindow = mainwindow;
+            _ioContainer = ioContainer;
+
+            // 預設值
+            Protocol = "Mx";
+            CpuType = "QCPU";
+            IpAddress = "192.168.31.100";
+            Port = "";
+            IsMxProtocol = Protocol == "Mx";
+        }
+
+        public string Protocol
+        {
+            get { return _protocol; }
+            set
+            {
+                if (_protocol != value)
+                {
+                    _protocol = value;
+                    IsMxProtocol = value == "Mx";
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsMxProtocol
+        {
+            get { return _isMxProtocol; }
+            set
+            {
+                if (_isMxProtocol != value)
+                {
+                    _isMxProtocol = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string CpuType
+        {
+            get { return _cpuType; }
+            set
+            {
+                if (_cpuType != value)
+                {
+                    _cpuType = value;
+                    OnPropertyChanged();                    
+                }
+            }
+        }
+
+        public string IpAddress
+        {
+            get { return _ipAddress; }
+            set
+            {
+                if (_ipAddress != value)
+                {
+                    _ipAddress = value;
+                    OnPropertyChanged();                    
+                }
+            }
+        }
+
+        public string Port
+        {
+            get { return _port; }
+            set
+            {
+                if (_port != value)
+                {
+                    _port = value;
+                    OnPropertyChanged();                    
+                }
+            }
+        }
+        public void UpdateIOContainer()
+        {
+            if (Protocol == "Mx")
+            {
+                _ioContainer.CreateMxControlModule(CpuType, IpAddress);
+            }
+            else if (Protocol == "Mc")
+            {
+                int portNumber = string.IsNullOrEmpty(Port) ? 7500 : int.Parse(Port);
+                _ioContainer.CreateMcControlModule(IpAddress, portNumber);
+            }
         }
 
         public void BrowseJsonFile()
@@ -51,6 +152,11 @@ namespace EventDriven.ViewModel
         public void StartFlow() => SignalChange(StartFromEventManager());
 
         public void EndFlow() => EndFromEventManager();
+
+        public void ClearButtons()
+        {
+            _mainwindow.buttonPanel.Children.Clear();
+        }
 
         public void ShowFlow()
         {
@@ -88,9 +194,9 @@ namespace EventDriven.ViewModel
                         };
 
                         _mainwindow.buttonPanel.Children.Add(button);
-                    }
-                }
-            }
+        }
+    }
+}
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading buttons: {ex.Message}");
