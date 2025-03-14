@@ -5,15 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EventDriven"
         mc:Ignorable="d"
-        Title="MainWindow" Height="240" Width="360">
+        Title="MainWindow" Height="240" Width="540">
     <Grid>
-        <Button Content="Browse Json" HorizontalAlignment="Left" Margin="250, 25,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Strat Flow" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <Button Content="End Flow" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
-        <Button Content="Test" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
-        <TextBox x:Name="jsonPath" HorizontalAlignment="Left" Margin="90,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="10"/>
-        <Label Content="Json Path : " HorizontalAlignment="Left" Margin="15,20,0,0" VerticalAlignment="Top"/>
-        <Label Content="Flow Status : " HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top"/>
-        <Rectangle x:Name="flowSignal" HorizontalAlignment="Left" Height="27" Margin="100,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="27" Fill="Red" RadiusX="15" RadiusY="15"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Button Content="Browse Json" HorizontalAlignment="Left" Margin="250, 25,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+            <Button Content="Strat Flow" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+            <Button Content="End Flow" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
+            <Button Content="Test" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+            <TextBox x:Name="jsonPath" HorizontalAlignment="Left" Margin="90,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="10"/>
+            <Label Content="Json Path : " HorizontalAlignment="Left" Margin="15,20,0,0" VerticalAlignment="Top"/>
+            <Label Content="Flow Status : " HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top"/>
+            <Rectangle x:Name="flowSignal" HorizontalAlignment="Left" Height="27" Margin="100,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="27" Fill="Red" RadiusX="15" RadiusY="15"/>
+        </Grid>
+
+        <StackPanel Grid.Column="1" 
+                    Width="150"
+                    Background="#f0f0f0"
+                    Margin="10,0,0,0"
+                    x:Name="buttonPanel">
+        </StackPanel>
     </Grid>
 </Window>

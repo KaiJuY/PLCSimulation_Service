@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
@@ -9,7 +9,15 @@ namespace EventDriven.Model
         public int Interval { get; set; }
         public Materials Materials { get; set; }
         public List<CarrierStorage> CarrierStorage { get; set; }
+        public List<ButtonConfig> Buttons { get; set; }
     }
+
+    public class ButtonConfig
+    {
+        public string ButtonContent { get; set; }
+        public List<Action> Actions { get; set; }
+    }
+
     public class Materials
     {
         public List<CassettleFormat> CassettleFormat { get; set; }
@@ -23,7 +31,7 @@ namespace EventDriven.Model
     }
     public class Material
     {
-        public string BindingMaterial { get; set; } //±qMaterial¤¤¨ú±oªº¯S©wªºCassettleId
+        public string BindingMaterial { get; set; } //ï¿½qMaterialï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Sï¿½wï¿½ï¿½CassettleId
     }
 
     public class CassettleFormat
@@ -51,8 +59,8 @@ namespace EventDriven.Model
         public List<TriggerAction> TriggerActions { get; set; }
     }
     /// <summary>
-    /// TriggerAction: Ä²µo±ø¥ó¸s»P°Ê§@
-    /// ·|¥]§tTriggerPoint»PActions·|¸Õ¦bCondition²Å¦X®É°õ¦æ©Ò¦³Actions
+    /// TriggerAction: Ä²ï¿½oï¿½ï¿½ï¿½ï¿½sï¿½Pï¿½Ê§@
+    /// ï¿½|ï¿½]ï¿½tTriggerPointï¿½PActionsï¿½|ï¿½Õ¦bConditionï¿½Å¦Xï¿½É°ï¿½ï¿½ï¿½Ò¦ï¿½Actions
     /// </summary>
     public class TriggerAction
     {
@@ -61,11 +69,11 @@ namespace EventDriven.Model
         public List<Action> Actions { get; set; }
     }
     /// <summary>
-    /// Ä²µo±ø¥ó¸s»PÃþ«¬
-    /// Type¥i¯à·|¦³OR, AND
-    /// Conditions¥i¯à·|¦³¦h­Ó
-    /// OR: ¥u­n¦³¤@­Ó±ø¥ó²Å¦X´NÄ²µo
-    /// AND: ©Ò¦³±ø¥ó³£²Å¦X¤~Ä²µo
+    /// Ä²ï¿½oï¿½ï¿½ï¿½ï¿½sï¿½Pï¿½ï¿½ï¿½ï¿½
+    /// Typeï¿½iï¿½ï¿½|ï¿½ï¿½OR, AND
+    /// Conditionsï¿½iï¿½ï¿½|ï¿½ï¿½ï¿½hï¿½ï¿½
+    /// OR: ï¿½uï¿½nï¿½ï¿½ï¿½@ï¿½Ó±ï¿½ï¿½ï¿½Å¦Xï¿½NÄ²ï¿½o
+    /// AND: ï¿½Ò¦ï¿½ï¿½ï¿½ï¿½ó³£²Å¦Xï¿½~Ä²ï¿½o
     /// </summary>
     public class TriggerPoint
     {
@@ -73,10 +81,10 @@ namespace EventDriven.Model
         public List<Condition> Conditions { get; set; }
     }
     /// <summary>
-    /// Condition·|³òÂ¶µÛAction²Õ¦¨Ä²µoªº±ø¥ó
+    /// Conditionï¿½|ï¿½ï¿½Â¶ï¿½ï¿½Actionï¿½Õ¦ï¿½Ä²ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// Action 
-    /// - Monitor Addressªº¼Æ­È±q§OªºÅÜ¬°ExceptedValue®É¹F¨ìCondition => ¾A¥Î©óHandshake, ª¬ºAÅÜ¤Æ¨ì¬Y­Ó¼Æ­È
-    /// - Change Addressªº¼Æ­ÈÅÜ¤Æ®É¹F¨ìCondition¡A¦¹®ÉExceptedValueµL§@¥Î => ¾A¥Î©óIndex, Alive
+    /// - Monitor Addressï¿½ï¿½ï¿½Æ­È±qï¿½Oï¿½ï¿½ï¿½Ü¬ï¿½ExceptedValueï¿½É¹Fï¿½ï¿½Condition => ï¿½Aï¿½Î©ï¿½Handshake, ï¿½ï¿½ï¿½Aï¿½Ü¤Æ¨ï¿½Yï¿½Ó¼Æ­ï¿½
+    /// - Change Addressï¿½ï¿½ï¿½Æ­ï¿½ï¿½Ü¤Æ®É¹Fï¿½ï¿½Conditionï¿½Aï¿½ï¿½ï¿½ï¿½ExceptedValueï¿½Lï¿½@ï¿½ï¿½ => ï¿½Aï¿½Î©ï¿½Index, Alive
     /// </summary>
     public class Condition
     {
@@ -86,11 +94,11 @@ namespace EventDriven.Model
         public int LastValue { get; set; }
     }
     /// <summary>
-    /// ¹ê»Ú¤W°õ¦æªº°Ê§@
-    /// ActionName: °Ê§@¦WºÙ¬°¥D­n°õ¦æªº¦æ¬°
-    /// - Write: ¼g¤J¼Æ­È¨ìAddress
-    /// Inputs: °Ê§@ªº¿é¤J°Ñ¼Æ
-    /// Output: °Ê§@ªº¿é¥X°Ñ¼Æ¼È®É¨S¦³¥Î¨ì¦]¦¹¨S¦³©w¸q¯S§OªºÃþ§O
+    /// ï¿½ï¿½Ú¤Wï¿½ï¿½ï¿½æªºï¿½Ê§@
+    /// ActionName: ï¿½Ê§@ï¿½Wï¿½Ù¬ï¿½ï¿½Dï¿½nï¿½ï¿½ï¿½æªºï¿½æ¬°
+    /// - Write: ï¿½gï¿½Jï¿½Æ­È¨ï¿½Address
+    /// Inputs: ï¿½Ê§@ï¿½ï¿½ï¿½ï¿½Jï¿½Ñ¼ï¿½
+    /// Output: ï¿½Ê§@ï¿½ï¿½ï¿½ï¿½Xï¿½Ñ¼Æ¼È®É¨Sï¿½ï¿½ï¿½Î¨ï¿½]ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½wï¿½qï¿½Sï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½O
     /// </summary>
     public class Action
     {
@@ -99,10 +107,10 @@ namespace EventDriven.Model
         public object Output { get; set; }
     }
     /// <summary>
-    /// Inputs: °Ê§@ªº¿é¤J°Ñ¼Æ
-    /// Adress : °Ê§@ªº¦a§}
-    /// Value : °Ê§@ªº¼Æ­È
-    /// ³o¨âªÌ¦@¥Î¤@­ÓÃþ§OInputValue
+    /// Inputs: ï¿½Ê§@ï¿½ï¿½ï¿½ï¿½Jï¿½Ñ¼ï¿½
+    /// Adress : ï¿½Ê§@ï¿½ï¿½ï¿½aï¿½}
+    /// Value : ï¿½Ê§@ï¿½ï¿½ï¿½Æ­ï¿½
+    /// ï¿½oï¿½ï¿½Ì¦@ï¿½Î¤@ï¿½ï¿½ï¿½ï¿½ï¿½OInputValue
     /// </summary>
     public class Inputs
     {
@@ -110,16 +118,16 @@ namespace EventDriven.Model
         public InputValue[] Value { get; set; }
     }
     /// <summary>
-    /// Type: ¼Æ­Èªº«¬ºA¤À¬°¨âºØ
-    /// - KeyIn: ¤â°Ê¿é¤J
-    /// - Action: ¨Ó¦Û¥t¤@­Ó°Ê§@ªºµ²ªG
-    /// Format: ¼Æ­Èªº®æ¦¡
-    /// - Int: ¾ã¼Æ
-    /// - String: ¦r¦ê
-    /// Content: ¼Æ­Èªº¤º®e·|®Ú¾ÚTypeªº¤£¦P¦Ó¦³©Ò¤£¦P
-    /// ¤ä´©KeyIn®Éª½±µ¨Ì·ÓFormatªº®æ¦¡¿é¤J
-    /// ¦pªG¬OAction«h·|¦³ActionName, Address
-    /// ¹³¬OActionName: Read, Address: W1000
+    /// Type: ï¿½Æ­Èªï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    /// - KeyIn: ï¿½ï¿½Ê¿ï¿½J
+    /// - Action: ï¿½Ó¦Û¥tï¿½@ï¿½Ó°Ê§@ï¿½ï¿½ï¿½ï¿½ï¿½G
+    /// Format: ï¿½Æ­Èªï¿½ï¿½æ¦¡
+    /// - Int: ï¿½ï¿½ï¿½
+    /// - String: ï¿½rï¿½ï¿½
+    /// Content: ï¿½Æ­Èªï¿½ï¿½ï¿½ï¿½eï¿½|ï¿½Ú¾ï¿½Typeï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½Ó¦ï¿½ï¿½Ò¤ï¿½ï¿½P
+    /// ï¿½ä´©KeyInï¿½Éªï¿½ï¿½ï¿½ï¿½Ì·ï¿½Formatï¿½ï¿½ï¿½æ¦¡ï¿½ï¿½J
+    /// ï¿½pï¿½Gï¿½OActionï¿½hï¿½|ï¿½ï¿½ActionName, Address
+    /// ï¿½ï¿½ï¿½OActionName: Read, Address: W1000
     /// </summary>
     public class InputValue
     {

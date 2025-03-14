@@ -44,6 +44,7 @@ namespace EventDriven
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             _viewModel.StartFlow();
+            _viewModel.LoadButtons();
         }
         /// <summary>
         /// End Flow

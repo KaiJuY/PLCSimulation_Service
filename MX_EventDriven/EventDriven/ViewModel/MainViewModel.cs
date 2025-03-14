@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using static EventDriven.Services.EventManager;
+using System.Windows.Controls;
 
 namespace EventDriven.ViewModel
 {
@@ -58,6 +61,47 @@ namespace EventDriven.ViewModel
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void LoadButtons()
+        {
+            try
+            {
+                string json = System.IO.File.ReadAllText(_eventManager.JsonFileName);
+                var workFlow = System.Text.Json.JsonSerializer.Deserialize<Model.TriggerWorkFlowModel>(json);
+
+                if (workFlow?.Buttons != null)
+                {
+                    foreach (var buttonConfig in workFlow.Buttons)
+                    {
+                        Button button = new Button
+                        {
+                            Content = buttonConfig.ButtonContent,
+                            Margin = new Thickness(5)
+                        };
+
+                        button.Click += (sender, e) =>
+                        {
+                            // 執行按鈕的動作
+                            ExecuteActions(buttonConfig.Actions);
+                        };
+
+                        _mainwindow.buttonPanel.Children.Add(button);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading buttons: {ex.Message}");
+            }
+        }
+
+        private void ExecuteActions(List<Model.Action> actions)
+        {
+            foreach (var action in actions)
+            {
+                ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
             }
         }
         /// <summary>
