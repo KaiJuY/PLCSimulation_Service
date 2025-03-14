@@ -35,6 +35,10 @@ namespace EventDriven.Services
             _registeredEvents = new Dictionary<string, TriggerBehavior>();
             _iOContainer = new IOContainer();
         }
+        public IOContainer IOContainer
+        {
+            get { return _iOContainer; }
+        }
         public bool LinkToPLC()
         {
             try

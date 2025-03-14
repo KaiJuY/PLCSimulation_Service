@@ -36,11 +36,11 @@ namespace EventDriven.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public MainViewModel(MainWindow mainwindow, Model.IOContainer ioContainer)
+        public MainViewModel(MainWindow mainwindow)
         {
             _eventManager = new Services.EventManager();
             _mainwindow = mainwindow;
-            _ioContainer = ioContainer;
+            _ioContainer = _eventManager.IOContainer;
 
             // 預設值
             Protocol = "Mx";

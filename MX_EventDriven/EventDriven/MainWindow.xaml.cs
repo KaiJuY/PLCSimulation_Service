@@ -20,14 +20,12 @@ namespace EventDriven
     /// MainWindow.xaml 的互動邏輯
     /// </summary>
     public partial class MainWindow : Window
-    {
-        private readonly Model.IOContainer _ioContainer;
+    {        
         protected MainViewModel _viewModel;
         public MainWindow()
         {
-            InitializeComponent();
-            _ioContainer = new Model.IOContainer();
-            _viewModel = new ViewModel.MainViewModel(this, _ioContainer);
+            InitializeComponent();            
+            _viewModel = new ViewModel.MainViewModel(this);
             DataContext = _viewModel;
         }
         /// <summary>
