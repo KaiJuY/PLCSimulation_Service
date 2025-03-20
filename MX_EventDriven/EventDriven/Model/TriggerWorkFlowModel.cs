@@ -6,8 +6,7 @@ namespace EventDriven.Model
 {
     public class TriggerWorkFlowModel
     {
-        public int Interval { get; set; }
-        public Materials Materials { get; set; }
+        public GlobalVariable GlobalVariable { get; set; }
         public List<CarrierStorage> CarrierStorage { get; set; }
         public List<ButtonConfig> Buttons { get; set; }
     }
@@ -17,7 +16,13 @@ namespace EventDriven.Model
         public string ButtonContent { get; set; }
         public List<Action> Actions { get; set; }
     }
+    public class GlobalVariable
+    {
+        public Materials Materials { get; set; }
+        public int Monitor_Interval { get; set; }
+        public int Action_Interval { get; set; }
 
+    }
     public class Materials
     {
         public List<CassettleFormat> CassettleFormat { get; set; }
@@ -116,6 +121,7 @@ namespace EventDriven.Model
     {
         public string Address { get; set; }
         public InputValue[] Value { get; set; }
+        public ExecuteCondition ExecuteCondition { get; set; }
     }
     /// <summary>
     /// Type: �ƭȪ����A�������
@@ -131,14 +137,15 @@ namespace EventDriven.Model
     /// </summary>
     public class InputValue
     {
-        public string Type { get; set; }
+        public string Type { get; set; } // "KeyIn", "Global"
         // KeyIn related properties
-        public string Format { get; set; }
-        public object Content { get; set; }
+        public string Format { get; set; } // "Int", "String" only For KeyIn
+        public object Content { get; set; } //Specific value for KeyIn, Global variable name for Global
         // Action related properties
-        public string ActionName { get; set; }
-        public string Address { get; set; }
-        public int Lens { get; set; }
+        public string ActionName { get; set; } // "Read", "Write", "SecHandShake"
+        public string Address { get; set; } // "W1000"
+        public int Lens { get; set; } // 1
+        public string ElementUnit { get; set; } //"Bit", "Word"
         // Custom serialization logic depending on Type
         public bool ShouldSerializeFormat()
         {
@@ -160,5 +167,11 @@ namespace EventDriven.Model
         {
             return Type == "Action";
         }
+    }
+    public class ExecuteCondition
+    {
+        public string Type { get; set; } // "Equal"
+        public string Format { get; set; } // "Int"
+        public object Content { get; set; } //1
     }
 }

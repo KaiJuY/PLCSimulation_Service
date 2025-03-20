@@ -107,7 +107,7 @@ namespace EventDriven.Services
                 {
                     trigger.CheckAndTrigger(); // 依次檢查並觸發事件
                 }
-                SpinWait.SpinUntil(() => false, _workFlow.Interval); // 每秒檢查一次
+                SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Monitor_Interval); // 每秒檢查一次
             }
         }
         /// <summary>
@@ -141,7 +141,7 @@ namespace EventDriven.Services
             foreach (var action in actions)
             {
                 ExecuteAction(action);
-                SpinWait.SpinUntil(() => false, _workFlow.Interval);
+                SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Action_Interval);
             }
         }
         /// <summary>
@@ -222,7 +222,7 @@ namespace EventDriven.Services
                     case "Index":
                         return new ExecuteIndex();
                     case "BothFlowCoreKF":
-                        return new ExecuteBothFlowCoreKF();
+                        return new LoopAction();
                     default:
                         return new NullExeAction();
                 }
@@ -366,50 +366,12 @@ namespace EventDriven.Services
                 return _iOContainer.WriteInt(Sdevice, Saddr, ++value);
             }
         }
-        public class ExecuteBothFlowCoreKF : IExeAction
+        public class LoopAction : IExeAction
         {
-            public List<int> ExecuteSlot { get; set; } //需要執行的Slot 0是沒有任務 1是待執行 2是已執行
-            /// <summary>
-            /// Core僅由會影響EFEM程式主要流程功能的EP04、EW03、ES11組成
-            /// </summary>
-            /// <param name="action"></param>
-            /// <returns></returns>
-            /// <exception cref="Exception"></exception>
             public bool Execute(Model.Action action)
             {
-                //是否添加回復上一動繼續機制?等待優化Memento
-                for (int Flagslot = 0; Flagslot < ExecuteSlot.Count; ++ Flagslot)
-                {
-                    if(ExecuteSlot[Flagslot] != 1) continue;
-                    if(!DoAction(action)) throw new Exception("Action Fail.");
-                    ExecuteSlot[Flagslot] = 2;
-                }
-                throw new Exception("Action Not Support.");
-            }
-            private void UpdateExecuteSlot()
-            {
-                //更新Slot讀取HP08
-            }
-            private bool DoAction(Model.Action action)
-            {
-                foreach(var act in action.Inputs.Value)
-                {
-                    if(act.Type != "Action") throw new Exception("Action Not Support.");
-                    switch (act.ActionName)
-                    {
-                        case "CassetteState":
-                            break;
-                        case "WorkTransfering":
-                            break;
-                        case "VCRRead":
-                            break;
-                        default:
-                            throw new Exception("Action Not Support.");
-                    }
-                }
-                //TODO:根據不同的取得CONTENT內容與行為不同
                 return true;
-            }            
+            }
         }
         public class NullExeAction : IExeAction
         {
