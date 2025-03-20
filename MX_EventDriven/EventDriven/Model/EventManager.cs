@@ -9,6 +9,7 @@ using System.Net;
 using IoModule.MitControlModule;
 using System.Linq;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace EventDriven.Services
 {
@@ -221,8 +222,8 @@ namespace EventDriven.Services
                         return new ExecuteSecHandshake();
                     case "Index":
                         return new ExecuteIndex();
-                    case "BothFlowCoreKF":
-                        return new LoopAction();
+                    case "LoopAction":
+                        return new ExecuteLoopAction();
                     default:
                         return new NullExeAction();
                 }
@@ -270,6 +271,9 @@ namespace EventDriven.Services
                             if (!StringValidator.SplitAndValidateString(input.Address, out string device, out string address)) throw new Exception("Address Format Error.");
                             _iOContainer.ReadListInt(device, address, input.Lens, out vals);
                             break;
+                        case "GlobalVariable":
+                            //todo
+                            break;
                         default:
                             throw new Exception("Type Not Support.");
                     }
@@ -291,18 +295,6 @@ namespace EventDriven.Services
                     default:
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
-            }
-            private bool AutoGenListAddress(string basedevice, string baseaddr, int lens, out List<string> device, out List<string> addr)
-            {
-                device = new List<string>();
-                addr = new List<string>();
-                if (lens == 0) return false;
-                for (int i = 0; i < lens; ++i)
-                {
-                    device.Add(basedevice);
-                    addr.Add((Convert.ToInt32(baseaddr, 16) + i).ToString("X4"));
-                }
-                return true;
             }
         }
         public class ExecuteSecHandshake : IExeAction
@@ -365,12 +357,154 @@ namespace EventDriven.Services
                 if(!_iOContainer.ReadInt(Sdevice, Saddr, out short value)) throw new Exception("Read Fail.");
                 return _iOContainer.WriteInt(Sdevice, Saddr, ++value);
             }
-        }
-        public class LoopAction : IExeAction
+        }        
+        public class ExecuteLoopAction : IExeAction
         {
+            private List<int> _loopElements; // Store loop elements (bits)
+            private int _loopIndex = 0; // Current loop index            
+
             public bool Execute(Model.Action action)
             {
+                if (action.Inputs.Value == null || action.Inputs.Value.Length != 1) return false; // Only support one InputValue for LoopAction
+                InputValue inputValue = action.Inputs.Value[0];
+                if (!CheckInputValue(action.Inputs.Value[0])) return false;
+                // Loop through each element and execute LoopActions if condition is met
+                for (_loopIndex = 0; _loopIndex < _loopElements.Count; _loopIndex++)
+                {
+                    if (CheckLoopCondition(_loopElements[_loopIndex], action.Inputs.ExecuteCondition)) // Check condition for current element
+                    {
+                        if(!ExecuteLoopActions(action.Inputs.SubActions))
+                        {
+                            return false;
+                        }
+                    }
+                }
                 return true;
+            }
+            private bool CheckInputValue(InputValue inputValue)
+            {                
+                //Only support Read Action for now
+                if (inputValue.Type != "Action" || inputValue.ActionName != "Read")
+                {
+                    throw new Exception("LoopAction Input Value should be an Action of type Read.");
+                }
+
+                if (!StringValidator.SplitAndValidateString(inputValue.Address, out string device, out string address))
+                {
+                    throw new Exception("LoopAction Read Address Format Error.");
+                }
+
+                int lens = Convert.ToInt32(inputValue.Lens);
+                if (lens <= 0)
+                {
+                    throw new Exception("LoopAction Read Lens should be greater than 0.");
+                }
+
+                if (!_iOContainer.ReadListInt(device, address, lens, out List<short> ReadValue))
+                {
+                    throw new Exception("LoopAction Read PLC data failed.");
+                }
+                switch(inputValue.ElementUnit)
+                {
+                    case "Bit":
+                        _loopElements = ConvertWordsToBitList(ReadValue);
+                        break;
+                    default:
+                        throw new Exception("LoopAction Read ElementUnit Not Support.");
+                }                
+                return true;
+            }
+            private bool CheckLoopCondition(int elementValue, ExecuteCondition condition)
+            {
+                if (condition == null) return true; // If no condition, always execute
+
+                switch (condition.Type)
+                {
+                    case "Equals":
+                        if (condition.Format == "Int")
+                        {
+                            return elementValue == Convert.ToInt32(condition.Content);
+                        }
+                        break;
+                    // Add more condition types if needed (e.g., "NotEquals", "GreaterThan", etc.)
+                    default:
+                        throw new Exception($"Unsupported ExecuteCondition Type: {condition.Type}");
+                }
+                return false;
+            }
+
+
+            private bool ExecuteLoopActions(List<Model.Action> loopActions)
+            {
+                if (loopActions == null) return false;
+
+                foreach (var loopAction in loopActions)
+                {
+                    if(!ExecuteActionWithLoopContext(loopAction))
+                    {
+                        return false;
+                    }
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Action_Interval); // Action Interval
+                }
+                return true;
+            }            
+            private bool ExecuteActionWithLoopContext(Model.Action action)
+            {
+                Model.Action LocalAction = JsonSerializer.Deserialize<Model.Action>(JsonSerializer.Serialize(action));
+                //We don't want to modify the original action
+                foreach (InputValue inputValue in LocalAction.Inputs.Value)
+                {
+                    if(!ConvertLoopFormatToSTD(inputValue)) throw new Exception("Convert Loop Format Error.");
+                }
+                return ExecuteFactory.GetExeAction(LocalAction.ActionName).Execute(LocalAction); // Execute the action (using existing ExecuteAction logic)
+            }
+            private bool ConvertLoopFormatToSTD(InputValue inputValue)
+            {
+                if (inputValue.Type == "GlobalVariable")
+                    return GlobbalTypeConvert(inputValue);
+                if (inputValue.Type == "Action" && inputValue.ActionName == "Read")
+                    return ReadTypeConvert(inputValue);
+                return false;
+            }
+            private bool GlobbalTypeConvert(InputValue inputValue)
+            {
+                inputValue.Content = ReplaceBindingMaterialToContent(inputValue.Content.ToString());
+                inputValue.Content = ReplaceIndexToContent(inputValue.Content.ToString());
+                //Final Format should be like "Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                return true;
+            }
+            private bool ReadTypeConvert(InputValue inputValue)
+            {
+                inputValue.Address = (Convert.ToInt32(inputValue.Address, 16) + _loopIndex * inputValue.Lens).ToString("X4");
+                return true;
+            }
+            private string ReplaceIndexToContent(string content) => content.Replace("Index", _loopIndex.ToString());
+            private string ReplaceBindingMaterialToContent(string content)
+            {
+                string[] cArray = content.Split('.');
+                if (cArray.Length == 0) return content;
+                string Prefix = cArray[0] + ".";
+                foreach (CarrierStorage cS in _workFlow.CarrierStorage)
+                {
+                    if(cS.Name == cArray[0])
+                    {
+                        content.Replace("BindingMaterial", cS.Material.BindingMaterial);
+                        break;
+                    }
+                }
+                return content.StartsWith(Prefix) ? content.Substring(Prefix.Length) : content;
+            }
+            private List<int> ConvertWordsToBitList(List<short> wordValues)
+            {
+                List<int> bitList = new List<int>();
+                foreach (short word in wordValues)
+                {
+                    for (int i = 0; i < 16; i++) // short is 16 bits
+                    {
+                        bitList.Add(((word >> i) & 1) == 1 ? 1 : 0); // Extract each bit
+                    }
+                }
+                return bitList;
             }
         }
         public class NullExeAction : IExeAction

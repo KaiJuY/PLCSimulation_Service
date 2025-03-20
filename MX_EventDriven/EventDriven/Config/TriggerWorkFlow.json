@@ -502,8 +502,8 @@
 											"Address": "W4D70",
 											"Value": [
 												{
-													"Type": "BindingMaterial",
-													"Content": "WaferList.WaferId"
+													"Type": "GlobalVariable",
+													"Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
 												}
 											]
 										}

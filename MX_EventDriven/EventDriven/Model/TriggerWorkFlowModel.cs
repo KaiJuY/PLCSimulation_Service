@@ -1,52 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text.Json;
 
 namespace EventDriven.Model
 {
-    public class TriggerWorkFlowModel
+    public abstract class aProperty
+    {
+        public bool Contains(string propertyName)
+        {
+            return this.GetType().GetProperty(propertyName) != null;
+        }        
+        public bool TryGet(string propertyName, out object value)
+        {
+            PropertyInfo property = this.GetType().GetProperty(propertyName);
+            if (property != null)
+            {
+                value = property.GetValue(this);
+                return true;
+            }
+            value = null;
+            return false;
+        }
+        public object Get(string propertyName)
+        {
+            PropertyInfo property = this.GetType().GetProperty(propertyName);
+            return property?.GetValue(this) ?? throw new ArgumentException($"Property {propertyName} not found.");
+        }
+        public void Set(string propertyName, object value)
+        {
+            PropertyInfo property = this.GetType().GetProperty(propertyName);
+            if (property == null)
+            {
+                throw new ArgumentException($"Property {propertyName} not found.");
+            }
+            property.SetValue(this, value);
+        }
+    }
+    public class TriggerWorkFlowModel :  aProperty
     {
         public GlobalVariable GlobalVariable { get; set; }
         public List<CarrierStorage> CarrierStorage { get; set; }
         public List<ButtonConfig> Buttons { get; set; }
     }
 
-    public class ButtonConfig
+    public class ButtonConfig : aProperty
     {
         public string ButtonContent { get; set; }
         public List<Action> Actions { get; set; }
     }
-    public class GlobalVariable
+    public class GlobalVariable : aProperty
     {
         public Materials Materials { get; set; }
         public int Monitor_Interval { get; set; }
         public int Action_Interval { get; set; }
 
     }
-    public class Materials
+    public class Materials : aProperty
     {
         public List<CassettleFormat> CassettleFormat { get; set; }
     }
-    public class CarrierStorage
+    public class CarrierStorage : aProperty
     {
         public string Name { get; set; }
         public Material Material { get; set; }
         public Initialize Initialize { get; set; }
         public Trigger Trigger { get; set; }
     }
-    public class Material
+    public class Material : aProperty
     {
         public string BindingMaterial { get; set; } //�qMaterial�����o���S�w��CassettleId
     }
 
-    public class CassettleFormat
+    public class CassettleFormat : aProperty
     {
         public string CassettleId { get; set; }
         public bool ReadResult { get; set; }
         public List<Wafer> WaferList { get; set; }
     }
 
-    public class Wafer
+    public class Wafer : aProperty
     {
         public bool Existed { get; set; }
         public string WaferId { get; set; }
@@ -54,12 +87,12 @@ namespace EventDriven.Model
         public int WorkNumber { get; set; }
     }
 
-    public class Initialize
+    public class Initialize : aProperty
     {
         public List<object> InitialActions { get; set; }
     }
 
-    public class Trigger
+    public class Trigger : aProperty
     {
         public List<TriggerAction> TriggerActions { get; set; }
     }
@@ -67,7 +100,7 @@ namespace EventDriven.Model
     /// TriggerAction: Ĳ�o����s�P�ʧ@
     /// �|�]�tTriggerPoint�PActions�|�զbCondition�ŦX�ɰ���Ҧ�Actions
     /// </summary>
-    public class TriggerAction
+    public class TriggerAction : aProperty
     {
         public string Name { get; set; }
         public TriggerPoint TriggerPoint { get; set; }
@@ -80,7 +113,7 @@ namespace EventDriven.Model
     /// OR: �u�n���@�ӱ���ŦX�NĲ�o
     /// AND: �Ҧ����󳣲ŦX�~Ĳ�o
     /// </summary>
-    public class TriggerPoint
+    public class TriggerPoint : aProperty
     {
         public string Type { get; set; }
         public List<Condition> Conditions { get; set; }
@@ -91,7 +124,7 @@ namespace EventDriven.Model
     /// - Monitor Address���ƭȱq�O���ܬ�ExceptedValue�ɹF��Condition => �A�Ω�Handshake, ���A�ܤƨ�Y�Ӽƭ�
     /// - Change Address���ƭ��ܤƮɹF��Condition�A����ExceptedValue�L�@�� => �A�Ω�Index, Alive
     /// </summary>
-    public class Condition
+    public class Condition : aProperty
     {
         public string Action { get; set; }
         public int ExceptedValue { get; set; }
@@ -105,8 +138,8 @@ namespace EventDriven.Model
     /// Inputs: �ʧ@����J�Ѽ�
     /// Output: �ʧ@����X�ѼƼȮɨS���Ψ�]���S���w�q�S�O�����O
     /// </summary>
-    public class Action
-    {
+    public class Action : aProperty
+    {        
         public string ActionName { get; set; }
         public Inputs Inputs { get; set; }
         public object Output { get; set; }
@@ -117,11 +150,13 @@ namespace EventDriven.Model
     /// Value : �ʧ@���ƭ�
     /// �o��̦@�Τ@�����OInputValue
     /// </summary>
-    public class Inputs
+    public class Inputs : aProperty
     {
         public string Address { get; set; }
         public InputValue[] Value { get; set; }
         public ExecuteCondition ExecuteCondition { get; set; }
+        public List<Action> SubActions { get; set; }
+
     }
     /// <summary>
     /// Type: �ƭȪ����A�������
@@ -135,7 +170,7 @@ namespace EventDriven.Model
     /// �p�G�OAction�h�|��ActionName, Address
     /// ���OActionName: Read, Address: W1000
     /// </summary>
-    public class InputValue
+    public class InputValue : aProperty
     {
         public string Type { get; set; } // "KeyIn", "Global"
         // KeyIn related properties
@@ -168,7 +203,7 @@ namespace EventDriven.Model
             return Type == "Action";
         }
     }
-    public class ExecuteCondition
+    public class ExecuteCondition : aProperty
     {
         public string Type { get; set; } // "Equal"
         public string Format { get; set; } // "Int"
