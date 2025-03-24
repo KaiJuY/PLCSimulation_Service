@@ -1,601 +1,636 @@
 {
-	"GlobalVariable": {
-		"Materials": {
-			"CassettleFormat": [
-				{
-					"CassettleId": "Cassettle1",
-					"ReadResult": true,
-					"WaferList": [
-						{
-							"Existed": true,
-							"WaferId": "Material1",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material2",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material3",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material4",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material5",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material6",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material7",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material8",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material9",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material10",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material11",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material12",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material13",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material14",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material15",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material16",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material17",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material18",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material19",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material20",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material21",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material22",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material23",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material24",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material25",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material26",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material27",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material28",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material29",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material30",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material31",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material32",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material33",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material34",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material35",
-							"ReadResult": true
-						},
-						{
-							"Existed": true,
-							"WaferId": "Material36",
-							"ReadResult": true
-						}
-					]
-				}
-			]
-		},
-		"Action_Interval": 100,
-		"Monitor_Interval": 0
-	},
-	"CarrierStorage":[
-		{
-			"Name": "Port1",
-			"Material": {
-				"BindingMaterial": "Cassettle1"
-			},
-			"Initialize": {
-				"InitialActions": [
+  "GlobalVariable": {
+    "Materials": {
+      "CassettleFormat": [
+        {
+          "CassettleId": "Cassettle1",
+          "ReadResult": true,
+          "WaferList": [
+            {
+              "Existed": true,
+              "WorkNoForULD": 100,
+              "WaferId": "Material1",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 101,
+              "WaferId": "Material2",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 103,
+              "WaferId": "Material3",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 104,
+              "WaferId": "Material4",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 105,
+              "WaferId": "Material5",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 106,
+              "WaferId": "Material6",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 107,
+              "WaferId": "Material7",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 108,
+              "WaferId": "Material8",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 109,
+              "WaferId": "Material9",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 110,
+              "WaferId": "Material10",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 111,
+              "WaferId": "Material11",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 112,
+              "WaferId": "Material12",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 113,
+              "WaferId": "Material13",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 114,
+              "WaferId": "Material14",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 115,
+              "WaferId": "Material15",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 116,
+              "WaferId": "Material16",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 117,
+              "WaferId": "Material17",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 118,
+              "WaferId": "Material18",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 119,
+              "WaferId": "Material19",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 120,
+              "WaferId": "Material20",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 121,
+              "WaferId": "Material21",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 122,
+              "WaferId": "Material22",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 123,
+              "WaferId": "Material23",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 124,
+              "WaferId": "Material24",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 125,
+              "WaferId": "Material25",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 126,
+              "WaferId": "Material26",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 127,
+              "WaferId": "Material27",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 128,
+              "WaferId": "Material28",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 129,
+              "WaferId": "Material29",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 130,
+              "WaferId": "Material30",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 131,
+              "WaferId": "Material31",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 132,
+              "WaferId": "Material32",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 133,
+              "WaferId": "Material33",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 134,
+              "WaferId": "Material34",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 135,
+              "WaferId": "Material35",
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 136
+              "WaferId": "Material36",
+              "ReadResult": true
+            }
+          ]
+        }
+      ]
+    },
+    "Action_Interval": 100,
+    "Monitor_Interval": 0
+  },
+  "CarrierStorage": [
+    {
+      "Name": "Port1",
+      "Material": {
+        "BindingMaterial": "Cassettle1"
+      },
+      "Initialize": {
+        "InitialActions": [
 
-				]
-			},
-			"Trigger": {
-				"TriggerActions": [
-					{
-						"Name": "HS08_ChangeCimMode",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExceptedValue": 1,
-									"Address": "W467F"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4D70",
-									"Value": [
-										{
-											"Type": "Action",
-											"ActionName": "Read",
-											"Address": "W4670",
-											"Lens": 1
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4D80",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 1
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "SecHandShake",
-								"Inputs": {
-									"Address": "W4D8F",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "W467F"
-										}
-									]
-								},
-								"Output": {}
-							}
-						]
-					},
-					{
-						"Name": "HR04QueryRecipeList",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExceptedValue": 1,
-									"Address": "W44AF"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4A60",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 5
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 4
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 3
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 2
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 1
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4AC4",
-									"Value": [
-										{
-											"Type": "Action",
-											"ActionName": "Read",
-											"Address": "W44A0",
-											"Lens": 1
-										},
-										{
-											"Type": "KeyIn",
-											"Format": "Int",
-											"Content": 2
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "SecHandShake",
-								"Inputs": {
-									"Address": "W4ACF",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "W44AF"
-										}
-									]
-								},
-								"Output": {}
-							}
-						]
-					},
-					{
-						"Name": "HR05_ChangeCurrentRecipe",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExceptedValue": 1,
-									"Address": "W44BF"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "SecHandShake",
-								"Inputs": {
-									"Address": "W4ADF",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "W44BF"
-										}
-									]
-								},
-								"Output": {}
-							}
-						]
-					},
-					{
-						"Name": "HS15_ChangeRunMode",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExceptedValue": 1,
-									"Address": "W46BF"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4D72",
-									"Value": [
-										{
-											"Type": "Action",
-											"ActionName": "Read",
-											"Address": "W46B0",
-											"Lens": 1
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "SecHandShake",
-								"Inputs": {
-									"Address": "W4E1F",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "W46BF"
-										}
-									]
-								},
-								"Output": {}
-							}
-						]
-					},
-					{
-						"Name": "HS21_SetECValue",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExceptedValue": 1,
-									"Address": "W46EF"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "Write",
-								"Inputs": {
-									"Address": "W4D78",
-									"Value": [
-										{
-											"Type": "Action",
-											"ActionName": "Read",
-											"Address": "W46E0",
-											"Lens": 3
-										}
-									]
-								},
-								"Output": {}
-							},
-							{
-								"ActionName": "SecHandShake",
-								"Inputs": {
-									"Address": "W4E4F",
-									"Value": [
-										{
-											"Type": "KeyIn",
-											"Format": "String",
-											"Content": "W46EF"
-										}
-									]
-								},
-								"Output": {}
-							}
-						]
-					},
-					{
-						"Name": "TransferProcess",
-						"TriggerPoint": {
-							"Type": "OR",
-							"Conditions": [
-								{
-									"Action": "Monitor",
-									"ExpectedValue": 1,
-									"Address": "W46BF"
-								}
-							]
-						},
-						"Actions": [
-							{
-								"ActionName": "LoopAction",
-								"Inputs": {
-									"Value": [
-										{
-											"Type": "Action",
-											"ActionName": "Read",
-											"Address": "W46E0",
-											"Lens": 3,
-											"ElementUnit": "Bit"
-										}
-									]
-								},
-								"ExecuteCondition": {
-									"Type": "Equals",
-									"Format": "Int",
-									"Content": 1
-								},
-								"SubActions": [
-									{
-										"ActionName": "Write",
-										"Inputs": {
-											"Address": "W4D70",
-											"Value": [
-												{
-													"Type": "GlobalVariable",
-													"Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
-												}
-											]
-										}
-									},
-									{
-										"ActionName": "Write",
-										"Inputs": {
-											"Address": "W4D80",//fixed
-											"Value": [
-												{
-													"Type": "Action",
-													"ActionName": "Read",
-													"Address": "W46E0",//auto shift that mean address will calculate by the loop index W46E0 + 3*index Hex, other wise can use KeyIn
-													"Lens": 3
-												}
-											]
-										}
-									},
-									{
-										"ActionName": "SecHandShake",
-										"Inputs": {
-											"Address": "W4D8F",
-											"Value": [
-												{
-													"Type": "KeyIn",
-													"Format": "String",
-													"Content": "W467F"
-												}
-											]
-										}
-									}
-								]
-							}
-						]
-					}
-				]
-			}
-		}
-	],
-	"Buttons":[
-		{
-			"ButtonContent": "PortInit",
-			"Actions": [
-				{
-					"ActionName": "Write",
-					"Inputs": {
-						"Address": "W4AC4",
-						"Value": [
-							{
-								"Type": "KeyIn",
-								"Format": "Int",
-								"Content": 2
-							}
-						]
-					},
-					"Output": {}
-				}
-			]
-		},
-		{
-			"ButtonContent": "W1000Test",
-			"Actions": [
-				{
-					"ActionName": "Write",
-					"Inputs": {
-						"Address": "W1000",
-						"Value": [
-							{
-								"Type": "KeyIn",
-								"Format": "Int",
-								"Content": 999
-							}
-						]
-					},
-					"Output": {}
-				},
-				{
-					"ActionName": "Write",
-					"Inputs": {
-						"Address": "W1002",
-						"Value": [
-							{
-								"Type": "KeyIn",
-								"Format": "String",
-								"Content": "AB"
-							}
-						]
-					},
-					"Output": {}
-				}
-			]
-		}
-	]
+        ]
+      },
+      "Trigger": {
+        "TriggerActions": [
+          {
+            "Name": "HS08_ChangeCimMode",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W467F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D70",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W4670",
+                      "Lens": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D80",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4D8F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W467F"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HR04QueryRecipeList",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W44AF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4A60",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 5
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 4
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4AC4",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W44A0",
+                      "Lens": 1
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4ACF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W44AF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HR05_ChangeCurrentRecipe",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W44BF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4ADF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W44BF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HS15_ChangeRunMode",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W46BF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D72",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W46B0",
+                      "Lens": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4E1F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W46BF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HS21_SetECValue",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W46EF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D78",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W46E0",
+                      "Lens": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4E4F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W46EF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "TransferProcess",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExpectedValue": 1,
+                  "Address": "W46BF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "LoopAction",
+                "Inputs": {
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W46E0",
+                      "Lens": 3,
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                },
+                "ExecuteCondition": {
+                  "Type": "Equals",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                "SubActions": [
+                  {
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4D70",
+                      "Value": [
+                        {
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4D80", //fixed
+                      "Value": [
+                        {
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W46E0", //auto shift that mean address will calculate by the loop index W46E0 + 3*index Hex, other wise can use KeyIn
+                          "Lens": 3
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "ActionName": "SecHandShake",
+                    "Inputs": {
+                      "Address": "W4D8F",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "String",
+                          "Content": "W467F"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Buttons": [
+    {
+      "ButtonContent": "PortInit",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4AC4",
+            "Value": [
+              {
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "W1000Test",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1000",
+            "Value": [
+              {
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 999
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1002",
+            "Value": [
+              {
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "AB"
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    }
+  ]
 }
-	

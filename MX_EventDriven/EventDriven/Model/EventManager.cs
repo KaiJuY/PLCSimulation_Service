@@ -10,6 +10,7 @@ using IoModule.MitControlModule;
 using System.Linq;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
+using System.Windows.Documents;
 
 namespace EventDriven.Services
 {
@@ -272,7 +273,8 @@ namespace EventDriven.Services
                             _iOContainer.ReadListInt(device, address, input.Lens, out vals);
                             break;
                         case "GlobalVariable":
-                            //todo
+                            object output = GetGlobalVariable(input.Content.ToString(), out Type type);
+                            vals = DecodeContent(output, type.Name);
                             break;
                         default:
                             throw new Exception("Type Not Support.");
@@ -295,6 +297,46 @@ namespace EventDriven.Services
                     default:
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
+            }
+            private object GetGlobalVariable(string content, out Type type)
+            {
+                string[] cArray = content.Split('.');
+                object result = _workFlow.GlobalVariable;
+                type = null;
+                for (int i = 0; i < cArray.Length; i++)
+                {
+                    if(result == null) throw new Exception("Global Variable Not Exist.");
+
+                    if(result is List<CassettleFormat> cassettleList) //for CassettleList
+                    {
+                        CassettleFormat cassettle = cassettleList.FirstOrDefault(c => c.CassettleId == cArray[i]);
+                        if (cassettle == null)
+                            throw new Exception($"Cassettle with ID 'Cassettle1' not found.");
+
+                        result = cassettle;
+                        type = result.GetType();
+                    }
+                    else if(result is List<Wafer> waferList && int.TryParse(cArray[i], out int index)) //for WaferList
+                    {
+                        if (index < 0 || index >= waferList.Count)
+                            throw new Exception($"Index {index} out of range for list with {waferList.Count} items.");
+                        result = waferList[index];
+                        type = result?.GetType();
+                    }
+                    else if(result is aProperty propertyObj) //normal case
+                    {
+                        if (!propertyObj.TryGet(cArray[i], out result, out type))
+                        { 
+                            
+                            throw new Exception($"Current key {cArray[i]} can't found from GV.");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception($"Current key {cArray[i]} not aProperty.");
+                    }
+                }
+                return result;
             }
         }
         public class ExecuteSecHandshake : IExeAction
@@ -381,9 +423,50 @@ namespace EventDriven.Services
                 }
                 return true;
             }
+            /// <summary>
+            /// Support Action Read and KeyIn for now
+            /// </summary>
+            /// <param name="inputValue"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
             private bool CheckInputValue(InputValue inputValue)
             {                
-                //Only support Read Action for now
+                switch(inputValue.Type)
+                {
+                    case "Action":
+                        return FillElementValueForAction(inputValue);
+                    case "KeyIn":
+                        return FillElementValueForKeyIn(inputValue);
+                    default:
+                        throw new Exception("LoopAction Input Value Type Not Support.");
+                }
+            }
+            private bool CheckLoopCondition(int elementValue, ExecuteCondition condition)
+            {
+                if (condition == null) return true; // If no condition, always execute
+
+                switch (condition.Type)
+                {
+                    case "Equals":
+                        if (condition.Format == "Int")
+                        {
+                            return elementValue == Convert.ToInt32(condition.Content);
+                        }
+                        break;
+                    // Add more condition types if needed (e.g., "NotEquals", "GreaterThan", etc.)
+                    default:
+                        throw new Exception($"Unsupported ExecuteCondition Type: {condition.Type}");
+                }
+                return false;
+            }
+            ///<summary>
+            /// Only support Read Action for now
+            /// </summary>
+            /// <param name="inputValue">Pass in Argument from JSON</param>
+            /// <returns>Execute success or not</returns>
+            /// <exception cref="Exception">Not support Argument or execute failed.</exception>
+            private bool FillElementValueForAction(InputValue inputValue)
+            {                
                 if (inputValue.Type != "Action" || inputValue.ActionName != "Read")
                 {
                     throw new Exception("LoopAction Input Value should be an Action of type Read.");
@@ -404,36 +487,59 @@ namespace EventDriven.Services
                 {
                     throw new Exception("LoopAction Read PLC data failed.");
                 }
-                switch(inputValue.ElementUnit)
+                switch (inputValue.ElementUnit)
                 {
                     case "Bit":
                         _loopElements = ConvertWordsToBitList(ReadValue);
                         break;
+                    case "Word":
+                        _loopElements = ReadValue.SelectMany(v => BitConverter.GetBytes(v)).Select(b => (int)b).ToList();
+                        break;
                     default:
                         throw new Exception("LoopAction Read ElementUnit Not Support.");
-                }                
+                }
                 return true;
             }
-            private bool CheckLoopCondition(int elementValue, ExecuteCondition condition)
+            /// <summary>
+            /// Fill loop elements from KeyIn content and only support IntList format
+            /// </summary>
+            /// <param name="inputValue"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
+            private bool FillElementValueForKeyIn(InputValue inputValue)
             {
-                if (condition == null) return true; // If no condition, always execute
-
-                switch (condition.Type)
+                if (inputValue.Type != "KeyIn")
                 {
-                    case "Equals":
-                        if (condition.Format == "Int")
-                        {
-                            return elementValue == Convert.ToInt32(condition.Content);
-                        }
-                        break;
-                    // Add more condition types if needed (e.g., "NotEquals", "GreaterThan", etc.)
-                    default:
-                        throw new Exception($"Unsupported ExecuteCondition Type: {condition.Type}");
+                    throw new Exception("LoopAction Input Value should be KeyIn.");
                 }
-                return false;
+                if (inputValue.Format != "IntList")
+                {
+                    throw new Exception("LoopAction KeyIn Format should be Int.");
+                }
+                if (inputValue.Content == null)
+                {
+                    throw new Exception("LoopAction KeyIn Content should not be null.");
+                }
+                //have to check the content is int array or not
+                if (!(inputValue.Content is JsonElement jsonElement))
+                {
+                    throw new Exception("LoopAction KeyIn Content should be an array.");
+                }
+                if (jsonElement.ValueKind != JsonValueKind.Array)
+                {
+                    throw new Exception("LoopAction KeyIn Content should be an array.");
+                }
+                _loopElements = new List<int>();
+                foreach (var element in jsonElement.EnumerateArray())
+                {
+                    if (element.ValueKind != JsonValueKind.Number)
+                    {
+                        throw new Exception("LoopAction KeyIn Content should be an array of numbers.");
+                    }
+                    _loopElements.Add(element.GetInt32());
+                }              
+                return true;
             }
-
-
             private bool ExecuteLoopActions(List<Model.Action> loopActions)
             {
                 if (loopActions == null) return false;

@@ -11,9 +11,10 @@ namespace EventDriven.Model
         {
             return this.GetType().GetProperty(propertyName) != null;
         }        
-        public bool TryGet(string propertyName, out object value)
+        public bool TryGet(string propertyName, out object value, out Type perpertyType)
         {
             PropertyInfo property = this.GetType().GetProperty(propertyName);
+            perpertyType = property.PropertyType;
             if (property != null)
             {
                 value = property.GetValue(this);
@@ -22,9 +23,10 @@ namespace EventDriven.Model
             value = null;
             return false;
         }
-        public object Get(string propertyName)
+        public object Get(string propertyName, out Type perpertyType)
         {
             PropertyInfo property = this.GetType().GetProperty(propertyName);
+            perpertyType = property.PropertyType;
             return property?.GetValue(this) ?? throw new ArgumentException($"Property {propertyName} not found.");
         }
         public void Set(string propertyName, object value)
