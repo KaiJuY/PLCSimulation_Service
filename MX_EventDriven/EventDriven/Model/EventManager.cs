@@ -271,7 +271,8 @@ namespace EventDriven.Services
                             break;
                         case "GlobalVariable":
                             object output = GetGlobalVariable(input.Content.ToString(), out Type type);
-                            vals = DecodeContent(output, type.Name);
+                            string formatName = type == typeof(List<int>) ? "IntList" : type.Name;
+                            vals = DecodeContent(output, formatName);
                             break;
                         default:
                             throw new Exception("Type Not Support.");
@@ -291,12 +292,14 @@ namespace EventDriven.Services
                         return MitUtility.getInstance().StringToASCII(content.ToString());
                     case "int":
                         //repeat content for lens times
-                        return Enumerable.Repeat(Convert.ToInt16(content.ToString()), Math.Max(1, lens)).ToList();                        
+                        return Enumerable.Repeat(Convert.ToInt16(content.ToString()), Math.Max(1, lens)).ToList();    
+                    case "intlist":
+                        return ((List<int>)content).Select(i => Convert.ToInt16(i)).ToList();
                     default:
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
             }
-            private object GetGlobalVariable(string content, out Type type)
+            private object GetGlobalVariable(string content, out Type type, string elementUnit = "")
             {
                 content = GlobalVariableHandler.ReplaceBindingMaterialToContent(_workFlow, content);
                 string[] cArray = content.Split('.');
@@ -304,9 +307,9 @@ namespace EventDriven.Services
                 type = null;
                 for (int i = 0; i < cArray.Length; i++)
                 {
-                    if(result == null) throw new Exception("Global Variable Not Exist.");
+                    if (result == null) throw new Exception("Global Variable Not Exist.");
 
-                    if(result is List<CassettleFormat> cassettleList) //for CassettleList
+                    if (result is List<CassettleFormat> cassettleList) //for CassettleList
                     {
                         CassettleFormat cassettle = cassettleList.FirstOrDefault(c => c.CassettleId == cArray[i]);
                         if (cassettle == null)
@@ -315,27 +318,77 @@ namespace EventDriven.Services
                         result = cassettle;
                         type = result.GetType();
                     }
-                    else if(result is List<Wafer> waferList && int.TryParse(cArray[i], out int index)) //for WaferList
+                    else if (result is List<Wafer> waferList) //for WaferList
                     {
-                        if (index < 0 || index >= waferList.Count)
-                            throw new Exception($"Index {index} out of range for list with {waferList.Count} items.");
-                        result = waferList[index];
-                        type = result?.GetType();
-                    }
-                    else if(result is aProperty propertyObj) //normal case
-                    {
-                        if (!propertyObj.TryGet(cArray[i], out result, out type))
-                        { 
-                            
-                            throw new Exception($"Current key {cArray[i]} can't found from GV.");
+                        if (int.TryParse(cArray[i], out int index))
+                        {
+                            if (index < 0 || index >= waferList.Count)
+                                throw new Exception($"Index {index} out of range for list with {waferList.Count} items.");
+                            result = waferList[index];
+                            type = result?.GetType();
                         }
-                    }
-                    else
-                    {
-                        throw new Exception($"Current key {cArray[i]} not aProperty.");
+                        else if (cArray[i] == "All")
+                        {
+                            if (cArray.Length - 1 <= i)
+                                throw new Exception($"Current key {cArray[i]} must have property.");
+                            List<object> resultList = new List<object>();
+                            foreach (Wafer wafer in waferList)
+                            {
+                                if (!wafer.TryGet(cArray[i + 1], out result, out type))
+                                {
+                                    throw new Exception($"Current key {cArray[i]} can't found from GV.");
+                                }
+
+                                if (elementUnit == "Bit")
+                                {
+                                    // If the result is a bool, add it to the list
+                                    if (result is bool boolResult)
+                                    {
+                                        resultList.Add(boolResult);
+                                    }
+                                }
+                                else
+                                {
+                                    throw new Exception($"In All {elementUnit} Not Support.");
+                                }
+                            }
+                            result = ConvertBoolListToInteger(resultList.Cast<bool>().ToList());                            
+                        }
+                        else if (result is aProperty propertyObj) //normal case
+                        {
+                            if (!propertyObj.TryGet(cArray[i], out result, out type))
+                            {
+
+                                throw new Exception($"Current key {cArray[i]} can't found from GV.");
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception($"Current key {cArray[i]} not aProperty.");
+                        }
                     }
                 }
                 return result;
+            }
+            private List<object> ConvertBoolListToInteger(List<bool> boolList)
+            {
+                if (boolList == null || boolList.Count == 0)
+                {
+                    throw new ArgumentException("Input boolean list cannot be null or empty.");
+                }                
+                List<object> resultList = new List<object>();
+                int result = 0;
+                for (int i = 0; i < boolList.Count; i++)
+                {
+                    byte shift = (byte)(i % 16); //A Word is 16 bits
+                    result = (result << shift) | (boolList[i] ? 1 : 0);
+                    if(shift == 15 || i == boolList.Count - 1)
+                    {
+                        resultList.Add(result);//Add the converted integer at last bit of the word
+                        result = 0;
+                    }
+                }
+                return resultList;
             }
         }
         public class ExecuteSecHandshake : IExeAction

@@ -1816,6 +1816,90 @@
                 "Output": {}
               }
             ]
+          },
+          {
+            "Name": "Port1_LoadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 9,
+                  "Address": "W110B"
+                },
+                
+                {
+                  "Comment":"LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment":"PRES",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [              
+              {                
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EEE",
+                  "Value": [
+                    {
+                      "Comment":"FillTheSlotData",
+                      "Type": "GlobalVariable",
+                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment":"MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }              
+            ]
           }
         ]
       }
