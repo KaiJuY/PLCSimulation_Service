@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using IOControlModule;
 using IOControlModule.MitControlModule;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
 namespace EventDriven.Model
 {
     public  class IOContainer
@@ -35,14 +36,41 @@ namespace EventDriven.Model
             value = 0;
             return _mitControlModule.ReadDataFromPLC(device, address, out value);
         }
+        public bool ReadListInt(string basedevice, string baseaddress, int count, out List<Int16> values)
+        {
+            values = new List<Int16>();
+
+            for (int i = 0; i < count; i++)
+            {
+                if (!ReadInt(basedevice, baseaddress, out short value)) return false;
+                values.Add(value);
+                baseaddress = (Convert.ToInt32(baseaddress, 16) + 1).ToString("X4");
+            }
+            return true;
+        }
+
+        /* Broken function
         public bool ReadListInt(string device, string address, int count, out List<short> values)
         {
             values = new List<short>();
+
             return _mitControlModule.ReadDataFromPLC(device, address, count, out values);
         }
+        */
         public bool WriteInt(string device, string address, short value) => _mitControlModule.WriteDataToPLC(device, address, value);
+        public bool WriteListInt(string basedevice, string baseaddress, List<Int16> values)
+        {
+            foreach (var val in values)
+            {
+                if (!WriteInt(basedevice, baseaddress, val)) return false;
+                baseaddress = (Convert.ToInt32(baseaddress, 16) + 1).ToString("X4");
+            }
+            return true;
+        }
+        /* Broken function
         public bool WriteListInt(string device, string address, List<short> values) => _mitControlModule.WriteDataToPLC(device, address, values);
         public bool WriteListInt(List<string> device, List<string> address, List<short> values) => _mitControlModule.WriteDataToPLC(device, address, values);
+        */
         public bool WriteString(string device, string address, string value) => _mitControlModule.WriteDataToPLC(device, address, value);
         public bool PrimaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => _mitControlModule.PrimaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);
         public bool SecondaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => _mitControlModule.SecondaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);

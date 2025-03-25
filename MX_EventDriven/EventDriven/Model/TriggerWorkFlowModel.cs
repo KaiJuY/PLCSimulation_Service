@@ -56,6 +56,7 @@ namespace EventDriven.Model
         public Materials Materials { get; set; }
         public int Monitor_Interval { get; set; }
         public int Action_Interval { get; set; }
+        public int Hold_Time { get; set; }
 
     }
     public class Materials : aProperty
@@ -91,7 +92,7 @@ namespace EventDriven.Model
 
     public class Initialize : aProperty
     {
-        public List<object> InitialActions { get; set; }
+        public List<Action> InitialActions { get; set; }
     }
 
     public class Trigger : aProperty
@@ -145,6 +146,8 @@ namespace EventDriven.Model
         public string ActionName { get; set; }
         public Inputs Inputs { get; set; }
         public object Output { get; set; }
+        public ExecuteCondition ExecuteCondition { get; set; }
+        public List<Action> SubActions { get; set; }
     }
     /// <summary>
     /// Inputs: �ʧ@����J�Ѽ�
@@ -156,9 +159,6 @@ namespace EventDriven.Model
     {
         public string Address { get; set; }
         public InputValue[] Value { get; set; }
-        public ExecuteCondition ExecuteCondition { get; set; }
-        public List<Action> SubActions { get; set; }
-
     }
     /// <summary>
     /// Type: �ƭȪ����A�������
@@ -209,6 +209,25 @@ namespace EventDriven.Model
     {
         public string Type { get; set; } // "Equal"
         public string Format { get; set; } // "Int"
-        public object Content { get; set; } //1
+        public int Content { get; set; } //1
+    }
+    public class GlobalVariableHandler
+    {
+        public static string ReplaceIndexToContent(string content, int index) => content.Replace("Index", index.ToString());
+        public static string ReplaceBindingMaterialToContent(TriggerWorkFlowModel workflow, string content)
+        {
+            string[] cArray = content.Split('.');
+            if (cArray.Length == 0) return content;
+            string Prefix = cArray[0] + ".";
+            foreach (CarrierStorage cS in workflow.CarrierStorage)
+            {
+                if (cS.Name == cArray[0])
+                {
+                    content = content.Replace("BindingMaterial", cS.Material.BindingMaterial);
+                    break;
+                }
+            }
+            return content.StartsWith(Prefix) ? content.Substring(Prefix.Length) : content;
+        }
     }
 }

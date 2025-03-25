@@ -67,7 +67,7 @@ namespace EventDriven.Services
                 return false;
             }
         }
-
+        public void DoInitialActions() => _workFlow.CarrierStorage.ForEach(Cs => ExecuteActions(Cs.Initialize.InitialActions));
         public void RegisterEvents()
         {
             foreach (var Cs in _workFlow.CarrierStorage)
@@ -225,6 +225,8 @@ namespace EventDriven.Services
                         return new ExecuteIndex();
                     case "LoopAction":
                         return new ExecuteLoopAction();
+                    case "Hold":
+                        return new ExecuteHold();
                     default:
                         return new NullExeAction();
                 }
@@ -240,12 +242,7 @@ namespace EventDriven.Services
             {
                 List<Int16> value = new List<Int16>(GetContent(action.Inputs.Value));
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string device, out string addr)) throw new Exception("Address Format Error.");
-                foreach (var val in value)
-                {
-                    if (!_iOContainer.WriteInt(device, addr, val)) return false;
-                    addr = (Convert.ToInt32(addr, 16) + 1).ToString("X4");
-                }
-                return true;
+                return _iOContainer.WriteListInt(device, addr, value);                
                 //return _iOContainer.WriteListInt(device, addr, value); //理論上這個效率比較好但不知道為什麼有異常
             }
             /// <summary>
@@ -265,7 +262,7 @@ namespace EventDriven.Services
                     switch (input.Type)
                     {
                         case "KeyIn":
-                            vals = DecodeContent(input.Content, input.Format);
+                            vals = DecodeContent(input.Content, input.Format, input.Lens);                            
                             break;
                         case "Action":
                             if (input.ActionName != "Read") throw new Exception("Action Not Support.");
@@ -286,20 +283,22 @@ namespace EventDriven.Services
                 if (!content.Any()) throw new Exception("Content Not Exist.");
                 return content;
             }
-            private List<short> DecodeContent(object content, string format)
+            private List<short> DecodeContent(object content, string format, int lens = 0)
             {
                 switch (format.ToLower())
                 {
                     case "string":
                         return MitUtility.getInstance().StringToASCII(content.ToString());
                     case "int":
-                        return new List<short>() { Convert.ToInt16(content.ToString()) };
+                        //repeat content for lens times
+                        return Enumerable.Repeat(Convert.ToInt16(content.ToString()), Math.Max(1, lens)).ToList();                        
                     default:
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
             }
             private object GetGlobalVariable(string content, out Type type)
             {
+                content = GlobalVariableHandler.ReplaceBindingMaterialToContent(_workFlow, content);
                 string[] cArray = content.Split('.');
                 object result = _workFlow.GlobalVariable;
                 type = null;
@@ -399,7 +398,15 @@ namespace EventDriven.Services
                 if(!_iOContainer.ReadInt(Sdevice, Saddr, out short value)) throw new Exception("Read Fail.");
                 return _iOContainer.WriteInt(Sdevice, Saddr, ++value);
             }
-        }        
+        }
+        public class ExecuteHold : IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time);
+                return true;
+            }
+        }
         public class ExecuteLoopAction : IExeAction
         {
             private List<int> _loopElements; // Store loop elements (bits)
@@ -410,12 +417,12 @@ namespace EventDriven.Services
                 if (action.Inputs.Value == null || action.Inputs.Value.Length != 1) return false; // Only support one InputValue for LoopAction
                 InputValue inputValue = action.Inputs.Value[0];
                 if (!CheckInputValue(action.Inputs.Value[0])) return false;
-                // Loop through each element and execute LoopActions if condition is met
+                // Loop through each element and execute LoopActions if condition is me
                 for (_loopIndex = 0; _loopIndex < _loopElements.Count; _loopIndex++)
                 {
-                    if (CheckLoopCondition(_loopElements[_loopIndex], action.Inputs.ExecuteCondition)) // Check condition for current element
+                    if (CheckLoopCondition(_loopElements[_loopIndex], action.ExecuteCondition)) // Check condition for current element
                     {
-                        if(!ExecuteLoopActions(action.Inputs.SubActions))
+                        if(!ExecuteLoopActions(action.SubActions))
                         {
                             return false;
                         }
@@ -574,32 +581,16 @@ namespace EventDriven.Services
             }
             private bool GlobbalTypeConvert(InputValue inputValue)
             {
-                inputValue.Content = ReplaceBindingMaterialToContent(inputValue.Content.ToString());
-                inputValue.Content = ReplaceIndexToContent(inputValue.Content.ToString());
-                //Final Format should be like "Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                inputValue.Content = GlobalVariableHandler.ReplaceIndexToContent(inputValue.Content.ToString(), _loopIndex);                
                 return true;
             }
             private bool ReadTypeConvert(InputValue inputValue)
             {
-                inputValue.Address = (Convert.ToInt32(inputValue.Address, 16) + _loopIndex * inputValue.Lens).ToString("X4");
+                if (!StringValidator.SplitAndValidateString(inputValue.Address, out string DeviceName, out string Address)) return false;
+                inputValue.Address = DeviceName + (Convert.ToInt32(Address, 16) + _loopIndex * inputValue.Lens).ToString("X4");
                 return true;
             }
-            private string ReplaceIndexToContent(string content) => content.Replace("Index", _loopIndex.ToString());
-            private string ReplaceBindingMaterialToContent(string content)
-            {
-                string[] cArray = content.Split('.');
-                if (cArray.Length == 0) return content;
-                string Prefix = cArray[0] + ".";
-                foreach (CarrierStorage cS in _workFlow.CarrierStorage)
-                {
-                    if(cS.Name == cArray[0])
-                    {
-                        content.Replace("BindingMaterial", cS.Material.BindingMaterial);
-                        break;
-                    }
-                }
-                return content.StartsWith(Prefix) ? content.Substring(Prefix.Length) : content;
-            }
+            
             private List<int> ConvertWordsToBitList(List<short> wordValues)
             {
                 List<int> bitList = new List<int>();

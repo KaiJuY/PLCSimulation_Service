@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
@@ -86,7 +86,7 @@ namespace EventDriven.ViewModel
                 {
                     _cpuType = value;
                     IpAddress = _cpuType == "QCPU" ? "192.168.31.100" : "127.0.0.1";
-                    OnPropertyChanged();                    
+                    OnPropertyChanged();
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace EventDriven.ViewModel
                 if (_ipAddress != value)
                 {
                     _ipAddress = value;
-                    OnPropertyChanged();                    
+                    OnPropertyChanged();
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace EventDriven.ViewModel
                 if (_port != value)
                 {
                     _port = value;
-                    OnPropertyChanged();                    
+                    OnPropertyChanged();
                 }
             }
         }
@@ -195,9 +195,9 @@ namespace EventDriven.ViewModel
                         };
 
                         _mainwindow.buttonPanel.Children.Add(button);
-        }
-    }
-}
+                    }
+                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading buttons: {ex.Message}");
@@ -217,12 +217,13 @@ namespace EventDriven.ViewModel
         /// 紅色代表Unregister或是失敗
         /// </summary>
         /// <param name="isOn"></param>
-        private void SignalChange(bool isOn) => _mainwindow.flowSignal.Fill = isOn ? Brushes.Green : Brushes.Red;
+        public void SignalChange(bool isOn) => _mainwindow.flowSignal.Fill = isOn ? Brushes.Green : Brushes.Red;
         private bool StartFromEventManager()
         {
             if (!_eventManager.LinkToPLC()) return false;
-            if(_eventManager.IsMonitoring) return false;
-            if(!_eventManager.LoadWorkFlow()) return false;
+            if (_eventManager.IsMonitoring) return false;
+            if (!_eventManager.LoadWorkFlow()) return false;
+            _eventManager.DoInitialActions();
             _eventManager.RegisterEvents();
             Thread thread = new Thread(RunMonitor);
             thread.Start();
@@ -237,5 +238,5 @@ namespace EventDriven.ViewModel
         {
             _eventManager.Monitor();
         }
-    }      
+    }
 }
