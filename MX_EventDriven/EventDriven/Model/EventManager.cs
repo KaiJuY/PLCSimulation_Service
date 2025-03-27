@@ -562,7 +562,7 @@ namespace EventDriven.Services
                         }
                     }
                 }
-                return true;
+                return ExecutePostActions(action.PostActions);
             }
             /// <summary>
             /// Support Action Read and KeyIn for now
@@ -694,23 +694,41 @@ namespace EventDriven.Services
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Action_Interval); // Action Interval
                 }
                 return true;
-            }            
+            }
+            private bool ExecutePostActions(List<Model.Action> postActions)
+            {
+                if (postActions == null) return false;
+
+                foreach (var Action in postActions)
+                {
+                    if (!ExecuteFactory.GetExeAction(Action.ActionName).Execute(Action))
+                    {
+                        return false;
+                    }
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Action_Interval); // Action Interval
+                }
+                return true;
+            }
             private bool ExecuteActionWithLoopContext(Model.Action action)
             {
                 Model.Action LocalAction = JsonSerializer.Deserialize<Model.Action>(JsonSerializer.Serialize(action));
-                //We don't want to modify the original action
+                if(LocalAction.ActionName == "PriHandShake") throw new Exception("LoopAction Not Support HandShake.");
+                int ShiftMutiValueInOneAction = 0;
                 foreach (InputValue inputValue in LocalAction.Inputs.Value)
                 {
-                    if(!ConvertLoopFormatToSTD(inputValue)) throw new Exception("Convert Loop Format Error.");
+                    if(!ConvertLoopFormatToSTD(inputValue, ShiftMutiValueInOneAction)) throw new Exception("Convert Loop Format Error.");
+                    ShiftMutiValueInOneAction += inputValue.Lens;
                 }
                 return ExecuteFactory.GetExeAction(LocalAction.ActionName).Execute(LocalAction); // Execute the action (using existing ExecuteAction logic)
             }
-            private bool ConvertLoopFormatToSTD(InputValue inputValue)
+            private bool ConvertLoopFormatToSTD(InputValue inputValue, int shiftMutiValInOneAct)
             {
                 if (inputValue.Type == "GlobalVariable")
                     return GlobbalTypeConvert(inputValue);
                 if (inputValue.Type == "Action" && inputValue.ActionName == "Read")
-                    return ReadTypeConvert(inputValue);
+                    return ReadTypeConvert(inputValue, shiftMutiValInOneAct);
+                if(inputValue.Type == "KeyIn" && inputValue.Format == "Int") //Current only support Int because if using other type shift will be wrong
+                    return true;
                 return false;
             }
             private bool GlobbalTypeConvert(InputValue inputValue)
@@ -718,10 +736,10 @@ namespace EventDriven.Services
                 inputValue.Content = GlobalVariableHandler.ReplaceIndexToContent(inputValue.Content.ToString(), _loopIndex);                
                 return true;
             }
-            private bool ReadTypeConvert(InputValue inputValue)
+            private bool ReadTypeConvert(InputValue inputValue, int shiftMutiValInOneAct)
             {
                 if (!StringValidator.SplitAndValidateString(inputValue.Address, out string DeviceName, out string Address)) return false;
-                inputValue.Address = DeviceName + (Convert.ToInt32(Address, 16) + _loopIndex * inputValue.Lens).ToString("X4");
+                if(inputValue.Floating) inputValue.Address = DeviceName + (Convert.ToInt32(Address, 16) + shiftMutiValInOneAct + _loopIndex * inputValue.Lens).ToString("X4");                
                 return true;
             }
             

@@ -88,6 +88,7 @@ namespace EventDriven.Model
         public string WaferId { get; set; }
         public bool ReadResult { get; set; }
         public int WorkNumber { get; set; }
+        public int SlotNo { get; set; }
     }
 
     public class Initialize : aProperty
@@ -148,6 +149,7 @@ namespace EventDriven.Model
         public object Output { get; set; }
         public ExecuteCondition ExecuteCondition { get; set; }
         public List<Action> SubActions { get; set; }
+        public List<Action> PostActions { get; set; }
     }
     /// <summary>
     /// Inputs: �ʧ@����J�Ѽ�
@@ -183,6 +185,10 @@ namespace EventDriven.Model
         public string Address { get; set; } // "W1000"
         public int Lens { get; set; } // 1
         public string ElementUnit { get; set; } //"Bit", "Word"
+        /// <summary>
+        /// Only for loop Read use
+        /// </summary>
+        public bool Floating { get; set; }
         // Custom serialization logic depending on Type
         public bool ShouldSerializeFormat()
         {
