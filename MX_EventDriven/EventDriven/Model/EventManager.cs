@@ -221,6 +221,8 @@ namespace EventDriven.Services
                         return new ExecuteWrite();
                     case "SecHandShake":
                         return new ExecuteSecHandshake();
+                    case "PriHandShake":
+                        return new ExecutePriHandshake();
                     case "Index":
                         return new ExecuteIndex();
                     case "LoopAction":
@@ -268,10 +270,12 @@ namespace EventDriven.Services
                             if (input.ActionName != "Read") throw new Exception("Action Not Support.");
                             if (!StringValidator.SplitAndValidateString(input.Address, out string device, out string address)) throw new Exception("Address Format Error.");
                             _iOContainer.ReadListInt(device, address, input.Lens, out vals);
+                            if(input.ElementUnit == "Bit") vals = ConvertIntegerToBitList(vals).Select(b => b > 0 ? (short)1 : (short)0).ToList();
                             break;
                         case "GlobalVariable":
-                            object output = GetGlobalVariable(input.Content.ToString(), out Type type);
-                            string formatName = type == typeof(List<int>) ? "IntList" : type.Name;
+                            object output = GetGlobalVariable(input.Content.ToString(), out Type type, input.ElementUnit);
+                            string formatName = string.Empty;
+                            if (type != null) formatName = type == typeof(List<int>) ? "IntList" : type.Name;
                             vals = DecodeContent(output, formatName);
                             break;
                         default:
@@ -294,7 +298,7 @@ namespace EventDriven.Services
                         //repeat content for lens times
                         return Enumerable.Repeat(Convert.ToInt16(content.ToString()), Math.Max(1, lens)).ToList();    
                     case "intlist":
-                        return ((List<int>)content).Select(i => Convert.ToInt16(i)).ToList();
+                        return ((List<int>)content).Select(i => i > short.MaxValue ? (short)(i - 65536) : (short)i).ToList();
                     default:
                         throw new InvalidOperationException("Unsupported format: " + format);
                 }
@@ -352,36 +356,44 @@ namespace EventDriven.Services
                                     throw new Exception($"In All {elementUnit} Not Support.");
                                 }
                             }
-                            result = ConvertBoolListToInteger(resultList.Cast<bool>().ToList());                            
+                            result = ConvertBoolListToInteger(resultList.Cast<bool>().ToList());
+                            type = result?.GetType();                            
+                            return result; //got result here not aProperty object
                         }
-                        else if (result is aProperty propertyObj) //normal case
+                    }
+                    else if (result is aProperty propertyObj) //normal case
+                    {
+                        if (!propertyObj.TryGet(cArray[i], out result, out type))
                         {
-                            if (!propertyObj.TryGet(cArray[i], out result, out type))
-                            {
-
-                                throw new Exception($"Current key {cArray[i]} can't found from GV.");
-                            }
+                            throw new Exception($"Current key {cArray[i]} can't found from GV.");
                         }
-                        else
-                        {
-                            throw new Exception($"Current key {cArray[i]} not aProperty.");
-                        }
+                    }
+                    else
+                    {
+                        throw new Exception($"Current key {cArray[i]} not aProperty.");
                     }
                 }
                 return result;
             }
-            private List<object> ConvertBoolListToInteger(List<bool> boolList)
+            /// <summary>
+            /// Boolean list to integer list, make 16 bits as a word
+            /// 1011 => 11
+            /// </summary>
+            /// <param name="boolList"></param>
+            /// <returns></returns>
+            /// <exception cref="ArgumentException"></exception>
+            private List<int> ConvertBoolListToInteger(List<bool> boolList)
             {
                 if (boolList == null || boolList.Count == 0)
                 {
                     throw new ArgumentException("Input boolean list cannot be null or empty.");
                 }                
-                List<object> resultList = new List<object>();
+                List<int> resultList = new List<int>();
                 int result = 0;
                 for (int i = 0; i < boolList.Count; i++)
                 {
                     byte shift = (byte)(i % 16); //A Word is 16 bits
-                    result = (result << shift) | (boolList[i] ? 1 : 0);
+                    result = (result << 1) | (boolList[i] ? 1 : 0);
                     if(shift == 15 || i == boolList.Count - 1)
                     {
                         resultList.Add(result);//Add the converted integer at last bit of the word
@@ -389,6 +401,75 @@ namespace EventDriven.Services
                     }
                 }
                 return resultList;
+            }
+            /// <summary>
+            /// ConverWordstoBitList, mkae 1 word to 16 bits
+            /// 11 => [1, 1, 0, 1]
+            /// </summary>
+            /// <param name="wordValues"></param>
+            /// <returns></returns>
+            private List<int> ConvertIntegerToBitList(List<short> intValues)
+            {
+                List<int> bitList = new List<int>();
+                foreach (short word in intValues)
+                {
+                    for (int i = 0; i < 16; i++) // short is 16 bits
+                    {
+                        bitList.Add(((word >> i) & 1) == 1 ? 1 : 0); // Extract each bit
+                    }
+                }
+                return bitList;
+            }
+        }
+        public class ExecutePriHandshake : IExeAction
+        {
+            public bool Execute(Model.Action action)
+            {
+                if (action.Inputs.Value.Length != 1) throw new Exception("For Secondary Handshake, Value should be 1.");
+                string value = GetContent(action.Inputs.Value);//item1 : Address
+                if (!StringValidator.SplitAndValidateString(value, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
+                if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
+                return _iOContainer.PrimaryHandShake(Pdevice, Paddr, Sdevice, Saddr);
+            }
+            /// <summary>
+            /// Secondary Handshake only support KeyIn
+            /// </summary>
+            /// <param name="inputs"></param>
+            /// <returns></returns>
+            /// <exception cref="Exception"></exception>
+            private string GetContent(InputValue[] inputs)
+            {
+                string content = string.Empty;
+                foreach (InputValue input in inputs)
+                {
+                    switch (input.Type)
+                    {
+                        case "KeyIn":
+                            content = DecodeContent(input.Content, input.Format);
+                            break;
+                        default:
+                            throw new Exception("Type Not Support.");
+                    }
+                    if (content == string.Empty) throw new Exception("Vals Not Exist.");
+                }
+                return content;
+            }
+            /// <summary>
+            /// Secondary Handshake only support string
+            /// </summary>
+            /// <param name="content"></param>
+            /// <param name="format"></param>
+            /// <returns></returns>
+            /// <exception cref="InvalidOperationException"></exception>
+            private string DecodeContent(object content, string format)
+            {
+                switch (format.ToLower())
+                {
+                    case "string":
+                        return content.ToString();
+                    default:
+                        throw new InvalidOperationException("Unsupported format: " + format);
+                }
             }
         }
         public class ExecuteSecHandshake : IExeAction
@@ -651,7 +732,7 @@ namespace EventDriven.Services
                 {
                     for (int i = 0; i < 16; i++) // short is 16 bits
                     {
-                        bitList.Add(((word >> i) & 1) == 1 ? 1 : 0); // Extract each bit
+                        bitList.Add(((word << 1) & 1) == 1 ? 1 : 0); // Extract each bit
                     }
                 }
                 return bitList;

@@ -12,6 +12,7 @@ using static EventDriven.Services.EventManager;
 using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace EventDriven.ViewModel
 {
@@ -204,12 +205,14 @@ namespace EventDriven.ViewModel
             }
         }
 
-        private void ExecuteActions(List<Model.Action> actions)
+        private async void ExecuteActions(List<Model.Action> actions)
         {
-            foreach (var action in actions)
-            {
-                ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
-            }
+            await Task.Run(() => {
+                foreach (var action in actions)
+                {
+                    ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
+                }
+            });
         }
         /// <summary>
         /// 改變UI指示燈

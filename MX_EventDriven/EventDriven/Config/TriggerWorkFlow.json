@@ -1843,13 +1843,27 @@
                 },
                 {
                   "Comment": "HS",
-                  "Action": "Specific",
+                  "Action": "Monitor",
                   "ExceptedValue": 1,
                   "Address": "W111F"
                 }
               ]
             },
-            "Actions": [              
+            "Actions": [
+              {                
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },            
               {                
                 "ActionName": "SecHandShake",
                 "Inputs": {
@@ -1863,16 +1877,139 @@
                   ]
                 },
                 "Output": {}
+              },  
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EFE",
+                  "Value": [                    
+                    {
+                      "Comment": "W4EFE_Port1_Slot_Mapping_#16-#1",
+                      "Type": "GlobalVariable",
+                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                }
+              },         
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
               },
               {
                 "ActionName": "Write",
                 "Inputs": {
-                  "Address": "W4EEE",
+                  "Address": "W4EF1",
                   "Value": [
                     {
-                      "Comment":"FillTheSlotData",
-                      "Type": "GlobalVariable",
-                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "Comment":"MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }              
+            ]
+          },
+          {
+            "Name": "Port1_CarrierDataDownload",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment":"LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment":"MAPE",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1D3F"
+                }
+              ]
+            },
+            "Actions": [
+              {                
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5340",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },            
+              {                
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W534F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1D3F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4F07",
+                  "Value": [
+                    {
+                      "Comment":"ProductId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E36",
+                      "Lens": 10
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4F11",
+                  "Value": [
+                    {
+                      "Comment":"CSidePanelId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E64",
+                      "Lens": 468
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W52DD",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E33",
+                      "Lens": 3,
                       "ElementUnit": "Bit"
                     }
                   ]
@@ -1890,10 +2027,93 @@
                   "Address": "W4EF1",
                   "Value": [
                     {
-                      "Comment":"MAPE",
+                      "Comment":"WAIT",
                       "Type": "KeyIn",
                       "Format": "Int",
-                      "Content": 2
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }              
+            ]
+          },
+          {
+            "Name": "Port1_StartAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W110B"
+                },
+                
+                {
+                  "Comment":"LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment":"WAIT",
+                  "Action": "Specific",
+                  "ExceptedValue": 3,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {                
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },            
+              {                
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },              
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment":"PROC",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 4
                     }
                   ]
                 },
@@ -2445,6 +2665,88 @@
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }        
+      ]
+    },
+    {
+      "ButtonContent": "Port1_LoadActionFromCIM",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W110B",
+            "Value": [
+              {
+                "Comment": "CmdAction",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 9
+              }
+            ]
+          },
+          "Output": {}
+        },        
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W111F",
+            "Value": [
+              {
+                "Comment": "HP02_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W4EDF"
+              }
+            ]
+          },
+          "Output": {}
+        }        
+      ]
+    },
+    {
+      "ButtonContent": "Port1_CarrierDataDownFromCIM",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1E33",
+            "Value": [
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 11
+              },
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 16384
+              }
+            ]
+          },
+          "Output": {}
+        },        
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W1D3F",
+            "Value": [
+              {
+                "Comment": "HP08_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W534F"
               }
             ]
           },
