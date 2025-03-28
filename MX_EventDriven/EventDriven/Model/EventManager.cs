@@ -11,10 +11,12 @@ using System.Linq;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 using System.Windows.Documents;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace EventDriven.Services
 {
-    public class EventManager
+    public class EventManager : INotifyPropertyChanged
     {
         private static IOContainer _iOContainer;
         private static TriggerWorkFlowModel _workFlow;
@@ -22,6 +24,7 @@ namespace EventDriven.Services
         private bool _isMonitoring;
         private string _lastTriggeredActionName;
         private readonly object _registeredEventsLock = new object(); // 鎖定物件
+        public event PropertyChangedEventHandler PropertyChanged;
         public bool IsMonitoring
         {
             get { return _isMonitoring; }
@@ -41,12 +44,25 @@ namespace EventDriven.Services
         public string LastTriggeredActionName
         {
             get { return _lastTriggeredActionName; }
-            set { _lastTriggeredActionName = value; }
+            set
+            {
+                if (_lastTriggeredActionName != value)
+                {
+                    _lastTriggeredActionName = value;
+                    OnPropertyChanged();
+                }
+            }
         }
         public IOContainer IOContainer
         {
             get { return _iOContainer; }
         }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public bool LinkToPLC()
         {
             try
@@ -132,7 +148,11 @@ namespace EventDriven.Services
             {
                 foreach (var triggerPoint in triggerAction.TriggerPoint.Conditions)
                 {
-                    if (DoCondition(triggerPoint)) return true;
+                    if (DoCondition(triggerPoint))
+                    {
+                        LastTriggeredActionName= triggerAction.Name;
+                        return true;
+                    }
                 }
             }
             else if (triggerAction.TriggerPoint.Type == "AND")
@@ -141,6 +161,7 @@ namespace EventDriven.Services
                 {
                     if (!DoCondition(triggerPoint)) return false;
                 }
+                LastTriggeredActionName = triggerAction.Name;
                 return true;
             }
             return result;

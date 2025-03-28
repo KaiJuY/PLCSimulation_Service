@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
@@ -69,13 +69,25 @@ namespace EventDriven.ViewModel
             _eventManager = new Services.EventManager();
             _mainwindow = mainwindow;
             _ioContainer = _eventManager.IOContainer;
-
+            
+            // 訂閱 EventManager 的 PropertyChanged 事件
+            _eventManager.PropertyChanged += EventManager_PropertyChanged;
+            
             // 預設值
             Protocol = "Mx";
             CpuType = "QCPU";
             IpAddress = "192.168.31.100";
             Port = "";
             IsMxProtocol = Protocol == "Mx";
+        }
+
+        private void EventManager_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Services.EventManager.LastTriggeredActionName))
+            {
+                // 當 EventManager 的 LastTriggeredActionName 屬性變更時，更新 ViewModel 的屬性
+                LastTriggeredActionName = _eventManager.LastTriggeredActionName;
+            }
         }
 
         public string Protocol
