@@ -20,6 +20,7 @@ namespace EventDriven.Services
         private static TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
         private bool _isMonitoring;
+        private string _lastTriggeredActionName;
         private readonly object _registeredEventsLock = new object(); // 鎖定物件
         public bool IsMonitoring
         {
@@ -36,6 +37,11 @@ namespace EventDriven.Services
         {
             _registeredEvents = new Dictionary<string, TriggerBehavior>();
             _iOContainer = new IOContainer();
+        }
+        public string LastTriggeredActionName
+        {
+            get { return _lastTriggeredActionName; }
+            set { _lastTriggeredActionName = value; }
         }
         public IOContainer IOContainer
         {
@@ -82,8 +88,9 @@ namespace EventDriven.Services
                     };
                     _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
                     {
+                        _lastTriggeredActionName = triggerAction.Name; // 記錄觸發的 Action Name
                         _registeredEvents[triggerAction.Name].Action.Invoke();
-                    };                
+                    };
                 }
             }
             IsMonitoring = true;

@@ -28,6 +28,10 @@
             <Label Content="Json Path : " HorizontalAlignment="Left" Margin="15,20,0,0" VerticalAlignment="Top" />
             <Label Content="Flow Status : " HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top" />
             <Rectangle x:Name="flowSignal" HorizontalAlignment="Left" Height="27" Margin="100,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="27" Fill="Red" RadiusX="15" RadiusY="15" />
+            <TextBlock Text="LastTriggeredActionName" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" />
+            <TextBlock Text="{Binding LastTriggeredActionName}" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top" />
+            <TextBlock Text="ExecutionResult" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top" />
+            <TextBlock Text="{Binding ExecutionResult}" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top" />
         </Grid>
 
         <StackPanel Grid.Column="1"

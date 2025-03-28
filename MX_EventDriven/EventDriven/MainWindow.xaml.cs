@@ -42,9 +42,10 @@ namespace EventDriven
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Btn_Startflow.IsEnabled = false;
+            flowSignal.Fill = Brushes.Orange;
             try
             {
                 // 檢查必要的資料是否已填寫
@@ -56,8 +57,8 @@ namespace EventDriven
                 }
                 _viewModel.UpdateIOContainer();
                 // 在此處建立物件並執行後續行為
-                _viewModel.StartFlow();
-                _viewModel.LoadButtons();
+                await Task.Run(() => _viewModel.StartFlow());
+                await Task.Run(() => _viewModel.LoadButtons());
             }
             catch(Exception ex)
             {
@@ -87,7 +88,7 @@ namespace EventDriven
             }
             else if (protocol == "Mc")
             {
-                if (string.IsNullOrEmpty(ipAddressTextBox.Text) || string.IsNullOrEmpty(portTextBox.Text))
+                if (string.IsNullOrEmpty(ipAddressTextBox.Text))
                 {
                     return false; // Mc Protocol 且 IP 或 Port 未填寫
                 }
@@ -100,13 +101,13 @@ namespace EventDriven
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Btn_Endflow.IsEnabled = false;
             try
             {                
-                _viewModel.EndFlow();
-                _viewModel.ClearButtons();
+                await Task.Run(() => _viewModel.EndFlow());
+                await Task.Run(() => _viewModel.ClearButtons());
             }
             catch (Exception ex)
             {
@@ -114,6 +115,6 @@ namespace EventDriven
                 return;
             }
             this.Btn_Startflow.IsEnabled = true;
-        }        
+        }
     }
 }

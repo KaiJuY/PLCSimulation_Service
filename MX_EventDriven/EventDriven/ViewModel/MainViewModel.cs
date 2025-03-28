@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Win32;
@@ -29,8 +29,35 @@ namespace EventDriven.ViewModel
         private string _port;
         private bool _isMxProtocol;
         private readonly Model.IOContainer _ioContainer;
+        private string _executionResult;
+        private string _lastTriggeredActionName;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public string ExecutionResult
+        {
+            get { return _executionResult; }
+            set
+            {
+                if (_executionResult != value)
+                {
+                    _executionResult = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        public string LastTriggeredActionName
+        {
+            get { return _lastTriggeredActionName; }
+            set
+            {
+                if (_lastTriggeredActionName != value)
+                {
+                    _lastTriggeredActionName = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -73,6 +100,7 @@ namespace EventDriven.ViewModel
                 if (_isMxProtocol != value)
                 {
                     _isMxProtocol = value;
+                    IpAddress = _isMxProtocol == true ? "192.168.31.100" : "127.0.0.1";
                     OnPropertyChanged();
                 }
             }
@@ -86,7 +114,6 @@ namespace EventDriven.ViewModel
                 if (_cpuType != value)
                 {
                     _cpuType = value;
-                    IpAddress = _cpuType == "QCPU" ? "192.168.31.100" : "127.0.0.1";
                     OnPropertyChanged();
                 }
             }
@@ -151,13 +178,13 @@ namespace EventDriven.ViewModel
             }
         }
 
-        public void StartFlow() => SignalChange(StartFromEventManager());
+        public async void StartFlow() => SignalChange(await StartFromEventManager());
 
         public void EndFlow() => EndFromEventManager();
 
         public void ClearButtons()
         {
-            _mainwindow.buttonPanel.Children.Clear();
+            _mainwindow.Dispatcher.Invoke(() => _mainwindow.buttonPanel.Children.Clear());
         }
 
         public void ShowFlow()
@@ -183,19 +210,24 @@ namespace EventDriven.ViewModel
                 {
                     foreach (var buttonConfig in workFlow.Buttons)
                     {
-                        Button button = new Button
-                        {
-                            Content = buttonConfig.ButtonContent,
-                            Margin = new Thickness(5)
-                        };
+                        Button button = null;
+                        _mainwindow.Dispatcher.Invoke(() => {
+                            button = new Button
+                            {
+                                Content = buttonConfig.ButtonContent,
+                                Margin = new Thickness(5)
+                            };
 
-                        button.Click += (sender, e) =>
-                        {
-                            // 執行按鈕的動作
-                            ExecuteActions(buttonConfig.Actions);
-                        };
+                            button.Click += (sender, e) =>
+                            {
+                                // 清空執行結果
+                                ExecutionResult = $"{buttonConfig.ButtonContent}";
+                                // 執行按鈕的動作
+                                ExecuteActions(buttonConfig.Actions);
+                            };
 
-                        _mainwindow.buttonPanel.Children.Add(button);
+                            _mainwindow.buttonPanel.Children.Add(button);
+                        });
                     }
                 }
             }
@@ -205,14 +237,32 @@ namespace EventDriven.ViewModel
             }
         }
 
+
+
         private async void ExecuteActions(List<Model.Action> actions)
         {
-            await Task.Run(() => {
-                foreach (var action in actions)
-                {
-                    ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
-                }
-            });
+            try
+            {
+                await Task.Run(() => {
+                    foreach (var action in actions)
+                    {
+                        if(!ExecuteFactory.GetExeAction(action.ActionName).Execute(action))
+                        {
+                            ExecutionResult += $" : 執行失敗, {action.ActionName}";
+                            OnPropertyChanged(nameof(ExecutionResult));
+                            break;
+                        }
+                        
+                    }
+                });
+                ExecutionResult += $" : 執行成功";
+                OnPropertyChanged(nameof(ExecutionResult));
+            }
+            catch (Exception ex)
+            {
+                ExecutionResult += $" : 執行失敗: {ex.Message}";
+                OnPropertyChanged(nameof(ExecutionResult));
+            }
         }
         /// <summary>
         /// 改變UI指示燈
@@ -220,15 +270,16 @@ namespace EventDriven.ViewModel
         /// 紅色代表Unregister或是失敗
         /// </summary>
         /// <param name="isOn"></param>
-        public void SignalChange(bool isOn) => _mainwindow.flowSignal.Fill = isOn ? Brushes.Green : Brushes.Red;
-        private bool StartFromEventManager()
+        public void SignalChange(bool isOn) => _mainwindow.Dispatcher.Invoke(() => _mainwindow.flowSignal.Fill = isOn ? Brushes.Green : Brushes.Red);
+        private async Task<bool> StartFromEventManager()
         {
             if (!_eventManager.LinkToPLC()) return false;
             if (_eventManager.IsMonitoring) return false;
             if (!_eventManager.LoadWorkFlow()) return false;
-            _eventManager.DoInitialActions();
-            _eventManager.RegisterEvents();
+            await Task.Run(() => _eventManager.DoInitialActions());
+            await Task.Run(() => _eventManager.RegisterEvents());
             Thread thread = new Thread(RunMonitor);
+            thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             return true;
         }
