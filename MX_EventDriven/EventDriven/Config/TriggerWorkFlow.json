@@ -3504,6 +3504,42 @@
           "Output": {}
         }
       ]
+    },
+    {
+      "ButtonContent": "Port1_PortStart",
+      "Actions": [
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W110B",
+              "Value": [
+                {
+                  "Comment": "CmdAction",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                }
+              ]
+            },
+            "Output": {}
+          
+        },
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W111F",
+            "Value": [
+              {
+                "Comment": "HP02_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W4EDF"
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
     }
   ]
 }
