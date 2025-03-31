@@ -72,8 +72,8 @@ namespace EventDriven.Model
         public bool WriteListInt(List<string> device, List<string> address, List<short> values) => _mitControlModule.WriteDataToPLC(device, address, values);
         */
         public bool WriteString(string device, string address, string value) => _mitControlModule.WriteDataToPLC(device, address, value);
-        public bool PrimaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => _mitControlModule.PrimaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);
-        public bool SecondaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress) => _mitControlModule.SecondaryHandshake(Pdevice, Paddress, Sdevice, Saddress, 5.0);
+        public bool PrimaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress, int timeout) => _mitControlModule.PrimaryHandshake(Pdevice, Paddress, Sdevice, Saddress, timeout);
+        public bool SecondaryHandShake(string Pdevice, string Paddress, string Sdevice, string Saddress, int timeout) => _mitControlModule.SecondaryHandshake(Pdevice, Paddress, Sdevice, Saddress, timeout);
     }
 }
 public class StringValidator

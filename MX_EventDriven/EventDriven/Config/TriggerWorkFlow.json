@@ -264,7 +264,8 @@
     },
     "Action_Interval": 100,
     "Monitor_Interval": 0,
-    "Hold_Time": 4000
+    "Hold_Time": 4000,
+    "HandShake_Timeout": 10000
   },
   "CarrierStorage": [
     {
@@ -1751,7 +1752,7 @@
                       "Comment": "ReadTheCIMSelectSlot",
                       "Type": "Action",
                       "ActionName": "Read",
-                      "Address": "W46E0",
+                      "Address": "W1153",
                       "Lens": 3,
                       "ElementUnit": "Bit"
                     }
@@ -3464,7 +3465,7 @@
         {
           "ActionName": "Write",
           "Inputs": {
-            "Address": "W1E33",
+            "Address": "W1153",
             "Value": [
               {
                 "Comment": "SlotSelect",
@@ -3482,7 +3483,85 @@
                 "Comment": "SlotSelect",
                 "Type": "KeyIn",
                 "Format": "Int",
-                "Content": 16384
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1160",
+            "Value": [
+              {
+                "Comment": "Work1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 5
+              },
+              {
+                "Comment": "Work2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "Work3",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 18
+              },
+              {
+                "Comment": "Work4",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 55
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1184",
+            "Value": [
+              {
+                "Comment": "PID1",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S1"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1191",
+            "Value": [
+              {
+                "Comment": "PID2",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S2"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W11AB",
+            "Value": [
+              {
+                "Comment": "PID4",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S4"
               }
             ]
           },

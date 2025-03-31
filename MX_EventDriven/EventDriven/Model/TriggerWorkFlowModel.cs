@@ -57,6 +57,7 @@ namespace EventDriven.Model
         public int Monitor_Interval { get; set; }
         public int Action_Interval { get; set; }
         public int Hold_Time { get; set; }
+        public int Handshake_Timeout { get; set; }
 
     }
     public class Materials : aProperty

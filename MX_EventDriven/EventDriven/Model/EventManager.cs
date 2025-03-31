@@ -323,6 +323,7 @@ namespace EventDriven.Services
                     case "string":
                         return MitUtility.getInstance().StringToASCII(content.ToString());
                     case "int":
+                    case "int32":
                         //repeat content for lens times
                         return Enumerable.Repeat(Convert.ToInt16(content.ToString()), Math.Max(1, lens)).ToList();    
                     case "intlist":
@@ -457,7 +458,7 @@ namespace EventDriven.Services
                 string value = GetContent(action.Inputs.Value);//item1 : Address
                 if (!StringValidator.SplitAndValidateString(value, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
-                return _iOContainer.PrimaryHandShake(Pdevice, Paddr, Sdevice, Saddr);
+                return _iOContainer.PrimaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Action_Interval);
             }
             /// <summary>
             /// Secondary Handshake only support KeyIn
@@ -508,7 +509,7 @@ namespace EventDriven.Services
                 string value = GetContent(action.Inputs.Value);//item1 : Address
                 if (!StringValidator.SplitAndValidateString(value, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
-                return _iOContainer.SecondaryHandShake(Pdevice, Paddr, Sdevice, Saddr);
+                return _iOContainer.SecondaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Action_Interval);
             }
             /// <summary>
             /// Secondary Handshake only support KeyIn
@@ -740,21 +741,20 @@ namespace EventDriven.Services
             private bool ExecuteActionWithLoopContext(Model.Action action)
             {
                 Model.Action LocalAction = JsonSerializer.Deserialize<Model.Action>(JsonSerializer.Serialize(action));
-                if(LocalAction.ActionName == "PriHandShake") throw new Exception("LoopAction Not Support HandShake.");
-                int ShiftMutiValueInOneAction = 0;
+                if(LocalAction.ActionName == "PriHandShake" || LocalAction.ActionName == "Hold" || LocalAction.ActionName == "Index") 
+                    return ExecuteFactory.GetExeAction(LocalAction.ActionName).Execute(LocalAction); //direct to perform the action
                 foreach (InputValue inputValue in LocalAction.Inputs.Value)
                 {
-                    if(!ConvertLoopFormatToSTD(inputValue, ShiftMutiValueInOneAction)) throw new Exception("Convert Loop Format Error.");
-                    ShiftMutiValueInOneAction += inputValue.Lens;
+                    if(!ConvertLoopFormatToSTD(inputValue)) throw new Exception("Convert Loop Format Error.");
                 }
                 return ExecuteFactory.GetExeAction(LocalAction.ActionName).Execute(LocalAction); // Execute the action (using existing ExecuteAction logic)
             }
-            private bool ConvertLoopFormatToSTD(InputValue inputValue, int shiftMutiValInOneAct)
+            private bool ConvertLoopFormatToSTD(InputValue inputValue)
             {
                 if (inputValue.Type == "GlobalVariable")
                     return GlobbalTypeConvert(inputValue);
                 if (inputValue.Type == "Action" && inputValue.ActionName == "Read")
-                    return ReadTypeConvert(inputValue, shiftMutiValInOneAct);
+                    return ReadTypeConvert(inputValue);
                 if(inputValue.Type == "KeyIn" && inputValue.Format == "Int") //Current only support Int because if using other type shift will be wrong
                     return true;
                 return false;
@@ -764,10 +764,10 @@ namespace EventDriven.Services
                 inputValue.Content = GlobalVariableHandler.ReplaceIndexToContent(inputValue.Content.ToString(), _loopIndex);                
                 return true;
             }
-            private bool ReadTypeConvert(InputValue inputValue, int shiftMutiValInOneAct)
+            private bool ReadTypeConvert(InputValue inputValue)
             {
                 if (!StringValidator.SplitAndValidateString(inputValue.Address, out string DeviceName, out string Address)) return false;
-                if(inputValue.Floating) inputValue.Address = DeviceName + (Convert.ToInt32(Address, 16) + shiftMutiValInOneAct + _loopIndex * inputValue.Lens).ToString("X4");                
+                if(inputValue.Floating) inputValue.Address = DeviceName + (Convert.ToInt32(Address, 16) +  _loopIndex * inputValue.Lens).ToString("X4");                
                 return true;
             }
             
@@ -776,9 +776,11 @@ namespace EventDriven.Services
                 List<int> bitList = new List<int>();
                 foreach (short word in wordValues)
                 {
+                    int mask = 1;
                     for (int i = 0; i < 16; i++) // short is 16 bits
                     {
-                        bitList.Add(((word << 1) & 1) == 1 ? 1 : 0); // Extract each bit
+                        bitList.Add((word & mask) == 0 ? 0 : 1); // Extract each bit
+                        mask <<= 1;
                     }
                 }
                 return bitList;
