@@ -665,6 +665,9 @@ namespace EventDriven.Services
                     case "Word":
                         _loopElements = ReadValue.SelectMany(v => BitConverter.GetBytes(v)).Select(b => (int)b).ToList();
                         break;
+                    case "Amount":
+                        _loopElements = Enumerable.Repeat(1,lens).ToList();
+                        break;
                     default:
                         throw new Exception("LoopAction Read ElementUnit Not Support.");
                 }
@@ -755,7 +758,7 @@ namespace EventDriven.Services
                     return GlobbalTypeConvert(inputValue);
                 if (inputValue.Type == "Action" && inputValue.ActionName == "Read")
                     return ReadTypeConvert(inputValue);
-                if(inputValue.Type == "KeyIn" && inputValue.Format == "Int") //Current only support Int because if using other type shift will be wrong
+                if(inputValue.Type == "KeyIn" && (inputValue.Format == "Int" || inputValue.Format == "String")) //Current only support Int because if using other type shift will be wrong
                     return true;
                 return false;
             }

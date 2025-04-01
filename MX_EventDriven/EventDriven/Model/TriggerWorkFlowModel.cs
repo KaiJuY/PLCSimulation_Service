@@ -88,7 +88,7 @@ namespace EventDriven.Model
         public bool Existed { get; set; }
         public string WaferId { get; set; }
         public bool ReadResult { get; set; }
-        public int WorkNumber { get; set; }
+        public int WorkNoForULD { get; set; }
         public int SlotNo { get; set; }
     }
 

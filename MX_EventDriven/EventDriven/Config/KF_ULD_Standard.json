@@ -7,252 +7,252 @@
           "ReadResult": true,
           "WaferList": [
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 100,
               "WaferId": "Material1",
               "SlotNo": 1,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 101,
               "WaferId": "Material2",
               "SlotNo": 2,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 103,
               "WaferId": "Material3",
               "SlotNo": 3,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 104,
               "WaferId": "Material4",
               "SlotNo": 4,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 105,
               "WaferId": "Material5",
               "SlotNo": 5,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 106,
               "WaferId": "Material6",
               "SlotNo": 6,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 107,
               "WaferId": "Material7",
               "SlotNo": 7,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 108,
               "WaferId": "Material8",
               "SlotNo": 8,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 109,
               "WaferId": "Material9",
               "SlotNo": 9,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 110,
               "WaferId": "Material10",
               "SlotNo": 10,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 111,
               "WaferId": "Material11",
               "SlotNo": 11,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 112,
               "WaferId": "Material12",
               "SlotNo": 12,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 113,
               "WaferId": "Material13",
               "SlotNo": 13,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 114,
               "WaferId": "Material14",
               "SlotNo": 14,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 115,
               "WaferId": "Material15",
               "SlotNo": 15,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 116,
               "WaferId": "Material16",
               "SlotNo": 16,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 117,
               "WaferId": "Material17",
               "SlotNo": 17,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 118,
               "WaferId": "Material18",
               "SlotNo": 18,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 119,
               "WaferId": "Material19",
               "SlotNo": 19,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 120,
               "WaferId": "Material20",
               "SlotNo": 20,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 121,
               "WaferId": "Material21",
               "SlotNo": 21,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 122,
               "WaferId": "Material22",
               "SlotNo": 22,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 123,
               "WaferId": "Material23",
               "SlotNo": 23,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 124,
               "WaferId": "Material24",
               "SlotNo": 24,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 125,
               "WaferId": "Material25",
               "SlotNo": 25,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 126,
               "WaferId": "Material26",
               "SlotNo": 26,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 127,
               "WaferId": "Material27",
               "SlotNo": 27,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 128,
               "WaferId": "Material28",
               "SlotNo": 28,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 129,
               "WaferId": "Material29",
               "SlotNo": 29,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 130,
               "WaferId": "Material30",
               "SlotNo": 30,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 131,
               "WaferId": "Material31",
               "SlotNo": 31,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 132,
               "WaferId": "Material32",
               "SlotNo": 32,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 133,
               "WaferId": "Material33",
               "SlotNo": 33,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 134,
               "WaferId": "Material34",
               "SlotNo": 34,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 135,
               "WaferId": "Material35",
               "SlotNo": 35,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 136,
               "WaferId": "Material36",
               "SlotNo": 36,
@@ -284,7 +284,7 @@
                   "Comment": "W4D70_ES06_CIM_Mode",
                   "Type": "KeyIn",
                   "Format": "Int",
-                  "Content": 0
+                  "Content": 1
                 },
                 {
                   "Comment": "W4D71_ES06_Operation_Mode",
@@ -296,7 +296,7 @@
                   "Comment": "W4D72_ES06_Run_Mode",
                   "Type": "KeyIn",
                   "Format": "Int",
-                  "Content": 0
+                  "Content": 2
                 },
                 {
                   "Comment": "W4D73_ES06_Alarm_Happen",
@@ -677,7 +677,7 @@
                   "Comment": "W4EC3_Port1_EP01_Port_Type",
                   "Type": "KeyIn",
                   "Format": "Int",
-                  "Content": 1
+                  "Content": 2
                 },
                 {
                   "Comment": "W4EC4_Port1_EP01_Access_Mode",
@@ -776,7 +776,7 @@
                   "Comment": "W53F3_Port2_Port_Type",
                   "Type": "KeyIn",
                   "Format": "Int",
-                  "Content": 1
+                  "Content": 2
                 },
                 {
                   "Comment": "W53F4_Port2_Access_Mode",
@@ -1752,9 +1752,9 @@
                       "Comment": "ReadTheCIMSelectSlot",
                       "Type": "Action",
                       "ActionName": "Read",
-                      "Address": "W1153",
-                      "Lens": 3,
-                      "ElementUnit": "Bit"
+                      "Address": "W114E",
+                      "Lens": 1,
+                      "ElementUnit": "Amount"
                     }
                   ]
                 },
@@ -1766,26 +1766,137 @@
                 },
                 "SubActions": [
                   {
-                    "Comment": "EW03FromCarrierToRobot",
+                    "Comment": "EW09WorkDataSend",
                     "ActionName": "Write",
                     "Inputs": {
-                      "Address": "W4C60",
+                      "Address": "W4CD0",
                       "Value": [
                         {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
+                          "Comment": "JobNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
                         },
                         {
-                          "Comment": "From HP08 according executing Slot get PaenlId",
+                          "Comment": "ProductData1",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "ProductData2",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "ProductData3",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "ProductData4",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "ProductData5",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "PanelId",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW09WorkDataSend_LotID",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4CF0",
+                      "Value": [
+                        {
+                          "Comment": "LotId",
+                          "Type": "KeyIn",
+                          "Format": "String",
+                          "Content": "LOTIDFROMRCV"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW09WorkDataSend_WorkNo",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4D20",
+                      "Value": [
+                        {
+                          "Comment": "WorkNo",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW09WorkDataSend_DataType",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4D3E",
+                      "Value": [
+                        {
+                          "Comment": "Data Type Receive",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 4
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW09HS",
+                    "ActionName": "PriHandShake",
+                    "Inputs": {
+                      "Address": "W4D3F",
+                      "Value": [
+                        {
+                          "Comment": "HW09_Reply",
+                          "Type": "KeyIn",
+                          "Format": "String",
+                          "Content": "W45EF"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03ReceiveEQ",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4CB0",
+                      "Value": [
+                        {
+                          "Comment": "WorkNo",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
+                        },
+                        {
+                          "Comment": "From ES11 FinalId",
                           "Type": "Action",
                           "ActionName": "Read",
-                          "Address": "W1184",
+                          "Address": "W4CD6",
                           "Lens": 13,
-                          "Floating": true
+                          "Floating": false
                         },
                         {
                           "Comment": "Receive Type",
@@ -1797,60 +1908,19 @@
                           "Comment": "PortNo",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 1
+                          "Content": 0
                         },
                         {
                           "Comment": "OperationEQ EFEM",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 1
+                          "Content": 2
                         },
                         {
-                          "Comment": "Position No",
+                          "Comment": "Position No CV",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "FirstPanelStart Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "LastPanelStart Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "IPQCSampleNo Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "IPQCResult Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "Slot",
-                          "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
-                        },
-                        {
-                          "Comment": "PanelXSize For StartLine Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "PanelYSize For StartLine Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
+                          "Content": 30
                         }
                       ]
                     },
@@ -1860,180 +1930,14 @@
                     "Comment": "EW03_Index",
                     "ActionName": "Index",
                     "Inputs": {
-                      "Address": "W4C7F",
+                      "Address": "W4CCF",
                       "Value": []
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EC01_PanelOnRobot",
-                    "ActionName": "Write",
-                    "Inputs": {
-                      "Address": "W6380",
-                      "Value": [
-                        {
-                          "Comment": "Robot No",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Robot State",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 2
-                        },
-                        {
-                          "Comment": "Auto Mode",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Spare",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "Upper Presence",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
-                        }
-                      ]
                     },
                     "Output": {}
                   },
                   {
                     "ActionName": "Hold",
                     "Inputs": {},
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EC01_PanelLeaveRobot",
-                    "ActionName": "Write",
-                    "Inputs": {
-                      "Address": "W6380",
-                      "Value": [
-                        {
-                          "Comment": "Robot No",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Robot State",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Auto Mode",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Spare",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "Upper Presence",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Upper WorkNo",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        }
-                      ]
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EW03FromRobotToAligner",
-                    "ActionName": "Write",
-                    "Inputs": {
-                      "Address": "W4C6E",
-                      "Value": [
-                        {
-                          "Comment": "Send Type",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "PortNo",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "OperationEQ EFEM",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "Position No",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 9
-                        },
-                        {
-                          "Comment": "FirstPanelStart Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "LastPanelStart Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "IPQCSampleNo Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "IPQCResult Not important",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "Slot",
-                          "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
-                        }
-                      ]
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EW03_Index",
-                    "ActionName": "Index",
-                    "Inputs": {
-                      "Address": "W4C7F",
-                      "Value": []
-                    },
                     "Output": {}
                   },
                   {
@@ -2046,9 +1950,9 @@
                           "Comment": "From HP08 according executing Slot get PaenlId",
                           "Type": "Action",
                           "ActionName": "Read",
-                          "Address": "W1184",
+                          "Address": "W4CD6",
                           "Lens": 13,
-                          "Floating": true
+                          "Floating": false
                         },
                         {
                           "Comment": "CIMPCDownLoadID",
@@ -2069,9 +1973,9 @@
                           "Comment": "From HP08 according executing Slot get PaenlId",
                           "Type": "Action",
                           "ActionName": "Read",
-                          "Address": "W1184",
+                          "Address": "W4CD6",
                           "Lens": 13,
-                          "Floating": true
+                          "Floating": false
                         },
                         {
                           "Comment": "CIMPCDownLoadID",
@@ -2095,12 +1999,9 @@
                           "Content": 1
                         },
                         {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
+                          "Comment": "WorkNo",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
                         },
                         {
                           "Comment": "ProductionPanel",
@@ -2127,114 +2028,7 @@
                       ]
                     },
                     "Output": {}
-                  },
-                  {
-                    "Comment": "EW03SendtoEQ",
-                    "ActionName": "Write",
-                    "Inputs": {
-                      "Address": "W4CB0",
-                      "Value": [
-                        {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
-                        },
-                        {
-                          "Comment": "From ES11 FinalId",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W4DE7",
-                          "Lens": 13,
-                          "Floating": false
-                        },
-                        {
-                          "Comment": "Send Type",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 1
-                        },
-                        {
-                          "Comment": "PortNo",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "OperationEQ EFEM",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 2
-                        },
-                        {
-                          "Comment": "Position No CV1",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 31
-                        }
-                      ]
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EW03_Index",
-                    "ActionName": "Index",
-                    "Inputs": {
-                      "Address": "W4C7F",
-                      "Value": []
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "ActionName": "Hold",
-                    "Inputs": {},
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EW03ReceiveEQ",
-                    "ActionName": "Write",
-                    "Inputs": {
-                      "Address": "W4CBE",
-                      "Value": [
-                        {
-                          "Comment": "Receive Type",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 2
-                        },
-                        {
-                          "Comment": "PortNo",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
-                        },
-                        {
-                          "Comment": "OperationEQ EFEM",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 2
-                        },
-                        {
-                          "Comment": "Position No CV2",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 32
-                        }
-                      ]
-                    },
-                    "Output": {}
-                  },
-                  {
-                    "Comment": "EW03_Index",
-                    "ActionName": "Index",
-                    "Inputs": {
-                      "Address": "W4C7F",
-                      "Value": []
-                    },
-                    "Output": {}
-                  },
+                  },                  
                   {
                     "ActionName": "Hold",
                     "Inputs": {},
@@ -2247,18 +2041,15 @@
                       "Address": "W4C60",
                       "Value": [
                         {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
+                          "Comment": "WorkNo",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
                         },
                         {
-                          "Comment": "From ES11 FinalId",
+                          "Comment": "From HP08 according executing Slot get PaenlId",
                           "Type": "Action",
                           "ActionName": "Read",
-                          "Address": "W4DE7",
+                          "Address": "W4CD6",
                           "Lens": 13,
                           "Floating": false
                         },
@@ -2336,12 +2127,9 @@
                           "Content": 1
                         },
                         {
-                          "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
+                          "Comment": "WorkNo",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
                         }
                       ]
                     },
@@ -2988,7 +2776,7 @@
                 "Comment": "W4EC3_Port1_EP01_Port_Type",
                 "Type": "KeyIn",
                 "Format": "Int",
-                "Content": 1
+                "Content": 2
               },
               {
                 "Comment": "W4EC4_Port1_EP01_Access_Mode",
@@ -3087,7 +2875,7 @@
                 "Comment": "W53F3_Port2_Port_Type",
                 "Type": "KeyIn",
                 "Format": "Int",
-                "Content": 1
+                "Content": 2
               },
               {
                 "Comment": "W53F4_Port2_Access_Mode",
