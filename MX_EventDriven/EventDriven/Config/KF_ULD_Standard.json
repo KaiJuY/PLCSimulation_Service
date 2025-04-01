@@ -1,0 +1,3799 @@
+{
+  "GlobalVariable": {
+    "Materials": {
+      "CassettleFormat": [
+        {
+          "CassettleId": "Cassettle1",
+          "ReadResult": true,
+          "WaferList": [
+            {
+              "Existed": true,
+              "WorkNoForULD": 100,
+              "WaferId": "Material1",
+              "SlotNo": 1,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 101,
+              "WaferId": "Material2",
+              "SlotNo": 2,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 103,
+              "WaferId": "Material3",
+              "SlotNo": 3,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 104,
+              "WaferId": "Material4",
+              "SlotNo": 4,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 105,
+              "WaferId": "Material5",
+              "SlotNo": 5,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 106,
+              "WaferId": "Material6",
+              "SlotNo": 6,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 107,
+              "WaferId": "Material7",
+              "SlotNo": 7,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 108,
+              "WaferId": "Material8",
+              "SlotNo": 8,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 109,
+              "WaferId": "Material9",
+              "SlotNo": 9,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 110,
+              "WaferId": "Material10",
+              "SlotNo": 10,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 111,
+              "WaferId": "Material11",
+              "SlotNo": 11,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 112,
+              "WaferId": "Material12",
+              "SlotNo": 12,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 113,
+              "WaferId": "Material13",
+              "SlotNo": 13,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 114,
+              "WaferId": "Material14",
+              "SlotNo": 14,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 115,
+              "WaferId": "Material15",
+              "SlotNo": 15,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 116,
+              "WaferId": "Material16",
+              "SlotNo": 16,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 117,
+              "WaferId": "Material17",
+              "SlotNo": 17,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 118,
+              "WaferId": "Material18",
+              "SlotNo": 18,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 119,
+              "WaferId": "Material19",
+              "SlotNo": 19,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 120,
+              "WaferId": "Material20",
+              "SlotNo": 20,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 121,
+              "WaferId": "Material21",
+              "SlotNo": 21,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 122,
+              "WaferId": "Material22",
+              "SlotNo": 22,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 123,
+              "WaferId": "Material23",
+              "SlotNo": 23,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 124,
+              "WaferId": "Material24",
+              "SlotNo": 24,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 125,
+              "WaferId": "Material25",
+              "SlotNo": 25,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 126,
+              "WaferId": "Material26",
+              "SlotNo": 26,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 127,
+              "WaferId": "Material27",
+              "SlotNo": 27,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 128,
+              "WaferId": "Material28",
+              "SlotNo": 28,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 129,
+              "WaferId": "Material29",
+              "SlotNo": 29,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 130,
+              "WaferId": "Material30",
+              "SlotNo": 30,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 131,
+              "WaferId": "Material31",
+              "SlotNo": 31,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 132,
+              "WaferId": "Material32",
+              "SlotNo": 32,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 133,
+              "WaferId": "Material33",
+              "SlotNo": 33,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 134,
+              "WaferId": "Material34",
+              "SlotNo": 34,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 135,
+              "WaferId": "Material35",
+              "SlotNo": 35,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 136,
+              "WaferId": "Material36",
+              "SlotNo": 36,
+              "ReadResult": true
+            }
+          ]
+        }
+      ]
+    },
+    "Action_Interval": 100,
+    "Monitor_Interval": 0,
+    "Hold_Time": 4000,
+    "HandShake_Timeout": 10000
+  },
+  "CarrierStorage": [
+    {
+      "Name": "Port1",
+      "Material": {
+        "BindingMaterial": "Cassettle1"
+      },
+      "Initialize": {
+        "InitialActions": [
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4D70",
+              "Value": [
+                {
+                  "Comment": "W4D70_ES06_CIM_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D71_ES06_Operation_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4D72_ES06_Run_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D73_ES06_Alarm_Happen",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D74_ES06_Warning_Happen",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D75_ES06_Equipment_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D76_ES06_Equipment_Process_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D77_ES06_UpDown_Stream_Port_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D78_ES06_LDRQ_Delay_Time",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D79_ES06_Panel_ID_Check",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7A_ES06_ID_Read_NG_Disposition",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7B_ES06_Dummy_Buffer_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7C_ES06_NG_Dummy_Buffer_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7D_ES06_Run_Mode_Change_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7E_ES06_Cycle_Stop",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4D7F_ES06_Plasma_Usage",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4B80",
+              "Value": [
+                {
+                  "Comment": "W4B80_EW01_WIP_Count",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W49BF",
+              "Value": [
+                {
+                  "Comment": "W49BF_ER01_Current_Recipe_index",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4A0F",
+              "Value": [
+                {
+                  "Comment": "W4A0F_ER02_Reply_Recipe_Parameter_List",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4A5F",
+              "Value": [
+                {
+                  "Comment": "W4A5F_ER03_Process_Program_Change_Report",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4ACF",
+              "Value": [
+                {
+                  "Comment": "W4ACF_ER04_Reply_Recipe_List",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4ADF",
+              "Value": [
+                {
+                  "Comment": "W4ADF_ER05_Reply_Change_Command",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4AEF",
+              "Value": [
+                {
+                  "Comment": "W4AEF_ER06_Reply_Recipe_Download",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4C7F",
+              "Value": [
+                {
+                  "Comment": "W4C7F_EW03_Work_Transfering_Report_Robot1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4C9F",
+              "Value": [
+                {
+                  "Comment": "W4C9F_EW03_Work_Transfering_Report_Robot2",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4CCF",
+              "Value": [
+                {
+                  "Comment": "W4CCF_EW03_Work_Transfering_Report_EQ",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4D3F",
+              "Value": [
+                {
+                  "Comment": "W4D3F_EW09_Work_Data_Send",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4D8F",
+              "Value": [
+                {
+                  "Comment": "W4D8F_ES08_CIM_Mode_Reply",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4DBF",
+              "Value": [
+                {
+                  "Comment": "W4DBF_ES09_Alarm_Report",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4E0F",
+              "Value": [
+                {
+                  "Comment": "W4E0F_ES11_BCR_Read_Report",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4E1F",
+              "Value": [
+                {
+                  "Comment": "W4E1F_ES15_Run_Mode_Reply",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4E3F",
+              "Value": [
+                {
+                  "Comment": "W4E3F_ES18_Clear_Alarm_Reply",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4E4F",
+              "Value": [
+                {
+                  "Comment": "W4E4F_ES21_Set_EC_Reply",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4E9F",
+              "Value": [
+                {
+                  "Comment": "W4E9F_ES11_BCR_Read_Report_Dummy",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4EC0",
+              "Value": [
+                {
+                  "Comment": "W4EC0_Port1_EP01_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4EC1_Port1_EP01_Port_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4EC2_Port1_EP01_Port_Enable/Disable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W4EC3_Port1_EP01_Port_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4EC4_Port1_EP01_Access_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4EC5_Port1_EP01_Info_Pad",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EC6_Port1_EP01_Reservation_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EC7_Port1_EP01_Clamp",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EC8_Port1_EP01_Dock",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EC9_Port1_EP01_Open_Door",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4ECA_Port1_EP01_Map",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4ECB_Port1_EP01_Port_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4ECC_Port1_EP01_Re-Input_Flag",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4ECD_Port1_EP01_AGV_Carry",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4ECE_Port1_EP01_Panel_Grade",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W53F0",
+              "Value": [
+                {
+                  "Comment": "W53F0_Port2_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W53F1_Port2_Port_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F2_Port2_Port_Enable/Disable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W53F3_Port2_Port_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F4_Port2_Access_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F5_Port2_Info_Pad",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F6_Port2_Reservation_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F7_Port2_Clamp",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F8_Port2_Dock",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F9_Port2_Open_Door",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FA_Port2_Map",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FB_Port2_Port_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53FC_Port2_Re-Input_Flag",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FD_Port2_AGV_Carry",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FE_Port2_Panel_Grade",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4EF0",
+              "Value": [
+                {
+                  "Comment": "W4EF0_Port1_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W4EF1_Port1_Carrier_State_",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EF2_Port1_Abnormal_Code",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EF3_Port1_Carrier_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W4EFD_Port1_Carrier_ID_Read_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EFE_Port1_Slot_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4EFF_Port1_Slot_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F00_Port1_Slot_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F01_Port1_Crossed_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F02_Port1_Crossed_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F03_Port1_Crossed_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F04_Port1_Doubled_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F05_Port1_Double_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F06_Port1_Double_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W4F07_Port1_Product_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W4F11_Port1_Panel_ID_#_1_(C_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W50E5_Port1_Panel_ID_#_1_(S_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W52B9_Port1_BCR_Result_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W52DD_Port1_Process_Flag_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5301_Port1_Process_History_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5325_Port1_CDA_Purge_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5326_Port1_Info_Pad_(FOUP)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5327_Port1_Info_Pad_Check_Result",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W5420",
+              "Value": [
+                {
+                  "Comment": "W5420_Port2_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W5421_Port2_Carrier_State_",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5422_Port2_Abnormal_Code",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5423_Port2_Carrier_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W542D_Port2_Carrier_ID_Read_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W542E_Port2_Slot_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W542F_Port2_Slot_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5430_Port2_Slot_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5431_Port2_Crossed_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5432_Crossed_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5433_Port2_Crossed_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5434_Port2_Doubled_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5435_Port2_Double_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5436_Port2_Double_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5437_Port2_Product_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W5441_Port2_Panel_ID_#_1_(C_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W5615_Port2_Panel_ID_#_1_(S_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W57E9_Port2_BCR_Result_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W580D_Port2_Process_Flag_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5831_Port2_Process_History_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5855_Port2_CDA_Purge_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5856_Port2_Info_Pad_(FOUP)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5857_Port2_Info_Pad_Check_Result",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4EDF",
+              "Value": [
+                {
+                  "Comment": "W4EDF_Port1_EP02_Reply_Port_Command",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W4EEF",
+              "Value": [
+                {
+                  "Comment": "W4EEF_Port1_EP03_Reply_Port_Enable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W533F",
+              "Value": [
+                {
+                  "Comment": "W533F_Port1_EP07_Reply_Cancel",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W534F",
+              "Value": [
+                {
+                  "Comment": "W534F_Port1_EP08_Carrier_Data_Download",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W540F",
+              "Value": [
+                {
+                  "Comment": "W540F_Port2_EP02_Reply_Port_Command",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W541F",
+              "Value": [
+                {
+                  "Comment": "W541F_Port2_EP03_Reply_Port_Enable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W586F",
+              "Value": [
+                {
+                  "Comment": "W586F_Port2_EP07_Reply_Cancel",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W587F",
+              "Value": [
+                {
+                  "Comment": "W587F_Port2_EP08_Carrier_Data_Download",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W6380",
+              "Value": [
+                {
+                  "Comment": "W6380_Robot1_Robot_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W6381_Robot1_Robot_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W6382_Robot1_Auto/Manual_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6383_Robot1_Spare",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6384_Robot1_Fork_Panel_Presence-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6385_Robot1_Fork_Work_No-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6386_Robot1_Fork_Enable-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6387_Robot1_Fork_Panel_Presence_-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6388_Robot1_Fork_Work_No-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6389_Robot1_Fork_Enable-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W638A_Robot1_Execution_Command_Sequence_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W638B_Robot1_Execution_Command_Step_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W638C_Robot1_Robot_Position",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W638D_Robot1_Action_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W6430",
+              "Value": [
+                {
+                  "Comment": "W6430_Robot2_Robot_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W6431_Robot2_Robot_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W6432_Robot2_Auto/Manual_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6433_Robot2_Spare",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6434_Robot2_Fork_Panel_Presence-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6435_Robot2_Fork_Work_No-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6436_Robot2_Fork_Enable-Upper_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6437_Robot2_Fork_Panel_Presence_-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6438_Robot2_Fork_Work_No-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W6439_Robot2_Fork_Enable-Lower_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W643A_Robot2_Execution_Command_Sequence_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W643B_Robot2_Execution_Command_Step_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W643C_Robot2_Robot_Position",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W643D_Robot2_Action_Fork",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          }
+        ]
+      },
+      "Trigger": {
+        "TriggerActions": [
+          {
+            "Name": "HS08_ChangeCimMode",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W467F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D70",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W4670",
+                      "Lens": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D80",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4D8F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W467F"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HR04QueryRecipeList",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W44AF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4A60",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 5
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 4
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4AC4",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W44A0",
+                      "Lens": 1
+                    },
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4ACF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W44AF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HR05_ChangeCurrentRecipe",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W44BF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4ADF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W44BF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HS15_ChangeRunMode",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W46BF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D72",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W46B0",
+                      "Lens": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4E1F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W46BF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "HS21_SetECValue",
+            "TriggerPoint": {
+              "Type": "OR",
+              "Conditions": [
+                {
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W46EF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4D78",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W46E0",
+                      "Lens": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4E4F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W46EF"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "TransferProcess",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "PROC",
+                  "Action": "Monitor",
+                  "ExceptedValue": 4,
+                  "Address": "W4EF1"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "LoopAction",
+                "Inputs": {
+                  "Value": [
+                    {
+                      "Comment": "ReadTheCIMSelectSlot",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1153",
+                      "Lens": 3,
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                },
+                "ExecuteCondition": {
+                  "Comment": "OnlyMeetTheConditionThenExecute",
+                  "Type": "Equals",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                "SubActions": [
+                  {
+                    "Comment": "EW03FromCarrierToRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4C60",
+                      "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "From HP08 according executing Slot get PaenlId",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1184",
+                          "Lens": 13,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "Receive Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Position No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "FirstPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "LastPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCSampleNo Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCResult Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Slot",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                        },
+                        {
+                          "Comment": "PanelXSize For StartLine Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "PanelYSize For StartLine Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EC01_PanelOnRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W6380",
+                      "Value": [
+                        {
+                          "Comment": "Robot No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Robot State",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "Auto Mode",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Spare",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Upper Presence",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EC01_PanelLeaveRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W6380",
+                      "Value": [
+                        {
+                          "Comment": "Robot No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Robot State",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Auto Mode",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Spare",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Upper Presence",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Upper WorkNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03FromRobotToAligner",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4C6E",
+                      "Value": [
+                        {
+                          "Comment": "Send Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Position No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 9
+                        },
+                        {
+                          "Comment": "FirstPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "LastPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCSampleNo Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCResult Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Slot",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "ES11CIMDownIDAndBCRId",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4DC0",
+                      "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get PaenlId",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1184",
+                          "Lens": 13,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "CIMPCDownLoadID",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "ES11CCLINKIDAndFinalId",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4DDA",
+                      "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get PaenlId",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1184",
+                          "Lens": 13,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "CIMPCDownLoadID",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "ES11AfterBCRResult",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4DF4",
+                      "Value": [
+                        {
+                          "Comment": "OK",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "ProductionPanel",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "ES11HS",
+                    "ActionName": "PriHandShake",
+                    "Inputs": {
+                      "Address": "W4E0F",
+                      "Value": [
+                        {
+                          "Comment": "HS11_Reqply",
+                          "Type": "KeyIn",
+                          "Format": "String",
+                          "Content": "W469F"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03SendtoEQ",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4CB0",
+                      "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "From ES11 FinalId",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W4DE7",
+                          "Lens": 13,
+                          "Floating": false
+                        },
+                        {
+                          "Comment": "Send Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "Position No CV1",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 31
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03ReceiveEQ",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4CBE",
+                      "Value": [
+                        {
+                          "Comment": "Receive Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "Position No CV2",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 32
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03FromAlignerToRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4C60",
+                      "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        },
+                        {
+                          "Comment": "From ES11 FinalId",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W4DE7",
+                          "Lens": 13,
+                          "Floating": false
+                        },
+                        {
+                          "Comment": "Receive Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Position No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 9
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EC01_PanelOnRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W6380",
+                      "Value": [
+                        {
+                          "Comment": "Robot No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Robot State",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "Auto Mode",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Spare",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Upper Presence",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EC01_PanelLeaveRobot",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W6380",
+                      "Value": [
+                        {
+                          "Comment": "Robot No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Robot State",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 2
+                        },
+                        {
+                          "Comment": "Auto Mode",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Spare",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Upper Presence",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Upper WorkNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03FromRobotToCarrier",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4C6E",
+                      "Value": [
+                        {
+                          "Comment": "Receive Type",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "PortNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "OperationEQ EFEM",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 1
+                        },
+                        {
+                          "Comment": "Position No",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "FirstPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "LastPanelStart Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCSampleNo Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "IPQCResult Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "Slot",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                        },
+                        {
+                          "Comment": "PanelXSize For StartLine Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Comment": "PanelYSize For StartLine Not important",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW03_Index",
+                    "ActionName": "Index",
+                    "Inputs": {
+                      "Address": "W4C7F",
+                      "Value": []
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  }
+                ],
+                "PostActions": [
+                  {
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4EF1",
+                      "Value": [
+                        {
+                          "Comment": "PREN",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 5
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "Port1_LoadCompleted",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 6,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W4EF1"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EFD",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF3",
+                  "Value": [
+                    {
+                      "Type": "GlobalVariable",
+                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.CassettleId"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_LoadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 9,
+                  "Address": "W110B"
+                },
+
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "PRES",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EFE",
+                  "Value": [
+                    {
+                      "Comment": "W4EFE_Port1_Slot_Mapping_#16-#1",
+                      "Type": "GlobalVariable",
+                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                }
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_CarrierDataDownload",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "MAPE",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1D3F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5340",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W534F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1D3F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4F07",
+                  "Value": [
+                    {
+                      "Comment": "ProductId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E36",
+                      "Lens": 10
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4F11",
+                  "Value": [
+                    {
+                      "Comment": "CSidePanelId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E64",
+                      "Lens": 468
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W52DD",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E33",
+                      "Lens": 3,
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "WAIT",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_StartAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "WAIT",
+                  "Action": "Specific",
+                  "ExceptedValue": 3,
+                  "Address": "W4EF1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "PROC",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 4
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_UnloadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "UnLoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 10,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },                
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "Buttons": [
+    {
+      "ButtonContent": "InitPort1-2",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC0",
+            "Value": [
+              {
+                "Comment": "W4EC0_Port1_EP01_Port_No",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4EC2_Port1_EP01_Port_Enable/Disable",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W4EC3_Port1_EP01_Port_Type",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4EC4_Port1_EP01_Access_Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4EC5_Port1_EP01_Info_Pad",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EC6_Port1_EP01_Reservation_(No_use)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EC7_Port1_EP01_Clamp",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EC8_Port1_EP01_Dock",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EC9_Port1_EP01_Open_Door",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4ECA_Port1_EP01_Map",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4ECB_Port1_EP01_Port_Status",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4ECC_Port1_EP01_Re-Input_Flag",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4ECD_Port1_EP01_AGV_Carry",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4ECE_Port1_EP01_Panel_Grade",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W53F0",
+            "Value": [
+              {
+                "Comment": "W53F0_Port2_Port_No",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W53F1_Port2_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F2_Port2_Port_Enable/Disable",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W53F3_Port2_Port_Type",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F4_Port2_Access_Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F5_Port2_Info_Pad",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F6_Port2_Reservation_(No_use)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F7_Port2_Clamp",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F8_Port2_Dock",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F9_Port2_Open_Door",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FA_Port2_Map",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FB_Port2_Port_Status",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53FC_Port2_Re-Input_Flag",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FD_Port2_AGV_Carry",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FE_Port2_Panel_Grade",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF0",
+            "Value": [
+              {
+                "Comment": "W4EF0_Port1_Port_No",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4EF1_Port1_Carrier_State_",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EF2_Port1_Abnormal_Code",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EF3_Port1_Carrier_ID",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 10
+              },
+              {
+                "Comment": "W4EFD_Port1_Carrier_ID_Read_Type",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EFE_Port1_Slot_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4EFF_Port1_Slot_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F00_Port1_Slot_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F01_Port1_Crossed_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F02_Port1_Crossed_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F03_Port1_Crossed_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F04_Port1_Doubled_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F05_Port1_Double_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F06_Port1_Double_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W4F07_Port1_Product_ID",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 10
+              },
+              {
+                "Comment": "W4F11_Port1_Panel_ID_#_1_(C_Side)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 468
+              },
+              {
+                "Comment": "W50E5_Port1_Panel_ID_#_1_(S_Side)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 468
+              },
+              {
+                "Comment": "W52B9_Port1_BCR_Result_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W52DD_Port1_Process_Flag_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W5301_Port1_Process_History_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W5325_Port1_CDA_Purge_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5326_Port1_Info_Pad_(FOUP)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5327_Port1_Info_Pad_Check_Result",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W5420",
+            "Value": [
+              {
+                "Comment": "W5420_Port2_Port_No",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W5421_Port2_Carrier_State_",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5422_Port2_Abnormal_Code",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5423_Port2_Carrier_ID",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 10
+              },
+              {
+                "Comment": "W542D_Port2_Carrier_ID_Read_Type",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W542E_Port2_Slot_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W542F_Port2_Slot_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5430_Port2_Slot_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5431_Port2_Crossed_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5432_Crossed_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5433_Port2_Crossed_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5434_Port2_Doubled_Mapping_#16-#1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5435_Port2_Double_Mapping_#32-#17",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5436_Port2_Double_Mapping_#36-#33",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5437_Port2_Product_ID",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 10
+              },
+              {
+                "Comment": "W5441_Port2_Panel_ID_#_1_(C_Side)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 468
+              },
+              {
+                "Comment": "W5615_Port2_Panel_ID_#_1_(S_Side)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 468
+              },
+              {
+                "Comment": "W57E9_Port2_BCR_Result_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W580D_Port2_Process_Flag_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W5831_Port2_Process_History_(Slot_#01)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 36
+              },
+              {
+                "Comment": "W5855_Port2_CDA_Purge_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5856_Port2_Info_Pad_(FOUP)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W5857_Port2_Info_Pad_Check_Result",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_Loading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 6
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF1",
+            "Value": [
+              {
+                "Comment": "W4EF1_Port1_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_UnLoading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 3
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UING",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 7
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDCM",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 4
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_LDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF1",
+            "Value": [
+              {
+                "Comment": "W4EF1_Port1_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_LoadActionFromCIM",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W110B",
+            "Value": [
+              {
+                "Comment": "CmdAction",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 9
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W111F",
+            "Value": [
+              {
+                "Comment": "HP02_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W4EDF"
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_CarrierDataDownFromCIM",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1153",
+            "Value": [
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 11
+              },
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "SlotSelect",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1160",
+            "Value": [
+              {
+                "Comment": "Work1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 5
+              },
+              {
+                "Comment": "Work2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "Work3",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 18
+              },
+              {
+                "Comment": "Work4",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 55
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1184",
+            "Value": [
+              {
+                "Comment": "PID1",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S1"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W1191",
+            "Value": [
+              {
+                "Comment": "PID2",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S2"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W11AB",
+            "Value": [
+              {
+                "Comment": "PID4",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "P1S4"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W1D3F",
+            "Value": [
+              {
+                "Comment": "HP08_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W534F"
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_PortStart",
+      "Actions": [
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W110B",
+              "Value": [
+                {
+                  "Comment": "CmdAction",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                }
+              ]
+            },
+            "Output": {}
+          
+        },
+        {
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W111F",
+            "Value": [
+              {
+                "Comment": "HP02_Request",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W4EDF"
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    }
+  ]
+}

@@ -2402,7 +2402,7 @@
                     "Comment": "EW03FromRobotToCarrier",
                     "ActionName": "Write",
                     "Inputs": {
-                      "Address": "W4C60",
+                      "Address": "W4C6E",
                       "Value": [
                         {
                           "Comment": "Receive Type",
@@ -2454,9 +2454,8 @@
                         },
                         {
                           "Comment": "Slot",
-                          "Type": "KeyIn",
-                          "Format": "Int",
-                          "Content": 0
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
                         },
                         {
                           "Comment": "PanelXSize For StartLine Not important",
@@ -2481,6 +2480,11 @@
                       "Address": "W4C7F",
                       "Value": []
                     },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
                     "Output": {}
                   }
                 ],
@@ -2866,6 +2870,82 @@
                       "Type": "KeyIn",
                       "Format": "Int",
                       "Content": 4
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_UnloadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "UnLoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 10,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },                
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
                     }
                   ]
                 },
@@ -3417,6 +3497,101 @@
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_UnLoading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 3
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UING",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 7
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDCM",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 4
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_LDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF1",
+            "Value": [
+              {
+                "Comment": "W4EF1_Port1_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
               }
             ]
           },
