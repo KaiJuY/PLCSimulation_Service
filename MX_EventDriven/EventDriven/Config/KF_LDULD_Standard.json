@@ -2952,6 +2952,164 @@
                 "Output": {}
               }
             ]
+          },          
+          {
+            "Name": "Port2_LoadCompleted",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 6,
+                  "Address": "W53F1"
+                },
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W5421"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W542D",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5423",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "Cassettle2"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W53F1",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port1_CancelAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "CANCEL",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 7
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
           }
         ]
       }
@@ -3592,6 +3750,41 @@
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port2_Loading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W53F1",
+            "Value": [
+              {
+                "Comment": "W53F1_Port2_EP01_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 6
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W5421",
+            "Value": [
+              {
+                "Comment": "W5421_Port2_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
               }
             ]
           },

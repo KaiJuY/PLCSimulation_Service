@@ -666,7 +666,7 @@ namespace EventDriven.Services
                         _loopElements = ReadValue.SelectMany(v => BitConverter.GetBytes(v)).Select(b => (int)b).ToList();
                         break;
                     case "Amount":
-                        _loopElements = Enumerable.Repeat(1,lens).ToList();
+                        _loopElements = Enumerable.Repeat(1, ReadValue.First()).ToList();
                         break;
                     default:
                         throw new Exception("LoopAction Read ElementUnit Not Support.");
