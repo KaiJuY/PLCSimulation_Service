@@ -140,6 +140,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Config\ESWIN_TPCD_Standard.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Config\KF_LDULD_Standard.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

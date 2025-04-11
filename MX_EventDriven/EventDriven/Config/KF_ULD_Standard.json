@@ -3775,6 +3775,46 @@
           "Output": {}
         }
       ]
+    },
+    {
+      "ButtonContent": "CIMON",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D70",
+            "Value": [
+              {
+                "Comment": "CimOn",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "CIMOFF",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D70",
+            "Value": [
+              {
+                "Comment": "CimOn",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
     }
   ]
 }

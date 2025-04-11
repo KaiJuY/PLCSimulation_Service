@@ -3110,6 +3110,82 @@
                 "Output": {}
               }
             ]
+          },
+          {
+            "Name": "Port1_CancelAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 11,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
           }
         ]
       }
