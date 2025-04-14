@@ -2287,22 +2287,10 @@
             ]
           },
           {
-            "Name": "HC02_FromToCmd",
+            "Name": "HC02_RobotCmd",
             "TriggerPoint": {
               "Type": "AND",
-              "Conditions": [
-                {
-                  "Comment": "UnLoadCmd",
-                  "Action": "Specific",
-                  "ExceptedValue": 1,
-                  "Address": "W10DD"
-                },
-                {
-                  "Comment": "LDCM",
-                  "Action": "Specific",
-                  "ExceptedValue": 2,
-                  "Address": "W5811"
-                },                
+              "Conditions": [            
                 {
                   "Comment": "HS",
                   "Action": "Monitor",
@@ -2315,9 +2303,24 @@
               {
                 "ActionName": "Write",
                 "Inputs": {
-                  "Address": "W5820",
+                  "Address": "W6112",
                   "Value": [
                     {
+                      "Comment": "RobotWaitForCmd",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 0
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6120",
+                  "Value": [
+                    {                      
                       "Type": "KeyIn",
                       "Format": "Int",
                       "Content": 1
@@ -2329,36 +2332,43 @@
               {
                 "ActionName": "SecHandShake",
                 "Inputs": {
-                  "Address": "W582F",
+                  "Address": "W612F",
                   "Value": [
                     {
                       "Type": "KeyIn",
                       "Format": "String",
-                      "Content": "W10EF"
+                      "Content": "W19AF"
                     }
                   ]
                 },
                 "Output": {}
               },
               {
-                "ActionName": "Hold",
-                "Inputs": {},
-                "Output": {}
-              },
-              {
-                "ActionName": "Write",
+                "ActionName": "RobotMotion",
                 "Inputs": {
-                  "Address": "W5811",
-                  "Value": [
-                    {
-                      "Comment": "UDRQ",
-                      "Type": "KeyIn",
-                      "Format": "Int",
-                      "Content": 3
-                    }
-                  ]
+                  "Address": "W6110",
+                  "Value": []
                 },
-                "Output": {}
+                "Output": {},
+                "DataTable":
+                {
+                  "Port1":{
+                    "JobNo":"W1129",
+                    "WaferId":"W1142"
+                  },
+                  "Port2":{
+                      "JobNo":"W1359",
+                      "WaferId":"W1372"
+                  },
+                  "Port3":{
+                      "JobNo":"W1589",
+                      "WaferId":"W15A2"
+                  },
+                  "Port4":{
+                      "JobNo":"W17A9",
+                      "WaferId":"W17D2"
+                  }                  
+                }
               }
             ]
           }

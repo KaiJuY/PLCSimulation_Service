@@ -257,6 +257,8 @@ namespace EventDriven.Services
                         return new ExecuteLoopAction();
                     case "Hold":
                         return new ExecuteHold();
+                    case "RobotMotion":
+                        return new RobotMotion();
                     default:
                         return new NullExeAction();
                 }
@@ -789,6 +791,167 @@ namespace EventDriven.Services
                 return bitList;
             }
         }
+        /// <summary>
+        /// This class is used to handle Robot Motion for ESWIN EFEM
+        /// </summary>
+        public class RobotMotion : IExeAction
+        {
+            protected aPLCBasic _robotStatus; //EC01
+            protected aPLCBasic _robotCmd; //HC02
+            protected aPLCBasic _robotCmdResult; //EC03
+            protected aPLCBasic _jobDataRequest; //EW05
+            protected aPLCBasic _jobDataReply; //HW05
+            protected aPLCBasic _jobTransferReport; //EW03
+            protected aPLCBasic _transferInterface; //EW08
+            List<ReportChain> _reportChainList = new List<ReportChain>();
+            public bool Execute(Model.Action action)
+            {
+                if(!PrepareRobotMotionData(action))
+                {
+                    throw new Exception("Prepare Motion Data Failed.");
+                }
+                return ExecuteReport();
+            }
+            private bool ExecuteReport()
+            {
+                foreach(ReportChain reportChain in _reportChainList)
+                {
+                    if(!ReportFactory.GetReport(reportChain.ReportType).Fire())
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            private bool PrepareRobotMotionData(Model.Action action)
+            {
+                if (action.Inputs.Value.Length != 1) throw new Exception("For Robot Motion, Value should be 1.");
+                string value = GetContent(action.Inputs.Value);//item1 : Address
+                _robotStatus = new RobotStatus(value); //W6110
+                _robotCmd = new RobotCmd("W1990"); //W1990 is the base address for RobotCmd
+                _robotCmdResult = new RobotCmdResult("W6130"); //W6130 is the base address for RobotCmdResult
+                _jobDataRequest = new JobDataRequest("W5390"); //W5390 is the base address for JobDataRequest
+                _jobDataReply = new JobDataReply("W1C10"); //W1C10 is the base address for JobDataReply
+                _jobTransferReport = new JobTransferReport("W5370"); //W5370 is the base address for JobTransferReport
+                _transferInterface = new TransferInterface("W53C0"); //W53C0 is the base address for TransferInterface
+                return GetReportInfo(action);
+            }
+            private bool GetReportInfo(Model.Action action)
+            {
+                _robotCmd.GetDataFromPLC();
+                string[] cmds = { "Cmd1", "Cmd2", "Cmd3" };
+                foreach(string cmd in cmds)
+                {
+                    eRobotCmd currentCmd = (eRobotCmd)_robotCmd.Properties[cmd][0];
+                    switch(currentCmd)
+                    {
+                        case eRobotCmd.Get:
+                            _reportChainList.Add(FetchReportChainForGet(_robotCmd.Properties[cmd + "TargetPos"][0], _robotCmd.Properties[cmd + "TargetStage"][0], _robotCmd.Properties[cmd + "TargetSlot"][0]));
+                            break;
+                        case eRobotCmd.Put:
+                            _reportChainList.Add(FetchReportChainForPut(_robotCmd.Properties[cmd + "Fork"][0]));
+                            break;
+                        case eRobotCmd.Move:
+                            //ignore
+                            break;
+                        case eRobotCmd.Exchange:
+                            _reportChainList.Add(FetchReportChainForGet(_robotCmd.Properties[cmd + "TargetPos"][0], _robotCmd.Properties[cmd + "TargetStage"][0], _robotCmd.Properties[cmd + "TargetSlot"][0]));
+                            _reportChainList.Add(FetchReportChainForPut(_robotCmd.Properties[cmd + "Fork"][0]));
+                            break;
+                        default:
+                            throw new Exception("Command Not Support.");
+                    }                    
+                }       
+                return _reportChainList.Any();
+            }
+            private string GetContent(InputValue[] inputs)
+            {
+                string content = string.Empty;
+                foreach (InputValue input in inputs)
+                {
+                    switch (input.Type)
+                    {
+                        case "KeyIn":
+                            content = DecodeContent(input.Content, input.Format);
+                            break;
+                        default:
+                            throw new Exception("Type Not Support.");
+                    }
+                    if (content == string.Empty) throw new Exception("Vals Not Exist.");
+                }
+                return content;
+            }
+            private string DecodeContent(object content, string format)
+            {
+                switch (format.ToLower())
+                {
+                    case "string":
+                        return content.ToString();
+                    default:
+                        throw new InvalidOperationException("Unsupported format: " + format);
+                }
+            }
+            private enum eRobotCmd
+            {
+                Get = 1,
+                Put,
+                Move,
+                Exchange,
+            }
+            private ReportChain FetchReportChainForGet(int targetPos, int targetStage, int targetSlot)
+            {
+                ReportChain reportChain = new ReportChain();
+                //get report chain from targetPos, targetStage, targetSlot
+                return reportChain;
+            }
+            private ReportChain FetchReportChainForPut(int robotArm)
+            {
+                ReportChain reportChain = new ReportChain();
+                //get report chain from robotArm
+                return reportChain;
+            }
+            private struct ReportChain
+            {
+                public string ReportType { get; set; } //Report Type
+                public string JobNo { get; set; } //Job No Address
+                public string WaferId { get; set; } //Wafer Id Address
+            }
+            public interface Reporter
+            {
+                bool Fire();
+            }
+            public class ReportGet : Reporter
+            {
+                public bool Fire()
+                {
+                    //get report
+                    return true;
+                }
+            }
+            public class ReportPut : Reporter
+            {
+                public bool Fire()
+                {
+                    //put report
+                    return true;
+                }
+            }
+            public class ReportFactory
+            {
+                public static Reporter GetReport(string reportType)
+                {
+                    switch (reportType)
+                    {
+                        case "Get":
+                            return new ReportGet();
+                        case "Put":
+                            return new ReportPut();
+                        default:
+                            throw new Exception("Report Type Not Support.");
+                    }
+                }
+            }
+        }
         public class NullExeAction : IExeAction
         {
             public bool Execute(Model.Action action)
@@ -796,34 +959,174 @@ namespace EventDriven.Services
                 throw new Exception("Action Not Support.");
             }
         }
-        public class WorkTransfering : AInputValue
+        public abstract class aPLCBasic
         {
-            public WorkTransfering(Model.Action action) : base(action)
+            public aPLCBasic(string wholeAddr)
             {
+                StringValidator.SplitAndValidateString(wholeAddr, out string basedevice, out string baseaddress); //BaseAddress is Hexadecimal Address
+                BaseDevice = basedevice;
+                BaseAddress = baseaddress;
             }
-            public override List<Tuple<ushort, object>> GetOffetContent(object content)
+            public int TotalLens { get; set; } //Total Lens for Read/Write
+            public string BaseDevice { get; set; }
+            public string BaseAddress { get; set; }
+            public Dictionary<string, List<Int16>> Properties { get; set; } = new Dictionary<string, List<Int16>>();
+            public virtual void GetDataFromPLC()
             {
-                throw new NotImplementedException();
+                if(!_iOContainer.ReadListInt(BaseDevice, BaseAddress, TotalLens, out List<short> data))
+                {
+                    throw new Exception("Read Fail.");
+                }
+                int indexForData = 0;
+                foreach(List<Int16> item in Properties.Values)
+                {
+                    if (indexForData + item.Count() > data.Count()) throw new Exception("Data Not Enough.");
+                    for (int i = 0; i < item.Count(); i++)
+                    {
+                        item[i] = data[indexForData + i];
+                    }
+                    indexForData += item.Count();
+                }
+            }
+            public virtual void SetDataToPLC()
+            {
+                List<Int16> data = new List<Int16>();
+                foreach(List<Int16> item in Properties.Values)
+                {
+                    data.AddRange(item);
+                }
+                if (data.Count() != TotalLens) throw new Exception("Data Not Enough.");
+                if (!_iOContainer.WriteListInt(BaseDevice, BaseAddress, data))
+                {
+                    throw new Exception("Write Fail.");
+                }
+            }
+            protected void CalculateLens()
+            {
+                foreach (string key in Properties.Keys)
+                {
+                    TotalLens += Properties[key].Count();
+                }
             }
         }
-        public class VCRRead : AInputValue
+        public class RobotCmd : aPLCBasic
         {
-            public VCRRead(Model.Action action) : base(action)
-            {
-            }
-            public override List<Tuple<ushort, object>> GetOffetContent(object content)
-            {
-                throw new NotImplementedException();
+            public RobotCmd(string wholeaddress) : base(wholeaddress)
+            {                
+                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
+                Properties.Add("Cmd1", new List<Int16>() { 0 });
+                Properties.Add("Cmd1Fork", new List<Int16>() { 0 });
+                Properties.Add("Cmd1TargetPos", new List<Int16>() { 0 });
+                Properties.Add("Cmd1TargetStage", new List<Int16>() { 0 });
+                Properties.Add("Cmd1TargetSlot", new List<Int16>() { 0 });
+                Properties.Add("Cmd2", new List<Int16>() { 0 });
+                Properties.Add("Cmd2Fork", new List<Int16>() { 0 });
+                Properties.Add("Cmd2TargetPos", new List<Int16>() { 0 });
+                Properties.Add("Cmd2TargetStage", new List<Int16>() { 0 });
+                Properties.Add("Cmd2TargetSlot", new List<Int16>() { 0 });     
+                Properties.Add("Cmd3", new List<Int16>() { 0 });
+                Properties.Add("Cmd3Fork", new List<Int16>() { 0 });
+                Properties.Add("Cmd3TargetPos", new List<Int16>() { 0 });
+                Properties.Add("Cmd3TargetStage", new List<Int16>() { 0 });
+                Properties.Add("Cmd3TargetSlot", new List<Int16>() { 0 });
+                CalculateLens();
             }
         }
-        public class CassetteState : AInputValue
+        public class RobotStatus : aPLCBasic
         {
-            public CassetteState(Model.Action action) : base(action)
+            public RobotStatus(string wholeaddress) : base(wholeaddress)
             {
+                Properties.Add("Status", new List<Int16>() { 0 });//1 : Idle, 2 : Busy
+                Properties.Add("Mode", new List<Int16>() { 0 });//1 : Auto, 2 : Manual
+                Properties.Add("WaitCmd", new List<Int16>() { 0 });//1 : Wait, 0 : NoWait
+                Properties.Add("UpForkExist", new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
+                Properties.Add("UpForkJobNo", new List<Int16>() { 0 });
+                Properties.Add("UpForkEnable", new List<Int16>() { 0 });//1 : Enable, 0 : Disable
+                Properties.Add("LowForkExist", new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
+                Properties.Add("LowForkJobNo", new List<Int16>() { 0 });
+                Properties.Add("LowForkEnable", new List<Int16>() { 0 });//1 : Enable, 0 : Disable
+                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
+                Properties.Add("CmdStep", new List<Int16>() { 0 });
+                Properties.Add("RobotPos", new List<Int16>() { 0 });
+                Properties.Add("ActFork", new List<Int16>() { 0 });
+                Properties.Add("ActForkPos", new List<Int16>() { 0 });
+                CalculateLens();
+            }           
+        }
+        public class JobDataRequest : aPLCBasic
+        {
+            public JobDataRequest(string wholeaddress) : base(wholeaddress)
+            {
+                List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
+                Properties.Add("WaferId", shorts);
+                CalculateLens();
             }
-            public override List<Tuple<ushort, object>> GetOffetContent(object content)
+            public override void SetDataToPLC()
             {
-                throw new NotImplementedException();
+                base.SetDataToPLC();
+                _iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), BaseDevice, "1C5F", _workFlow.GlobalVariable.Handshake_Timeout);
+            }
+        }
+        public class JobDataReply : aPLCBasic
+        {
+            public JobDataReply(string wholeaddress) : base(wholeaddress)
+            {
+                List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
+                Properties.Add("JobNo", new List<Int16>() { 0 });
+                Properties.Add("ProductId", shorts);
+                Properties.Add("WaferId", shorts);
+                Properties.Add("SlotSelectFlag", new List<Int16>() { 0 });
+                Properties.Add("SourcePort", new List<Int16>() { 0 });
+                Properties.Add("SourceSlot", new List<Int16>() { 0 });
+                Properties.Add("TargetPort", new List<Int16>() { 0 });
+                Properties.Add("TargetSlot", new List<Int16>() { 0 });
+                CalculateLens();
+            }
+        }
+        public class JobTransferReport : aPLCBasic
+        {
+            public JobTransferReport(string wholeaddress) : base(wholeaddress)
+            {                
+                Properties.Add("JobNo", new List<Int16>() { 0 });
+                Properties.Add("TransferType", new List<Int16>() { 0 });
+                Properties.Add("OperationPort", new List<Int16>() { 0 });
+                Properties.Add("OperationEq", new List<Int16>() { 0 });
+                Properties.Add("FirstStart", new List<Int16>() { 0 });
+                Properties.Add("LastStart", new List<Int16>() { 0 });
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), out short val);
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), ++val);
+            }
+        }
+        public class TransferInterface : aPLCBasic
+        {
+            public TransferInterface(string wholeaddress) : base(wholeaddress)
+            {
+                List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
+                Properties.Add("StageNo", new List<Int16>() { 0 });
+                Properties.Add("SlotNo", new List<Int16>() { 0 });
+                Properties.Add("Status", new List<Int16>() { 0 });
+                Properties.Add("WaferId", shorts);
+                CalculateLens();
+            }
+        }
+        public class RobotCmdResult : aPLCBasic
+        {
+            public RobotCmdResult(string wholeaddress) : base(wholeaddress)
+            {
+                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
+                Properties.Add("Code", new List<Int16>() { 0 });
+                Properties.Add("CmdStep", new List<Int16>() { 0 });
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                _iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), BaseDevice, "19BF", _workFlow.GlobalVariable.Handshake_Timeout);
             }
         }
     }

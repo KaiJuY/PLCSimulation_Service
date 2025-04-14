@@ -151,6 +151,19 @@ namespace EventDriven.Model
         public ExecuteCondition ExecuteCondition { get; set; }
         public List<Action> SubActions { get; set; }
         public List<Action> PostActions { get; set; }
+        public DataTable Datatable { get; set; }
+    }
+    public class DataTable : aProperty
+    {
+        public DataTableAddressBase Port1 { get; set; }
+        public DataTableAddressBase Port2 { get; set; }
+        public DataTableAddressBase Port3 { get; set; }
+        public DataTableAddressBase Port4 { get; set; }         
+    }
+    public class DataTableAddressBase : aProperty
+    {
+        string JobNo { get; set; }
+        string WaferId { get; set; }
     }
     /// <summary>
     /// Inputs: �ʧ@����J�Ѽ�
