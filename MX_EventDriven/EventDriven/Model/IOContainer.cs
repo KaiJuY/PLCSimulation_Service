@@ -48,8 +48,31 @@ namespace EventDriven.Model
             }
             return true;
         }
-
+        public bool ReadString(string device, string address, int lens, out string value)
+        {
+            string _value = string.Empty;
+            ReadListInt(device, address, lens, out List<Int16> values);
+            for (int j = 0; j < lens; j++)
+            {
+                string text = values[j].ToString("X4");
+                text = text.Substring(2, 2) + text.Substring(0, 2);
+                if (text.Contains("00"))
+                {
+                    text = text.Replace("00", "");
+                }
+                _value += text;
+            }
+            byte[] bytes = (from i in Enumerable.Range(0, _value.Length / 2)
+                            select Convert.ToByte(_value.Substring(i * 2, 2), 16)).ToArray();
+            value = Encoding.ASCII.GetString(bytes);
+            return true;
+        }
         /* Broken function
+        public bool ReadString(string device, string address, int lens, out string value)
+        {            
+            _mitControlModule.ReadDataFromPLC(device, address, lens, out value);
+            return true;
+        }
         public bool ReadListInt(string device, string address, int count, out List<short> values)
         {
             values = new List<short>();

@@ -13,6 +13,7 @@ using System.Text.Json.Serialization;
 using System.Windows.Documents;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace EventDriven.Services
 {
@@ -25,6 +26,12 @@ namespace EventDriven.Services
         private string _lastTriggeredActionName;
         private readonly object _registeredEventsLock = new object(); // 鎖定物件
         public event PropertyChangedEventHandler PropertyChanged;
+        private static Dictionary<(int, int, int), Dictionary<string, string>> _globalmemoryForRobot = new Dictionary<(int, int, int), Dictionary<string, string>>(); //for Robot Motion
+        public static Dictionary<(int, int, int), Dictionary<string, string>> GlobalMemoryForRobot
+        {
+            get { return _globalmemoryForRobot; }
+            set { _globalmemoryForRobot = value; }
+        }
         public bool IsMonitoring
         {
             get { return _isMonitoring; }
@@ -92,6 +99,17 @@ namespace EventDriven.Services
         public void DoInitialActions() => _workFlow.CarrierStorage.ForEach(Cs => ExecuteActions(Cs.Initialize.InitialActions));
         public void RegisterEvents()
         {
+            foreach(PositionInfo pos in _workFlow.GlobalVariable.PositionTable)
+            {
+                _globalmemoryForRobot[(pos.RobotPosition, pos.StageNo, pos.SlotNo)] = new Dictionary<string, string>()
+                {
+                    { "Name", pos.Name },
+                    { "BaseAddr", pos.BaseAddr},
+                    { "JobPosition", pos.JobPosition.ToString()},
+                    { "JobNo", string.Empty },
+                    { "WaferId", string.Empty }
+                };
+            }
             foreach (var Cs in _workFlow.CarrierStorage)
             {
                 foreach(var triggerAction in Cs.Trigger.TriggerActions)
@@ -117,6 +135,7 @@ namespace EventDriven.Services
             lock (_registeredEventsLock)
             {
                 _registeredEvents.Clear();
+                _globalmemoryForRobot.Clear();
             }
         }
         public void Monitor()
@@ -796,13 +815,14 @@ namespace EventDriven.Services
         /// </summary>
         public class RobotMotion : IExeAction
         {
-            protected aPLCBasic _robotStatus; //EC01
-            protected aPLCBasic _robotCmd; //HC02
-            protected aPLCBasic _robotCmdResult; //EC03
-            protected aPLCBasic _jobDataRequest; //EW05
-            protected aPLCBasic _jobDataReply; //HW05
-            protected aPLCBasic _jobTransferReport; //EW03
-            protected aPLCBasic _transferInterface; //EW08
+            protected static aPLCBasic _robotStatus; //EC01
+            protected static aPLCBasic _robotCmd; //HC02
+            protected static aPLCBasic _robotCmdResult; //EC03
+            protected static aPLCBasic _jobDataRequest; //EW05
+            protected static aPLCBasic _jobDataReply; //HW05
+            protected static aPLCBasic _jobTransferReport; //EW03
+            protected static aPLCBasic _transferInterface; //EW0
+            Dictionary<int, Dictionary<string, string>> _stageDataMap;
             List<ReportChain> _reportChainList = new List<ReportChain>();
             public bool Execute(Model.Action action)
             {
@@ -827,6 +847,13 @@ namespace EventDriven.Services
             {
                 if (action.Inputs.Value.Length != 1) throw new Exception("For Robot Motion, Value should be 1.");
                 string value = GetContent(action.Inputs.Value);//item1 : Address
+                _stageDataMap = new Dictionary<int, Dictionary<string, string>>()
+                {
+                    { 1, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port1.JobNo }, { "WaferId", action.Datatable.Port1.WaferId } } },
+                    { 2, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port2.JobNo }, { "WaferId", action.Datatable.Port2.WaferId } } },
+                    { 3, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port3.JobNo }, { "WaferId", action.Datatable.Port3.WaferId } } },
+                    { 4, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port4.JobNo }, { "WaferId", action.Datatable.Port4.WaferId } } },               
+                };
                 _robotStatus = new RobotStatus(value); //W6110
                 _robotCmd = new RobotCmd("W1990"); //W1990 is the base address for RobotCmd
                 _robotCmdResult = new RobotCmdResult("W6130"); //W6130 is the base address for RobotCmdResult
@@ -900,45 +927,115 @@ namespace EventDriven.Services
             }
             private ReportChain FetchReportChainForGet(int targetPos, int targetStage, int targetSlot)
             {
-                ReportChain reportChain = new ReportChain();
-                //get report chain from targetPos, targetStage, targetSlot
-                return reportChain;
+                return new ReportChain() { ReportType = "Get", JobNo = GetJobNo(targetPos, targetStage, targetSlot), WaferId = GetWaferId(targetPos, targetStage, targetSlot) }; 
             }
+            /// <summary>
+            /// Get ReportChain from global variable memory table
+            /// </summary>
+            /// <param name="robotArm"></param>
+            /// <returns></returns>
             private ReportChain FetchReportChainForPut(int robotArm)
             {
-                ReportChain reportChain = new ReportChain();
-                //get report chain from robotArm
-                return reportChain;
+                return new ReportChain() { ReportType = "Put", JobNo = GetJobNo(robotArm + 4, 0, 1), WaferId = GetWaferId(robotArm + 4, 0, 1) };
             }
             private struct ReportChain
             {
                 public string ReportType { get; set; } //Report Type
-                public string JobNo { get; set; } //Job No Address
+                public int JobNo { get; set; } //Job No Address
                 public string WaferId { get; set; } //Wafer Id Address
             }
-            public interface Reporter
+            private int GetJobNo(int targetPos, int targetStage, int targetSlot)
+            {
+                return targetPos >=1 && targetPos <= 4 ?
+                    GetJobNoFromPort(targetPos, targetSlot) :
+                    GetJobNoFromGlobalTable(targetPos, targetStage, targetSlot);
+            }
+            private string GetWaferId(int targetPos, int targetStage, int targetSlot)
+            {
+                return targetPos >= 1 && targetPos <= 4 ?
+                    GetWaferIdFromPort(targetPos, targetSlot) :
+                    GetWaferIdFromGlobalTable(targetPos, targetStage, targetSlot);
+            }
+            private int GetJobNoFromPort(int portNo, int slot)
+            {
+                _stageDataMap[portNo].TryGetValue("JobNo", out string jobNo);
+                StringValidator.SplitAndValidateString(jobNo, out string device, out string address);
+                address = (Convert.ToInt16(address, 16) + (slot - 1)).ToString("X4");
+                _iOContainer.ReadInt(device, address, out short jobNoValue);
+                return jobNoValue;
+            }
+            private int GetJobNoFromGlobalTable(int pos, int stage, int slot)
+            {
+                try
+                {
+                    GlobalMemoryForRobot.TryGetValue((pos, stage, slot), out var properties);                
+                    return int.Parse(properties["JobNo"]);
+                }
+                catch (Exception)
+                {
+                    throw new Exception($"Try Get JobNo From Global Memory Key is ({pos}, {stage}, {slot}) Failed.");
+                }
+            }
+            private string GetWaferIdFromPort(int portNo, int slot)
+            {
+                _stageDataMap[portNo].TryGetValue("WaferId", out string waferID);
+                StringValidator.SplitAndValidateString(waferID, out string device, out string address);
+                address = (Convert.ToInt16(address, 16) + (slot - 1) * 10).ToString("X4");                
+                return _iOContainer.ReadString(device, address, 10, out string waferIDValue) ? waferIDValue : string.Empty;
+            }
+            private string GetWaferIdFromGlobalTable(int pos, int stage, int slot)
+            {
+                try
+                {
+                    GlobalMemoryForRobot.TryGetValue((pos, stage, slot), out var properties);
+                    return properties["WaferId"];
+                }
+                catch (Exception)
+                {
+                    throw new Exception($"Try Get WaferId From Global Memory Key is ({pos}, {stage}, {slot}) Failed.");
+                }
+            }
+            public interface IReporter
             {
                 bool Fire();
             }
-            public class ReportGet : Reporter
+            public abstract class aReporter : IReporter
             {
-                public bool Fire()
+                public bool Fire() => FireReport();
+                public abstract bool FireReport();
+            }
+            public class ReportGet : aReporter
+            {
+                public override bool FireReport()
                 {
-                    //get report
+                    //get report                    
+                    //Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
+                    //EW02 Set Robot Pos
+                    //EW05 Request Job Data
+                    //EW03 Robot state Exist and Job No
+                    //EW03 Receive Job Transfer Report
+                    //EC03 Set Robot Cmd Result
+                    //EW08 ReceiveReady                    
                     return true;
                 }
             }
-            public class ReportPut : Reporter
+            public class ReportPut : aReporter
             {
-                public bool Fire()
+                public override bool FireReport()
                 {
                     //put report
+                    //Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
+                    //Robot state Not Exist and Job No
+                    //EW02 Set Robot Pos
+                    //EW03 Send Job Transfer Report
+                    //EW08 NOT READY
+                    //EC03 Set Robot Cmd Result
                     return true;
                 }
             }
             public class ReportFactory
             {
-                public static Reporter GetReport(string reportType)
+                public static IReporter GetReport(string reportType)
                 {
                     switch (reportType)
                     {
@@ -996,6 +1093,14 @@ namespace EventDriven.Services
                     data.AddRange(item);
                 }
                 if (data.Count() != TotalLens) throw new Exception("Data Not Enough.");
+                if (!_iOContainer.WriteListInt(BaseDevice, BaseAddress, data))
+                {
+                    throw new Exception("Write Fail.");
+                }
+            }
+            public virtual void SetClearDataToPLC()
+            {
+                List<Int16> data = Enumerable.Repeat((Int16)0, TotalLens).ToList();
                 if (!_iOContainer.WriteListInt(BaseDevice, BaseAddress, data))
                 {
                     throw new Exception("Write Fail.");
@@ -1128,6 +1233,36 @@ namespace EventDriven.Services
                 base.SetDataToPLC();
                 _iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), BaseDevice, "19BF", _workFlow.GlobalVariable.Handshake_Timeout);
             }
+        }
+        public class JobPositionReport : aPLCBasic
+        {
+            public JobPositionReport(string wholeaddress, int pos) : base(wholeaddress)
+            {                
+                _offset = Math.Max( 0, pos -1);                
+                Properties.Add("JobNo", new List<short>() { 0 });
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {                
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), (short)Properties["JobNo"][0]);                
+            }
+            public override void GetDataFromPLC()
+            {
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), out short jobNo);
+                Properties["JobNo"][0] = jobNo;
+            }
+            public void SwitchDataToPLC(JobPositionReport target)
+            {
+                if(target == null) throw new Exception("Target JobPositionReport is null.");
+                short targetPos = target.Properties["JobNo"][0];
+                short sourcePos = Properties["JobNo"][0];
+                if (targetPos == sourcePos) return; // No need to switch
+                target.Properties["JobNo"][0] = sourcePos;
+                Properties["JobNo"][0] = targetPos;
+                target.SetDataToPLC();
+                SetDataToPLC();
+            }            
+            private int _offset;
         }
     }
     public interface IActionInput

@@ -185,6 +185,73 @@
         }
       ]
     },
+    "PositionTable":[
+      {
+        "Name":"UpArm",
+        "RobotPosition": 5,
+        "StageNo": 0,
+        "SlotNo": 1,
+        "BaseAddr":"W52A0",
+        "JobPosition": 5        
+      },
+      {
+        "Name":"DownArm",
+        "RobotPosition": 6,
+        "StageNo": 0,
+        "SlotNo": 1,
+        "BaseAddr":"W52A0",
+        "JobPosition": 6        
+      },
+      {
+        "Name":"Aligner",
+        "RobotPosition": 9,
+        "StageNo": 1,
+        "SlotNo": 1,
+        "BaseAddr":"W52A0",
+        "JobPosition": 9,
+        "OperationEq" : 1,
+        "OperationPort" : 7        
+      },
+      {
+        "Name":"EQ1-1",
+        "RobotPosition": 11,
+        "StageNo": 1,
+        "SlotNo": 1,
+        "BaseAddr":"W9030",
+        "JobPosition": 1,
+        "OperationEq" : 2,
+        "OperationPort":0      
+      },
+      {
+        "Name":"EQ1-2",
+        "RobotPosition": 11,
+        "StageNo": 2,
+        "SlotNo": 1,
+        "BaseAddr":"W9030",
+        "JobPosition": 35,
+        "OperationEq" : 2,
+        "OperationPort":0       
+      },
+      {
+        "Name":"EQ2",
+        "RobotPosition": 12,
+        "SlotNo": 1,
+        "BaseAddr":"WA7A0",
+        "JobPosition": 1,
+        "OperationEq" : 4,
+        "OperationPort":0       
+      },
+      {
+        "Name":"EQ3",
+        "RobotPosition": 13,
+        "StageNo": 1,
+        "SlotNo": 1,
+        "BaseAddr":"WBD10",
+        "JobPosition": 1,
+        "OperationEq" : 5,
+        "OperationPort":0      
+      }
+    ],
     "Action_Interval": 100,
     "Monitor_Interval": 0,
     "Hold_Time": 4000,
@@ -2357,18 +2424,71 @@
                     "WaferId":"W1142"
                   },
                   "Port2":{
-                      "JobNo":"W1359",
-                      "WaferId":"W1372"
+                    "JobNo":"W1359",
+                    "WaferId":"W1372"
                   },
                   "Port3":{
-                      "JobNo":"W1589",
-                      "WaferId":"W15A2"
+                    "JobNo":"W1589",
+                    "WaferId":"W15A2"
                   },
                   "Port4":{
-                      "JobNo":"W17A9",
-                      "WaferId":"W17D2"
-                  }                  
+                    "JobNo":"W17A9",
+                    "WaferId":"W17D2"
+                  },
+                  "RobotUpArm":{
+                    "JobNo":"W6290",
+                    "WaferId":"W6291"
+                  },
+                  "RobotLowArm":{
+                    "JobNo":"W62A0",
+                    "WaferId":"W62A1"
+                  },
+                  "Aligner":{
+                    "JobNo":"W62B0",
+                    "WaferId":"W62B1"
+                  },
+                  "EQ1":{
+                    "JobNo":"W62C0",
+                    "WaferId":"W62C1"
+                  },
+                  "EQ2":{
+                    "JobNo":"W62D0",
+                    "WaferId":"W62D1"
+                  },
+                  "EQ3":{
+                    "JobNo":"W62E0",
+                    "WaferId":"W62E1"
+                  }                                 
                 }
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6112",
+                  "Value": [
+                    {
+                      "Comment": "RobotWaitForCmd",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6120",
+                  "Value": [
+                    {                      
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
               }
             ]
           }

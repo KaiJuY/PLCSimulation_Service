@@ -54,6 +54,7 @@ namespace EventDriven.Model
     public class GlobalVariable : aProperty
     {
         public Materials Materials { get; set; }
+        public List<PositionInfo> PositionTable { get; set; }
         public int Monitor_Interval { get; set; }
         public int Action_Interval { get; set; }
         public int Hold_Time { get; set; }
@@ -63,6 +64,17 @@ namespace EventDriven.Model
     public class Materials : aProperty
     {
         public List<CassettleFormat> CassettleFormat { get; set; }
+    }
+    public class PositionInfo : aProperty
+    {
+        public string Name { get; set; }
+        public int RobotPosition { get; set; }
+        public int StageNo { get; set; }
+        public int SlotNo { get; set; }
+        public int JobPosition { get; set; }
+        public string BaseAddr { get; set; }
+        public int OperationEq { get; set; } = 0;
+        public int OperationPort { get; set; } = 0;
     }
     public class CarrierStorage : aProperty
     {
@@ -158,12 +170,12 @@ namespace EventDriven.Model
         public DataTableAddressBase Port1 { get; set; }
         public DataTableAddressBase Port2 { get; set; }
         public DataTableAddressBase Port3 { get; set; }
-        public DataTableAddressBase Port4 { get; set; }         
+        public DataTableAddressBase Port4 { get; set; }
     }
     public class DataTableAddressBase : aProperty
     {
-        string JobNo { get; set; }
-        string WaferId { get; set; }
+        public string JobNo { get; set; }
+        public string WaferId { get; set; }
     }
     /// <summary>
     /// Inputs: �ʧ@����J�Ѽ�
