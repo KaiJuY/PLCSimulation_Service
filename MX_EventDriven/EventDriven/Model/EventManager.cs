@@ -821,6 +821,7 @@ namespace EventDriven.Services
             protected static aPLCBasic _jobDataRequest; //EW05
             protected static aPLCBasic _jobDataReply; //HW05
             protected static aPLCBasic _jobTransferReport; //EW03
+            protected static aPLCBasic _jobTransferReportResult; //HW11
             protected static aPLCBasic _transferInterface; //EW0
             Dictionary<int, Dictionary<string, string>> _stageDataMap;
             List<ReportChain> _reportChainList = new List<ReportChain>();
@@ -836,7 +837,7 @@ namespace EventDriven.Services
             {
                 foreach(ReportChain reportChain in _reportChainList)
                 {
-                    if(!ReportFactory.GetReport(reportChain.ReportType).Fire())
+                    if(!ReportFactory.GetReport(reportChain).Fire())
                     {
                         return false;
                     }
@@ -860,12 +861,31 @@ namespace EventDriven.Services
                 _jobDataRequest = new JobDataRequest("W5390"); //W5390 is the base address for JobDataRequest
                 _jobDataReply = new JobDataReply("W1C10"); //W1C10 is the base address for JobDataReply
                 _jobTransferReport = new JobTransferReport("W5370"); //W5370 is the base address for JobTransferReport
+                _jobTransferReportResult = new JobTransferReusltReport("W5400"); //W1C20 is the base address for JobTransferReusltReport
                 _transferInterface = new TransferInterface("W53C0"); //W53C0 is the base address for TransferInterface
                 return GetReportInfo(action);
             }
             private bool GetReportInfo(Model.Action action)
             {
                 _robotCmd.GetDataFromPLC();
+                /*
+                    Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
+                    Properties.Add("Cmd1", new List<Int16>() { 0 });
+                    Properties.Add("Cmd1Fork", new List<Int16>() { 0 });
+                    Properties.Add("Cmd1TargetPos", new List<Int16>() { 0 });
+                    Properties.Add("Cmd1TargetStage", new List<Int16>() { 0 });
+                    Properties.Add("Cmd1TargetSlot", new List<Int16>() { 0 });
+                    Properties.Add("Cmd2", new List<Int16>() { 0 });
+                    Properties.Add("Cmd2Fork", new List<Int16>() { 0 });
+                    Properties.Add("Cmd2TargetPos", new List<Int16>() { 0 });
+                    Properties.Add("Cmd2TargetStage", new List<Int16>() { 0 });
+                    Properties.Add("Cmd2TargetSlot", new List<Int16>() { 0 });     
+                    Properties.Add("Cmd3", new List<Int16>() { 0 });
+                    Properties.Add("Cmd3Fork", new List<Int16>() { 0 });
+                    Properties.Add("Cmd3TargetPos", new List<Int16>() { 0 });
+                    Properties.Add("Cmd3TargetStage", new List<Int16>() { 0 });
+                    Properties.Add("Cmd3TargetSlot", new List<Int16>() { 0 }); 
+                 */
                 string[] cmds = { "Cmd1", "Cmd2", "Cmd3" };
                 foreach(string cmd in cmds)
                 {
@@ -873,17 +893,43 @@ namespace EventDriven.Services
                     switch(currentCmd)
                     {
                         case eRobotCmd.Get:
-                            _reportChainList.Add(FetchReportChainForGet(_robotCmd.Properties[cmd + "TargetPos"][0], _robotCmd.Properties[cmd + "TargetStage"][0], _robotCmd.Properties[cmd + "TargetSlot"][0]));
+                            _reportChainList.Add(FetchReportChainForGet(
+                            _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                            int.Parse(cmd.Substring(3, 1)),
+                            _robotCmd.Properties[cmd + "Fork"][0],
+                            _robotCmd.Properties[cmd + "TargetPos"][0],
+                            _robotCmd.Properties[cmd + "TargetStage"][0],
+                            _robotCmd.Properties[cmd + "TargetSlot"][0]));
                             break;
                         case eRobotCmd.Put:
-                            _reportChainList.Add(FetchReportChainForPut(_robotCmd.Properties[cmd + "Fork"][0]));
+                            _reportChainList.Add(FetchReportChainForPut(
+                            _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                            int.Parse(cmd.Substring(3, 1)),
+                            _robotCmd.Properties[cmd + "Fork"][0],
+                            _robotCmd.Properties[cmd + "TargetPos"][0],
+                            _robotCmd.Properties[cmd + "TargetStage"][0],
+                            _robotCmd.Properties[cmd + "TargetSlot"][0]));
                             break;
+                        case eRobotCmd.None:
                         case eRobotCmd.Move:
                             //ignore
                             break;
                         case eRobotCmd.Exchange:
-                            _reportChainList.Add(FetchReportChainForGet(_robotCmd.Properties[cmd + "TargetPos"][0], _robotCmd.Properties[cmd + "TargetStage"][0], _robotCmd.Properties[cmd + "TargetSlot"][0]));
-                            _reportChainList.Add(FetchReportChainForPut(_robotCmd.Properties[cmd + "Fork"][0]));
+                            _reportChainList.Add(FetchReportChainForGet(
+                                _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                                int.Parse(cmd.Substring(3, 1)),
+                                _robotCmd.Properties[cmd + "Fork"][0],
+                                _robotCmd.Properties[cmd + "TargetPos"][0], 
+                                _robotCmd.Properties[cmd + "TargetStage"][0], 
+                                _robotCmd.Properties[cmd + "TargetSlot"][0]));
+
+                            _reportChainList.Add(FetchReportChainForPut(
+                                _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                                int.Parse(cmd.Substring(3, 1)),
+                                _robotCmd.Properties[cmd + "Fork"][0],
+                                _robotCmd.Properties[cmd + "TargetPos"][0],
+                                _robotCmd.Properties[cmd + "TargetStage"][0],
+                                _robotCmd.Properties[cmd + "TargetSlot"][0]));
                             break;
                         default:
                             throw new Exception("Command Not Support.");
@@ -920,26 +966,49 @@ namespace EventDriven.Services
             }
             private enum eRobotCmd
             {
-                Get = 1,
+                None = 0,
+                Get,
                 Put,
                 Move,
                 Exchange,
             }
-            private ReportChain FetchReportChainForGet(int targetPos, int targetStage, int targetSlot)
+            private ReportChain FetchReportChainForGet(int seqNo, int cmdStep, int robotArm, int targetPos, int targetStage, int targetSlot)
             {
-                return new ReportChain() { ReportType = "Get", JobNo = GetJobNo(targetPos, targetStage, targetSlot), WaferId = GetWaferId(targetPos, targetStage, targetSlot) }; 
+                return new ReportChain() 
+                { 
+                    SeqNo = seqNo,
+                    CmdStep = cmdStep,
+                    RobotArm = robotArm,
+                    TargetPos = (targetPos, targetStage, targetSlot),
+                    ReportType = "Get", 
+                    JobNo = GetJobNo(targetPos, targetStage, targetSlot), 
+                    WaferId = GetWaferId(targetPos, targetStage, targetSlot) 
+                }; 
             }
             /// <summary>
             /// Get ReportChain from global variable memory table
             /// </summary>
             /// <param name="robotArm"></param>
             /// <returns></returns>
-            private ReportChain FetchReportChainForPut(int robotArm)
+            private ReportChain FetchReportChainForPut(int seqNo, int cmdStep, int robotArm, int targetPos, int targetStage, int targetSlot)
             {
-                return new ReportChain() { ReportType = "Put", JobNo = GetJobNo(robotArm + 4, 0, 1), WaferId = GetWaferId(robotArm + 4, 0, 1) };
+                return new ReportChain() 
+                {
+                    SeqNo = seqNo,
+                    CmdStep = cmdStep,
+                    RobotArm = robotArm,
+                    TargetPos = (targetPos, targetStage, targetSlot),
+                    ReportType = "Put",
+                    JobNo = GetJobNo(robotArm + 4, 0, 1),
+                    WaferId = GetWaferId(robotArm + 4, 0, 1) 
+                };
             }
-            private struct ReportChain
+            public struct ReportChain
             {
+                public int SeqNo { get; set; } //Sequence No
+                public int CmdStep { get; set; } //Command Step
+                public int RobotArm { get; set; } //Robot Arm
+                public (int, int, int) TargetPos { get; set; } //Target Position
                 public string ReportType { get; set; } //Report Type
                 public int JobNo { get; set; } //Job No Address
                 public string WaferId { get; set; } //Wafer Id Address
@@ -1000,12 +1069,21 @@ namespace EventDriven.Services
                 bool Fire();
             }
             public abstract class aReporter : IReporter
-            {
-                public bool Fire() => FireReport();
+            {                
+                protected ReportChain _reportChain;
+                protected void RobotBusy()
+                {
+                    _robotStatus.GetDataFromPLC();
+                }
+                public bool Fire() => FireReport();                
                 public abstract bool FireReport();
             }
             public class ReportGet : aReporter
             {
+                public  ReportGet(ReportChain reportChain)
+                {
+                    _reportChain = reportChain;
+                }
                 public override bool FireReport()
                 {
                     //get report                    
@@ -1014,6 +1092,7 @@ namespace EventDriven.Services
                     //EW05 Request Job Data
                     //EW03 Robot state Exist and Job No
                     //EW03 Receive Job Transfer Report
+                    //EW11 Send Job Transfer Report
                     //EC03 Set Robot Cmd Result
                     //EW08 ReceiveReady                    
                     return true;
@@ -1021,6 +1100,10 @@ namespace EventDriven.Services
             }
             public class ReportPut : aReporter
             {
+                public ReportPut(ReportChain reportChain)
+                {
+                    _reportChain = reportChain;
+                }
                 public override bool FireReport()
                 {
                     //put report
@@ -1028,6 +1111,7 @@ namespace EventDriven.Services
                     //Robot state Not Exist and Job No
                     //EW02 Set Robot Pos
                     //EW03 Send Job Transfer Report
+                    //EW11 Send Job Transfer Report
                     //EW08 NOT READY
                     //EC03 Set Robot Cmd Result
                     return true;
@@ -1035,14 +1119,14 @@ namespace EventDriven.Services
             }
             public class ReportFactory
             {
-                public static IReporter GetReport(string reportType)
+                public static IReporter GetReport(ReportChain reportChain)
                 {
-                    switch (reportType)
+                    switch (reportChain.ReportType)
                     {
                         case "Get":
-                            return new ReportGet();
+                            return new ReportGet(reportChain);
                         case "Put":
-                            return new ReportPut();
+                            return new ReportPut(reportChain);
                         default:
                             throw new Exception("Report Type Not Support.");
                     }
@@ -1198,6 +1282,24 @@ namespace EventDriven.Services
                 Properties.Add("OperationEq", new List<Int16>() { 0 });
                 Properties.Add("FirstStart", new List<Int16>() { 0 });
                 Properties.Add("LastStart", new List<Int16>() { 0 });
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), out short val);
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), ++val);
+            }
+        }
+        public class JobTransferReusltReport : aPLCBasic
+        {
+            public JobTransferReusltReport(string wholeaddress) : base(wholeaddress)
+            {                
+                Properties.Add("JobNo", new List<Int16>() { 0 });
+                Properties.Add("TransferType", new List<Int16>() { 0 });
+                Properties.Add("OperationPort", new List<Int16>() { 0 });
+                Properties.Add("OperationEq", new List<Int16>() { 0 });
+                Properties.Add("TransferResult", new List<Int16>() { 0 });                
                 CalculateLens();
             }
             public override void SetDataToPLC()

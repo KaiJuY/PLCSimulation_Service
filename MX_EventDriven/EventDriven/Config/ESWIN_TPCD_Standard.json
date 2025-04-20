@@ -205,7 +205,7 @@
       {
         "Name":"Aligner",
         "RobotPosition": 9,
-        "StageNo": 1,
+        "StageNo": 0,
         "SlotNo": 1,
         "BaseAddr":"W52A0",
         "JobPosition": 9,
