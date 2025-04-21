@@ -1074,6 +1074,15 @@ namespace EventDriven.Services
                 protected void RobotBusy()
                 {
                     _robotStatus.GetDataFromPLC();
+                    _robotStatus.Properties["RobotState"][0] = 2; //Set Robot State to Busy
+                    _robotStatus.Properties["WaitCmd"][0] = 0; //Set Waiting Command to Current Command
+                    _robotStatus.Properties["CmdSeqNo"][0] = (short)_reportChain.SeqNo; //Set Command Sequence No
+                    _robotStatus.Properties["CmdStep"][0] = (short)_reportChain.CmdStep; //Set Command Step
+                    _robotStatus.SetDataToPLC();
+                }
+                protected virtual void JobPositionChange()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
                 }
                 public bool Fire() => FireReport();                
                 public abstract bool FireReport();
@@ -1084,17 +1093,61 @@ namespace EventDriven.Services
                 {
                     _reportChain = reportChain;
                 }
+                protected override void JobPositionChange()
+                {
+                    JobPositionReport ArmJP = null;
+                    JobPositionReport TargetJP = null;
+                    try
+                    {
+                        if(_reportChain.TargetPos.Item1 == 0) return; //if target position is 0 then no need to change job position
+                        //
+                        Dictionary<string, string>Arm = new Dictionary<string, string>();
+                        _globalmemoryForRobot.TryGetValue((_reportChain.RobotArm + 4, 0, 1), out Arm);
+                        ArmJP = new JobPositionReport(Arm["BaseAddr"], int.Parse(Arm["JobPosition"]));
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["JobNo"] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory]
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["WaferId"] = _reportChain.WaferId; //Set Wafer Id to Global Memory
+
+                        if(_reportChain.TargetPos.Item1 >= 1 && _reportChain.TargetPos.Item1 <= 4)
+                        {
+                            //if target position is 1 to 4 then get job no and wafer id from port
+                            //then we can ingore the target position
+                            return;
+                        }
+                        Dictionary<string, string>Target = new Dictionary<string, string>();
+                        _globalmemoryForRobot.TryGetValue((_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3), out Target);
+                        TargetJP = new JobPositionReport(Target["BaseAddr"], int.Parse(Target["JobPosition"]));
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["JobNo"] = "0"; //Set Job No to Global Memory
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["WaferId"] = string.Empty; //Set Wafer Id to Global Memory                        
+                    }
+                    finally
+                    {
+                        if(TargetJP == null && ArmJP != null) //Port Case
+                        {
+                            ArmJP.Properties["JobNo"][0] = (short)_reportChain.JobNo;
+                            ArmJP.SetDataToPLC();
+                        }
+                        else if(TargetJP != null && ArmJP != null) //Other Case
+                        {
+                            ArmJP.SwitchDataToPLC(TargetJP);
+                            ArmJP.SetDataToPLC();
+                            TargetJP.SetDataToPLC();
+                        }
+                    }
+                    
+                }
                 public override bool FireReport()
                 {
                     //get report                    
                     //Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
                     //EW02 Set Robot Pos
                     //EW05 Request Job Data
-                    //EW03 Robot state Exist and Job No
+                    //EC01 Robot state Exist and Job No
                     //EW03 Receive Job Transfer Report
                     //EW11 Send Job Transfer Report
                     //EC03 Set Robot Cmd Result
                     //EW08 ReceiveReady                    
+                    RobotBusy();
+
                     return true;
                 }
             }
@@ -1103,6 +1156,47 @@ namespace EventDriven.Services
                 public ReportPut(ReportChain reportChain)
                 {
                     _reportChain = reportChain;
+                }
+                protected override void JobPositionChange()
+                {
+                    JobPositionReport ArmJP = null;
+                    JobPositionReport TargetJP = null;
+                    try
+                    {
+                        if (_reportChain.TargetPos.Item1 == 0) return; //if target position is 0 then no need to change job position
+                        //
+                        Dictionary<string, string> Arm = new Dictionary<string, string>();
+                        _globalmemoryForRobot.TryGetValue((_reportChain.RobotArm + 4, 0, 1), out Arm);
+                        ArmJP = new JobPositionReport(Arm["BaseAddr"], int.Parse(Arm["JobPosition"]));
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["JobNo"] = "0"; //Set Job No to Global Memory]
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["WaferId"] = string.Empty; //Set Wafer Id to Global Memory
+
+                        if (_reportChain.TargetPos.Item1 >= 1 && _reportChain.TargetPos.Item1 <= 4)
+                        {
+                            //if target position is 1 to 4 then get job no and wafer id from port
+                            //then we can ingore the target position
+                            return;
+                        }
+                        Dictionary<string, string> Target = new Dictionary<string, string>();
+                        _globalmemoryForRobot.TryGetValue((_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3), out Target);
+                        TargetJP = new JobPositionReport(Target["BaseAddr"], int.Parse(Target["JobPosition"]));
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["JobNo"] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["WaferId"] = _reportChain.WaferId; //Set Wafer Id to Global Memory                        
+                    }
+                    finally
+                    {
+                        if (TargetJP == null && ArmJP != null) //Port Case
+                        {
+                            ArmJP.Properties["JobNo"][0] = 0;
+                            ArmJP.SetDataToPLC();
+                        }
+                        else if (TargetJP != null && ArmJP != null) //Other Case
+                        {
+                            ArmJP.SwitchDataToPLC(TargetJP);
+                            ArmJP.SetDataToPLC();
+                            TargetJP.SetDataToPLC();
+                        }
+                    }
                 }
                 public override bool FireReport()
                 {
