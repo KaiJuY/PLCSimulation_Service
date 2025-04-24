@@ -265,7 +265,7 @@
     "Action_Interval": 100,
     "Monitor_Interval": 0,
     "Hold_Time": 4000,
-    "HandShake_Timeout": 10000
+    "Handshake_Timeout": 10000
   },
   "CarrierStorage": [
     {

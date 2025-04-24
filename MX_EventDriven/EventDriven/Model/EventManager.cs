@@ -103,11 +103,13 @@ namespace EventDriven.Services
             {
                 _globalmemoryForRobot[(pos.RobotPosition, pos.StageNo, pos.SlotNo)] = new Dictionary<string, string>()
                 {
-                    { "Name", pos.Name },
-                    { "BaseAddr", pos.BaseAddr},
-                    { "JobPosition", pos.JobPosition.ToString()},
-                    { "JobNo", string.Empty },
-                    { "WaferId", string.Empty }
+                    { Name, pos.Name },
+                    { BaseAddr, pos.BaseAddr},
+                    { JobPosition, pos.JobPosition.ToString()},
+                    { JobNo, string.Empty },
+                    { WaferId, string.Empty },
+                    { OperationEq, pos.OperationEq.ToString()},
+                    { OperationPort, pos.OperationPort.ToString()}
                 };
             }
             foreach (var Cs in _workFlow.CarrierStorage)
@@ -479,7 +481,7 @@ namespace EventDriven.Services
                 string value = GetContent(action.Inputs.Value);//item1 : Address
                 if (!StringValidator.SplitAndValidateString(value, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
-                return _iOContainer.PrimaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Action_Interval);
+                return _iOContainer.PrimaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Handshake_Timeout);
             }
             /// <summary>
             /// Secondary Handshake only support KeyIn
@@ -530,7 +532,7 @@ namespace EventDriven.Services
                 string value = GetContent(action.Inputs.Value);//item1 : Address
                 if (!StringValidator.SplitAndValidateString(value, out string Pdevice, out string Paddr)) throw new Exception("Address Format Error."); //相當於Active的
                 if (!StringValidator.SplitAndValidateString(action.Inputs.Address, out string Sdevice, out string Saddr)) throw new Exception("Address Format Error."); //相當於Passive的
-                return _iOContainer.SecondaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Action_Interval);
+                return _iOContainer.SecondaryHandShake(Pdevice, Paddr, Sdevice, Saddr, _workFlow.GlobalVariable.Handshake_Timeout);
             }
             /// <summary>
             /// Secondary Handshake only support KeyIn
@@ -821,8 +823,8 @@ namespace EventDriven.Services
             protected static aPLCBasic _jobDataRequest; //EW05
             protected static aPLCBasic _jobDataReply; //HW05
             protected static aPLCBasic _jobTransferReport; //EW03
-            protected static aPLCBasic _jobTransferReportResult; //HW11
-            protected static aPLCBasic _transferInterface; //EW0
+            protected static aPLCBasic _jobTransferReportResult; //EW11
+            protected static aPLCBasic _transferInterface; //EW08
             Dictionary<int, Dictionary<string, string>> _stageDataMap;
             List<ReportChain> _reportChainList = new List<ReportChain>();
             public bool Execute(Model.Action action)
@@ -846,16 +848,15 @@ namespace EventDriven.Services
             }
             private bool PrepareRobotMotionData(Model.Action action)
             {
-                if (action.Inputs.Value.Length != 1) throw new Exception("For Robot Motion, Value should be 1.");
-                string value = GetContent(action.Inputs.Value);//item1 : Address
+                if (action.Inputs.Value.Length > 1) throw new Exception("For Robot Motion, Value should be 0.");                
                 _stageDataMap = new Dictionary<int, Dictionary<string, string>>()
                 {
-                    { 1, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port1.JobNo }, { "WaferId", action.Datatable.Port1.WaferId } } },
-                    { 2, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port2.JobNo }, { "WaferId", action.Datatable.Port2.WaferId } } },
-                    { 3, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port3.JobNo }, { "WaferId", action.Datatable.Port3.WaferId } } },
-                    { 4, new Dictionary<string, string>() { { "JobNo", action.Datatable.Port4.JobNo }, { "WaferId", action.Datatable.Port4.WaferId } } },               
+                    { 1, new Dictionary<string, string>() { { JobNo, action.DataTable.Port1.JobNo }, { WaferId, action.DataTable.Port1.WaferId } } },
+                    { 2, new Dictionary<string, string>() { { JobNo, action.DataTable.Port2.JobNo }, { WaferId, action.DataTable.Port2.WaferId } } },
+                    { 3, new Dictionary<string, string>() { { JobNo, action.DataTable.Port3.JobNo }, { WaferId, action.DataTable.Port3.WaferId } } },
+                    { 4, new Dictionary<string, string>() { { JobNo, action.DataTable.Port4.JobNo }, { WaferId, action.DataTable.Port4.WaferId } } },               
                 };
-                _robotStatus = new RobotStatus(value); //W6110
+                _robotStatus = new RobotStatus(action.Inputs.Address); //W6110
                 _robotCmd = new RobotCmd("W1990"); //W1990 is the base address for RobotCmd
                 _robotCmdResult = new RobotCmdResult("W6130"); //W6130 is the base address for RobotCmdResult
                 _jobDataRequest = new JobDataRequest("W5390"); //W5390 is the base address for JobDataRequest
@@ -886,7 +887,7 @@ namespace EventDriven.Services
                     Properties.Add("Cmd3TargetStage", new List<Int16>() { 0 });
                     Properties.Add("Cmd3TargetSlot", new List<Int16>() { 0 }); 
                  */
-                string[] cmds = { "Cmd1", "Cmd2", "Cmd3" };
+                string[] cmds = { Cmd1, Cmd2, Cmd3 };
                 foreach(string cmd in cmds)
                 {
                     eRobotCmd currentCmd = (eRobotCmd)_robotCmd.Properties[cmd][0];
@@ -894,7 +895,7 @@ namespace EventDriven.Services
                     {
                         case eRobotCmd.Get:
                             _reportChainList.Add(FetchReportChainForGet(
-                            _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                            _robotCmd.Properties[CmdSeqNo][0],
                             int.Parse(cmd.Substring(3, 1)),
                             _robotCmd.Properties[cmd + "Fork"][0],
                             _robotCmd.Properties[cmd + "TargetPos"][0],
@@ -903,7 +904,7 @@ namespace EventDriven.Services
                             break;
                         case eRobotCmd.Put:
                             _reportChainList.Add(FetchReportChainForPut(
-                            _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                            _robotCmd.Properties[CmdSeqNo][0],
                             int.Parse(cmd.Substring(3, 1)),
                             _robotCmd.Properties[cmd + "Fork"][0],
                             _robotCmd.Properties[cmd + "TargetPos"][0],
@@ -916,7 +917,7 @@ namespace EventDriven.Services
                             break;
                         case eRobotCmd.Exchange:
                             _reportChainList.Add(FetchReportChainForGet(
-                                _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                                _robotCmd.Properties[CmdSeqNo][0],
                                 int.Parse(cmd.Substring(3, 1)),
                                 _robotCmd.Properties[cmd + "Fork"][0],
                                 _robotCmd.Properties[cmd + "TargetPos"][0], 
@@ -924,7 +925,7 @@ namespace EventDriven.Services
                                 _robotCmd.Properties[cmd + "TargetSlot"][0]));
 
                             _reportChainList.Add(FetchReportChainForPut(
-                                _robotCmd.Properties[cmd.Substring(0, 3) + "SeqNo"][0],
+                                _robotCmd.Properties[CmdSeqNo][0],
                                 int.Parse(cmd.Substring(3, 1)),
                                 _robotCmd.Properties[cmd + "Fork"][0],
                                 _robotCmd.Properties[cmd + "TargetPos"][0],
@@ -1027,7 +1028,7 @@ namespace EventDriven.Services
             }
             private int GetJobNoFromPort(int portNo, int slot)
             {
-                _stageDataMap[portNo].TryGetValue("JobNo", out string jobNo);
+                _stageDataMap[portNo].TryGetValue(JobNo, out string jobNo);
                 StringValidator.SplitAndValidateString(jobNo, out string device, out string address);
                 address = (Convert.ToInt16(address, 16) + (slot - 1)).ToString("X4");
                 _iOContainer.ReadInt(device, address, out short jobNoValue);
@@ -1038,7 +1039,7 @@ namespace EventDriven.Services
                 try
                 {
                     GlobalMemoryForRobot.TryGetValue((pos, stage, slot), out var properties);                
-                    return int.Parse(properties["JobNo"]);
+                    return int.Parse(properties[JobNo]);
                 }
                 catch (Exception)
                 {
@@ -1047,7 +1048,7 @@ namespace EventDriven.Services
             }
             private string GetWaferIdFromPort(int portNo, int slot)
             {
-                _stageDataMap[portNo].TryGetValue("WaferId", out string waferID);
+                _stageDataMap[portNo].TryGetValue(WaferId, out string waferID);
                 StringValidator.SplitAndValidateString(waferID, out string device, out string address);
                 address = (Convert.ToInt16(address, 16) + (slot - 1) * 10).ToString("X4");                
                 return _iOContainer.ReadString(device, address, 10, out string waferIDValue) ? waferIDValue : string.Empty;
@@ -1057,7 +1058,7 @@ namespace EventDriven.Services
                 try
                 {
                     GlobalMemoryForRobot.TryGetValue((pos, stage, slot), out var properties);
-                    return properties["WaferId"];
+                    return properties[WaferId];
                 }
                 catch (Exception)
                 {
@@ -1074,15 +1075,58 @@ namespace EventDriven.Services
                 protected void RobotBusy()
                 {
                     _robotStatus.GetDataFromPLC();
-                    _robotStatus.Properties["RobotState"][0] = 2; //Set Robot State to Busy
-                    _robotStatus.Properties["WaitCmd"][0] = 0; //Set Waiting Command to Current Command
-                    _robotStatus.Properties["CmdSeqNo"][0] = (short)_reportChain.SeqNo; //Set Command Sequence No
-                    _robotStatus.Properties["CmdStep"][0] = (short)_reportChain.CmdStep; //Set Command Step
+                    _robotStatus.SetProperties(Status, 2); //Set Robot State to Busy
+                    _robotStatus.SetProperties(WaitCmd, 0); //Set Waiting Command to Current Command
+                    _robotStatus.SetProperties(CmdSeqNo, _reportChain.SeqNo); //Set Command Sequence No
+                    _robotStatus.SetProperties(CmdStep, _reportChain.CmdStep); //Set Command Step
                     _robotStatus.SetDataToPLC();
                 }
                 protected virtual void JobPositionChange()
                 {
                     //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected virtual void JobDataRequest()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected virtual void RobotExistChange()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected virtual void TransferReport()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected virtual void TransferResultReport()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected void RobotCmdResult()
+                {
+                    _robotCmdResult.SetProperties(CmdSeqNo, _reportChain.SeqNo); //Set Command Sequence No
+                    _robotCmdResult.SetProperties(Code, 1); //Set Command Result
+                    _robotCmdResult.SetProperties(CmdStep, _reportChain.CmdStep); //Set Command Step
+                    _robotCmdResult.SetDataToPLC();
+                }
+                protected virtual void TransferStatusChange()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
+                protected (int, int) GetOperationEqAndPort()
+                {
+                    int operationEq = 0;
+                    int operationPort = 0;
+                    if (_reportChain.TargetPos.Item1 >= 1 && _reportChain.TargetPos.Item1 <= 4)
+                    {
+                        operationEq = 1;
+                        operationPort = _reportChain.TargetPos.Item1;
+                    }
+                    else
+                    {
+                        operationEq = int.Parse(_globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][OperationEq]);
+                        operationPort = int.Parse(_globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][OperationPort]);
+                    }
+                    return (operationEq, operationPort);
                 }
                 public bool Fire() => FireReport();                
                 public abstract bool FireReport();
@@ -1099,13 +1143,12 @@ namespace EventDriven.Services
                     JobPositionReport TargetJP = null;
                     try
                     {
-                        if(_reportChain.TargetPos.Item1 == 0) return; //if target position is 0 then no need to change job position
-                        //
+                        if(_reportChain.TargetPos.Item1 == 0) return; //if target position is 0 then no need to change job position                        
                         Dictionary<string, string>Arm = new Dictionary<string, string>();
                         _globalmemoryForRobot.TryGetValue((_reportChain.RobotArm + 4, 0, 1), out Arm);
-                        ArmJP = new JobPositionReport(Arm["BaseAddr"], int.Parse(Arm["JobPosition"]));
-                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["JobNo"] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory]
-                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["WaferId"] = _reportChain.WaferId; //Set Wafer Id to Global Memory
+                        ArmJP = new JobPositionReport(Arm[BaseAddr], int.Parse(Arm[JobPosition]));
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)][JobNo] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory]
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)][WaferId] = _reportChain.WaferId; //Set Wafer Id to Global Memory
 
                         if(_reportChain.TargetPos.Item1 >= 1 && _reportChain.TargetPos.Item1 <= 4)
                         {
@@ -1115,15 +1158,15 @@ namespace EventDriven.Services
                         }
                         Dictionary<string, string>Target = new Dictionary<string, string>();
                         _globalmemoryForRobot.TryGetValue((_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3), out Target);
-                        TargetJP = new JobPositionReport(Target["BaseAddr"], int.Parse(Target["JobPosition"]));
-                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["JobNo"] = "0"; //Set Job No to Global Memory
-                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["WaferId"] = string.Empty; //Set Wafer Id to Global Memory                        
+                        TargetJP = new JobPositionReport(Target[BaseAddr], int.Parse(Target[JobPosition]));
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][JobNo] = "0"; //Set Job No to Global Memory
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][WaferId] = string.Empty; //Set Wafer Id to Global Memory                        
                     }
                     finally
                     {
                         if(TargetJP == null && ArmJP != null) //Port Case
                         {
-                            ArmJP.Properties["JobNo"][0] = (short)_reportChain.JobNo;
+                            ArmJP.SetProperties(JobNo, _reportChain.JobNo); //Set Job No to Global Memory                            
                             ArmJP.SetDataToPLC();
                         }
                         else if(TargetJP != null && ArmJP != null) //Other Case
@@ -1132,22 +1175,68 @@ namespace EventDriven.Services
                             ArmJP.SetDataToPLC();
                             TargetJP.SetDataToPLC();
                         }
-                    }
-                    
+                    }                    
                 }
+                protected override void JobDataRequest()
+                {
+                    if (_reportChain.TargetPos.Item1 > 4) return;
+                    _jobDataRequest.SetProperties(WaferId, _reportChain.WaferId);
+                    _jobDataRequest.SetDataToPLC();
+                }
+                protected override void RobotExistChange()
+                {
+                    string ForkKey = _reportChain.RobotArm == 1 ? UpForkExist : LowForkExist;
+                    string ForkJobNo = _reportChain.RobotArm == 1 ? UpForkJobNo : LowForkJobNo;
+                    _robotStatus.SetProperties(ForkKey, 1); //Set Fork Exist to 1
+                    _robotStatus.SetProperties(ForkJobNo, _reportChain.JobNo); //Set Fork Job No to Global Memory
+                    _robotStatus.SetDataToPLC();
+                }
+                protected override void TransferReport()
+                {
+                    (int, int) operationEqAndPort = GetOperationEqAndPort();
+                    _jobTransferReport.SetProperties(JobNo, _reportChain.JobNo); //Set Job No
+                    _jobTransferReport.SetProperties(TransferType, 2); //Set Transfer Status to 2 Receive
+                    _jobTransferReport.SetProperties(OperationEq, operationEqAndPort.Item1);
+                    _jobTransferReport.SetProperties(OperationPort, operationEqAndPort.Item2);
+                    _jobTransferReport.SetDataToPLC();
+                }
+                protected override void TransferResultReport()
+                {
+                    (int, int) operationEqAndPort = GetOperationEqAndPort();
+                    _jobTransferReportResult.SetProperties(JobNo, _reportChain.JobNo); //Set Job No to Global Memory
+                    _jobTransferReportResult.SetProperties(TransferType, 2);
+                    _jobTransferReportResult.SetProperties(OperationEq, operationEqAndPort.Item1);
+                    _jobTransferReportResult.SetProperties(OperationPort, operationEqAndPort.Item2);
+                    _jobTransferReportResult.SetProperties(TransferResult, 1); //Set Transfer Result to 1 Success
+                    _jobTransferReportResult.SetDataToPLC();
+                }
+                protected override void TransferStatusChange()
+                {
+                    if (_reportChain.TargetPos.Item1 < 9) return;
+                    _transferInterface.SetProperties(StageNo, _reportChain.TargetPos.Item1);
+                    _transferInterface.SetProperties(SlotNo, _reportChain.TargetPos.Item3);
+                    _transferInterface.SetProperties(Status, 1); //Set Transfer Status to 1
+                    _transferInterface.SetDataToPLC();
+                }                
                 public override bool FireReport()
                 {
-                    //get report                    
-                    //Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
-                    //EW02 Set Robot Pos
-                    //EW05 Request Job Data
-                    //EC01 Robot state Exist and Job No
-                    //EW03 Receive Job Transfer Report
-                    //EW11 Send Job Transfer Report
-                    //EC03 Set Robot Cmd Result
-                    //EW08 ReceiveReady                    
-                    RobotBusy();
-
+                    //get report                                                    
+                    RobotBusy();//Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    JobPositionChange();//EW02 Set Robot Pos
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    JobDataRequest();//EW05 Request Job Data
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    RobotExistChange();//EC01 Robot state Exist and Job No
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
+                    TransferReport();//EW03 Receive Job Transfer Report
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
+                    TransferResultReport();//EW11 Send Job Transfer Report
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
+                    RobotCmdResult();//EC03 Set Robot Cmd Result
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
+                    TransferStatusChange();//EW08 ReceiveReady  
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
                     return true;
                 }
             }
@@ -1167,9 +1256,9 @@ namespace EventDriven.Services
                         //
                         Dictionary<string, string> Arm = new Dictionary<string, string>();
                         _globalmemoryForRobot.TryGetValue((_reportChain.RobotArm + 4, 0, 1), out Arm);
-                        ArmJP = new JobPositionReport(Arm["BaseAddr"], int.Parse(Arm["JobPosition"]));
-                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["JobNo"] = "0"; //Set Job No to Global Memory]
-                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)]["WaferId"] = string.Empty; //Set Wafer Id to Global Memory
+                        ArmJP = new JobPositionReport(Arm[BaseAddr], int.Parse(Arm[JobPosition]));
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)][JobNo] = "0"; //Set Job No to Global Memory]
+                        _globalmemoryForRobot[(_reportChain.RobotArm + 4, 0, 1)][WaferId] = string.Empty; //Set Wafer Id to Global Memory
 
                         if (_reportChain.TargetPos.Item1 >= 1 && _reportChain.TargetPos.Item1 <= 4)
                         {
@@ -1179,15 +1268,15 @@ namespace EventDriven.Services
                         }
                         Dictionary<string, string> Target = new Dictionary<string, string>();
                         _globalmemoryForRobot.TryGetValue((_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3), out Target);
-                        TargetJP = new JobPositionReport(Target["BaseAddr"], int.Parse(Target["JobPosition"]));
-                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["JobNo"] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory
-                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)]["WaferId"] = _reportChain.WaferId; //Set Wafer Id to Global Memory                        
+                        TargetJP = new JobPositionReport(Target[BaseAddr], int.Parse(Target[JobPosition]));
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][JobNo] = _reportChain.JobNo.ToString(); //Set Job No to Global Memory
+                        _globalmemoryForRobot[(_reportChain.TargetPos.Item1, _reportChain.TargetPos.Item2, _reportChain.TargetPos.Item3)][WaferId] = _reportChain.WaferId; //Set Wafer Id to Global Memory                        
                     }
                     finally
                     {
                         if (TargetJP == null && ArmJP != null) //Port Case
                         {
-                            ArmJP.Properties["JobNo"][0] = 0;
+                            ArmJP.Properties[JobNo][0] = 0;
                             ArmJP.SetDataToPLC();
                         }
                         else if (TargetJP != null && ArmJP != null) //Other Case
@@ -1198,16 +1287,58 @@ namespace EventDriven.Services
                         }
                     }
                 }
+                protected override void RobotExistChange()
+                {
+                    string ForkKey = _reportChain.RobotArm == 1 ? UpForkExist : LowForkExist;
+                    string ForkJobNo = _reportChain.RobotArm == 1 ? UpForkJobNo : LowForkJobNo;
+                    _robotStatus.SetProperties(ForkKey, 0); //Set Fork Exist to 0
+                    _robotStatus.SetProperties(ForkJobNo, 0); //Set Fork Job No to default
+                    _robotStatus.SetDataToPLC();
+                }
+                protected override void TransferReport()
+                {
+                    (int, int) operationEqAndPort = GetOperationEqAndPort();
+                    _jobTransferReport.SetProperties(JobNo, _reportChain.JobNo); //Set Job No
+                    _jobTransferReport.SetProperties(TransferType, 1); //Set Transfer Status to 2 Receive
+                    _jobTransferReport.SetProperties(OperationEq, operationEqAndPort.Item1);
+                    _jobTransferReport.SetProperties(OperationPort, operationEqAndPort.Item2);
+                    _jobTransferReport.SetDataToPLC();
+                }
+                protected override void TransferResultReport()
+                {
+                    (int, int) operationEqAndPort = GetOperationEqAndPort();
+                    _jobTransferReportResult.SetProperties(JobNo, _reportChain.JobNo); //Set Job No to Global Memory
+                    _jobTransferReportResult.SetProperties(TransferType, 1);
+                    _jobTransferReportResult.SetProperties(OperationEq, operationEqAndPort.Item1);
+                    _jobTransferReportResult.SetProperties(OperationPort, operationEqAndPort.Item2);
+                    _jobTransferReportResult.SetProperties(TransferResult, 1); //Set Transfer Result to 1 Success
+                    _jobTransferReportResult.SetDataToPLC();
+                }
+                protected override void TransferStatusChange()
+                {
+                    if (_reportChain.TargetPos.Item1 < 9) return;
+                    _transferInterface.SetProperties(StageNo, _reportChain.TargetPos.Item1);
+                    _transferInterface.SetProperties(SlotNo, _reportChain.TargetPos.Item3);
+                    _transferInterface.SetProperties(Status, 0); //Set Transfer Status to 0
+                    _transferInterface.SetDataToPLC();
+                }
                 public override bool FireReport()
                 {
                     //put report
-                    //Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
-                    //Robot state Not Exist and Job No
-                    //EW02 Set Robot Pos
-                    //EW03 Send Job Transfer Report
-                    //EW11 Send Job Transfer Report
-                    //EW08 NOT READY
-                    //EC03 Set Robot Cmd Result
+                    RobotBusy();//Robot state busy wait cmd off set seqno and step if seqno is same then set step add one but if seqno is different then set step to 1
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    RobotExistChange();//EC01 Robot state Not Exist and Job No
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    JobPositionChange();//EW02 Set Robot Pos
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    TransferReport();//EW03 Send Job Transfer Report
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    TransferResultReport();//EW11 Send Job Transfer Report
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    TransferStatusChange();//EW08 NOT READY
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    RobotCmdResult();//EC03 Set Robot Cmd Result
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);                                       
                     return true;
                 }
             }
@@ -1291,27 +1422,53 @@ namespace EventDriven.Services
                     TotalLens += Properties[key].Count();
                 }
             }
+            public void SetProperties(string key, int value)
+            {
+                if(Properties.ContainsKey(key))
+                {
+                    Properties[key][0] = (short)value;
+                }
+                else
+                {
+                    throw new Exception($"Not found key {key} in Properties.");
+                }
+            }
+            public void SetProperties(string key, string value)
+            {
+                if (Properties.ContainsKey(key) && Properties[key].Count() <= value.Length / 2)
+                {
+                    List<short> LStr = MitUtility.getInstance().StringToASCII(value);
+                    for(int i = 0; i < LStr.Count(); i++)
+                    {
+                        Properties[key][i] = LStr[i];
+                    }                    
+                }
+                else
+                {
+                    throw new Exception($"Not found key {key} in Properties.");
+                }
+            }
         }
         public class RobotCmd : aPLCBasic
         {
             public RobotCmd(string wholeaddress) : base(wholeaddress)
             {                
-                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
-                Properties.Add("Cmd1", new List<Int16>() { 0 });
-                Properties.Add("Cmd1Fork", new List<Int16>() { 0 });
-                Properties.Add("Cmd1TargetPos", new List<Int16>() { 0 });
-                Properties.Add("Cmd1TargetStage", new List<Int16>() { 0 });
-                Properties.Add("Cmd1TargetSlot", new List<Int16>() { 0 });
-                Properties.Add("Cmd2", new List<Int16>() { 0 });
-                Properties.Add("Cmd2Fork", new List<Int16>() { 0 });
-                Properties.Add("Cmd2TargetPos", new List<Int16>() { 0 });
-                Properties.Add("Cmd2TargetStage", new List<Int16>() { 0 });
-                Properties.Add("Cmd2TargetSlot", new List<Int16>() { 0 });     
-                Properties.Add("Cmd3", new List<Int16>() { 0 });
-                Properties.Add("Cmd3Fork", new List<Int16>() { 0 });
-                Properties.Add("Cmd3TargetPos", new List<Int16>() { 0 });
-                Properties.Add("Cmd3TargetStage", new List<Int16>() { 0 });
-                Properties.Add("Cmd3TargetSlot", new List<Int16>() { 0 });
+                Properties.Add(CmdSeqNo, new List<Int16>() { 0 });
+                Properties.Add(Cmd1, new List<Int16>() { 0 });
+                Properties.Add(Cmd1Fork, new List<Int16>() { 0 });
+                Properties.Add(Cmd1TargetPos, new List<Int16>() { 0 });
+                Properties.Add(Cmd1TargetStage, new List<Int16>() { 0 });
+                Properties.Add(Cmd1TargetSlot, new List<Int16>() { 0 });
+                Properties.Add(Cmd2, new List<Int16>() { 0 });
+                Properties.Add(Cmd2Fork, new List<Int16>() { 0 });
+                Properties.Add(Cmd2TargetPos, new List<Int16>() { 0 });
+                Properties.Add(Cmd2TargetStage, new List<Int16>() { 0 });
+                Properties.Add(Cmd2TargetSlot, new List<Int16>() { 0 });     
+                Properties.Add(Cmd3, new List<Int16>() { 0 });
+                Properties.Add(Cmd3Fork, new List<Int16>() { 0 });
+                Properties.Add(Cmd3TargetPos, new List<Int16>() { 0 });
+                Properties.Add(Cmd3TargetStage, new List<Int16>() { 0 });
+                Properties.Add(Cmd3TargetSlot, new List<Int16>() { 0 });
                 CalculateLens();
             }
         }
@@ -1319,20 +1476,20 @@ namespace EventDriven.Services
         {
             public RobotStatus(string wholeaddress) : base(wholeaddress)
             {
-                Properties.Add("Status", new List<Int16>() { 0 });//1 : Idle, 2 : Busy
-                Properties.Add("Mode", new List<Int16>() { 0 });//1 : Auto, 2 : Manual
-                Properties.Add("WaitCmd", new List<Int16>() { 0 });//1 : Wait, 0 : NoWait
-                Properties.Add("UpForkExist", new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
-                Properties.Add("UpForkJobNo", new List<Int16>() { 0 });
-                Properties.Add("UpForkEnable", new List<Int16>() { 0 });//1 : Enable, 0 : Disable
-                Properties.Add("LowForkExist", new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
-                Properties.Add("LowForkJobNo", new List<Int16>() { 0 });
-                Properties.Add("LowForkEnable", new List<Int16>() { 0 });//1 : Enable, 0 : Disable
-                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
-                Properties.Add("CmdStep", new List<Int16>() { 0 });
-                Properties.Add("RobotPos", new List<Int16>() { 0 });
-                Properties.Add("ActFork", new List<Int16>() { 0 });
-                Properties.Add("ActForkPos", new List<Int16>() { 0 });
+                Properties.Add(Status, new List<Int16>() { 0 });//1 : Idle, 2 : Busy
+                Properties.Add(Mode, new List<Int16>() { 0 });//1 : Auto, 2 : Manual
+                Properties.Add(WaitCmd, new List<Int16>() { 0 });//1 : Wait, 0 : NoWait
+                Properties.Add(UpForkExist, new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
+                Properties.Add(UpForkJobNo, new List<Int16>() { 0 });
+                Properties.Add(UpForkEnable, new List<Int16>() { 0 });//1 : Enable, 0 : Disable
+                Properties.Add(LowForkExist, new List<Int16>() { 0 });//1 : Exist, 0 : NoExist
+                Properties.Add(LowForkJobNo, new List<Int16>() { 0 });
+                Properties.Add(LowForkEnable, new List<Int16>() { 0 });//1 : Enable, 0 : Disable
+                Properties.Add(CmdSeqNo, new List<Int16>() { 0 });
+                Properties.Add(CmdStep, new List<Int16>() { 0 });
+                Properties.Add(RobotPos, new List<Int16>() { 0 });
+                Properties.Add(ActFork, new List<Int16>() { 0 });
+                Properties.Add(ActForkPos, new List<Int16>() { 0 });
                 CalculateLens();
             }           
         }
@@ -1341,13 +1498,16 @@ namespace EventDriven.Services
             public JobDataRequest(string wholeaddress) : base(wholeaddress)
             {
                 List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
-                Properties.Add("WaferId", shorts);
+                Properties.Add(WaferId, shorts);
                 CalculateLens();
             }
             public override void SetDataToPLC()
             {
                 base.SetDataToPLC();
-                _iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), BaseDevice, "1C5F", _workFlow.GlobalVariable.Handshake_Timeout);
+                if(!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), BaseDevice, "1C5F", _workFlow.GlobalVariable.Handshake_Timeout))
+                {
+                    Console.WriteLine("Error");
+                }
             }
         }
         public class JobDataReply : aPLCBasic
@@ -1355,52 +1515,52 @@ namespace EventDriven.Services
             public JobDataReply(string wholeaddress) : base(wholeaddress)
             {
                 List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
-                Properties.Add("JobNo", new List<Int16>() { 0 });
-                Properties.Add("ProductId", shorts);
-                Properties.Add("WaferId", shorts);
-                Properties.Add("SlotSelectFlag", new List<Int16>() { 0 });
-                Properties.Add("SourcePort", new List<Int16>() { 0 });
-                Properties.Add("SourceSlot", new List<Int16>() { 0 });
-                Properties.Add("TargetPort", new List<Int16>() { 0 });
-                Properties.Add("TargetSlot", new List<Int16>() { 0 });
+                Properties.Add(JobNo, new List<Int16>() { 0 });
+                Properties.Add(ProductId, shorts);
+                Properties.Add(WaferId, shorts);
+                Properties.Add(SlotSelectFlag, new List<Int16>() { 0 });
+                Properties.Add(SourcePort, new List<Int16>() { 0 });
+                Properties.Add(SourceSlot, new List<Int16>() { 0 });
+                Properties.Add(TargetPort, new List<Int16>() { 0 });
+                Properties.Add(TargetSlot, new List<Int16>() { 0 });
                 CalculateLens();
             }
         }
         public class JobTransferReport : aPLCBasic
         {
             public JobTransferReport(string wholeaddress) : base(wholeaddress)
-            {                
-                Properties.Add("JobNo", new List<Int16>() { 0 });
-                Properties.Add("TransferType", new List<Int16>() { 0 });
-                Properties.Add("OperationPort", new List<Int16>() { 0 });
-                Properties.Add("OperationEq", new List<Int16>() { 0 });
-                Properties.Add("FirstStart", new List<Int16>() { 0 });
-                Properties.Add("LastStart", new List<Int16>() { 0 });
+            {                       
+                Properties.Add(JobNo, new List<Int16>() { 0 });
+                Properties.Add(TransferType, new List<Int16>() { 0 });
+                Properties.Add(OperationPort, new List<Int16>() { 0 });
+                Properties.Add(OperationEq, new List<Int16>() { 0 });
+                Properties.Add(FirstStart, new List<Int16>() { 0 });
+                Properties.Add(LastStart, new List<Int16>() { 0 });
                 CalculateLens();
             }
             public override void SetDataToPLC()
             {
                 base.SetDataToPLC();
-                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), out short val);
-                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), ++val);
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), out short val);
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), ++val);
             }
         }
         public class JobTransferReusltReport : aPLCBasic
         {
             public JobTransferReusltReport(string wholeaddress) : base(wholeaddress)
             {                
-                Properties.Add("JobNo", new List<Int16>() { 0 });
-                Properties.Add("TransferType", new List<Int16>() { 0 });
-                Properties.Add("OperationPort", new List<Int16>() { 0 });
-                Properties.Add("OperationEq", new List<Int16>() { 0 });
-                Properties.Add("TransferResult", new List<Int16>() { 0 });                
+                Properties.Add(JobNo, new List<Int16>() { 0 });
+                Properties.Add(TransferType, new List<Int16>() { 0 });
+                Properties.Add(OperationPort, new List<Int16>() { 0 });
+                Properties.Add(OperationEq, new List<Int16>() { 0 });
+                Properties.Add(TransferResult, new List<Int16>() { 0 });                
                 CalculateLens();
             }
             public override void SetDataToPLC()
             {
                 base.SetDataToPLC();
-                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), out short val);
-                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), ++val);
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), out short val);
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), ++val);
             }
         }
         public class TransferInterface : aPLCBasic
@@ -1408,10 +1568,10 @@ namespace EventDriven.Services
             public TransferInterface(string wholeaddress) : base(wholeaddress)
             {
                 List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
-                Properties.Add("StageNo", new List<Int16>() { 0 });
-                Properties.Add("SlotNo", new List<Int16>() { 0 });
-                Properties.Add("Status", new List<Int16>() { 0 });
-                Properties.Add("WaferId", shorts);
+                Properties.Add(StageNo, new List<Int16>() { 0 });
+                Properties.Add(SlotNo, new List<Int16>() { 0 });
+                Properties.Add(Status, new List<Int16>() { 0 });
+                Properties.Add(WaferId, shorts);
                 CalculateLens();
             }
         }
@@ -1419,15 +1579,18 @@ namespace EventDriven.Services
         {
             public RobotCmdResult(string wholeaddress) : base(wholeaddress)
             {
-                Properties.Add("CmdSeqNo", new List<Int16>() { 0 });
-                Properties.Add("Code", new List<Int16>() { 0 });
-                Properties.Add("CmdStep", new List<Int16>() { 0 });
+                Properties.Add(CmdSeqNo, new List<Int16>() { 0 });
+                Properties.Add(Code, new List<Int16>() { 0 });
+                Properties.Add(CmdStep, new List<Int16>() { 0 });
                 CalculateLens();
             }
             public override void SetDataToPLC()
             {
                 base.SetDataToPLC();
-                _iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 16).ToString("X4"), BaseDevice, "19BF", _workFlow.GlobalVariable.Handshake_Timeout);
+                if(!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), BaseDevice, "19BF", _workFlow.GlobalVariable.Handshake_Timeout))
+                {
+                    Console.WriteLine("Error");
+                }
             }
         }
         public class JobPositionReport : aPLCBasic
@@ -1435,31 +1598,82 @@ namespace EventDriven.Services
             public JobPositionReport(string wholeaddress, int pos) : base(wholeaddress)
             {                
                 _offset = Math.Max( 0, pos -1);                
-                Properties.Add("JobNo", new List<short>() { 0 });
+                Properties.Add(JobNo, new List<short>() { 0 });
                 CalculateLens();
             }
             public override void SetDataToPLC()
             {                
-                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), (short)Properties["JobNo"][0]);                
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), (short)Properties[JobNo][0]);                
             }
             public override void GetDataFromPLC()
             {
                 _iOContainer.ReadInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), out short jobNo);
-                Properties["JobNo"][0] = jobNo;
+                Properties[JobNo][0] = jobNo;
             }
             public void SwitchDataToPLC(JobPositionReport target)
             {
                 if(target == null) throw new Exception("Target JobPositionReport is null.");
-                short targetPos = target.Properties["JobNo"][0];
-                short sourcePos = Properties["JobNo"][0];
+                short targetPos = target.Properties[JobNo][0];
+                short sourcePos = Properties[JobNo][0];
                 if (targetPos == sourcePos) return; // No need to switch
-                target.Properties["JobNo"][0] = sourcePos;
-                Properties["JobNo"][0] = targetPos;
+                target.Properties[JobNo][0] = sourcePos;
+                Properties[JobNo][0] = targetPos;
                 target.SetDataToPLC();
                 SetDataToPLC();
             }            
             private int _offset;
         }
+        #region ConstProperties
+        public const string CmdSeqNo = "CmdSeqNo";
+        public const string Cmd1 = "Cmd1";
+        public const string Cmd1Fork = "Cmd1Fork";
+        public const string Cmd1TargetPos = "Cmd1TargetPos";
+        public const string Cmd1TargetStage = "Cmd1TargetStage";
+        public const string Cmd1TargetSlot = "Cmd1TargetSlot";
+        public const string Cmd2 = "Cmd2";
+        public const string Cmd2Fork = "Cmd2Fork";
+        public const string Cmd2TargetPos = "Cmd2TargetPos";
+        public const string Cmd2TargetStage = "Cmd2TargetStage";
+        public const string Cmd2TargetSlot = "Cmd2TargetSlot";
+        public const string Cmd3 = "Cmd3";
+        public const string Cmd3Fork = "Cmd3Fork";
+        public const string Cmd3TargetPos = "Cmd3TargetPos";
+        public const string Cmd3TargetStage = "Cmd3TargetStage";
+        public const string Cmd3TargetSlot = "Cmd3TargetSlot";
+        public const string Status = "Status";
+        public const string Mode = "Mode";
+        public const string WaitCmd = "WaitCmd";
+        public const string UpForkExist = "UpForkExist";
+        public const string UpForkJobNo = "UpForkJobNo";
+        public const string UpForkEnable = "UpForkEnable";
+        public const string LowForkExist = "LowForkExist";
+        public const string LowForkJobNo = "LowForkJobNo";
+        public const string LowForkEnable = "LowForkEnable";       
+        public const string CmdStep = "CmdStep";
+        public const string RobotPos = "RobotPos";
+        public const string ActFork = "ActFork";
+        public const string ActForkPos = "ActForkPos";
+        public const string JobNo = "JobNo";
+        public const string ProductId = "ProductId";
+        public const string WaferId = "WaferId";
+        public const string SlotSelectFlag = "SlotSelectFlag";
+        public const string SourcePort = "SourcePort";
+        public const string SourceSlot = "SourceSlot";
+        public const string TargetPort = "TargetPort";
+        public const string TargetSlot = "TargetSlot";
+        public const string TransferType = "TransferType";
+        public const string OperationPort = "OperationPort";
+        public const string OperationEq = "OperationEq";
+        public const string FirstStart = "FirstStart";
+        public const string LastStart = "LastStart";
+        public const string TransferResult = "TransferResult";
+        public const string StageNo = "StageNo";
+        public const string SlotNo = "SlotNo";        
+        public const string Code = "Code";
+        public const string Name = "Name";
+        public const string BaseAddr = "BaseAddr";
+        public const string JobPosition = "JobPosition";
+        #endregion
     }
     public interface IActionInput
     {        

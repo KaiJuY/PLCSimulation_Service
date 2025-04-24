@@ -163,7 +163,7 @@ namespace EventDriven.Model
         public ExecuteCondition ExecuteCondition { get; set; }
         public List<Action> SubActions { get; set; }
         public List<Action> PostActions { get; set; }
-        public DataTable Datatable { get; set; }
+        public DataTable DataTable { get; set; }
     }
     public class DataTable : aProperty
     {
