@@ -1254,7 +1254,37 @@
               ]
             },
             "Output": {}            
-          }     
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W62B0",
+              "Value": [
+                {
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W52A0",
+              "Value": [
+                {
+                  "Comment": "W52A0_EW02_Job_Data_Reply",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens" : 30
+                }
+              ]
+            },
+            "Output": {}
+          }            
         ]
       },
       "Trigger": {
@@ -2434,31 +2464,7 @@
                   "Port4":{
                     "JobNo":"W17A9",
                     "WaferId":"W17D2"
-                  },
-                  "RobotUpArm":{
-                    "JobNo":"W6290",
-                    "WaferId":"W6291"
-                  },
-                  "RobotLowArm":{
-                    "JobNo":"W62A0",
-                    "WaferId":"W62A1"
-                  },
-                  "Aligner":{
-                    "JobNo":"W62B0",
-                    "WaferId":"W62B1"
-                  },
-                  "EQ1":{
-                    "JobNo":"W62C0",
-                    "WaferId":"W62C1"
-                  },
-                  "EQ2":{
-                    "JobNo":"W62D0",
-                    "WaferId":"W62D1"
-                  },
-                  "EQ3":{
-                    "JobNo":"W62E0",
-                    "WaferId":"W62E1"
-                  }                                 
+                  }
                 }
               },
               {

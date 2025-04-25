@@ -14,6 +14,8 @@ using System.Windows.Documents;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using static EventDriven.Services.EventManager;
+using System.Dynamic;
 
 namespace EventDriven.Services
 {
@@ -825,6 +827,11 @@ namespace EventDriven.Services
             protected static aPLCBasic _jobTransferReport; //EW03
             protected static aPLCBasic _jobTransferReportResult; //EW11
             protected static aPLCBasic _transferInterface; //EW08
+            protected static aPLCBasic _unitState; //ES07
+            protected static aPLCBasic _glassidReport; //ES11
+            protected static aPLCBasic _processDataReport; //ED01
+            protected static aPLCBasic _unitResult; //ED03
+
             Dictionary<int, Dictionary<string, string>> _stageDataMap;
             List<ReportChain> _reportChainList = new List<ReportChain>();
             public bool Execute(Model.Action action)
@@ -864,6 +871,10 @@ namespace EventDriven.Services
                 _jobTransferReport = new JobTransferReport("W5370"); //W5370 is the base address for JobTransferReport
                 _jobTransferReportResult = new JobTransferReusltReport("W5400"); //W1C20 is the base address for JobTransferReusltReport
                 _transferInterface = new TransferInterface("W53C0"); //W53C0 is the base address for TransferInterface
+                _unitState = new UnitState("W62B0"); //W62B0 is the base address for UnitState
+                _glassidReport = new GlassReport("W54F0"); //W54F0 is the base address for GlassReport
+                _processDataReport = new ProcessDataReport("W55C0"); //W55C0 is the base address for ProcessDataReport
+                _unitResult = new UnitResult("W6360"); //W6360 is the base address for UnitResult
                 return GetReportInfo(action);
             }
             private bool GetReportInfo(Model.Action action)
@@ -1112,6 +1123,10 @@ namespace EventDriven.Services
                 {
                     //not implement here, because this behavior is dependent on the robot motion
                 }
+                protected virtual void UnitStateChange()
+                {
+                    //not implement here, because this behavior is dependent on the robot motion
+                }
                 protected (int, int) GetOperationEqAndPort()
                 {
                     int operationEq = 0;
@@ -1212,12 +1227,18 @@ namespace EventDriven.Services
                 }
                 protected override void TransferStatusChange()
                 {
-                    if (_reportChain.TargetPos.Item1 < 9) return;
+                    if (_reportChain.TargetPos.Item1 != 9) return;
                     _transferInterface.SetProperties(StageNo, _reportChain.TargetPos.Item1);
                     _transferInterface.SetProperties(SlotNo, _reportChain.TargetPos.Item3);
                     _transferInterface.SetProperties(Status, 1); //Set Transfer Status to 1
+                    //_transferInterface.SetProperties(WaferId, Enumerable.Repeat((Int16)0, 10).ToList());                                                      
                     _transferInterface.SetDataToPLC();
-                }                
+                }
+                protected override void UnitStateChange()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    _unitState.SetProperties(Status, 1); //Set Transfer Status to 1 Idle
+                }
                 public override bool FireReport()
                 {
                     //get report                                                    
@@ -1234,7 +1255,9 @@ namespace EventDriven.Services
                     TransferResultReport();//EW11 Send Job Transfer Report
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
                     RobotCmdResult();//EC03 Set Robot Cmd Result
-                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);   
+                    UnitStateChange();//ES07 Set Unit State
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
                     TransferStatusChange();//EW08 ReceiveReady  
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4); 
                     return true;
@@ -1287,6 +1310,12 @@ namespace EventDriven.Services
                         }
                     }
                 }
+                protected override void JobDataRequest()
+                {
+                    if (_reportChain.TargetPos.Item1 > 4) return;
+                    _jobDataRequest.SetProperties(WaferId, _reportChain.WaferId);
+                    _jobDataRequest.SetDataToPLC();
+                }
                 protected override void RobotExistChange()
                 {
                     string ForkKey = _reportChain.RobotArm == 1 ? UpForkExist : LowForkExist;
@@ -1316,10 +1345,59 @@ namespace EventDriven.Services
                 }
                 protected override void TransferStatusChange()
                 {
-                    if (_reportChain.TargetPos.Item1 < 9) return;
+                    if (_reportChain.TargetPos.Item1 != 9) return;
                     _transferInterface.SetProperties(StageNo, _reportChain.TargetPos.Item1);
                     _transferInterface.SetProperties(SlotNo, _reportChain.TargetPos.Item3);
                     _transferInterface.SetProperties(Status, 0); //Set Transfer Status to 0
+                    //_transferInterface.SetProperties(WaferId, _reportChain.WaferId); //Set Wafer Id to Global Memory
+                    _transferInterface.SetDataToPLC();
+                }
+                protected override void UnitStateChange()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    _unitState.SetProperties(Status, 2); //Set Transfer Status to 2 Busy
+                }
+                protected void GlassIdReport()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    _jobDataReply.GetDataFromPLC();
+                    CassettleFormat cassettleFormat = GetCassettleFormat(_jobDataReply.Properties[SourcePort][0]);
+                    int slotindex = _jobDataReply.Properties[SourceSlot][0] - 1;
+                    _glassidReport.SetProperties(WaferId, _reportChain.WaferId);
+                    _glassidReport.SetProperties(VCRID, cassettleFormat.WaferList[slotindex].WaferId);                    
+                    _glassidReport.SetDataToPLC();
+                }   
+                protected void ProcessDataReport()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    Random random = new Random();
+                    List<Int16> myList = Enumerable.Range(0, 6)
+                    .Select(_ => (Int16)random.Next(0, Int16.MaxValue))
+                    .ToList();
+                    DateTime end = DateTime.Now;
+                    DateTime now = end.AddSeconds(-10);
+                    List<Int16> processStartTime = new List<Int16>() { (Int16)now.Year, (Int16)now.Month, (Int16)now.Day, (Int16)now.Hour, (Int16)now.Minute, (Int16)now.Second };
+                    List<Int16> processEndTime = new List<Int16>() { (Int16)end.Year, (Int16)end.Month, (Int16)end.Day, (Int16)end.Hour, (Int16)end.Minute, (Int16)end.Second };
+                    _processDataReport.SetProperties(RecipeId,"TEST");
+                    _processDataReport.SetProperties(WaferId, _reportChain.WaferId);
+                    _processDataReport.SetProperties(ProcessStartTime, processStartTime);
+                    _processDataReport.SetProperties(ProcessEndTime, processEndTime);
+                    _processDataReport.SetProperties(ProcessResult, myList); //Set Process Data Report Status to 1
+                    _processDataReport.SetDataToPLC();
+                }
+                protected void UnitResult()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    List<Int16> processResult = new List<Int16>() { 1, 1, 0, 12, 78, 456};
+                    _unitResult.SetProperties(ProcessResult, processResult);
+                    _unitResult.SetDataToPLC();
+                }
+                protected void TransferStatusSendReady()
+                {
+                    if (_reportChain.TargetPos.Item1 != 9) return;
+                    _transferInterface.SetProperties(StageNo, _reportChain.TargetPos.Item1);
+                    _transferInterface.SetProperties(SlotNo, _reportChain.TargetPos.Item3);
+                    _transferInterface.SetProperties(Status, 2); //Set Transfer Status to 2                    
                     _transferInterface.SetDataToPLC();
                 }
                 public override bool FireReport()
@@ -1337,9 +1415,31 @@ namespace EventDriven.Services
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
                     TransferStatusChange();//EW08 NOT READY
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    JobDataRequest();//EW05 Request Job Data
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    UnitStateChange();//ES07 Set Unit State
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
                     RobotCmdResult();//EC03 Set Robot Cmd Result
-                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);                                       
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time);
+                    //Auto Start Aligner Flow After Robot Put Material On Aligner
+                    GlassIdReport(); //ES11
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    ProcessDataReport(); //ED01
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    UnitResult(); //ED03
+                    SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
+                    Trans
+                    //ED01
+                    //ED03
+                    //EW08 SEND READY
                     return true;
+                }
+                private CassettleFormat GetCassettleFormat(int PortNumber)
+                {
+                    string PortName = $"Port{PortNumber}";
+                    string BindingCassetteName = _workFlow.CarrierStorage?.FirstOrDefault(x => x.Name == PortName)?.Material.BindingMaterial ?? string.Empty;
+                    if (string.IsNullOrWhiteSpace(BindingCassetteName)) throw new Exception($"Can't find Binding Cassette Name by {PortName}");
+                    return _workFlow.GlobalVariable.Materials.CassettleFormat?.FirstOrDefault(x=> x.CassettleId == BindingCassetteName) ?? null;
                 }
             }
             public class ReportFactory
@@ -1435,13 +1535,27 @@ namespace EventDriven.Services
             }
             public void SetProperties(string key, string value)
             {
-                if (Properties.ContainsKey(key) && Properties[key].Count() <= value.Length / 2)
+                if (Properties.ContainsKey(key) && Properties[key].Count() >= value.Length / 2)
                 {
                     List<short> LStr = MitUtility.getInstance().StringToASCII(value);
                     for(int i = 0; i < LStr.Count(); i++)
                     {
                         Properties[key][i] = LStr[i];
                     }                    
+                }
+                else
+                {
+                    throw new Exception($"Not found key {key} in Properties.");
+                }
+            }
+            public void SetProperties(string key, List<Int16> value)
+            {
+                if (Properties.ContainsKey(key) && Properties[key].Count() >= value.Count())
+                {
+                    for (int i = 0; i < value.Count(); i++)
+                    {
+                        Properties[key][i] = value[i];
+                    }
                 }
                 else
                 {
@@ -1597,7 +1711,7 @@ namespace EventDriven.Services
         {
             public JobPositionReport(string wholeaddress, int pos) : base(wholeaddress)
             {                
-                _offset = Math.Max( 0, pos -1);                
+                _offset = Math.Max( 0, pos - 1);                
                 Properties.Add(JobNo, new List<short>() { 0 });
                 CalculateLens();
             }
@@ -1622,6 +1736,70 @@ namespace EventDriven.Services
                 SetDataToPLC();
             }            
             private int _offset;
+        }
+        public class UnitState : aPLCBasic
+        {
+            public UnitState(string wholeaddress) : base(wholeaddress)
+            {
+                Properties.Add(Status, new List<Int16>() { 0 });
+                CalculateLens();
+            }
+        }
+        public class GlassReport : aPLCBasic
+        {
+            public GlassReport(string wholeaddress) : base(wholeaddress)
+            {
+                List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
+                Properties.Add(VCRID, shorts);
+                Properties.Add(WaferId, shorts);
+                Properties.Add(ReadResult, new List<Int16>() { 0 });
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                if (!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), BaseDevice, "1D7F", _workFlow.GlobalVariable.Handshake_Timeout))
+                {
+                    Console.WriteLine("Error");
+                }
+            }
+        }
+        public class ProcessDataReport : aPLCBasic
+        {
+            public ProcessDataReport(string wholeaddress) : base(wholeaddress)
+            {
+                List<Int16> shorts = Enumerable.Repeat((Int16)0, 10).ToList();
+                Properties.Add(RecipeId, new List<Int16>() { 0, 0 });
+                Properties.Add(WaferId, shorts);
+                Properties.Add(ProcessStartTime, new List<Int16>() { 0, 0, 0, 0, 0, 0 }); //Year, Month, Day, Hour, Minute, Second
+                Properties.Add(ProcessEndTime, new List<Int16>() { 0, 0, 0, 0, 0, 0 });//Year, Month, Day, Hour, Minute, Second
+                Properties.Add(ProcessResult, new List<Int16>() { 0, 0, 0, 0, 0 }); //Resullt 1-5
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 124).ToString("X4"), 1); //Report Page
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 125).ToString("X4"), 1); //Total Page
+                if (!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 127).ToString("X4"), BaseDevice, "1E4F", _workFlow.GlobalVariable.Handshake_Timeout))
+                {
+                    Console.WriteLine("Error");
+                }
+            }
+        }
+        public class UnitResult : aPLCBasic
+        {
+            public UnitResult(string wholeaddress) : base(wholeaddress)
+            {
+                Properties.Add(ProcessResult, new List<Int16>() { 0, 0, 0, 0, 0, 0 }); //Resullt 1-6
+                CalculateLens();
+            }
+            public override void SetDataToPLC()
+            {
+                base.SetDataToPLC();
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), out short val);
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), ++val);
+            }
         }
         #region ConstProperties
         public const string CmdSeqNo = "CmdSeqNo";
@@ -1673,6 +1851,12 @@ namespace EventDriven.Services
         public const string Name = "Name";
         public const string BaseAddr = "BaseAddr";
         public const string JobPosition = "JobPosition";
+        public const string VCRID = "VCRID";
+        public const string ReadResult = "ReadResult";
+        public const string RecipeId = "RecipeId";
+        public const string ProcessStartTime = "ProcessStartTime";
+        public const string ProcessEndTime = "ProcessEndTime";
+        public const string ProcessResult = "ProcessResult";
         #endregion
     }
     public interface IActionInput
