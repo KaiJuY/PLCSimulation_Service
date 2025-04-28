@@ -235,6 +235,7 @@
       {
         "Name":"EQ2",
         "RobotPosition": 12,
+        "StageNo": 1,
         "SlotNo": 1,
         "BaseAddr":"WA7A0",
         "JobPosition": 1,
@@ -1662,11 +1663,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 6,
                   "Address": "W5811"
-                },
-                {
-                  "Action": "Specific",
-                  "ExceptedValue": 1,
-                  "Address": "W5841"
                 }
               ]
             },
@@ -1679,6 +1675,21 @@
                     {
                       "Type": "GlobalVariable",
                       "Content": "Port1.Materials.CassettleFormat.BindingMaterial.CassettleId"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5841",
+                  "Value": [
+                    {
+                      "Comment": "W5841_Port1_Carrier_State",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
                     }
                   ]
                 },
@@ -2827,21 +2838,6 @@
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 6
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W5841",
-            "Value": [
-              {
-                "Comment": "W5841_Port1_Carrier_State",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
               }
             ]
           },

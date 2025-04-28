@@ -927,10 +927,12 @@ namespace EventDriven.Services
                             //ignore
                             break;
                         case eRobotCmd.Exchange:
+                            int exchangeForkGet = _robotCmd.Properties[cmd + "Fork"][0];
+                            int exchangeForkPut = _robotCmd.Properties[cmd + "Fork"][0] == 1 ? 2 : 1;
                             _reportChainList.Add(FetchReportChainForGet(
                                 _robotCmd.Properties[CmdSeqNo][0],
                                 int.Parse(cmd.Substring(3, 1)),
-                                _robotCmd.Properties[cmd + "Fork"][0],
+                                exchangeForkGet,
                                 _robotCmd.Properties[cmd + "TargetPos"][0], 
                                 _robotCmd.Properties[cmd + "TargetStage"][0], 
                                 _robotCmd.Properties[cmd + "TargetSlot"][0]));
@@ -938,7 +940,7 @@ namespace EventDriven.Services
                             _reportChainList.Add(FetchReportChainForPut(
                                 _robotCmd.Properties[CmdSeqNo][0],
                                 int.Parse(cmd.Substring(3, 1)),
-                                _robotCmd.Properties[cmd + "Fork"][0],
+                                exchangeForkPut,
                                 _robotCmd.Properties[cmd + "TargetPos"][0],
                                 _robotCmd.Properties[cmd + "TargetStage"][0],
                                 _robotCmd.Properties[cmd + "TargetSlot"][0]));
@@ -1371,7 +1373,7 @@ namespace EventDriven.Services
                 {
                     if (_reportChain.TargetPos.Item1 != 9) return;
                     Random random = new Random();
-                    List<Int16> myList = Enumerable.Range(0, 6)
+                    List<Int16> myList = Enumerable.Range(0, 5)
                     .Select(_ => (Int16)random.Next(0, Int16.MaxValue))
                     .ToList();
                     DateTime end = DateTime.Now;
@@ -1428,9 +1430,7 @@ namespace EventDriven.Services
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
                     UnitResult(); //ED03
                     SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Hold_Time / 4);
-                    Trans
-                    //ED01
-                    //ED03
+                    TransferStatusSendReady();
                     //EW08 SEND READY
                     return true;
                 }
@@ -1726,7 +1726,9 @@ namespace EventDriven.Services
             }
             public void SwitchDataToPLC(JobPositionReport target)
             {
-                if(target == null) throw new Exception("Target JobPositionReport is null.");
+                GetDataFromPLC();
+                target.GetDataFromPLC();
+                if (target == null) throw new Exception("Target JobPositionReport is null.");
                 short targetPos = target.Properties[JobNo][0];
                 short sourcePos = Properties[JobNo][0];
                 if (targetPos == sourcePos) return; // No need to switch
@@ -1758,7 +1760,7 @@ namespace EventDriven.Services
             public override void SetDataToPLC()
             {
                 base.SetDataToPLC();
-                if (!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 15).ToString("X4"), BaseDevice, "1D7F", _workFlow.GlobalVariable.Handshake_Timeout))
+                if (!_iOContainer.PrimaryHandShake(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + 31).ToString("X4"), BaseDevice, "1D7F", _workFlow.GlobalVariable.Handshake_Timeout))
                 {
                     Console.WriteLine("Error");
                 }
