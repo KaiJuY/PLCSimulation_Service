@@ -101,18 +101,21 @@ namespace EventDriven.Services
         public void DoInitialActions() => _workFlow.CarrierStorage.ForEach(Cs => ExecuteActions(Cs.Initialize.InitialActions));
         public void RegisterEvents()
         {
-            foreach(PositionInfo pos in _workFlow.GlobalVariable.PositionTable)
+            if(_workFlow.GlobalVariable.PositionTable != null)
             {
-                _globalmemoryForRobot[(pos.RobotPosition, pos.StageNo, pos.SlotNo)] = new Dictionary<string, string>()
+                foreach(PositionInfo pos in _workFlow.GlobalVariable.PositionTable)
                 {
-                    { Name, pos.Name },
-                    { BaseAddr, pos.BaseAddr},
-                    { JobPosition, pos.JobPosition.ToString()},
-                    { JobNo, string.Empty },
-                    { WaferId, string.Empty },
-                    { OperationEq, pos.OperationEq.ToString()},
-                    { OperationPort, pos.OperationPort.ToString()}
-                };
+                    _globalmemoryForRobot[(pos.RobotPosition, pos.StageNo, pos.SlotNo)] = new Dictionary<string, string>()
+                    {
+                        { Name, pos.Name },
+                        { BaseAddr, pos.BaseAddr},
+                        { JobPosition, pos.JobPosition.ToString()},
+                        { JobNo, string.Empty },
+                        { WaferId, string.Empty },
+                        { OperationEq, pos.OperationEq.ToString()},
+                        { OperationPort, pos.OperationPort.ToString()}
+                    };
+                }
             }
             foreach (var Cs in _workFlow.CarrierStorage)
             {

@@ -8,14 +8,14 @@
           "WaferList": [
             {
               "Existed": true,
-              "WorkNoForULD": 100,
+              "WorkNoForULD": 101,
               "WaferId": "Material1",
               "SlotNo": 1,
               "ReadResult": true
             },
             {
               "Existed": true,
-              "WorkNoForULD": 101,
+              "WorkNoForULD": 102,
               "WaferId": "Material2",
               "SlotNo": 2,
               "ReadResult": true
@@ -255,6 +255,264 @@
               "Existed": true,
               "WorkNoForULD": 136,
               "WaferId": "Material36",
+              "SlotNo": 36,
+              "ReadResult": true
+            }
+          ]
+        },
+        {
+          "CassettleId": "Cassettle2",
+          "ReadResult": true,
+          "WaferList": [
+            {
+              "Existed": true,
+              "WorkNoForULD": 201,
+              "WaferId": "Material201",
+              "SlotNo": 1,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 202,
+              "WaferId": "Material202",
+              "SlotNo": 2,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 203,
+              "WaferId": "Material203",
+              "SlotNo": 3,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 204,
+              "WaferId": "Material204",
+              "SlotNo": 4,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 205,
+              "WaferId": "Material205",
+              "SlotNo": 5,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 206,
+              "WaferId": "Material206",
+              "SlotNo": 6,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 207,
+              "WaferId": "Material207",
+              "SlotNo": 7,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 208,
+              "WaferId": "Material208",
+              "SlotNo": 8,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 209,
+              "WaferId": "Material209",
+              "SlotNo": 9,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 210,
+              "WaferId": "Material210",
+              "SlotNo": 10,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 211,
+              "WaferId": "Material211",
+              "SlotNo": 11,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 212,
+              "WaferId": "Material212",
+              "SlotNo": 12,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 213,
+              "WaferId": "Material213",
+              "SlotNo": 13,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 214,
+              "WaferId": "Material214",
+              "SlotNo": 14,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 215,
+              "WaferId": "Material215",
+              "SlotNo": 15,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 216,
+              "WaferId": "Material216",
+              "SlotNo": 16,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 217,
+              "WaferId": "Material217",
+              "SlotNo": 17,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 218,
+              "WaferId": "Material218",
+              "SlotNo": 18,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 219,
+              "WaferId": "Material219",
+              "SlotNo": 19,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 220,
+              "WaferId": "Material220",
+              "SlotNo": 20,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 221,
+              "WaferId": "Material221",
+              "SlotNo": 21,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 222,
+              "WaferId": "Material222",
+              "SlotNo": 22,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 223,
+              "WaferId": "Material223",
+              "SlotNo": 23,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 224,
+              "WaferId": "Material224",
+              "SlotNo": 24,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 225,
+              "WaferId": "Material225",
+              "SlotNo": 25,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 226,
+              "WaferId": "Material226",
+              "SlotNo": 26,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 227,
+              "WaferId": "Material227",
+              "SlotNo": 27,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 228,
+              "WaferId": "Material228",
+              "SlotNo": 28,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 229,
+              "WaferId": "Material229",
+              "SlotNo": 29,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 230,
+              "WaferId": "Material230",
+              "SlotNo": 30,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 231,
+              "WaferId": "Material231",
+              "SlotNo": 31,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 232,
+              "WaferId": "Material232",
+              "SlotNo": 32,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 233,
+              "WaferId": "Material233",
+              "SlotNo": 33,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 234,
+              "WaferId": "Material234",
+              "SlotNo": 34,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 235,
+              "WaferId": "Material235",
+              "SlotNo": 35,
+              "ReadResult": true
+            },
+            {
+              "Existed": true,
+              "WorkNoForULD": 236,
+              "WaferId": "Material236",
               "SlotNo": 36,
               "ReadResult": true
             }
@@ -748,106 +1006,7 @@
               ]
             },
             "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W53F0",
-              "Value": [
-                {
-                  "Comment": "W53F0_Port2_Port_No",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 2
-                },
-                {
-                  "Comment": "W53F1_Port2_Port_State",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 1
-                },
-                {
-                  "Comment": "W53F2_Port2_Port_Enable/Disable",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 2
-                },
-                {
-                  "Comment": "W53F3_Port2_Port_Type",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 1
-                },
-                {
-                  "Comment": "W53F4_Port2_Access_Mode",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 1
-                },
-                {
-                  "Comment": "W53F5_Port2_Info_Pad",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53F6_Port2_Reservation_(No_use)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53F7_Port2_Clamp",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53F8_Port2_Dock",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53F9_Port2_Open_Door",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53FA_Port2_Map",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53FB_Port2_Port_Status",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 1
-                },
-                {
-                  "Comment": "W53FC_Port2_Re-Input_Flag",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53FD_Port2_AGV_Carry",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W53FE_Port2_Panel_Grade",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
+          },          
           {
             "ActionName": "Write",
             "Inputs": {
@@ -1001,161 +1160,7 @@
               ]
             },
             "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W5420",
-              "Value": [
-                {
-                  "Comment": "W5420_Port2_Port_No",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 2
-                },
-                {
-                  "Comment": "W5421_Port2_Carrier_State_",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5422_Port2_Abnormal_Code",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5423_Port2_Carrier_ID",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 10
-                },
-                {
-                  "Comment": "W542D_Port2_Carrier_ID_Read_Type",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W542E_Port2_Slot_Mapping_#16-#1",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W542F_Port2_Slot_Mapping_#32-#17",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5430_Port2_Slot_Mapping_#36-#33",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5431_Port2_Crossed_Mapping_#16-#1",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5432_Crossed_Mapping_#32-#17",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5433_Port2_Crossed_Mapping_#36-#33",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5434_Port2_Doubled_Mapping_#16-#1",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5435_Port2_Double_Mapping_#32-#17",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5436_Port2_Double_Mapping_#36-#33",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5437_Port2_Product_ID",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 10
-                },
-                {
-                  "Comment": "W5441_Port2_Panel_ID_#_1_(C_Side)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 468
-                },
-                {
-                  "Comment": "W5615_Port2_Panel_ID_#_1_(S_Side)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 468
-                },
-                {
-                  "Comment": "W57E9_Port2_BCR_Result_(Slot_#01)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 36
-                },
-                {
-                  "Comment": "W580D_Port2_Process_Flag_(Slot_#01)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 36
-                },
-                {
-                  "Comment": "W5831_Port2_Process_History_(Slot_#01)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0,
-                  "Lens": 36
-                },
-                {
-                  "Comment": "W5855_Port2_CDA_Purge_State",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5856_Port2_Info_Pad_(FOUP)",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                },
-                {
-                  "Comment": "W5857_Port2_Info_Pad_Check_Result",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
+          },          
           {
             "ActionName": "Write",
             "Inputs": {
@@ -1215,67 +1220,7 @@
               ]
             },
             "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W540F",
-              "Value": [
-                {
-                  "Comment": "W540F_Port2_EP02_Reply_Port_Command",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W541F",
-              "Value": [
-                {
-                  "Comment": "W541F_Port2_EP03_Reply_Port_Enable",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W586F",
-              "Value": [
-                {
-                  "Comment": "W586F_Port2_EP07_Reply_Cancel",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W587F",
-              "Value": [
-                {
-                  "Comment": "W587F_Port2_EP08_Carrier_Data_Download",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 0
-                }
-              ]
-            },
-            "Output": {}
-          },
+          },          
           {
             "ActionName": "Write",
             "Inputs": {
@@ -2734,7 +2679,7 @@
                       "Comment": "ProductId",
                       "Type": "Action",
                       "ActionName": "Read",
-                      "Address": "W1E36",
+                      "Address": "W1156",
                       "Lens": 10
                     }
                   ]
@@ -2750,7 +2695,7 @@
                       "Comment": "CSidePanelId",
                       "Type": "Action",
                       "ActionName": "Read",
-                      "Address": "W1E64",
+                      "Address": "W1184",
                       "Lens": 468
                     }
                   ]
@@ -2765,7 +2710,7 @@
                     {
                       "Type": "Action",
                       "ActionName": "Read",
-                      "Address": "W1E33",
+                      "Address": "W1153",
                       "Lens": 3,
                       "ElementUnit": "Bit"
                     }
@@ -2893,7 +2838,7 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EC1"
-                },                
+                },
                 {
                   "Comment": "HS",
                   "Action": "Monitor",
@@ -2954,19 +2899,27 @@
             ]
           },          
           {
-            "Name": "Port2_LoadCompleted",
+            "Name": "Port1_AbortAction",
             "TriggerPoint": {
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "LoadCmd",
                   "Action": "Specific",
-                  "ExceptedValue": 6,
-                  "Address": "W53F1"
+                  "ExceptedValue": 3,
+                  "Address": "W110B"
                 },
                 {
+                  "Comment": "LDCM",
                   "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
                   "ExceptedValue": 1,
-                  "Address": "W5421"
+                  "Address": "W111F"
                 }
               ]
             },
@@ -2974,7 +2927,7 @@
               {
                 "ActionName": "Write",
                 "Inputs": {
-                  "Address": "W542D",
+                  "Address": "W4ED0",
                   "Value": [
                     {
                       "Type": "KeyIn",
@@ -2986,14 +2939,14 @@
                 "Output": {}
               },
               {
-                "ActionName": "Write",
+                "ActionName": "SecHandShake",
                 "Inputs": {
-                  "Address": "W5423",
+                  "Address": "W4EDF",
                   "Value": [
                     {
                       "Type": "KeyIn",
                       "Format": "String",
-                      "Content": "Cassettle2"
+                      "Content": "W111F"
                     }
                   ]
                 },
@@ -3007,12 +2960,28 @@
               {
                 "ActionName": "Write",
                 "Inputs": {
-                  "Address": "W53F1",
+                  "Address": "W4EF1",
                   "Value": [
                     {
+                      "Comment": "ABORT",
                       "Type": "KeyIn",
                       "Format": "Int",
-                      "Content": 2
+                      "Content": 6
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
                     }
                   ]
                 },
@@ -3112,7 +3081,7 @@
             ]
           },
           {
-            "Name": "Port1_CancelAction",
+            "Name": "Port1_ReloadAction",
             "TriggerPoint": {
               "Type": "AND",
               "Conditions": [
@@ -3189,11 +3158,1425 @@
           }
         ]
       }
+    },
+    {
+      "Name": "Port2",
+      "Material": {
+        "BindingMaterial": "Cassettle2"
+      },
+      "Initialize": {
+        "InitialActions": [
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W53F0",
+              "Value": [
+                {
+                  "Comment": "W53F0_Port2_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W53F1_Port2_Port_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F2_Port2_Port_Enable/Disable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W53F3_Port2_Port_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F4_Port2_Access_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53F5_Port2_Info_Pad",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F6_Port2_Reservation_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F7_Port2_Clamp",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F8_Port2_Dock",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53F9_Port2_Open_Door",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FA_Port2_Map",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FB_Port2_Port_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W53FC_Port2_Re-Input_Flag",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FD_Port2_AGV_Carry",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W53FE_Port2_Panel_Grade",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W5420",
+              "Value": [
+                {
+                  "Comment": "W5420_Port2_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W5421_Port2_Carrier_State_",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5422_Port2_Abnormal_Code",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5423_Port2_Carrier_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W542D_Port2_Carrier_ID_Read_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W542E_Port2_Slot_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W542F_Port2_Slot_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5430_Port2_Slot_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5431_Port2_Crossed_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5432_Crossed_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5433_Port2_Crossed_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5434_Port2_Doubled_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5435_Port2_Double_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5436_Port2_Double_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5437_Port2_Product_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W5441_Port2_Panel_ID_#_1_(C_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W5615_Port2_Panel_ID_#_1_(S_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W57E9_Port2_BCR_Result_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W580D_Port2_Process_Flag_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5831_Port2_Process_History_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5855_Port2_CDA_Purge_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5856_Port2_Info_Pad_(FOUP)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5857_Port2_Info_Pad_Check_Result",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W540F",
+              "Value": [
+                {
+                  "Comment": "W540F_Port2_EP02_Reply_Port_Command",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W541F",
+              "Value": [
+                {
+                  "Comment": "W541F_Port2_EP03_Reply_Port_Enable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W586F",
+              "Value": [
+                {
+                  "Comment": "W586F_Port2_EP07_Reply_Cancel",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W587F",
+              "Value": [
+                {
+                  "Comment": "W587F_Port2_EP08_Carrier_Data_Download",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          }
+        ]
+      },
+      "Trigger": {
+        "TriggerActions": [
+          {
+            "Name": "Port2_LoadCompleted",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 6,
+                  "Address": "W53F1"
+                },
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W5421"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W542D",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5423",
+                  "Value": [
+                    {
+                      "Type": "GlobalVariable",
+                      "Content": "Port2.Materials.CassettleFormat.BindingMaterial.CassettleId"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W53F1",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_LoadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 9,
+                  "Address": "W1DEB"
+                },
+
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "PRES",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W5421"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W542E",
+                  "Value": [
+                    {
+                      "Comment": "W542E_Port2_Slot_Mapping_#16-#1",
+                      "Type": "GlobalVariable",
+                      "Content": "Port2.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                }
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_CarrierDataDownload",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "MAPE",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W5421"
+                },
+                {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W2A1F"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5870",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W587F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W2A1F"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5437",
+                  "Value": [
+                    {
+                      "Comment": "ProductId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E36",
+                      "Lens": 10
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5441",
+                  "Value": [
+                    {
+                      "Comment": "CSidePanelId",
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E64",
+                      "Lens": 468
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W580D",
+                  "Value": [
+                    {
+                      "Type": "Action",
+                      "ActionName": "Read",
+                      "Address": "W1E33",
+                      "Lens": 3,
+                      "ElementUnit": "Bit"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "WAIT",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_StartAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W1DEB"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "WAIT",
+                  "Action": "Specific",
+                  "ExceptedValue": 3,
+                  "Address": "W5421"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "PROC",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 4
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_UnloadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "UnLoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 10,
+                  "Address": "W1DEB"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W53F1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_AbortAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 3,
+                  "Address": "W1DEB"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "ABORT",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 6
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W53F1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_CancelAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W1DEB"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "CANCEL",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 7
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W53F1",
+                  "Value": [
+                    {
+                      "Comment": "UDRQ",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 3
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
+            "Name": "Port2_ReloadAction",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 11,
+                  "Address": "W1DEB"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W53F1"
+                },
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5400",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W540F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W1DFF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Hold",
+                "Inputs": {},
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W5421",
+                  "Value": [
+                    {
+                      "Comment": "MAPE",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 2
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Name": "Port3",
+      "Material": {
+        "BindingMaterial": ""
+      },
+      "Initialize": {
+        "InitialActions": [
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W5920",
+              "Value": [
+                {
+                  "Comment": "W5920_Port3_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W5921_Port3_Port_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W5922_Port3_Port_Enable/Disable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W5923_Port3_Port_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W5924_Port3_Access_Mode",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W5925_Port3_Info_Pad",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5926_Port3_Reservation_(No_use)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5927_Port3_Clamp",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5928_Port3_Dock",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5929_Port3_Open_Door",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W592A_Port3_Map",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W592B_Port3_Port_Status",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 1
+                },
+                {
+                  "Comment": "W592C_Port3_Re-Input_Flag",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W592D_Port3_AGV_Carry",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W592E_Port3_Panel_Grade",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W5950",
+              "Value": [
+                {
+                  "Comment": "W5950_Port3_Port_No",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 2
+                },
+                {
+                  "Comment": "W5951_Port3_Carrier_State_",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5952_Port3_Abnormal_Code",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5953_Port3_Carrier_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W595D_Port3_Carrier_ID_Read_Type",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W595E_Port3_Slot_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W595F_Port3_Slot_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5960_Port3_Slot_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5961_Port3_Crossed_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5962_Crossed_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5963_Port3_Crossed_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5964_Port3_Doubled_Mapping_#16-#1",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5965_Port3_Double_Mapping_#32-#17",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5966_Port3_Double_Mapping_#36-#33",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5967_Port3_Product_ID",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 10
+                },
+                {
+                  "Comment": "W5971_Port3_Panel_ID_#_1_(C_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W5B45_Port3_Panel_ID_#_1_(S_Side)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 468
+                },
+                {
+                  "Comment": "W5D19_Port3_BCR_Result_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5D3D_Port3_Process_Flag_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5D61_Port3_Process_History_(Slot_#01)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0,
+                  "Lens": 36
+                },
+                {
+                  "Comment": "W5D85_Port3_CDA_Purge_State",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5D86_Port3_Info_Pad_(FOUP)",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                },
+                {
+                  "Comment": "W5D87_Port3_Info_Pad_Check_Result",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W540F",
+              "Value": [
+                {
+                  "Comment": "W540F_Port3_EP02_Reply_Port_Command",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W541F",
+              "Value": [
+                {
+                  "Comment": "W541F_Port3_EP03_Reply_Port_Enable",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W586F",
+              "Value": [
+                {
+                  "Comment": "W586F_Port3_EP07_Reply_Cancel",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          },
+          {
+            "ActionName": "Write",
+            "Inputs": {
+              "Address": "W587F",
+              "Value": [
+                {
+                  "Comment": "W587F_Port3_EP08_Carrier_Data_Download",
+                  "Type": "KeyIn",
+                  "Format": "Int",
+                  "Content": 0
+                }
+              ]
+            },
+            "Output": {}
+          }
+        ]
+      },
+      "Trigger": {
+        "TriggerActions": [          
+        ]
+      }
     }
   ],
   "Buttons": [
     {
-      "ButtonContent": "InitPort1-2",
+      "ButtonContent": "CIM ON BY PLC",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D70",
+            "Value": [
+              {
+                "Comment": "W4D70_CIM Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4D71_Operation Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W4D72_Run Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "CIM OFF BY PLC",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D70",
+            "Value": [
+              {
+                "Comment": "W4D70_CIM Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "InitPort1",
       "Actions": [
         {
           "ActionName": "Write",
@@ -3286,105 +4669,6 @@
               },
               {
                 "Comment": "W4ECE_Port1_EP01_Panel_Grade",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W53F0",
-            "Value": [
-              {
-                "Comment": "W53F0_Port2_Port_No",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 2
-              },
-              {
-                "Comment": "W53F1_Port2_Port_State",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              },
-              {
-                "Comment": "W53F2_Port2_Port_Enable/Disable",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 2
-              },
-              {
-                "Comment": "W53F3_Port2_Port_Type",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              },
-              {
-                "Comment": "W53F4_Port2_Access_Mode",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              },
-              {
-                "Comment": "W53F5_Port2_Info_Pad",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53F6_Port2_Reservation_(No_use)",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53F7_Port2_Clamp",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53F8_Port2_Dock",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53F9_Port2_Open_Door",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53FA_Port2_Map",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53FB_Port2_Port_Status",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              },
-              {
-                "Comment": "W53FC_Port2_Re-Input_Flag",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53FD_Port2_AGV_Carry",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "W53FE_Port2_Panel_Grade",
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 0
@@ -3539,6 +4823,240 @@
               },
               {
                 "Comment": "W5327_Port1_Info_Pad_Check_Result",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_Loading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 6
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF1",
+            "Value": [
+              {
+                "Comment": "W4EF1_Port1_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_UnLoading",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 3
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UING",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 7
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_UDCM",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 4
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EC1",
+            "Value": [
+              {
+                "Comment": "W4EC1_Port1_EP01_Port_State_LDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4EF1",
+            "Value": [
+              {
+                "Comment": "W4EF1_Port1_Carrier_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "InitPort2",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W53F0",
+            "Value": [
+              {
+                "Comment": "W53F0_Port2_Port_No",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W53F1_Port2_Port_State",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F2_Port2_Port_Enable/Disable",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W53F3_Port2_Port_Type",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F4_Port2_Access_Mode",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53F5_Port2_Info_Pad",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F6_Port2_Reservation_(No_use)",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F7_Port2_Clamp",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F8_Port2_Dock",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53F9_Port2_Open_Door",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FA_Port2_Map",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FB_Port2_Port_Status",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W53FC_Port2_Re-Input_Flag",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FD_Port2_AGV_Carry",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "W53FE_Port2_Panel_Grade",
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 0
@@ -3704,136 +5222,6 @@
       ]
     },
     {
-      "ButtonContent": "Port1_Loading",
-      "Actions": [
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EC1",
-            "Value": [
-              {
-                "Comment": "W4EC1_Port1_EP01_Port_State",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 6
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EF1",
-            "Value": [
-              {
-                "Comment": "W4EF1_Port1_Carrier_State",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              }
-            ]
-          },
-          "Output": {}
-        }
-      ]
-    },
-    {
-      "ButtonContent": "Port1_UnLoading",
-      "Actions": [
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EC1",
-            "Value": [
-              {
-                "Comment": "W4EC1_Port1_EP01_Port_State_UDRQ",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 3
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Hold",
-          "Inputs": {},
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EC1",
-            "Value": [
-              {
-                "Comment": "W4EC1_Port1_EP01_Port_State_UING",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 7
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Hold",
-          "Inputs": {},
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EC1",
-            "Value": [
-              {
-                "Comment": "W4EC1_Port1_EP01_Port_State_UDCM",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 4
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Hold",
-          "Inputs": {},
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EC1",
-            "Value": [
-              {
-                "Comment": "W4EC1_Port1_EP01_Port_State_LDRQ",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 1
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W4EF1",
-            "Value": [
-              {
-                "Comment": "W4EF1_Port1_Carrier_State",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              }
-            ]
-          },
-          "Output": {}
-        }
-      ]
-    },
-    {
       "ButtonContent": "Port2_Loading",
       "Actions": [
         {
@@ -3869,194 +5257,93 @@
       ]
     },
     {
-      "ButtonContent": "Port1_LoadActionFromCIM",
+      "ButtonContent": "Port2_UnLoading",
       "Actions": [
         {
           "ActionName": "Write",
           "Inputs": {
-            "Address": "W110B",
+            "Address": "W53F1",
             "Value": [
               {
-                "Comment": "CmdAction",
+                "Comment": "W53F1_Port2_EP01_Port_State_UDRQ",
                 "Type": "KeyIn",
                 "Format": "Int",
-                "Content": 9
+                "Content": 3
               }
             ]
           },
           "Output": {}
         },
         {
-          "ActionName": "PriHandShake",
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
           "Inputs": {
-            "Address": "W111F",
+            "Address": "W53F1",
             "Value": [
               {
-                "Comment": "HP02_Request",
+                "Comment": "W53F1_Port2_EP01_Port_State_UING",
                 "Type": "KeyIn",
-                "Format": "String",
-                "Content": "W4EDF"
+                "Format": "Int",
+                "Content": 7
               }
             ]
           },
           "Output": {}
-        }
-      ]
-    },
-    {
-      "ButtonContent": "Port1_CarrierDataDownFromCIM",
-      "Actions": [
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
         {
           "ActionName": "Write",
           "Inputs": {
-            "Address": "W1153",
+            "Address": "W53F1",
             "Value": [
               {
-                "Comment": "SlotSelect",
+                "Comment": "W53F1_Port2_EP01_Port_State_UDCM",
                 "Type": "KeyIn",
                 "Format": "Int",
-                "Content": 11
-              },
+                "Content": 4
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W53F1",
+            "Value": [
               {
-                "Comment": "SlotSelect",
+                "Comment": "W53F1_Port2_EP01_Port_State_LDRQ",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W5421",
+            "Value": [
+              {
+                "Comment": "W5421_Port2_Carrier_State",
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 0
-              },
-              {
-                "Comment": "SlotSelect",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W1160",
-            "Value": [
-              {
-                "Comment": "Work1",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 5
-              },
-              {
-                "Comment": "Work2",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 0
-              },
-              {
-                "Comment": "Work3",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 18
-              },
-              {
-                "Comment": "Work4",
-                "Type": "KeyIn",
-                "Format": "Int",
-                "Content": 55
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W1184",
-            "Value": [
-              {
-                "Comment": "PID1",
-                "Type": "KeyIn",
-                "Format": "String",
-                "Content": "P1S1"
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W1191",
-            "Value": [
-              {
-                "Comment": "PID2",
-                "Type": "KeyIn",
-                "Format": "String",
-                "Content": "P1S2"
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "Write",
-          "Inputs": {
-            "Address": "W11AB",
-            "Value": [
-              {
-                "Comment": "PID4",
-                "Type": "KeyIn",
-                "Format": "String",
-                "Content": "P1S4"
-              }
-            ]
-          },
-          "Output": {}
-        },
-        {
-          "ActionName": "PriHandShake",
-          "Inputs": {
-            "Address": "W1D3F",
-            "Value": [
-              {
-                "Comment": "HP08_Request",
-                "Type": "KeyIn",
-                "Format": "String",
-                "Content": "W534F"
-              }
-            ]
-          },
-          "Output": {}
-        }
-      ]
-    },
-    {
-      "ButtonContent": "Port1_PortStart",
-      "Actions": [
-          {
-            "ActionName": "Write",
-            "Inputs": {
-              "Address": "W110B",
-              "Value": [
-                {
-                  "Comment": "CmdAction",
-                  "Type": "KeyIn",
-                  "Format": "Int",
-                  "Content": 1
-                }
-              ]
-            },
-            "Output": {}
-          
-        },
-        {
-          "ActionName": "PriHandShake",
-          "Inputs": {
-            "Address": "W111F",
-            "Value": [
-              {
-                "Comment": "HP02_Request",
-                "Type": "KeyIn",
-                "Format": "String",
-                "Content": "W4EDF"
               }
             ]
           },

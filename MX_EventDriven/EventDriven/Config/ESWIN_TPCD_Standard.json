@@ -2161,6 +2161,135 @@
             ]
           },
           {
+            "Name": "HC02_RobotCmd",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [            
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W19AF"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6112",
+                  "Value": [
+                    {
+                      "Comment": "RobotWaitForCmd",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 0
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6120",
+                  "Value": [
+                    {                      
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W612F",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W19AF"
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "RobotMotion",
+                "Inputs": {
+                  "Address": "W6110",
+                  "Value": []
+                },
+                "Output": {},
+                "DataTable":
+                {
+                  "Port1":{
+                    "JobNo":"W1129",
+                    "WaferId":"W1142"
+                  },
+                  "Port2":{
+                    "JobNo":"W1359",
+                    "WaferId":"W1372"
+                  },
+                  "Port3":{
+                    "JobNo":"W1589",
+                    "WaferId":"W15A2"
+                  },
+                  "Port4":{
+                    "JobNo":"W17A9",
+                    "WaferId":"W17D2"
+                  }
+                }
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6112",
+                  "Value": [
+                    {
+                      "Comment": "RobotWaitForCmd",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W6120",
+                  "Value": [
+                    {                      
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Name": "EQ1",
+      "Material": {
+        "BindingMaterial": ""
+      },
+      "Initialize": {
+        "InitialActions": [                  
+        ]
+      },
+      "Trigger": {
+        "TriggerActions": [          
+          {
             "Name": "HS08_ChangeCimMode_ForEQ1",
             "TriggerPoint": {
               "Type": "OR",
@@ -2387,121 +2516,6 @@
                       "Type": "KeyIn",
                       "Format": "String",
                       "Content": "W1F9F"
-                    }
-                  ]
-                },
-                "Output": {}
-              }
-            ]
-          },
-          {
-            "Name": "HC02_RobotCmd",
-            "TriggerPoint": {
-              "Type": "AND",
-              "Conditions": [            
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W19AF"
-                }
-              ]
-            },
-            "Actions": [
-              {
-                "ActionName": "Write",
-                "Inputs": {
-                  "Address": "W6112",
-                  "Value": [
-                    {
-                      "Comment": "RobotWaitForCmd",
-                      "Type": "KeyIn",
-                      "Format": "Int",
-                      "Content": 0
-                    }
-                  ]
-                },
-                "Output": {}
-              },
-              {
-                "ActionName": "Write",
-                "Inputs": {
-                  "Address": "W6120",
-                  "Value": [
-                    {                      
-                      "Type": "KeyIn",
-                      "Format": "Int",
-                      "Content": 1
-                    }
-                  ]
-                },
-                "Output": {}
-              },
-              {
-                "ActionName": "SecHandShake",
-                "Inputs": {
-                  "Address": "W612F",
-                  "Value": [
-                    {
-                      "Type": "KeyIn",
-                      "Format": "String",
-                      "Content": "W19AF"
-                    }
-                  ]
-                },
-                "Output": {}
-              },
-              {
-                "ActionName": "RobotMotion",
-                "Inputs": {
-                  "Address": "W6110",
-                  "Value": []
-                },
-                "Output": {},
-                "DataTable":
-                {
-                  "Port1":{
-                    "JobNo":"W1129",
-                    "WaferId":"W1142"
-                  },
-                  "Port2":{
-                    "JobNo":"W1359",
-                    "WaferId":"W1372"
-                  },
-                  "Port3":{
-                    "JobNo":"W1589",
-                    "WaferId":"W15A2"
-                  },
-                  "Port4":{
-                    "JobNo":"W17A9",
-                    "WaferId":"W17D2"
-                  }
-                }
-              },
-              {
-                "ActionName": "Write",
-                "Inputs": {
-                  "Address": "W6112",
-                  "Value": [
-                    {
-                      "Comment": "RobotWaitForCmd",
-                      "Type": "KeyIn",
-                      "Format": "Int",
-                      "Content": 1
-                    }
-                  ]
-                },
-                "Output": {}
-              },
-              {
-                "ActionName": "Write",
-                "Inputs": {
-                  "Address": "W6120",
-                  "Value": [
-                    {                      
-                      "Type": "KeyIn",
-                      "Format": "Int",
-                      "Content": 1
                     }
                   ]
                 },
@@ -3077,6 +3091,51 @@
                 "Format": "Int",
                 "Content": 2
               }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "EQ1_SVDATA",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W93E0",
+            "Value": [
+              {
+                "Comment": "W93E0_SV10001",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 10001
+              },
+              {
+                "Comment": "W93E1_SV10002",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 20008
+              },
+              {
+                "Comment": "W93E2_SV10003",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "W93E1_SV10004",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "W93E2_SV10005",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 99
+              }
+
             ]
           },
           "Output": {}
