@@ -370,13 +370,13 @@ namespace EventDriven.Services
                 {
                     if (result == null) throw new Exception("Global Variable Not Exist.");
 
-                    if (result is List<CassettleFormat> cassettleList) //for CassettleList
+                    if (result is List<CassetteFormat> cassetteList) //for CassetteList
                     {
-                        CassettleFormat cassettle = cassettleList.FirstOrDefault(c => c.CassettleId == cArray[i]);
-                        if (cassettle == null)
-                            throw new Exception($"Cassettle with ID 'Cassettle1' not found.");
+                        CassetteFormat cassette = cassetteList.FirstOrDefault(c => c.CassetteId == cArray[i]);
+                        if (cassette == null)
+                            throw new Exception($"Cassette with ID 'Cassette1' not found.");
 
-                        result = cassettle;
+                        result = cassette;
                         type = result.GetType();
                     }
                     else if (result is List<Wafer> waferList) //for WaferList
@@ -1366,10 +1366,10 @@ namespace EventDriven.Services
                 {
                     if (_reportChain.TargetPos.Item1 != 9) return;
                     _jobDataReply.GetDataFromPLC();
-                    CassettleFormat cassettleFormat = GetCassettleFormat(_jobDataReply.Properties[SourcePort][0]);
+                    CassetteFormat cassetteFormat = GetCassetteFormat(_jobDataReply.Properties[SourcePort][0]);
                     int slotindex = _jobDataReply.Properties[SourceSlot][0] - 1;
                     _glassidReport.SetProperties(WaferId, _reportChain.WaferId);
-                    _glassidReport.SetProperties(VCRID, cassettleFormat.WaferList[slotindex].WaferId);                    
+                    _glassidReport.SetProperties(VCRID, cassetteFormat.WaferList[slotindex].WaferId);                    
                     _glassidReport.SetDataToPLC();
                 }   
                 protected void ProcessDataReport()
@@ -1437,12 +1437,12 @@ namespace EventDriven.Services
                     //EW08 SEND READY
                     return true;
                 }
-                private CassettleFormat GetCassettleFormat(int PortNumber)
+                private CassetteFormat GetCassetteFormat(int PortNumber)
                 {
                     string PortName = $"Port{PortNumber}";
                     string BindingCassetteName = _workFlow.CarrierStorage?.FirstOrDefault(x => x.Name == PortName)?.Material.BindingMaterial ?? string.Empty;
                     if (string.IsNullOrWhiteSpace(BindingCassetteName)) throw new Exception($"Can't find Binding Cassette Name by {PortName}");
-                    return _workFlow.GlobalVariable.Materials.CassettleFormat?.FirstOrDefault(x=> x.CassettleId == BindingCassetteName) ?? null;
+                    return _workFlow.GlobalVariable.Materials.CassetteFormat?.FirstOrDefault(x=> x.CassetteId == BindingCassetteName) ?? null;
                 }
             }
             public class ReportFactory

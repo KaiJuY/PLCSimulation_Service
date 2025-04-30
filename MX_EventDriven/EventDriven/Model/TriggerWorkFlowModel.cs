@@ -63,7 +63,7 @@ namespace EventDriven.Model
     }
     public class Materials : aProperty
     {
-        public List<CassettleFormat> CassettleFormat { get; set; }
+        public List<CassetteFormat> CassetteFormat { get; set; }
     }
     public class PositionInfo : aProperty
     {
@@ -85,12 +85,12 @@ namespace EventDriven.Model
     }
     public class Material : aProperty
     {
-        public string BindingMaterial { get; set; } //�qMaterial�����o���S�w��CassettleId
+        public string BindingMaterial { get; set; } //�qMaterial�����o���S�w��CassetteId
     }
 
-    public class CassettleFormat : aProperty
+    public class CassetteFormat : aProperty
     {
-        public string CassettleId { get; set; }
+        public string CassetteId { get; set; }
         public bool ReadResult { get; set; }
         public List<Wafer> WaferList { get; set; }
     }

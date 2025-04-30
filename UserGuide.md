@@ -22,7 +22,7 @@
 
 ### 3.1 Materials
 
-- `CassettleFormat`：載具基本設定，包括 CassettleId 、WaferList。
+- `CassetteFormat`：載具基本設定，包括 CassetteId 、WaferList。
 
 ### 3.2 PositionTable
 
@@ -38,31 +38,31 @@
 | `Handshake_Timeout` | 交握超時時間(ms) |
 
 - 以上與各種時間設定相關，可以依據個人電腦環境彈性調整，
-例如電腦效率好且連結PLC`Handshake_Timeout`可以使用4000ms但如果是掛GXWork模擬可以設定到20000ms，
-另外建議主程式也要相應設定會比較順利。
+例如電腦效率好且連結PLC`Handshake_Timeout`可以使用4000ms但如果是掛GXWork模擬可以依照需求往上設定到，另外建議主程式也要相應設定會比較順利。
 
 ---
 
 ## 4. CarrierStorage Region
 ### 4.1 Name
-用以區分屬於哪個`CarrierStage`，不應與其他的`CarrierStage`重複
+用以區分屬於哪個`CarrierStage`，不應與其他的`CarrierStage`重複。
+
 ### 4.1 Material
 #### 4.1.1 BindingMaterial
-用以與`GlobalVariable.Materials.CassettleFormat`
-### 4.3 Initialize
+用以讓`CarrierStorage`與`GlobalVariable.Materials.CassetteFormat`進行綁定。
 
-- `InitialActions`：從動流程，包含連續動作（Action）。
+### 4.3 Initialize
+#### 4.3.1 InitialActions
+可以設定此`CarrierStorage`對應的初始化`Action`流程，此流程會在建立連線後執行。
 
 ### 4.4 Trigger
-
-每個Trigger包括：
-
-| 欄位          | 說明 |
+### TriggerActions
+用以設定此`CarrierStorage`對應的被動觸發`Trigger`流程，此流程會根據條件決定是否執行。
+| 主要欄位          | 說明 |
 |:-------------|:-----|
 | `Name` | 流程名稱 |
-| `TriggerPoint` | 觸發條件集合 |
-| `Actions` | 被觸發時要執行的動作列表 |
-
+| `TriggerPoint` | 觸發條件集合設定 |
+| `Actions` | 被觸發時要執行的`Action`列表 |
+- 特別注意`Name`**為唯一值，如果與其他衝突時會造成設定遺失。**
 #### 4.4.1 TriggerPoint
 
 - **Type**：

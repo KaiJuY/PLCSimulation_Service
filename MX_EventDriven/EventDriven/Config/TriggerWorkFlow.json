@@ -1,9 +1,9 @@
 {
   "GlobalVariable": {
     "Materials": {
-      "CassettleFormat": [
+      "CassetteFormat": [
         {
-          "CassettleId": "Cassettle1",
+          "CassetteId": "Cassette1",
           "ReadResult": true,
           "WaferList": [
             {
@@ -271,7 +271,7 @@
     {
       "Name": "Port1",
       "Material": {
-        "BindingMaterial": "Cassettle1"
+        "BindingMaterial": "Cassette1"
       },
       "Initialize": {
         "InitialActions": [
@@ -1838,7 +1838,7 @@
                         {
                           "Comment": "Slot",
                           "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.SlotNo"
                         },
                         {
                           "Comment": "PanelXSize For StartLine Not important",
@@ -2021,7 +2021,7 @@
                         {
                           "Comment": "Slot",
                           "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.SlotNo"
                         }
                       ]
                     },
@@ -2053,7 +2053,7 @@
                         {
                           "Comment": "CIMPCDownLoadID",
                           "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.WaferId"
                         }
                       ]
                     },
@@ -2076,7 +2076,7 @@
                         {
                           "Comment": "CIMPCDownLoadID",
                           "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.WaferId"
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.WaferId"
                         }
                       ]
                     },
@@ -2455,7 +2455,7 @@
                         {
                           "Comment": "Slot",
                           "Type": "GlobalVariable",
-                          "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.Index.SlotNo"
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.SlotNo"
                         },
                         {
                           "Comment": "PanelXSize For StartLine Not important",
@@ -2547,7 +2547,7 @@
                   "Value": [
                     {
                       "Type": "GlobalVariable",
-                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.CassettleId"
+                      "Content": "Port1.Materials.CassetteFormat.BindingMaterial.CassetteId"
                     }
                   ]
                 },
@@ -2643,7 +2643,7 @@
                     {
                       "Comment": "W4EFE_Port1_Slot_Mapping_#16-#1",
                       "Type": "GlobalVariable",
-                      "Content": "Port1.Materials.CassettleFormat.BindingMaterial.WaferList.All.Existed",
+                      "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.All.Existed",
                       "ElementUnit": "Bit"
                     }
                   ]
