@@ -1720,11 +1720,11 @@ namespace EventDriven.Services
             }
             public override void SetDataToPLC()
             {                
-                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), (short)Properties[JobNo][0]);                
+                _iOContainer.WriteInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + _offset).ToString("X4"), (short)Properties[JobNo][0]);                
             }
             public override void GetDataFromPLC()
             {
-                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt16(BaseAddress, 16) + _offset).ToString("X4"), out short jobNo);
+                _iOContainer.ReadInt(BaseDevice, (Convert.ToInt32(BaseAddress, 16) + _offset).ToString("X4"), out short jobNo);
                 Properties[JobNo][0] = jobNo;
             }
             public void SwitchDataToPLC(JobPositionReport target)
