@@ -917,13 +917,22 @@ namespace EventDriven.Services
                             _robotCmd.Properties[cmd + "TargetSlot"][0]));
                             break;
                         case eRobotCmd.Put:
+                            int sJobNo = 0;
+                            string sWaferId = string.Empty;
+                            if (_reportChainList.Any(rc => rc.ReportType == "Get"))
+                            {
+                                sJobNo = _reportChainList.FirstOrDefault(rc => rc.ReportType == "Get").JobNo;
+                                sWaferId = _reportChainList.FirstOrDefault(rc => rc.ReportType == "Get").WaferId;
+                            }
                             _reportChainList.Add(FetchReportChainForPut(
                             _robotCmd.Properties[CmdSeqNo][0],
                             int.Parse(cmd.Substring(3, 1)),
                             _robotCmd.Properties[cmd + "Fork"][0],
                             _robotCmd.Properties[cmd + "TargetPos"][0],
                             _robotCmd.Properties[cmd + "TargetStage"][0],
-                            _robotCmd.Properties[cmd + "TargetSlot"][0]));
+                            _robotCmd.Properties[cmd + "TargetSlot"][0],
+                            sJobNo,
+                            sWaferId));
                             break;
                         case eRobotCmd.None:
                         case eRobotCmd.Move:
@@ -1007,7 +1016,7 @@ namespace EventDriven.Services
             /// </summary>
             /// <param name="robotArm"></param>
             /// <returns></returns>
-            private ReportChain FetchReportChainForPut(int seqNo, int cmdStep, int robotArm, int targetPos, int targetStage, int targetSlot)
+            private ReportChain FetchReportChainForPut(int seqNo, int cmdStep, int robotArm, int targetPos, int targetStage, int targetSlot, int sourceJobNo = 0, string sourceWaferId = "")
             {
                 return new ReportChain() 
                 {
@@ -1016,8 +1025,8 @@ namespace EventDriven.Services
                     RobotArm = robotArm,
                     TargetPos = (targetPos, targetStage, targetSlot),
                     ReportType = "Put",
-                    JobNo = GetJobNo(robotArm + 4, 0, 1),
-                    WaferId = GetWaferId(robotArm + 4, 0, 1) 
+                    JobNo = GetJobNo(robotArm + 4, 0, 1) == 0 ? sourceJobNo : GetJobNo(robotArm + 4, 0, 1),
+                    WaferId = string.IsNullOrWhiteSpace(GetWaferId(robotArm + 4, 0, 1)) ? sourceWaferId : GetWaferId(robotArm + 4, 0, 1)
                 };
             }
             public struct ReportChain

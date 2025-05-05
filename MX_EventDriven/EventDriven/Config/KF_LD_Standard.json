@@ -7,254 +7,290 @@
           "ReadResult": true,
           "WaferList": [
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 100,
               "WaferId": "Material1",
+              "SubFrameId": "",
               "SlotNo": 1,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 101,
               "WaferId": "Material2",
+              "SubFrameId": "",
               "SlotNo": 2,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 103,
               "WaferId": "Material3",
+              "SubFrameId": "",
               "SlotNo": 3,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 104,
               "WaferId": "Material4",
+              "SubFrameId": "",
               "SlotNo": 4,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 105,
               "WaferId": "Material5",
+              "SubFrameId": "",
               "SlotNo": 5,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 106,
               "WaferId": "Material6",
+              "SubFrameId": "",
               "SlotNo": 6,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 107,
               "WaferId": "Material7",
+              "SubFrameId": "",
               "SlotNo": 7,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 108,
               "WaferId": "Material8",
+              "SubFrameId": "",
               "SlotNo": 8,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 109,
               "WaferId": "Material9",
+              "SubFrameId": "",
               "SlotNo": 9,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 110,
               "WaferId": "Material10",
+              "SubFrameId": "",
               "SlotNo": 10,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 111,
               "WaferId": "Material11",
+              "SubFrameId": "",
               "SlotNo": 11,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 112,
               "WaferId": "Material12",
+              "SubFrameId": "",
               "SlotNo": 12,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 113,
               "WaferId": "Material13",
+              "SubFrameId": "",
               "SlotNo": 13,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 114,
               "WaferId": "Material14",
+              "SubFrameId": "",
               "SlotNo": 14,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 115,
               "WaferId": "Material15",
+              "SubFrameId": "",
               "SlotNo": 15,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 116,
               "WaferId": "Material16",
+              "SubFrameId": "",
               "SlotNo": 16,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 117,
               "WaferId": "Material17",
+              "SubFrameId": "",
               "SlotNo": 17,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 118,
               "WaferId": "Material18",
+              "SubFrameId": "",
               "SlotNo": 18,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 119,
               "WaferId": "Material19",
+              "SubFrameId": "",
               "SlotNo": 19,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 120,
               "WaferId": "Material20",
+              "SubFrameId": "",
               "SlotNo": 20,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 121,
               "WaferId": "Material21",
+              "SubFrameId": "",
               "SlotNo": 21,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 122,
               "WaferId": "Material22",
+              "SubFrameId": "",
               "SlotNo": 22,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 123,
               "WaferId": "Material23",
+              "SubFrameId": "",
               "SlotNo": 23,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 124,
               "WaferId": "Material24",
+              "SubFrameId": "",
               "SlotNo": 24,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 125,
               "WaferId": "Material25",
+              "SubFrameId": "",
               "SlotNo": 25,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 126,
               "WaferId": "Material26",
+              "SubFrameId": "",
               "SlotNo": 26,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 127,
               "WaferId": "Material27",
+              "SubFrameId": "",
               "SlotNo": 27,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 128,
               "WaferId": "Material28",
+              "SubFrameId": "",
               "SlotNo": 28,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 129,
               "WaferId": "Material29",
+              "SubFrameId": "",
               "SlotNo": 29,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 130,
               "WaferId": "Material30",
+              "SubFrameId": "",
               "SlotNo": 30,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 131,
               "WaferId": "Material31",
+              "SubFrameId": "",
               "SlotNo": 31,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 132,
               "WaferId": "Material32",
+              "SubFrameId": "",
               "SlotNo": 32,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 133,
               "WaferId": "Material33",
+              "SubFrameId": "",
               "SlotNo": 33,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 134,
               "WaferId": "Material34",
+              "SubFrameId": "",
               "SlotNo": 34,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 135,
               "WaferId": "Material35",
+              "SubFrameId": "",
               "SlotNo": 35,
               "ReadResult": true
             },
             {
-              "Existed": true,
+              "Existed": false,
               "WorkNoForULD": 136,
               "WaferId": "Material36",
+              "SubFrameId": "",
               "SlotNo": 36,
               "ReadResult": true
             }
