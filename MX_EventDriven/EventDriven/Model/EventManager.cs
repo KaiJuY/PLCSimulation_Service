@@ -110,7 +110,7 @@ namespace EventDriven.Services
                         { Name, pos.Name },
                         { BaseAddr, pos.BaseAddr},
                         { JobPosition, pos.JobPosition.ToString()},
-                        { JobNo, string.Empty },
+                        { JobNo, "0" },
                         { WaferId, string.Empty },
                         { OperationEq, pos.OperationEq.ToString()},
                         { OperationPort, pos.OperationPort.ToString()}
