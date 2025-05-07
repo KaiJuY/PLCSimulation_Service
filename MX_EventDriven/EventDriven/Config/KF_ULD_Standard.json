@@ -3851,6 +3851,157 @@
           "Output": {}
         }
       ]
+    },
+    {
+      "ButtonContent": "Port1_LD_EMPTY",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W6510",
+            "Value": [
+              {
+                "Comment": "Port1 CarrierId",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 10
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W6538",
+            "Value": [
+              {
+                "Comment": "Port1 CJId",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0,
+                "Lens": 25
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W659C",
+            "Value": [
+              {
+                "Comment": "Port1 PortState",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W65A0",
+            "Value": [
+              {
+                "Comment": "Port1 CarrierState EMPTY",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_LD_PROC",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W6510",
+            "Value": [
+              {
+                "Comment": "Port1 CarrierId",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "LD_Cassette1"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W6538",
+            "Value": [
+              {
+                "Comment": "Port1 CJId",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "CJ-1-CST001-241GK001-01-00"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W659C",
+            "Value": [
+              {
+                "Comment": "Port1 PortState",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W65A0",
+            "Value": [
+              {
+                "Comment": "Port1 CarrierState WAIT",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 3
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {"ActionName":"Hold",
+          "Inputs": {},
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W65A0",
+            "Value": [
+              {
+                "Comment": "Port1 CarrierState PROC",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 4
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
     }
   ]
 }
