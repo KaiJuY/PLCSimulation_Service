@@ -15,6 +15,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using EventDriven.Model;
+using System.Reflection;
 
 namespace EventDriven.ViewModel
 {
@@ -49,7 +50,13 @@ namespace EventDriven.ViewModel
                 }
             }
         }
-
+        public string AssemblyVersion
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
         public string ExecutionResult
         {
             get { return _executionResult; }

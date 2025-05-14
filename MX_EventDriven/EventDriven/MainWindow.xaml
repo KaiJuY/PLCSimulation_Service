@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EventDriven"
         xmlns:viewmodel="clr-namespace:EventDriven.ViewModel"
         mc:Ignorable="d"
-        Title="Octopus Simulator" Height="600" Width="1200"
+        Title="{Binding AssemblyVersion, StringFormat='Octopus Simulator - Ver {0}'}" Height="600" Width="1200"
         Icon="Assert/icon.png">
 
     <Window.Resources>
@@ -223,6 +223,8 @@
 
             <Label Content="Port:" />
             <TextBox x:Name="portTextBox" Text="{Binding Port}" Width="120"/>
+            <!-- Author Text -->
+            <TextBlock Width="120" Text="create by Allen" HorizontalAlignment="Left" Margin="0, 350" Foreground="LightGray"/>
         </StackPanel>
     </Grid>
 </Window>
