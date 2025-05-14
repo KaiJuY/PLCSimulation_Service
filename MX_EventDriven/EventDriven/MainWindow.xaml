@@ -129,8 +129,7 @@
                                                                         </Style>
                                                                     </Ellipse.Style>
                                                                 </Ellipse>
-
-                                                                <TextBlock Text="{Binding Comment}" FontWeight="SemiBold"/>
+                                                                
                                                             </DockPanel>
 
                                                             <!-- 第二行: 詳細資訊 -->
@@ -161,7 +160,7 @@
                                                         <Run Text="Cur:" Foreground="#616161" FontSize="11"/>
                                                         <Run Text="{Binding CurrentValue, Mode=OneWay}" FontWeight="Medium">
                                                             <Run.Style>
-                                                                <Style TargetType="Run">
+                                                                <Style TargetType="Run">                                                                    
                                                                     <Setter Property="Foreground" Value="#D32F2F"/>
                                                                     <Style.Triggers>
                                                                         <DataTrigger Binding="{Binding IsMet}" Value="True">

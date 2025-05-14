@@ -140,7 +140,7 @@ namespace EventDriven.Services
                     {
                         Name = triggerAction.Name,
                         Condition = () => CheckCondition(triggerAction),
-                        Action = () => ExecuteActions(triggerAction.Actions)
+                        Action = () => ExecuteActions(triggerAction.Actions, triggerAction.Name)
                     };
                     _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
                     {                        
@@ -207,7 +207,8 @@ namespace EventDriven.Services
                 }
                 OnPropertyChanged(nameof(RegisteredTriggers));
                 return true;
-            }            
+            }      
+            OnPropertyChanged(nameof(RegisteredTriggers));
             return false;
         }
         private void ExecuteActions(List<Model.Action> actions, string executeName = "")
@@ -282,6 +283,7 @@ namespace EventDriven.Services
                 conditionInfo.IsMet = false;
                 if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
                 if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
+                conditionInfo.CurrentValue = currentvalue;
                 if (cond.LastValue == currentvalue && cond.Action != "Specific") return false;
                 cond.LastValue = currentvalue;
                 switch (cond.Action)
@@ -295,7 +297,6 @@ namespace EventDriven.Services
                     default:
                         break;
                 }
-                conditionInfo.CurrentValue = currentvalue;
                 conditionInfo.IsMet = true;
                 return true;
             }

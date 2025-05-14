@@ -85,9 +85,7 @@ namespace EventDriven.ViewModel
             _eventManager = new Services.EventManager();
             _mainwindow = mainwindow;
             _ioContainer = _eventManager.IOContainer;
-            Triggers = new ObservableCollection<TriggerInfo>();
-            // 訂閱 EventManager 的 PropertyChanged 事件
-            _eventManager.PropertyChanged += EventManager_PropertyChanged;
+            Triggers = new ObservableCollection<TriggerInfo>();            
             
             // 預設值
             Protocol = "Mx";
@@ -332,6 +330,7 @@ namespace EventDriven.ViewModel
             if (!_eventManager.LinkToPLC()) return false;
             if (_eventManager.IsMonitoring) return false;
             if (!_eventManager.LoadWorkFlow()) return false;
+            _eventManager.PropertyChanged += EventManager_PropertyChanged;
             await Task.Run(() => _eventManager.DoInitialActions());
             await Task.Run(() => _eventManager.RegisterEvents());
             Thread thread = new Thread(RunMonitor);
@@ -347,8 +346,8 @@ namespace EventDriven.ViewModel
         }
         private void ClearTriggers()
         {
-            _mainwindow.Dispatcher.Invoke(() => Triggers = new ObservableCollection<TriggerInfo>());
-            OnPropertyChanged(nameof(Triggers));
+            _eventManager.PropertyChanged -= EventManager_PropertyChanged;
+            _mainwindow.Dispatcher.Invoke(() => Triggers = new ObservableCollection<TriggerInfo>());            
         }
         private void RunMonitor()
         {
