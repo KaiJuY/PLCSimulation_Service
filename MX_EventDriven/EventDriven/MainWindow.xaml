@@ -111,29 +111,28 @@
                                                             <!-- 標題行: Comment和狀態指示器 -->
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="Auto"/>
-                                                                <RowDefinition Height="Auto"/>
                                                             </Grid.RowDefinitions>
 
                                                             <!-- 第一行: Comment + 狀態指示燈 -->
                                                             <DockPanel Grid.Row="0" LastChildFill="True">
-                                                                <Ellipse Width="8" Height="8" DockPanel.Dock="Right" 
-                                                             Margin="4,0,0,0" VerticalAlignment="Center">
+                                                                <Ellipse Width="10" Height="10" DockPanel.Dock="Right" 
+                                                             Margin="4,0,0,0" HorizontalAlignment="Left">
                                                                     <Ellipse.Style>
                                                                         <Style TargetType="Ellipse">
                                                                             <Setter Property="Fill" Value="#D32F2F"/>
                                                                             <Style.Triggers>
                                                                                 <DataTrigger Binding="{Binding IsMet}" Value="True">
-                                                                                    <Setter Property="Fill" Value="#388E3C"/>
+                                                                                    <Setter Property="Fill" Value="#FF2FB137"/>
                                                                                 </DataTrigger>
                                                                             </Style.Triggers>
                                                                         </Style>
                                                                     </Ellipse.Style>
                                                                 </Ellipse>
-                                                                
+
                                                             </DockPanel>
 
                                                             <!-- 第二行: 詳細資訊 -->
-                                                            <Grid Grid.Row="1" Margin="0,4,0,0">
+                                                            <Grid Grid.Row="0" Margin="20,4,0,0">
                                                                 <Grid.ColumnDefinitions>
                                                                     <ColumnDefinition Width="Auto"/>
                                                                     <ColumnDefinition Width="*"/>
@@ -164,7 +163,7 @@
                                                                     <Setter Property="Foreground" Value="#D32F2F"/>
                                                                     <Style.Triggers>
                                                                         <DataTrigger Binding="{Binding IsMet}" Value="True">
-                                                                            <Setter Property="Foreground" Value="#388E3C"/>
+                                                                            <Setter Property="Foreground" Value="#FF2FB137"/>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
                                                                 </Style>
