@@ -1,6 +1,7 @@
-﻿﻿﻿﻿﻿﻿﻿﻿using System;
+﻿﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 using Microsoft.Win32;
 using EventDriven.Model;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using EventDriven.Model;
 
 namespace EventDriven.ViewModel
 {
@@ -31,8 +33,22 @@ namespace EventDriven.ViewModel
         private readonly Model.IOContainer _ioContainer;
         private string _executionResult;
         private string _lastTriggeredActionName;
+        private ObservableCollection<TriggerInfo> _triggers;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<TriggerInfo> Triggers
+        {
+            get { return _triggers; }
+            set
+            {
+                if (_triggers != value)
+                {
+                    _triggers = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public string ExecutionResult
         {
@@ -69,7 +85,7 @@ namespace EventDriven.ViewModel
             _eventManager = new Services.EventManager();
             _mainwindow = mainwindow;
             _ioContainer = _eventManager.IOContainer;
-            
+            Triggers = new ObservableCollection<TriggerInfo>();
             // 訂閱 EventManager 的 PropertyChanged 事件
             _eventManager.PropertyChanged += EventManager_PropertyChanged;
             
@@ -83,10 +99,38 @@ namespace EventDriven.ViewModel
 
         private void EventManager_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Services.EventManager.LastTriggeredActionName))
+            if (e.PropertyName == nameof(Services.EventManager.RegisteredTriggers))
             {
-                // 當 EventManager 的 LastTriggeredActionName 屬性變更時，更新 ViewModel 的屬性
-                LastTriggeredActionName = _eventManager.LastTriggeredActionName;
+                foreach(var trigger in _eventManager.RegisteredTriggers)
+                {
+                    var existingTrigger = Triggers.FirstOrDefault(t => t.Name == trigger.Key);
+                    if (existingTrigger == null)
+                    {
+                        _mainwindow.Dispatcher.Invoke(() => { 
+                            // 如果不存在，則新增
+                            Triggers.Add(new TriggerInfo
+                            {
+                                Name = trigger.Key,
+                                IsExecuting = trigger.Value.IsExecuting,
+                                CurrentStep = trigger.Value.CurrentStep,
+                                TotalSteps = trigger.Value.TotalSteps,
+                                Type = trigger.Value.Type,
+                                Conditions = new ObservableCollection<ConditionInfo>(trigger.Value.Conditions)
+                            });                        
+                        });
+                    }
+                    else
+                    {
+                        // 如果已存在，則更新
+                        _mainwindow.Dispatcher.Invoke(() => {
+                            existingTrigger.IsExecuting = trigger.Value.IsExecuting;
+                            existingTrigger.CurrentStep = trigger.Value.CurrentStep;
+                            existingTrigger.TotalSteps = trigger.Value.TotalSteps;
+                            existingTrigger.Type = trigger.Value.Type;
+                            existingTrigger.Conditions = new ObservableCollection<ConditionInfo>(trigger.Value.Conditions);
+                        });
+                    }
+                }
             }
         }
 
@@ -294,11 +338,17 @@ namespace EventDriven.ViewModel
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             return true;
-        }
+        }        
         private void EndFromEventManager()
         {
             _eventManager.UnregisterEvents();
             SignalChange(false);
+            ClearTriggers();
+        }
+        private void ClearTriggers()
+        {
+            _mainwindow.Dispatcher.Invoke(() => Triggers = new ObservableCollection<TriggerInfo>());
+            OnPropertyChanged(nameof(Triggers));
         }
         private void RunMonitor()
         {

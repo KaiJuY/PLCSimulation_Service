@@ -105,8 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ConditionInfo.cs" />
     <Compile Include="Model\EventManager.cs" />
     <Compile Include="Model\IOContainer.cs" />
+    <Compile Include="Model\TriggerInfo.cs" />
     <Compile Include="Model\TriggerWorkFlowModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -24,8 +24,8 @@ namespace EventDriven.Services
         private static IOContainer _iOContainer;
         private static TriggerWorkFlowModel _workFlow;
         private Dictionary<string, TriggerBehavior> _registeredEvents;
-        private bool _isMonitoring;
-        private string _lastTriggeredActionName;
+        private bool _isMonitoring;  
+        private Dictionary<string, TriggerInfo> _registeredTriggers;
         private readonly object _registeredEventsLock = new object(); // 鎖定物件
         public event PropertyChangedEventHandler PropertyChanged;
         private static Dictionary<(int, int, int), Dictionary<string, string>> _globalmemoryForRobot = new Dictionary<(int, int, int), Dictionary<string, string>>(); //for Robot Motion
@@ -33,6 +33,14 @@ namespace EventDriven.Services
         {
             get { return _globalmemoryForRobot; }
             set { _globalmemoryForRobot = value; }
+        }
+        public Dictionary<string, TriggerInfo> RegisteredTriggers
+        {
+            get { return _registeredTriggers; }
+            set 
+            { 
+                _registeredTriggers = value;                 
+            }
         }
         public bool IsMonitoring
         {
@@ -48,19 +56,8 @@ namespace EventDriven.Services
         public EventManager()
         {
             _registeredEvents = new Dictionary<string, TriggerBehavior>();
+            _registeredTriggers = new Dictionary<string, TriggerInfo>();
             _iOContainer = new IOContainer();
-        }
-        public string LastTriggeredActionName
-        {
-            get { return _lastTriggeredActionName; }
-            set
-            {
-                if (_lastTriggeredActionName != value)
-                {
-                    _lastTriggeredActionName = value;
-                    OnPropertyChanged();
-                }
-            }
         }
         public IOContainer IOContainer
         {
@@ -120,7 +117,25 @@ namespace EventDriven.Services
             foreach (var Cs in _workFlow.CarrierStorage)
             {
                 foreach(var triggerAction in Cs.Trigger.TriggerActions)
-                { 
+                {
+                    RegisteredTriggers[triggerAction.Name] = new TriggerInfo
+                    {
+                        Name = triggerAction.Name,
+                        IsExecuting = false,
+                        CurrentStep = 0,
+                        TotalSteps = triggerAction.Actions.Count,
+                        Type = triggerAction.TriggerPoint.Type,
+                        Conditions = new System.Collections.ObjectModel.ObservableCollection<ConditionInfo>(
+                        triggerAction.TriggerPoint.Conditions.Select(condition => new ConditionInfo
+                        {
+                            IsMet = false,
+                            Address = condition.Address,
+                            Action = condition.Action,
+                            ExceptedValue = condition.ExceptedValue,
+                            CurrentValue = 0
+                        })
+                        )
+                    };
                     _registeredEvents[triggerAction.Name] = new TriggerBehavior
                     {
                         Name = triggerAction.Name,
@@ -128,13 +143,13 @@ namespace EventDriven.Services
                         Action = () => ExecuteActions(triggerAction.Actions)
                     };
                     _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
-                    {
-                        _lastTriggeredActionName = triggerAction.Name; // 記錄觸發的 Action Name
+                    {                        
                         _registeredEvents[triggerAction.Name].Action.Invoke();
                     };
                 }
             }
             IsMonitoring = true;
+            OnPropertyChanged(nameof(RegisteredTriggers));
         }
         public void UnregisterEvents()
         {
@@ -167,16 +182,15 @@ namespace EventDriven.Services
         /// <param name="triggerAction"></param>
         /// <returns></returns>
         private bool CheckCondition(Model.TriggerAction triggerAction)
-        {
-            bool result = false;
-
+        {            
+            var ConditionInfos = RegisteredTriggers[triggerAction.Name].Conditions;
             if (triggerAction.TriggerPoint.Type == "OR")
             {
                 foreach (var triggerPoint in triggerAction.TriggerPoint.Conditions)
                 {
-                    if (DoCondition(triggerPoint))
-                    {
-                        LastTriggeredActionName= triggerAction.Name;
+                    if (DoCondition(triggerPoint, ConditionInfos.First(ci => ci.Address == triggerPoint.Address)))
+                    {                   
+                        OnPropertyChanged(nameof(RegisteredTriggers));
                         return true;
                     }
                 }
@@ -185,19 +199,41 @@ namespace EventDriven.Services
             {
                 foreach (var triggerPoint in triggerAction.TriggerPoint.Conditions)
                 {
-                    if (!DoCondition(triggerPoint)) return false;
+                    if (!DoCondition(triggerPoint, ConditionInfos.First(ci => ci.Address == triggerPoint.Address)))
+                    {
+                        OnPropertyChanged(nameof(RegisteredTriggers));
+                        return false;
+                    }
                 }
-                LastTriggeredActionName = triggerAction.Name;
+                OnPropertyChanged(nameof(RegisteredTriggers));
                 return true;
-            }
-            return result;
+            }            
+            return false;
         }
-        private void ExecuteActions(List<Model.Action> actions)
+        private void ExecuteActions(List<Model.Action> actions, string executeName = "")
         {
+            int actionCount = 1;
             foreach (var action in actions)
             {
+                if(!string.IsNullOrWhiteSpace(executeName))
+                {
+                    ChangeTriggerStatus(executeName, true, actionCount++);
+                }
                 ExecuteAction(action);
                 SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Action_Interval);
+            }
+            if (!string.IsNullOrWhiteSpace(executeName))
+            {
+                ChangeTriggerStatus(executeName, false, 0); // Reset trigger status after execution
+            }
+        }
+        private void ChangeTriggerStatus(string triggerName, bool isExecuting, int currentStep)
+        {
+            if (RegisteredTriggers.ContainsKey(triggerName))
+            {
+                RegisteredTriggers[triggerName].IsExecuting = isExecuting;
+                RegisteredTriggers[triggerName].CurrentStep = currentStep;
+                OnPropertyChanged(nameof(RegisteredTriggers));
             }
         }
         /// <summary>
@@ -239,10 +275,11 @@ namespace EventDriven.Services
         /// <param name="action"></param>
         /// <exception cref="Exception"></exception>
         private void ExecuteAction(Model.Action action)=> ExecuteFactory.GetExeAction(action.ActionName).Execute(action);
-        private bool DoCondition(Condition cond)
+        private bool DoCondition(Condition cond, ConditionInfo conditionInfo)
         {
             try
             {
+                conditionInfo.IsMet = false;
                 if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
                 if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
                 if (cond.LastValue == currentvalue && cond.Action != "Specific") return false;
@@ -258,6 +295,8 @@ namespace EventDriven.Services
                     default:
                         break;
                 }
+                conditionInfo.CurrentValue = currentvalue;
+                conditionInfo.IsMet = true;
                 return true;
             }
             catch (Exception ex)
