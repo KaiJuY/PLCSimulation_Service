@@ -280,17 +280,32 @@ namespace EventDriven.Services
         {
             try
             {
-                conditionInfo.IsMet = false;
-                if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address)) return false;
-                if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue)) return false;
+                if (!StringValidator.SplitAndValidateString(cond.Address, out string DeviceName, out string Address))
+                {
+                    conditionInfo.IsMet = false;
+                    return false;
+                }
+                if (!_iOContainer.ReadInt(DeviceName, Address, out short currentvalue))
+                {
+                    conditionInfo.IsMet = false;
+                    return false;
+                }
                 conditionInfo.CurrentValue = currentvalue;
-                if (cond.LastValue == currentvalue && cond.Action != "Specific") return false;
+                if (cond.LastValue == currentvalue && cond.Action != "Specific")
+                {
+                    conditionInfo.IsMet = false;
+                    return false;
+                }
                 cond.LastValue = currentvalue;
                 switch (cond.Action)
                 {
                     case "Monitor"://需要到ExceptionValue且與上次不同
                     case "Specific"://特定值
-                        if (cond.ExceptedValue != currentvalue) return false;
+                        if (cond.ExceptedValue != currentvalue)
+                        {
+                            conditionInfo.IsMet = false;
+                            return false;
+                        }
                         break;
                     case "Change"://與上次不同
                         break;
@@ -302,6 +317,7 @@ namespace EventDriven.Services
             }
             catch (Exception ex)
             {
+                conditionInfo.IsMet = false;
                 return false;
             }
         }

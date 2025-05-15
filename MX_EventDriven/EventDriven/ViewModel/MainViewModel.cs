@@ -354,6 +354,7 @@ namespace EventDriven.ViewModel
         private void ClearTriggers()
         {
             _eventManager.PropertyChanged -= EventManager_PropertyChanged;
+            SpinWait.SpinUntil(() => false, 300);
             _mainwindow.Dispatcher.Invoke(() => Triggers = new ObservableCollection<TriggerInfo>());            
         }
         private void RunMonitor()
