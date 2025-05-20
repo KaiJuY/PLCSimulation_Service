@@ -1809,11 +1809,9 @@
                       "Value": [
                         {
                           "Comment": "From HP08 according executing Slot get WorkNo",
-                          "Type": "Action",
-                          "ActionName": "Read",
-                          "Address": "W1160",
-                          "Lens": 1,
-                          "Floating": true
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
                         },
                         {
                           "Comment": "From HP08 according executing Slot get PaenlId",
@@ -2001,11 +1999,23 @@
                     "Output": {}
                   },
                   {
-                    "Comment": "EW03FromRobotToAligner",
+                    "Comment": "EW03SendSubframetoCST",
                     "ActionName": "Write",
                     "Inputs": {
-                      "Address": "W4C6E",
+                      "Address": "W4C60",
                       "Value": [
+                        {
+                          "Comment": "From HP08 according executing Slot get WorkNo",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        },
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0,
+                          "Lens": 13
+                        },
                         {
                           "Comment": "Send Type",
                           "Type": "KeyIn",
@@ -2016,7 +2026,7 @@
                           "Comment": "PortNo",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 0
+                          "Content": 1
                         },
                         {
                           "Comment": "OperationEQ EFEM",
@@ -2028,7 +2038,7 @@
                           "Comment": "Position No",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 9
+                          "Content": 0
                         },
                         {
                           "Comment": "FirstPanelStart Not important",
