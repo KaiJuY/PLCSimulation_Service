@@ -1916,6 +1916,21 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BAD",
+                      "Value": [
+                        {
+                          "Comment": "HW02_CV1",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03ReceiveEQ",
                     "ActionName": "Write",
                     "Inputs": {
@@ -1974,6 +1989,37 @@
                   {
                     "ActionName": "Hold",
                     "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BAD",
+                      "Value": [
+                        {
+                          "Comment": "HW02_CV1",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "HW02_PnP1",
+                          "Type": "GlobalVariable",
+                          "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.WorkNoForULD"
+                        }
+                      ]
+                    },
                     "Output": {}
                   },
                   {
@@ -2068,6 +2114,22 @@
                   {
                     "ActionName": "Hold",
                     "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "HW02_CV1",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
                     "Output": {}
                   },
                   {
@@ -2282,16 +2344,28 @@
                           "Content": "Port1.Materials.CassetteFormat.BindingMaterial.WaferList.Index.SlotNo"
                         },
                         {
-                          "Comment": "PanelXSize For StartLine Not important",
+                          "Comment": "Low PanelXSize For StartLine",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 0
+                          "Content": 12345
                         },
                         {
-                          "Comment": "PanelYSize For StartLine Not important",
+                          "Comment": "High PanelXSize For StartLine",
                           "Type": "KeyIn",
                           "Format": "Int",
-                          "Content": 0
+                          "Content": 76
+                        },
+                        {
+                          "Comment": "Low PanelYSize For StartLine",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 11
+                        },
+                        {
+                          "Comment": "High PanelYSize For StartLine",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 123
                         }
                       ]
                     },
@@ -3982,7 +4056,8 @@
           },
           "Output": {}
         },
-        {"ActionName":"Hold",
+        {
+          "ActionName": "Hold",
           "Inputs": {},
           "Output": {}
         },

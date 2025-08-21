@@ -1802,6 +1802,24 @@
                 },
                 "SubActions": [
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03FromCarrierToRobot",
                     "ActionName": "Write",
                     "Inputs": {
@@ -2001,6 +2019,40 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Comment": "HW02_TopArm",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "HW02_PnP1",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03FromRobotToAligner",
                     "ActionName": "Write",
                     "Inputs": {
@@ -2159,6 +2211,61 @@
                           "Type": "KeyIn",
                           "Format": "String",
                           "Content": "W469F"
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "HW02PnP",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BAD",
+                      "Value": [
+                        {
+                          "Comment": "HW02_CV1",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BAD",
+                      "Value": [
+                        {
+                          "Comment": "HW02_ToEQ",
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
                         }
                       ]
                     },

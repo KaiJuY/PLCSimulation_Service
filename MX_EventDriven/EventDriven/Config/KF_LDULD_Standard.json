@@ -5350,6 +5350,141 @@
           "Output": {}
         }
       ]
+    },
+    {
+      "ButtonContent": "ES09_AlarmSetAndReset",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D90",
+            "Value": [
+              {
+                "Comment": "AlarmState1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              },
+              {
+                "Comment": "AlarmLevel1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "AlarmUnit1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 19
+              },
+              {
+                "Comment": "AlarmCode1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 495
+              },
+              {
+                "Comment": "AlarmState2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "AlarmLevel2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 2
+              },
+              {
+                "Comment": "AlarmUnit2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 19
+              },
+              {
+                "Comment": "AlarmCode2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 495
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "Comment": "ES09HS",
+          "ActionName": "PriHandShake",
+          "Inputs": {
+            "Address": "W4DBF",
+            "Value": [
+              {
+                "Comment": "HS11_Reqply",
+                "Type": "KeyIn",
+                "Format": "String",
+                "Content": "W468F"
+              }
+            ]
+          },
+          "Output": {}
+        },
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4D90",
+            "Value": [
+              {
+                "Comment": "AlarmState1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmLevel1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmUnit1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmCode1",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmState2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmLevel2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmUnit2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              },
+              {
+                "Comment": "AlarmCode2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
     }
   ]
 }
