@@ -2272,6 +2272,24 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BA7",
+                      "Value": [
+                        {
+                          "Comment": "HW02_ToEQ",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03SendtoEQ",
                     "ActionName": "Write",
                     "Inputs": {
@@ -2428,12 +2446,17 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 9,
                   "Address": "W110B"
                 },
-
                 {
                   "Comment": "LDCM",
                   "Action": "Specific",
@@ -2445,12 +2468,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 1,
                   "Address": "W4EF1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -2649,6 +2666,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -2665,12 +2688,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 3,
                   "Address": "W4EF1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },

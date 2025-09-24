@@ -132,7 +132,11 @@ namespace EventDriven.ViewModel
                             existingTrigger.CurrentStep = trigger.Value.CurrentStep;
                             existingTrigger.TotalSteps = trigger.Value.TotalSteps;
                             existingTrigger.Type = trigger.Value.Type;
-                            existingTrigger.Conditions = new ObservableCollection<ConditionInfo>(trigger.Value.Conditions);
+                            existingTrigger.Conditions.Clear();
+                            foreach (var cond in trigger.Value.Conditions)
+                            {
+                                existingTrigger.Conditions.Add(cond);
+                            }
                         });
                     }
                 }
@@ -355,7 +359,7 @@ namespace EventDriven.ViewModel
         {
             _eventManager.PropertyChanged -= EventManager_PropertyChanged;
             SpinWait.SpinUntil(() => false, 300);
-            _mainwindow.Dispatcher.Invoke(() => Triggers = new ObservableCollection<TriggerInfo>());            
+            _mainwindow.Dispatcher.Invoke(() => Triggers.Clear());            
         }
         private void RunMonitor()
         {

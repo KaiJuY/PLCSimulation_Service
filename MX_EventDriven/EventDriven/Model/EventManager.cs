@@ -142,10 +142,7 @@ namespace EventDriven.Services
                         Condition = () => CheckCondition(triggerAction),
                         Action = () => ExecuteActions(triggerAction.Actions, triggerAction.Name)
                     };
-                    _registeredEvents[triggerAction.Name].Triggered += (sender, args) =>
-                    {                        
-                        _registeredEvents[triggerAction.Name].Action.Invoke();
-                    };
+                    _registeredEvents[triggerAction.Name].Triggered += TriggerActionHandler;
                 }
             }
             IsMonitoring = true;
@@ -173,7 +170,7 @@ namespace EventDriven.Services
                 {
                     trigger.CheckAndTrigger(); // 依次檢查並觸發事件
                 }
-                SpinWait.SpinUntil(() => false, _workFlow.GlobalVariable.Monitor_Interval); // 每秒檢查一次
+                Thread.Sleep(Math.Max(_workFlow.GlobalVariable.Monitor_Interval, 50));
             }
         }
         /// <summary>
@@ -210,6 +207,11 @@ namespace EventDriven.Services
             }      
             OnPropertyChanged(nameof(RegisteredTriggers));
             return false;
+        }
+        private void TriggerActionHandler(object sender, EventArgs args)
+        {
+            var trigger = (TriggerBehavior)sender;
+            trigger.Action.Invoke();
         }
         private void ExecuteActions(List<Model.Action> actions, string executeName = "")
         {

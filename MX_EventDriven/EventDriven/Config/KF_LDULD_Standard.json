@@ -1711,6 +1711,24 @@
                 },
                 "SubActions": [
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03FromCarrierToRobot",
                     "ActionName": "Write",
                     "Inputs": {
@@ -1864,6 +1882,21 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EC01_PanelLeaveRobot",
                     "ActionName": "Write",
                     "Inputs": {
@@ -1904,6 +1937,24 @@
                           "Type": "KeyIn",
                           "Format": "Int",
                           "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
                         }
                       ]
                     },
@@ -2074,6 +2125,82 @@
                     "Output": {}
                   },
                   {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B9B",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B9B",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BA7",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03SendtoEQ",
                     "ActionName": "Write",
                     "Inputs": {
@@ -2138,6 +2265,59 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4BA7",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B9D",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "ActionName": "Hold",
+                    "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B9D",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "Comment": "EW03ReceiveEQ",
                     "ActionName": "Write",
                     "Inputs": {
@@ -2181,8 +2361,59 @@
                     "Output": {}
                   },
                   {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B98",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
+                    "Output": {}
+                  },
+                  {
                     "ActionName": "Hold",
                     "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Comment": "WW02_ROBOTTop",
+                          "Type": "Action",
+                          "ActionName": "Read",
+                          "Address": "W1160",
+                          "Lens": 1,
+                          "Floating": true
+                        }
+                      ]
+                    },
                     "Output": {}
                   },
                   {
@@ -2295,6 +2526,21 @@
                   {
                     "ActionName": "Hold",
                     "Inputs": {},
+                    "Output": {}
+                  },
+                  {
+                    "Comment": "EW02",
+                    "ActionName": "Write",
+                    "Inputs": {
+                      "Address": "W4B90",
+                      "Value": [
+                        {
+                          "Type": "KeyIn",
+                          "Format": "Int",
+                          "Content": 0
+                        }
+                      ]
+                    },
                     "Output": {}
                   },
                   {
