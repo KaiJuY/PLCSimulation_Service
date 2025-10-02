@@ -3141,7 +3141,82 @@
                   ]
                 },
                 "Output": {}
-              }
+              },
+			  {
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W4EC1",
+					"Value": [
+					  {
+						"Comment": "W4EC1_Port1_EP01_Port_State_UING",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 7
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W4EC1",
+					"Value": [
+					  {
+						"Comment": "W4EC1_Port1_EP01_Port_State_UDCM",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 4
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W4EC1",
+					"Value": [
+					  {
+						"Comment": "W4EC1_Port1_EP01_Port_State_LDRQ",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 1
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W4EF1",
+					"Value": [
+					  {
+						"Comment": "W4EF1_Port1_Carrier_State",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 0
+					  }
+					]
+				  },
+				  "Output": {}
+				}
             ]
           },          
           {
@@ -4171,7 +4246,82 @@
                   ]
                 },
                 "Output": {}
-              }
+              },
+			  {
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W53F1",
+					"Value": [
+					  {
+						"Comment": "W53F1_Port2_EP01_Port_State_UING",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 7
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W53F1",
+					"Value": [
+					  {
+						"Comment": "W53F1_Port2_EP01_Port_State_UDCM",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 4
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Hold",
+				  "Inputs": {},
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W53F1",
+					"Value": [
+					  {
+						"Comment": "W53F1_Port2_EP01_Port_State_LDRQ",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 1
+					  }
+					]
+				  },
+				  "Output": {}
+				},
+				{
+				  "ActionName": "Write",
+				  "Inputs": {
+					"Address": "W5421",
+					"Value": [
+					  {
+						"Comment": "W5421_Port2_Carrier_State",
+						"Type": "KeyIn",
+						"Format": "Int",
+						"Content": 0
+					  }
+					]
+				  },
+				  "Output": {}
+				}
             ]
           },
           {
