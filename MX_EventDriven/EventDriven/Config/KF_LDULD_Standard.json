@@ -2765,11 +2765,72 @@
               }
             ]
           },
+		      {
+            "Name": "Port1_AutoLoading",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W4950"
+                },
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 1,
+                  "Address": "W4EC1"
+                },
+                {
+                  "Action": "Specific",
+                  "ExceptedValue": 0,
+                  "Address": "W4EF1"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EC1",
+                  "Value": [
+                    {
+                      "Comment": "W4EC1_Port1_EP01_Port_State",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 6
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4EF1",
+                  "Value": [
+                    {
+                      "Comment": "W4EF1_Port1_Carrier_State",
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
           {
             "Name": "Port1_LoadAction",
             "TriggerPoint": {
               "Type": "AND",
               "Conditions": [
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
                 {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
@@ -2788,12 +2849,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 1,
                   "Address": "W4EF1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -2868,6 +2923,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1D3F"
+                },
+                {
                   "Comment": "LDCM",
                   "Action": "Specific",
                   "ExceptedValue": 2,
@@ -2878,12 +2939,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EF1"
-                },
-                {
-                  "Comment": "HP08_HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1D3F"
                 }
               ]
             },
@@ -2992,6 +3047,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -3008,12 +3069,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 3,
                   "Address": "W4EF1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -3074,6 +3129,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "UnLoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 10,
@@ -3084,12 +3145,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EC1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -3225,6 +3280,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 3,
@@ -3235,12 +3296,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EC1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -3316,6 +3371,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 2,
@@ -3326,12 +3387,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EC1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -3407,6 +3462,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 11,
@@ -3417,12 +3478,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W4EC1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W111F"
                 }
               ]
             },
@@ -3876,6 +3931,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 9,
@@ -3893,12 +3954,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 1,
                   "Address": "W5421"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -3973,6 +4028,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W2A1F"
+                },
+                {
                   "Comment": "LDCM",
                   "Action": "Specific",
                   "ExceptedValue": 2,
@@ -3983,12 +4044,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W5421"
-                },
-                {
-                  "Comment": "HP08_HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W2A1F"
                 }
               ]
             },
@@ -4097,6 +4152,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -4113,12 +4174,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 3,
                   "Address": "W5421"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -4179,6 +4234,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "UnLoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 10,
@@ -4189,12 +4250,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W53F1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -4330,6 +4385,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 3,
@@ -4340,12 +4401,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W53F1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -4421,6 +4476,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 2,
@@ -4431,12 +4492,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W53F1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -4517,6 +4572,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W1DFF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 11,
@@ -4527,12 +4588,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W53F1"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W1DFF"
                 }
               ]
             },
@@ -5872,6 +5927,46 @@
               },
               {
                 "Comment": "AlarmCode2",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 0
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_AutoOn",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4950",
+            "Value": [
+              {
+                "Comment": "W4950_SPARE",
+                "Type": "KeyIn",
+                "Format": "Int",
+                "Content": 1
+              }
+            ]
+          },
+          "Output": {}
+        }
+      ]
+    },
+    {
+      "ButtonContent": "Port1_AutoOff",
+      "Actions": [
+        {
+          "ActionName": "Write",
+          "Inputs": {
+            "Address": "W4950",
+            "Value": [
+              {
+                "Comment": "W4950_SPARE",
                 "Type": "KeyIn",
                 "Format": "Int",
                 "Content": 0
