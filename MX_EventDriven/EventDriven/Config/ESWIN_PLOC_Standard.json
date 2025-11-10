@@ -1722,6 +1722,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W10EF"
+                },
+                {
                   "Comment": "LoadCmd_Auto",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -1738,12 +1744,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 1,
                   "Address": "W5841"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W10EF"
                 }
               ]
             },
@@ -1818,6 +1818,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HP08_HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W124F"
+                },
+                {
                   "Comment": "LDCM",
                   "Action": "Specific",
                   "ExceptedValue": 2,
@@ -1828,12 +1834,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W5841"
-                },
-                {
-                  "Comment": "HP08_HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W124F"
                 }
               ]
             },
@@ -1926,6 +1926,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W10EF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -1942,12 +1948,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 3,
                   "Address": "W5841"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W10EF"
                 }
               ]
             },
@@ -2008,6 +2008,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W10EF"
+                },
+                {
                   "Comment": "UnLoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 1,
@@ -2018,12 +2024,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 2,
                   "Address": "W5811"
-                },                
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W10EF"
                 }
               ]
             },
@@ -2084,6 +2084,12 @@
               "Type": "AND",
               "Conditions": [
                 {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W10EF"
+                },
+                {
                   "Comment": "LoadCmd",
                   "Action": "Specific",
                   "ExceptedValue": 4,
@@ -2100,12 +2106,6 @@
                   "Action": "Specific",
                   "ExceptedValue": 4,
                   "Address": "W5841"
-                },
-                {
-                  "Comment": "HS",
-                  "Action": "Monitor",
-                  "ExceptedValue": 1,
-                  "Address": "W10EF"
                 }
               ]
             },

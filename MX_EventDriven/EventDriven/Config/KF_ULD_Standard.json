@@ -2982,6 +2982,62 @@
             ]
           },
           {
+            "Name": "Port1_Process_End",
+            "TriggerPoint": {
+              "Type": "AND",
+              "Conditions": [
+                {
+                  "Comment": "HS",
+                  "Action": "Monitor",
+                  "ExceptedValue": 1,
+                  "Address": "W111F"
+                },
+                {
+                  "Comment": "LoadCmd",
+                  "Action": "Specific",
+                  "ExceptedValue": 8,
+                  "Address": "W110B"
+                },
+                {
+                  "Comment": "LDCM",
+                  "Action": "Specific",
+                  "ExceptedValue": 2,
+                  "Address": "W4EC1"
+                }
+              ]
+            },
+            "Actions": [
+              {
+                "ActionName": "Write",
+                "Inputs": {
+                  "Address": "W4ED0",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "Int",
+                      "Content": 1
+                    }
+                  ]
+                },
+                "Output": {}
+              },
+              {
+                "ActionName": "SecHandShake",
+                "Inputs": {
+                  "Address": "W4EDF",
+                  "Value": [
+                    {
+                      "Type": "KeyIn",
+                      "Format": "String",
+                      "Content": "W111F"
+                    }
+                  ]
+                },
+                "Output": {}
+              }
+            ]
+          },
+          {
             "Name": "Port2_LoadCompleted",
             "TriggerPoint": {
               "Type": "AND",
